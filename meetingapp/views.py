@@ -186,7 +186,7 @@ def login(request):
         'sportmennumber':sportmennumber,
 
         }
-    return render(request,'login-register.html',context)
+    return render(request,'LogReg.html',context)
 
 
 
@@ -247,7 +247,7 @@ def login_register(request):
     if request.method == 'POST':
     
         data = json.loads(request.body)
-        print(data)
+     
         if myaction == '2':
             
             login_form = AuthenticationForm(request, data=data)
@@ -265,7 +265,7 @@ def login_register(request):
         elif myaction == '1':
             registration_form = CustomUserCreationForm(data)
             phone_number = data.pop('phone_number')
-            print(data,phone_number)
+        
             if registration_form.is_valid():
                 user = registration_form.save()
                 eager = Eager(user=user,phone_number=phone_number)
@@ -352,7 +352,7 @@ def check_password(request):
         print(user.forgot.forgot_password,password)
         return JsonResponse(error_data,status=402)
 
-    
+
 def sendMail(request):
     
     error_data = {
