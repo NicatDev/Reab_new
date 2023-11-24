@@ -43,6 +43,11 @@ def meetjoin(request,meet):
     }
     return render(request,'index.html',context)
 
+def gorus(request):
+
+    context = {}
+   
+    return render(request,'gorus.html',context)
 
 @login_required
 def speaker(request):
