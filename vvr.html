@@ -1,0 +1,471 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.min.js"
+        integrity="sha512-WW8/jxkELe2CAiE4LvQfwm1rajOS8PHasCCx+knHG0gBHt8EXxS6T6tJRTGuDQVnluuAvMxWF4j8SNFDKceLFg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+
+    
+    <div class="shape shape1"></div>
+    <div class="shape shape2"></div>
+    <div class="shape shape3"></div>
+    <div class="container">
+        <div class="row" style="align-items: center;position: relative;">
+            <div class="col-xl-7 col-lg-7 col-md-12">
+                <div class="content">
+                    <h2 style="user-select:none;">Burda nese Slogan olacaq</h2>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis maxime magnam nisi optio quidem
+                        voluptates repellat, asperiores at fuga odio? Aspernatur reprehenderit, distinctio dignissimos
+                        impedit in veritatis? Beatae, placeat provident?</p>
+                </div>
+            </div>
+            <div class="col-xl-5 col-lg-5 col-md-12" id="get-free-offer">
+                <div class="col-lg-6 col-xl-5" data-sal="slide-up" data-sal-duration="1000" data-sal-delay="100">
+                    <div class="banner-form">
+                        <div class="contact-form-box shadow-box">
+                            <h3 class="title mb--40">Pulsuz təklif al</h3>
+                            <form method="POST" class="axil-contact-form">
+                                <input type="hidden" name="csrfmiddlewaretoken"
+                                    value="vGbjjuQujSEjeVGHrh3bnbnRRFbg27KFKiNNyGB75oI2JY05W7FOPhvDvvmeAHa7">
+                                <div class="form-group mb--30">
+                                    <input type="text" name="full_name" placeholder="Ad, soyad" class="form-control"
+                                        required id="id_full_name">
+                                </div>
+                                <div class="form-group mb--30">
+                                    <input type="email" name="email" placeholder="Email" class="form-control" required
+                                        id="id_email">
+                                </div>
+                                <div class="form-group mb--30">
+                                    <input type="tel" name="phone_number" placeholder="Telefon" class="form-control"
+                                        required id="id_phone_number">
+                                </div>
+                                <div class="form-group mb--30">
+                                    <select name="service" style="opacity: 0.5;" class="form-control form-select"
+                                        required id="id_service">
+                                        <option value="" selected>Xidmət seçin</option>
+
+                                        <option value="1">TV / RADİO REKLAM</option>
+
+                                        <option value="2">SMM</option>
+
+                                        <option value="3">SEO</option>
+
+                                        <option value="4">SEM</option>
+
+                                        <option value="5">Outdoor reklam</option>
+
+                                        <option value="6">Sayt</option>
+
+                                    </select>
+                                </div>
+                                <div class="form-group mb--30">
+                                    <textarea name="message" cols="30" rows="4" placeholder="Müraciətiniz"
+                                        class="form-control textarea" required id="id_message">
+        </textarea>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="axil-btn btn-borderd btn-fluid btn-primary"
+                                        name="submit-btn">Göndər</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<style>
+    @media(max-width:768px) {
+   .shadow-box {
+            width: 100%;
+        }
+    }
+
+    .shadow-box {
+        box-shadow: 0 20px 48px 0 rgba(153, 161, 170, 0.55);
+        background-color: #ffffff;
+        padding: 50px;
+        border-radius: 30px;
+        width: 210%;
+        position: relative;
+        z-index: 26;
+    }
+
+    input {
+        height: 60px;
+        border: 1px solid #ECF2F6;
+        border-radius: 16px;
+        background-color: transparent;
+        color: #292930;
+        padding: 15px 20px;
+        width: 100%;
+    }
+
+    .form-group {
+        margin-bottom: 16px;
+    }
+
+    .axil-btn.btn-fluid {
+        width: 100%;
+    }
+
+    .axil-btn.btn-borderd {
+        border: 1px solid #99A1AA;
+        color: #27272E;
+        background-color: transparent;
+    }
+
+    .about-us .section-heading p {
+        width: 100%;
+    }
+
+    .contact-form-box {
+        background-color: #ffffff;
+        padding: 50px;
+        border-radius: 30px;
+        width: 210%;
+        position: relative;
+        z-index: 26;
+    }
+
+    @media only screen and (max-width: 991px) {
+        .contact-form-box {
+            padding: 40px 30px;
+            width: 100%;
+            margin-block-start: 30px;
+        }
+    }
+
+    .contact-form-box .title {
+        font-size: 40px;
+    }
+
+    @media only screen and (min-width: 1200px) and (max-width: 1599px) {
+        .contact-form-box .title {
+            font-size: 36px;
+        }
+    }
+
+    @media only screen and (max-width: 1199px) {
+        .contact-form-box .title {
+            font-size: 32px;
+        }
+    }
+
+    @media only screen and (max-width: 767px) {
+        .contact-form-box .title {
+            font-size: 28px;
+        }
+    }
+
+    .contact-form-box .form-group .axil-btn::after {
+        width: calc(100% + 50px);
+    }
+
+    .contact-form-box.shadow-box {
+        box-shadow: 0 20px 48px 0 rgba(153, 161, 170, 0.55);
+    }
+
+    .contact-form-box-jesus {
+        background-color: #ffffff;
+        padding: 50px;
+        border-radius: 30px;
+    }
+
+    .contact-form-box-jesus.shadow-box {
+        box-shadow: 0 20px 48px 0 rgb(153 161 170 / 65%);
+    }
+
+    /*-------------------------
+    Forms Styles
+-------------------------*/
+    input,
+    .form-control {
+        border: 1px solid #ECF2F6;
+        border-radius: 16px;
+        background-color: transparent;
+        color: #292930;
+        padding: 15px 20px;
+        width: 100%;
+        /* -- Placeholder -- */
+    }
+
+    input:focus,
+    .form-control:focus {
+        outline: none;
+        box-shadow: 0 20px 48px -14px rgba(153, 161, 170, 0.25);
+        border-color: transparent;
+    }
+
+
+
+    input {
+        height: 60px;
+    }
+
+    .form-group {
+        margin-bottom: 16px;
+    }
+
+    .form-group label {
+        font-size: 14px;
+        font-weight: 500;
+        color: #27272E;
+        margin-bottom: 10px;
+    }
+
+    .input-group {
+        background-color: #ffffff;
+        border-radius: 20px;
+        height: 72px;
+        padding: 10px 10px 10px 55px;
+        box-shadow: 0 24px 48px -15px rgba(153, 161, 170, 0.25);
+    }
+
+    @media only screen and (max-width: 479px) {
+        .input-group {
+            display: block;
+            box-shadow: none;
+            height: auto;
+            padding: 0;
+        }
+    }
+
+    .input-group:before {
+        content: url("../media/icon/message.png");
+        position: absolute;
+        left: 30px;
+        top: 24px;
+        z-index: 1;
+    }
+
+    @media only screen and (max-width: 479px) {
+        .input-group:before {
+            left: 15px;
+            top: 18px;
+        }
+    }
+
+    .input-group .form-control {
+        padding: 5px 15px;
+        height: auto;
+        border: none;
+        background-color: transparent;
+    }
+
+    .input-group .form-control:focus {
+        box-shadow: none;
+    }
+
+    @media only screen and (max-width: 479px) {
+        .input-group .form-control {
+            height: 60px;
+            width: 100%;
+            border-radius: 20px !important;
+            padding: 5px 15px 5px 50px;
+            border: 1px solid var(--color-light);
+        }
+    }
+
+    .input-group .subscribe-btn {
+        border: none;
+        background-color: #5956E9;
+        color: #ffffff;
+        border-radius: 16px !important;
+        margin-left: 0 !important;
+        padding: 10px 28px;
+        -webkit-transition: var(--transition);
+        transition: var(--transition);
+    }
+
+    .input-group .subscribe-btn:hover {
+        background-color: #2522BA;
+    }
+
+    @media only screen and (max-width: 479px) {
+        .input-group .subscribe-btn {
+            margin-top: 15px;
+            padding: 14px 30px;
+        }
+    }
+
+
+
+
+
+
+    .contact-form-box .form-group .axil-btn::after {
+        width: calc(100% + 50px);
+    }
+
+    .axil-btn.btn-fluid {
+        width: 100%;
+    }
+
+    .axil-btn {
+        border-radius: 20px;
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: -0.04em;
+        padding: 18px 55px;
+        height: auto;
+        text-align: center;
+        -webkit-transition: var(--transition);
+        transition: var(--transition);
+        position: relative;
+        z-index: 1;
+    }
+
+    .axil-btn.btn-borderd {
+        border: 1px solid #99A1AA;
+        color: #27272E;
+        background-color: transparent;
+    }
+
+    .axil-btn.btn-borderd:hover {
+        background-color: #5956E9;
+        color: #ffffff;
+        border-color: #5956E9;
+    }
+
+    .axil-btn.btn-fill-primary {
+        background-color: #5956E9;
+        color: #ffffff;
+        border: 1px solid #5956E9;
+        overflow: hidden;
+    }
+
+    .axil-btn.btn-fill-primary::after {
+        content: "";
+        height: 300px;
+        width: 300px;
+        background-color: #2522BA;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translateY(-50%) translateX(-50%) scale(0);
+        -ms-transform: translateY(-50%) translateX(-50%) scale(0);
+        transform: translateY(-50%) translateX(-50%) scale(0);
+        -webkit-transition: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transition: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        z-index: -1;
+    }
+
+    .axil-btn.btn-fill-primary:hover {
+        background-color: #2522BA;
+        border-color: #2522BA;
+    }
+
+    .axil-btn.btn-fill-primary:hover::after {
+        -webkit-transform: translateY(-50%) translateX(-50%) scale(1);
+        -ms-transform: translateY(-50%) translateX(-50%) scale(1);
+        transform: translateY(-50%) translateX(-50%) scale(1);
+    }
+
+    .axil-btn.btn-fill-white {
+        background-color: #ffffff;
+        box-shadow: 0px 48px 48px 0px rgba(0, 0, 0, 0.12);
+    }
+
+    .axil-btn.btn-fill-white:hover {
+        background-color: #FFDC60;
+        color: #ffffff;
+    }
+
+    .axil-btn.btn-large {
+        padding: 23px 55px;
+    }
+
+    @media only screen and (max-width: 991px) {
+        .axil-btn.btn-large {
+            padding: 18px 35px;
+        }
+    }
+
+    .axil-btn.btn-large-fluid {
+        padding: 23px;
+        width: 100%;
+    }
+</style>
+<style>
+    .shape1 {
+        top: 10%;
+        left: 20%;
+    }
+
+    .shape2 {
+        top: 30%;
+        left: 60%;
+    }
+
+    .shape3 {
+        top: 70%;
+        left: 40%;
+    }
+
+    /* Add more shapes as needed */
+
+    /* You can add animations for a more dynamic effect */
+    @keyframes moveShapes {
+        0% {
+            transform: translate(0, 0);
+        }
+
+        50% {
+            transform: translate(20px, 20px);
+        }
+
+        100% {
+            transform: translate(0, 0);
+        }
+    }
+
+    .shape {
+        animation: moveShapes 5s infinite;
+        /* Adjust animation duration and timing as needed */
+        position: absolute;
+        border-radius: 50%;
+    }
+
+
+    .shape1 {
+        background-color: #7cc6f7;
+        top: 60px;
+        left: 150px;
+        width: 100px;
+        height: 100px;
+    }
+
+    .shape2 {
+        background-color: rgb(231, 151, 60);
+        top: 200px;
+        left: 50px;
+        width: 130px;
+        height: 130px;
+    }
+
+    .shape3 {
+        background-color: #26a159;
+        top: 300px;
+        left: 280px;
+        width: 60px;
+        height: 60px;
+    }
+</style>
+
+</html>

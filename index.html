@@ -1,0 +1,191 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.min.js" integrity="sha512-WW8/jxkELe2CAiE4LvQfwm1rajOS8PHasCCx+knHG0gBHt8EXxS6T6tJRTGuDQVnluuAvMxWF4j8SNFDKceLFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+            <!-- Schedule Area Start -->
+            <div class="schedule-area section-padding-02 grey-bg">
+                <img src="{% static 'assets/images/shape/schedule_shape1.png' %}" class="schedule-shape1" alt="Shape1">
+                <img src="{% static 'assets/images/shape/schedule_shape2.png' %}" class="schedule-shape2" alt="Shape2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="section-title-wrap">
+                                <div class="section-title text-start">
+                                    <h5 class="sub-title">Görüşlər</h5>
+                                    <h2 class="title">Qəhrəmanını bizimlə tanı</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-0 align-items-start">
+                        <div class="col-2 sticky-col">
+                            <div class="schedule-side-nav">
+                                <div class="nav d-block nav-pills me-3" id="v-pills-tab" role="tablist"
+                                    aria-orientation="vertical">
+                                    <p class="nav-link active" id="day-1-tab" data-bs-toggle="pill"
+                                        data-bs-target="#v-pills-home" role="tab" aria-controls="v-pills-home"
+                                        aria-selected="true">Bu gün</p>
+                                    <p class="nav-link" id="day-2-tab" data-bs-toggle="pill"
+                                        data-bs-target="#v-pills-profile" role="tab" aria-controls="v-pills-profile"
+                                        aria-selected="false">Bu həftə</p>
+                                    <p class="nav-link" id="day-3-tab" data-bs-toggle="pill"
+                                        data-bs-target="#v-pills-messages" role="tab" aria-controls="v-pills-messages"
+                                        aria-selected="false">Bu ay</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-10">
+                            <div class="tab-content" id="v-pills-tabContent">
+                               
+                                <div class="tab-pane" id="v-pills-profile" role="tabpanel">
+                                    <div class="schedule-wrapper" style="padding: 0;">
+                                        <div class="single-schedule ">
+                                            <div class="schedule-content row" style="align-items: center;background-color: #f5f5f5;padding: 20px 0 20px 0; ">
+                                                
+                                                <div class="schedule-img col-lg-2">
+                                                    <img style="max-width: 100%;transition: all 0.3s ease-out 0s;" src="{% static 'assets/images/shape/schedule_shape1.png' %}" alt="">
+                                                </div>
+                                                <!-- <div class="schedule-time col-lg-2" style="text-align: center;">
+                                                    <h1 class="counter-numb counter color3">02.00</h1>
+                                                </div> -->
+                                                <div class="schedule-info col-lg-8">
+                                                    <h3 style="font-size: 22px; color:#303030;
+                                                    margin-bottom: 10px;
+                                                    font-style: normal;
+                                                    font-weight: 500;
+                                                    line-height: 24px;" class="text-capitalize">How to expert in web development</h3>
+                                                    <h4 style="font-size: 14px; color: #6f6f6f;
+                                                    font-weight: 700;
+                                                    text-transform: capitalize;line-height: 24px;margin-bottom: 10px;">Tarix: <span style="font-weight: 400;"> fmontes</span> <span class="separetor">|</span> Saat: <span style="font-weight: 400;"> web development</span></h4>
+                                                    <p style="margin-bottom: 10px; line-height: 24px;margin: 0 0 10px;">One fowl air first deep abundantly seas won't from. Bearing whose dry that which stars female. Midst him third let upon forth.Our second wherein lights the. Fourth don't open. Greater, you'll life form whose replenish.</p>
+                                                    <div class="header-btn " style="margin-left: 1px;margin-top: 8px; ">
+                                                        <a href="#"><button class="btn-5" style="width: 150px;border-radius: 5px;">Qoşul</button></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="v-pills-messages" role="tabpanel">
+                                    <div class="schedule-wrapper" style="padding: 0;">
+                                        <div class="single-schedule ">
+                                            <div class="schedule-content row" style="align-items: center;background-color: #f5f5f5;padding: 20px 0 20px 0; ">
+                                                
+                                                <div class="schedule-img col-lg-2">
+                                                    <img style="max-width: 100%;transition: all 0.3s ease-out 0s;" src="{% static 'assets/images/shape/schedule_shape1.png' %}" alt="">
+                                                </div>
+                                                <!-- <div class="schedule-time col-lg-2" style="text-align: center;">
+                                                    <h1 class="counter-numb counter color3">02.00</h1>
+                                                </div> -->
+                                                <div class="schedule-info col-lg-8">
+                                                    <h3 style="font-size: 22px; color:#303030;
+                                                    margin-bottom: 10px;
+                                                    font-style: normal;
+                                                    font-weight: 500;
+                                                    line-height: 24px;" class="text-capitalize">How to expert in web development</h3>
+                                                    <h4 style="font-size: 14px; color: #6f6f6f;
+                                                    font-weight: 700;
+                                                    text-transform: capitalize;line-height: 24px;margin-bottom: 10px;">Tarix: <span style="font-weight: 400;"> fmontes</span> <span class="separetor">|</span> Saat: <span style="font-weight: 400;"> web development</span></h4>
+                                                    <p style="margin-bottom: 10px; line-height: 24px;margin: 0 0 10px;">One fowl air first deep abundantly seas won't from. Bearing whose dry that which stars female. Midst him third let upon forth.Our second wherein lights the. Fourth don't open. Greater, you'll life form whose replenish.</p>
+                                                    <a href="#" class="btn_hover_schedule " style="padding: 5px 10px;
+                                                    font-size: 12px;margin-top: 10px;">görüşə qoşul</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane show active" id="v-pills-home" role="tabpanel">
+                                    <div class="schedule-wrapper" style="padding: 0;">
+                                        <div class="single-schedule ">
+                                            <div class="schedule-content row" style="align-items: center;background-color: #f5f5f5;padding: 20px 0 20px 0; ">
+                                                
+                                                <div class="schedule-img col-lg-2">
+                                                    <img style="max-width: 100%;transition: all 0.3s ease-out 0s;" src="{% static 'assets/images/shape/schedule_shape1.png' %}" alt="">
+                                                </div>
+                                                <!-- <div class="schedule-time col-lg-2" style="text-align: center;">
+                                                    <h1 class="counter-numb counter color3">02.00</h1>
+                                                </div> -->
+                                                <div class="schedule-info col-lg-8">
+                                                    <h3 style="font-size: 22px; color:#303030;
+                                                    margin-bottom: 10px;
+                                                    font-style: normal;
+                                                    font-weight: 500;
+                                                    line-height: 24px;" class="text-capitalize">How to expert in web development</h3>
+                                                    <h4 style="font-size: 14px; color: #6f6f6f;
+                                                    font-weight: 700;
+                                                    text-transform: capitalize;line-height: 24px;margin-bottom: 10px;">Tarix: <span style="font-weight: 400;"> fmontes</span> <span class="separetor">|</span> Saat: <span style="font-weight: 400;"> web development</span></h4>
+                                                    <p style="margin-bottom: 10px; line-height: 24px;margin: 0 0 10px;">One fowl air first deep abundantly seas won't from. Bearing whose dry that which stars female. Midst him third let upon forth.Our second wherein lights the. Fourth don't open. Greater, you'll life form whose replenish.</p>
+                                                    <a href="#" class="btn_hover_schedule " style="padding: 5px 10px;
+                                                    font-size: 12px;margin-top: 10px;">görüşə qoşul</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Schedule Area End -->
+
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="freelancer-style1 text-center bdr1 hover-box-shadow">
+            <div class="thumb  mb25 mx-auto position-relative rounded-circle">
+              <img style="border-radius: 5px; max-height: 100px;width: 130px;
+              margin-bottom: 5px;" class=" mx-auto" src="images/fl-1.png" alt="">
+              <span>
+                <img style="width: 30px; 
+                    top: -20px;
+                    right: -15px;
+                    position: absolute;" src="images/2983437.png" alt="">
+              </span>
+            </div>
+            <div class="details">
+             
+              <!-- <div class="skill-tags d-flex align-items-center justify-content-center mb5">
+                <span class="tag">Figma</span>
+                <span class="tag mx10">Sketch</span>
+                <span class="tag">HTML5</span>
+              </div> -->
+              <hr class="opacity-100 mt20 mb15">
+              <h5 class="title mb-1">Robert Fox</h5>
+              <p style="margin: 0 0 15px 0;
+              color: #6b7177;
+              line-height: 1.85;
+              font-weight: 400;" class="mb-0">Nursing Assistant</p>
+              <!-- <div class="review"><p style="margin: 0 0 15px 0;
+                color: #6b7177;
+                line-height: 1.85;
+                font-weight: 400;"><i class="fas fa-star fz10 review-color pr10"></i><span class="dark-color fw500">4.9</span> (595 reviews)</p></div> -->
+              <!-- <div class="fl-meta d-flex align-items-center justify-content-between">
+                <a style="text-decoration: none;" class="meta fw500 text-start">Location<br><span class="fz14 fw400">London</span></a>
+                <a style="text-decoration: none;" class="meta fw500 text-start">Rate<br><span class="fz14 fw400">$90 / hr</span></a>
+                <a style="text-decoration: none;" class="meta fw500 text-start">Job Success<br><span class="fz14 fw400">%98</span></a>
+              </div> -->
+              <div class="d-grid mt15">
+                <a style="text-decoration: none;" href="page-freelancer-single.html" class="ud-btn btn-light-thm">View Profile<i class="fal fa-arrow-right-long"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+ 
+      
+      
+      </div>
+</div>
+          
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.min.js" integrity="sha512-WW8/jxkELe2CAiE4LvQfwm1rajOS8PHasCCx+knHG0gBHt8EXxS6T6tJRTGuDQVnluuAvMxWF4j8SNFDKceLFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</html>

@@ -14321,7 +14321,6 @@ background-color: #3f3f3f;
 
 .schedule-area {
   position: relative;
-  z-index: 5;
 }
 
 .schedule-area .schedule-shape1,
@@ -14348,12 +14347,10 @@ background-color: #3f3f3f;
 .schedule-area .section-title-wrap {
   margin-bottom: 80px;
   position: relative;
-  z-index: 5;
 }
 
 .schedule-area .sticky-col {
   position: sticky;
-  z-index: 5;
   top: 80px;
 }
 
@@ -14370,7 +14367,6 @@ background-color: #3f3f3f;
   font-family: "Roboto", sans-serif;
   padding: 60px 30px;
   cursor: pointer;
-  z-index: 5;
 }
 
 @media only screen and (max-width: 991px) {
@@ -14418,7 +14414,6 @@ background-color: #3f3f3f;
   padding: 0 55px;
   margin-left: -50px;
   position: relative;
-  z-index: 5;
 }
 
 @media only screen and (max-width: 1199px) {
@@ -14658,7 +14653,6 @@ background-color: #3f3f3f;
   font-family: "Roboto", sans-serif;
   padding: 30px 60px;
   display: inline;
-  z-index: 5;
 }
 
 @media only screen and (max-width: 991px) {
@@ -14740,7 +14734,6 @@ background-color: #3f3f3f;
   padding: 0;
   margin: 0;
   position: relative;
-  z-index: 5;
 }
 
 .schedule-area-2 .schedule-wrapper .single-schedule .shedule-row {
