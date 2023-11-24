@@ -1,0 +1,2575 @@
+{% load static %}
+<html lang="en">
+{% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+<!-- Mirrored from uitheme.net/vstream/season-full.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Sep 2023 07:57:15 GMT -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    
+
+    <link rel="stylesheet" href="{% static 'templatestyles/css/themify-icons.css' %}">
+    <!-- Favicon icon -->
+    <title>{{head.title}}</title>
+    <link rel="icon" type="image/svg+xml" sizes="32x32" href="{{head.image.url}}">
+    <!-- Custom Stylesheet -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="custom.js"></script>
+    <link rel="stylesheet" href="{% static 'templatestyles/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/preloader.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/meanmenu.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/swiper-bundle.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/ui-range-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/flaticon_faime.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/default.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'sas.scss' %}">
+  
+</head>
+
+<body class="full-wrap ">
+    
+    <!-- <p><a href="#media-popup" data-media="https://www.youtube.com/embed/acF0HQH-VGc">click me</a></p> -->
+   
+
+
+
+ 
+    <script>
+        $(document).ready(function () {
+            $(".owl-carousel").owlCarousel({
+                // Change this value to control the number of items displayed
+                loop: true,
+                margin: 10,
+    
+                autoplay: 4000,
+                autoHeight: true,
+                autoplayTimeout: 6500,
+                smartSpeed: 4000,
+                autoplaySpeed: 4000,
+                responsive: {
+                    0: {
+                        items: 1.1
+                    },
+                    600: {
+                        items: 2
+                    },
+                    1000: {
+                        items: 3
+                    }
+                }
+            });
+        });
+    </script>
+
+    <div class="preloader"></div>
+    <!-- cursor animation-->
+    <div class="mouseCursor cursor-outer "></div>
+    <div class="mouseCursor cursor-inner"><span>Drag</span></div>
+
+
+    <!-- Go Top Button -->
+    <button id="scroll_top" class="scroll-top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+
+    <div class="main-wrapper">
+        <div id="myModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="img01">
+            <div id="caption"></div>
+        </div>
+        
+        <!-- header wrapper -->
+        <header id="header-sticky" class="fm-header-area header-border transparent-header bg-common-black">
+            <div class="container">
+                <div class="row align-items-center justify-content-lg-between pr-5 pl-5">
+                    <div class="header-wrapper">
+                        <div class="fm-header-logo-wrapper">
+                            <a href="" class="fm-header-logo">
+                                <img style="height: 65px !important;" src="{% static 'logo.svg' %}" alt="img not found">
+                            </a>
+                            
+                            <a  class="fm-header-bar-1" >
+                                <span class="fm-header-bar-line fm-header-bar-line-1"></span>
+                                <span class="fm-header-bar-line fm-header-bar-line-2"></span>
+                                <span class="fm-header-bar-line fm-header-bar-line-3"></span>
+                            </a>
+                       
+              
+                        </div>
+
+                        <div class="header-menu-spc d-none d-xl-block">
+                            <div class="fm-header-nav">
+
+                                <nav id="mobile-menu" style="display: block;">
+                                    <ul>
+                                        <li class="has-dropdown">
+                                            <a href="">Əsas səhifə</a>
+
+                                        </li>
+                                        <li class="has-dropdown"><a href="">Lahiye haqqinda</a>
+                                        </li>
+
+                                        <li class="has-dropdown"><a href="">Spikerler</a>
+                                            <!-- <ul class="submenu">
+                                                {% for cat in vidcategories %}
+                                                <li><a href="{% url 'video' %}?movzu={{cat.id}}">{{cat.name}}</a></li>
+                                                {% endfor %}
+                                            </ul> -->
+                                        </li>
+
+                                        <li class="has-dropdown"><a href="">Görüşlər</a>
+                                            <!-- <ul class="submenu">
+                                                {% for cat in fotcategories %}
+                                                <li><a href="{% url 'foto' %}?movzu={{cat.id}}">{{cat.name}}</a></li>
+                                                {% endfor %}
+                                            </ul> -->
+                                        </li>
+                                        <li class="has-dropdown"><a href="">Bloqlar</a>
+
+                                        </li>
+                                        <li class="has-dropdown"><a href="">Əlaqə</a>
+
+                                        </li>
+                                       
+
+                                        
+
+
+                                        
+                                    </ul>
+                                </nav>
+
+                            </div>
+                        </div>
+                        <!-- sd -->
+                        <div class="fm-header-right d-none d-xl-block mr-10" style="text-align: center;letter-spacing: 1px">
+                            <a href="http://75.119.147.165:199/" class="fill-btn"
+                                style="font-size:15px;line-height:20px;border-radius: 3px;">Heydər  <br> Əliyev
+                                <span>
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+        <!-- header wrapper -->
+
+        <!-- Heyderle ireli  -->
+        <!-- sidebar area start -->
+        <div class="fm-header-sidebar-area fm-header-sidebar-left">
+            <div class="fm-header-sidebar-wrapper">
+                <div class="fm-header-sidebar-action mb-65">
+                    <div class="fm-header-sidebar-logo">
+                        <a href=""><img style="width:80px" src=""
+                                alt="logo not found"></a>
+                    </div>
+                    <div class="offcanvas-close">
+                        <a class="offcanvas-btn" href="#0">
+                            <i class="fa-thin fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="d-none d-sm-block">
+              
+
+
+                </div>
+                <div class="mobile-menu"></div>
+                <div class="fm-header-right d-none d-xl-block mr-10" style="text-align: center;display: block !important;letter-spacing: 1px">
+                            <a href="http://75.119.147.165:199/" class="fill-btn"
+                                style="font-size:15px;line-height:20px;border-radius: 3px;">Heydər  <br> Əliyev
+                                <span>
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                </span>
+                            </a>
+                        </div>
+             
+         
+            </div>
+        </div>
+        
+        <div class="overlay"></div>
+        <!-- sidebar area end -->
+        <!-- banenr wrapper -->
+        <div class="banner-wrapper banner1">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="banner-wrap justify-content-between align-items-center" style="background:#21181300;">
+                            <div style="position: absolute;z-index: 1;" class="left-wrap">
+                                <span style="opacity:0;" class="rnd">IMDb 6.7</span>
+                                <h2 style="user-select:none ;">Rafael Ağayev</h2>
+                                <span style="opacity:0;cursor:none" class="tag"><b>Rafael Ağayev</b></span>
+                                <span style="opacity:0;cursor:none" class="tag">2020</span>
+                                <span style="opacity:0;cursor:none" class="tag"><b>HD</b></span>
+                                <span style="opacity:0;cursor:none" class="tag"><b>16+</b></span>
+                                <span style="opacity:0;cursor:none" class="tag">2 h 20 min</span>
+                                <p style="user-select:none;font-size: 16px !important;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima sequi, saepe, aliquid qui est obcaecati atque illo molestiae laudantium similique quibusdam non eligendi assumenda? Suscipit aperiam sit consequatur expedita ut?</p>
+                                <a href="#media-popup" data-media="{{embed}}"  class="btn btn-lg"
+                                    style="background-color:var(--clr-theme-1);margin-top:10px;border-radius:5px !important;padding-top:8px !important;padding-bottom:8px !important;height:initial !important;width:200px !important;text-align:center !important;">Görüşə qatıl</a>
+                            </div>
+                            <div style="    background: linear-gradient(90deg, #181616 24%, #0000001f);width: 100%;flex:0 0 100%;max-width: 100%;" class="right-wrap">
+                              <div style="mix-blend-mode: overlay;width: 100%;    background-color: #ff5200;">
+                                <img style="margin-left:50%;width:  40%;height: 100%;" src="{% static 'gulshen.png' %}" alt="">
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="slide-wrapper">
+                            <div class="slide-slider-full owl-carousel owl-theme">
+                                {% for video in all_meetings %}
+<div class="owl-items">                   
+                                  
+                                    <a  class="slide-one slide-two slide-three">
+                                        <div class="slide-image"
+                                            style="background-image:url('{{video.meetingowner.owner.image.url}}');"></div>
+
+                                        <div style="position:absolute;width: 100%;height: 100%;padding:0;"
+                                            class="slide-content">
+                                            <div
+                                                style="display:flex;justify-content: space-evenly;padding-bottom:auto;height: 100%;">
+                                              
+                                                <h2 style="font-size:20px;text-align: center;margin-left:auto;padding-right: 60px;padding-top:5%;color:rgba(229, 229, 229, 0.863) !important; text-shadow: 2px 2px 4px #333;
+                                               ">{{video.title}}</h2>
+                                            </div>
+
+                                        </div>
+                                    </a>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div   class="banner-wrapper banner2" >
+            <div class="container-fluid" style="padding-left:0% !important; padding-right: 0% !important;">
+                <div class="row">
+                    <div class="col-sm-12" style="background: linear-gradient(180deg, rgba(34, 15, 3, 0.027) 24%,rgb(34 15 3 / 85%) ) !important">
+                        <div style="height:370px;border-radius:0px !important;background: linear-gradient(180deg, rgba(34, 15, 3, 0.027) 24%,rgb(0 0 0) ) !important;
+                    " class="banner-wrap justify-content-between align-items-center" >
+                     
+                            <div style="    background:linear-gradient(180deg, rgba(26, 11, 2, 0.027) 44%, rgba(17, 7, 1, 0.529) );width: 100%;flex:0 0 100%;max-width: 100%;" class="right-wrap mywrap">
+                              <div style="mix-blend-mode: overlay;width: 100%;">
+                                <img style="width: 100%;height: 100%;" src="{% static 'giphy.gif' %}" alt="">
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+          
+        </div>
+        <div style="border-bottom-left-radius: 7%;border-bottom-right-radius: 7%;height: 180px;position: relative;background-color: rgba(17, 7, 1, 0.932);padding-right: 0px;padding-left:0%; box-shadow: 0 0 10px 10px  rgba(17, 7, 1, 0.966);" class="banner2">   <div id="kkk" class="col-sm-12 banner2" style="height: 173px;padding-right: 5%;padding-left:5%;position: absolute;bottom:21px !important">
+            <div class="slide-wrapper">
+                <div style="height: 180px;" class="slide-slider-full owl-carousel owl-theme">
+                    {% for video in HomeHeaderVideo %}
+                            <div class="owl-items" style="height: 180px">                                <a href="#media-popup" data-media="{{video.embed_full}}">
+                        <div class="myplaybtn" style="color:rgb(5, 5, 139);z-index:1;border-radius: 50%;text-align: center;background:linear-gradient(to bottom, rgb(255, 253, 253) 50%, rgba(147, 147, 147, 0) )">
+                            <i style="font-size: 60px;color:#000;" class="fa-solid fa-circle-play"></i>
+                        </div> </a>
+                      
+                        <a href="#media-popup" data-media="{{video.embed_full}}"
+                            class="slide-one slide-two slide-three">
+                            <div  class="slide-image"
+                                style="background-image:url('{{video.coverimage.url}}');"></div>
+
+                            <div style="position:absolute;width: 100%;height: 100%;padding:0;"
+                                class="slide-content">
+                                <div
+                                    style="display:flex;justify-content: space-evenly;padding-bottom:auto;height: 100%;">
+                                    <img style="position: absolute;width: 60px;height: 60px;right:8px;top:70%;"
+                                        src="{{head.logoheader.url}}" alt="">
+                                    <h2 style="font-size:20px;text-align: center;margin-left:auto;padding-right: 14px;padding-top:5%;color:rgba(229, 229, 229, 0.863) !important; text-shadow: 2px 2px 4px #333;
+                                   ">{{video.name}}</h2>
+                                </div>
+
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div></div>
+     
+        <!-- banenr wrapper -->
+<style>
+    @media (max-width: 576px){
+.slide-wrapper .slide-slider-full, .category-slider .slide-wrapper .slide-slider {
+    width: 130% !important;}
+  }
+  @media (max-width: 600px){
+    .banner2{
+        display: block;
+
+    }
+    .banner1{display: none;}
+  }
+  @media (min-width: 600px){
+    .banner2{
+        display: none;
+
+    }
+    .banner1{display: block;}
+  }
+</style>
+        <!-- lahiye haqqinda -->
+        <section>
+            <div class="aboutimagetitle-div">
+                <h3 style="cursor:none;user-select:none;">Haqqında</h3>
+            </div>
+            <!-- fm-about-area-start -->
+            <div style="margin-top:1%;padding: 70px 0px !important" class="fm-about-area bg-common-black section-spacing fix">
+                <div class="container">
+                    <div class="row align-items-center g-5 gy-50">
+                        <div class="col-xl-6 col-lg-6">
+                            <div class="fm-director-about-img">
+                                <img style="height: 450px !important;" src="{% static 'sport.jpeg' %}" alt="img not found">
+                                <div class="fm-director-years" style="align-items: end;margin-bottom:7px">
+                                    <span style="user-select:none ;" class="fm-director-years-number"></span>
+
+                                    <h3 style="font-size: 100px;line-height: 0.65;"></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6">
+                            <div class="fm-about-content-section">
+                                <span style="user-select:none ;"
+                                    class="section-subtitle title-anim">  Reablitasiya həyatdır</span>
+                                <a href="">
+                                    <h2 style="user-select:none ;"
+                                        class="section-main-title text-white mb-25 title-anim">
+                                        Reablitasiya həyatdır
+                                    </h2>
+                                </a>
+                                <p class="mb-20">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem voluptatem, voluptatibus iste ducimus illum laboriosam error sapiente iusto maxime nihil nemo officiis culpa a! Porro eveniet aperiam dolorem quas blanditiis quam, esse fuga, aliquid error molestiae necessitatibus dolor aspernatur id.</p>
+
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure repellat ex ipsam deserunt repellendus recusandae tenetur sunt aperiam qui adipisci. Lorem ipsum dolor sit amet consectetur adipisicing elit. Et architecto illum earum culpa similique velit sed distinctio quaerat qui. Nostrum doloribus illum et omnis deserunt soluta officia veniam! Aperiam maxime architecto quo consectetur eum excepturi ex quidem accusantium cumque ullam....<a href="" id="dahaFazlaGorLink"> daha ətraflı</a>
+
+                                </p>
+                                 <div style="display: none;" class="fm-director-about-name mt-55">
+                       
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- fm-about-area-end -->
+            <!-- fm-about-area-end -->
+        </section>
+
+      
+    
+
+
+
+        <!-- blog-area-end -->
+
+
+    </div>
+
+
+
+
+
+    <!-- slider wrapper -->
+ 
+   
+ 
+   
+
+    <!-- testimonial start -->
+  
+ 
+
+ 
+    <!-- section end -->
+    <!-- Xatirelerde section start -->
+    <div class="schedule-area section-padding-02 grey-bg">
+        <img src="{% static 'assets/images/shape/schedule_shape1.png' %}" class="schedule-shape1" alt="Shape1">
+        <img src="{% static 'assets/images/shape/schedule_shape2.png' %}" class="schedule-shape2" alt="Shape2">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title-wrap">
+                        <div class="section-title text-center">
+                            <h5 class="sub-title">Görüşlər</h5>
+                            <h2 class="title">Qəhrəmanını bizimlə tanı</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-0 align-items-start">
+                <div class="col-2 sticky-col">
+                    <div class="schedule-side-nav">
+                        <div class="nav d-block nav-pills me-3" id="v-pills-tab" role="tablist"
+                            aria-orientation="vertical">
+                            <p class="nav-link active" id="day-1-tab" data-bs-toggle="pill"
+                                data-bs-target="#v-pills-home" role="tab" aria-controls="v-pills-home"
+                                aria-selected="true">Bu gün</p>
+                            <p class="nav-link" id="day-2-tab" data-bs-toggle="pill"
+                                data-bs-target="#v-pills-profile" role="tab" aria-controls="v-pills-profile"
+                                aria-selected="false">Bu həftə</p>
+                            <p class="nav-link" id="day-3-tab" data-bs-toggle="pill"
+                                data-bs-target="#v-pills-messages" role="tab" aria-controls="v-pills-messages"
+                                aria-selected="false">Bu ay</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-10">
+                    <div class="tab-content" id="v-pills-tabContent">
+                        <div class="tab-pane show active" id="v-pills-home" role="tabpanel">
+                            <div class="schedule-wrapper">
+                                <div class="single-schedule">
+                                    {% if day_meetings %}
+                                    {% for meet in day_meetings %}
+                                    <div class="row g-0 align-items-center shedule-row">
+                                        <div class="col-lg-3 col-12">
+                                            <div class="schedule-thumbnail">
+                                                <div class="schedule-time">
+                                                    <h3 style="font-size: 70px;" class="time">{{meet.date|date:"d"}}</h3>
+                                                    <div class="month-time">
+                                                        <span style="font-size: 30px;line-height:31px;" class="month">{{meet.date|date:"F"}}</span>
+                                                        <span style="font-size: 26px;line-height:31px;" class="duration-event">{{meet.date|date:"H:i"}} <i   {% if meet in request.user.meetings.all %} style="margin-left:10px;margin-top:1px;cursor:pointer;font-weight:800" {% else %} style="margin-left:10px;margin-top:1px;cursor:pointer;" {% endif %} id="myicon{{meet.id}}" onclick="Wish('{{meet.id}}')" class="fa-regular fa-bookmark"></i></span>
+                                                    </div>
+                                                </div>
+                                                
+                                              
+                                                   
+                                                <a href="{% url 'meetjoin' meet.id %}"><img src="{{meet.meetingowner.owner.image.url}}"
+                                                    style="max-width:12rem" alt="Thumbnail"
+                                                    class="schedule-thumb-img"></a>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-9 col-12">
+                                            <div class="schedule-content-wrap">
+                                                <div  class="schedule-content">
+                                                    <div class="schedule-location">
+                                                        <p><span><i class="fas fa-map-marker-alt"></i>
+                                                            </span>{{meet.location}}</p>
+                                                    </div>
+                                                <a style="display:flex;align-items:center" {% if chrome %} href="{% url 'meetjoin' meet.id %}" {% else %} href="{{meet.meeting_id}}"{% endif %}><h4 class="schedule-title">{{meet.title}} </h4>    <i style="padding-bottom:16px;font-size:20px" class="fa fa-info-circle" aria-hidden="true"  data-tooltip="Görüşlər Zoom tətbiqi ilə nolunacaq. Daha yaxşı performans üçün İOS istifadəçilərinə Zoom tətbiqini endirməsi tövsiyyə olunur."></i></a> 
+                                                    <div class="schedule-descrip">
+                                                        <p>{{meet.content}}</p>
+                                                        <p class="collapse hidden-desc"
+                                                            id="collapseContent{{meet.id}}">{{meet.content2}} </p>
+                                                    </div>
+                                                </div>
+                                                <a class="minus-btn" data-bs-toggle="collapse"
+                                                    href="#collapseContent{{meet.id}}" role="button"
+                                                    aria-expanded="false"
+                                                    aria-controls="collapseContent{{meet.id}}">
+                                                    <div class="plus-icon-{{meet.id}}">
+                                                        <div class="plus-icon-shape active-plus"></div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                    {% else %}
+                                    <div class="row g-0 align-items-center shedule-row">
+                                        <div class="col-lg-12 col-12">
+                                            <h3>Bu gün üçün görüş mövcud deyil 😞</h3>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="v-pills-profile" role="tabpanel">
+                            <div class="schedule-wrapper">
+                                <div class="single-schedule">
+                                    {% if week_meetings %}
+                                    {% for meet in week_meetings %}
+                                    <div class="row g-0 align-items-center shedule-row">
+                                        <div class="col-lg-3 col-12">
+                                            <div class="schedule-thumbnail">
+                                                <div class="schedule-time">
+                                                    <h3 style="font-size: 70px;" class="time">{{meet.date|date:"d"}}</h3>
+                                                    <div class="month-time">
+                                                        <span style="font-size: 30px;line-height:31px;" class="month">{{meet.date|date:"F"}}</span>
+                                                        <span style="font-size: 26px;line-height:31px;" class="duration-event">{{meet.date|date:"H:i"}} <i   {% if meet in request.user.meetings.all %} style="margin-left:10px;margin-top:1px;cursor:pointer;font-weight:800" {% else %} style="margin-left:10px;margin-top:1px;cursor:pointer;" {% endif %} id="myicon{{meet.id}}" onclick="Wish('{{meet.id}}')" class="fa-regular fa-bookmark"></i></span>
+                                                    </div>
+                                                </div>
+                                                
+                                              
+                                                   
+                                                <a href="{% url 'meetjoin' meet.id %}"><img src="{{meet.meetingowner.owner.image.url}}"
+                                                    style="max-width:12rem" alt="Thumbnail"
+                                                    class="schedule-thumb-img"></a>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-9 col-12">
+                                            <div class="schedule-content-wrap">
+                                                <div  class="schedule-content">
+                                                    <div class="schedule-location">
+                                                        <p><span><i class="fas fa-map-marker-alt"></i>
+                                                            </span>{{meet.location}}</p>
+                                                    </div>
+                                                    <i class="fa fa-info-circle" aria-hidden="true" data-tooltip="Görüşlər Zoom tətbiqi ilə nolunacaq. Daha yaxşı performans üçün İOS istifadəçilərinə Zoom tətbiqini endirməsi tövsiyyə olunur."></i><a {% if chrome %} href="{% url 'meetjoin' meet.id %}" {% else %} href="{{meet.meeting_id}}"{% endif %}><h4 class="schedule-title">{{meet.title}} </h4></a> 
+                                                    <div class="schedule-descrip">
+                                                        <p>{{meet.content}}</p>
+                                                        <p class="collapse hidden-desc"
+                                                            id="collapseContent{{meet.id}}">{{meet.content2}} </p>
+                                                    </div>
+                                                </div>
+                                                <a class="minus-btn" data-bs-toggle="collapse"
+                                                    href="#collapseContent{{meet.id}}" role="button"
+                                                    aria-expanded="false"
+                                                    aria-controls="collapseContent{{meet.id}}">
+                                                    <div class="plus-icon-{{meet.id}}">
+                                                        <div class="plus-icon-shape active-plus"></div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                    {% else %}
+                                    <div class="row g-0 align-items-center shedule-row">
+                                        <div class="col-lg-12 col-12">
+                                            <h3>Bu həftə üçün nəzərdə tutulmuş görüş mövcud deyil</h3>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="v-pills-messages" role="tabpanel">
+                            <div class="schedule-wrapper">
+                                <div class="single-schedule">
+                                    {% if month_meetings %}
+                                    {% for meet in month_meetings %}
+                                    <div class="row g-0 align-items-center shedule-row">
+                                        <div class="col-lg-3 col-12">
+                                            <div class="schedule-thumbnail">
+                                                <div class="schedule-time">
+                                                    <h3 style="font-size: 70px;" class="time">{{meet.date|date:"d"}}</h3>
+                                                    <div class="month-time">
+                                                        <span style="font-size: 30px;line-height:31px;" class="month">{{meet.date|date:"F"}}</span>
+                                                        <span style="font-size: 26px;line-height:31px;" class="duration-event">{{meet.date|date:"H:i"}} <i   {% if meet in request.user.meetings.all %} style="margin-left:10px;margin-top:1px;cursor:pointer;font-weight:800" {% else %} style="margin-left:10px;margin-top:1px;cursor:pointer;" {% endif %} id="myicon{{meet.id}}" onclick="Wish('{{meet.id}}')" class="fa-regular fa-bookmark"></i></span>
+                                                    </div>
+                                                </div>
+                                                
+                                              
+                                                   
+                                                <a href="{% url 'meetjoin' meet.id %}"><img src="{{meet.meetingowner.owner.image.url}}"
+                                                    style="max-width:12rem" alt="Thumbnail"
+                                                    class="schedule-thumb-img"></a>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-9 col-12">
+                                            <div class="schedule-content-wrap">
+                                                <div  class="schedule-content">
+                                                    <div class="schedule-location">
+                                                        <p><span><i class="fas fa-map-marker-alt"></i>
+                                                            </span>{{meet.location}}</p>
+                                                    </div>
+                                                    <i class="fa fa-info-circle" aria-hidden="true" data-tooltip="Görüşlər Zoom tətbiqi ilə nolunacaq. Daha yaxşı performans üçün İOS istifadəçilərinə Zoom tətbiqini endirməsi tövsiyyə olunur."></i><a {% if chrome %} href="{% url 'meetjoin' meet.id %}" {% else %} href="{{meet.meeting_id}}"{% endif %}><h4 class="schedule-title">{{meet.title}} </h4></a> 
+                                                    <div class="schedule-descrip">
+                                                        <p>{{meet.content}}</p>
+                                                        <p class="collapse hidden-desc"
+                                                            id="collapseContent{{meet.id}}">{{meet.content2}} </p>
+                                                    </div>
+                                                </div>
+                                                <a class="minus-btn" data-bs-toggle="collapse"
+                                                    href="#collapseContent{{meet.id}}" role="button"
+                                                    aria-expanded="false"
+                                                    aria-controls="collapseContent{{meet.id}}">
+                                                    <div class="plus-icon-{{meet.id}}">
+                                                        <div class="plus-icon-shape active-plus"></div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                    {% else %}
+                                    <div class="row g-0 align-items-center shedule-row">
+                                        <div class="col-lg-12 col-12">
+                                            <h3>Bu ay üçün nəzərdə tutulmuş görüş mövcud deyil</h3>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- xatirelerde section end -->
+ 
+    <!-- blog-area-start -->
+    <div class="aboutimagetitle-div" style="display: flex;align-items:center;justify-content:space-between;">
+        <h3 style="user-select:none;">Xəbərlər</h3>
+        <div style="display: flex;align-items:center;">
+            <span><a style="font-size:16px;margin-right:7px;" href="">daha ətraflı</a></span>
+            <span><img style="filter:  brightness(5000%) ;" src="{% static 'templatestyles/images/arrowupright.png' %}"
+                    alt=""></span>
+        </div>
+    </div>
+    <!-- blog-area-start -->
+    <section class="blog-area bg-common section-spacing" style="padding-bottom:10px;padding-top:0px;">
+
+        <div class="container" style="max-width: 2507px;
+                width: 90%;">
+            <div class="row">
+                <div class="fm-blog-wrapper is-white">
+
+                    {% for blog in blogs %}
+                    <div class="fm-blog-inner blog__animation-wrapper  is-white">
+
+                        <div class="fm-blog-thumb">
+                            <a href=""> <img style="max-height:370px;"
+                                    src="{{blog.image.url}}" alt="img not found"></a>
+                        </div>
+
+                        <div class="fm-blog-content blog__content ">
+                            <div class="fm-blog-content-text">
+                                <div class="fm-blog-meta">
+                                    <span style="color: #000;">{{blog.date}}</span>
+                                </div>
+                                <h4 class="fm-blog-title text-white">
+                                    <a style="user-select:none ;color: #000;"
+                                        href="">{{blog.name}}</a>
+                                </h4>
+                                <div class="fm-blog-text">
+                                    <p style="user-select:none ;color: #000;">{{blog.content_without_ck|slice:230}}...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="fm-featured-btn btn_wrapper ">
+                            <a href="" class="blog-rotate-btn btn__item-move">
+                                <span>
+                                    <i style="color: black;" class="flaticon-right-arrow-1"></i>
+                                </span>
+                            </a>
+                        </div>
+
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- blog-area-end -->
+    <div class="aboutimagetitle-div" style="display: flex;align-items:center;justify-content:space-between;">
+        <h3 style="user-select:none ;">Çempionlar</h3>
+        <div style="display: flex;align-items:center;">
+            <span><a style="font-size:16px;margin-right:7px;" >daha
+                    ətraflı</a></span>
+            <span><img style="filter:  brightness(5000%) ;" src="{% static 'templatestyles/images/arrowupright.png' %}"
+                    alt=""></span>
+        </div>
+    </div>
+
+
+
+
+    <!-- slider wrapper -->
+    <div style="margin-top:1%;" class="slide-wrapper brand-carousell">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="slide-slider-full owl-carousel owl-theme">
+                        {% for video in sportmen %}
+                        <div class="owl-items">
+                      
+                            <a 
+                                style="text-shadow:2px 2px 4px rgba(0, 0, 0, 0.5);" class="slide-one">
+
+                                <div class="slide-image">
+                                    {% if video.image %}
+                                    <img style="object-fit: cover;max-height: 350px;min-height: 350px;"
+                                        src="{{video.image.url}}" alt="image" loading="lazy">
+                                    {% endif %}
+                                   
+
+                                </div>
+                                <div class="slide-content" style="height: 12rem !important;">
+                                    <p style="text-shadow:2px 2px 4px rgba(0, 0, 0, 0.5);font-size:30px;font-weight: 600;" style="height:4rem">
+                                        Rafael Agayev {{video.user.username}}</p>
+                                    <p style="text-shadow:2px 2px 4px rgba(0, 0, 0, 0.5);" style="height:4rem">
+                                        {{video.personal_information|slice:90}}...</p>
+
+                                </div>
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--photo galery-->
+
+    <div class="aboutimagetitle-div" style="display: flex;align-items:center;justify-content:space-between;">
+        <h3 style="user-select:none;">Xüsusi təşəkkürlər</h3>
+        <div style="display: flex;align-items:center;">
+        
+            <span><img style="filter:  brightness(5000%) ;" src="{% static 'templatestyles/images/arrowupright.png' %}"
+                    alt=""></span>
+        </div>
+    </div>
+
+    <div style="padding: 0px !important;background-color: rgba(20, 20, 20, 0.89) !important;" class="brand-carousel section-padding owl-carousel"
+        style="margin-top:3%;background:linear-gradient(to right, rgb(50, 50, 50), rgb(137, 137, 137), rgb(51, 51, 51));">
+        {% for logo in partners %}
+        <div style="display: flex;justify-content: center;align-items: center;padding-top:50px;padding-bottom:50px;" class="single-logo">
+            <img {% if logo.name == 'mitri' %} style="width: 60%;height:80px;padding-top:10px;" {% else %} style="width: 60%;height:100px;"  {% endif %} src="{{logo.image.url}}" alt="{{logo.name}}">
+        </div>
+        {% endfor %}
+    </div>
+
+    <style>
+        .single-logo:hover{
+            filter: grayscale(0);
+        }
+        .single-logo {
+            filter: grayscale(0%);
+        }
+        .dahaetrafli {
+            display: none;
+        }
+
+        .myhovdiv22 :hover .dahaetrafli {
+            display: block;
+        }
+
+        .aboutimage-div {
+            margin-top: 1%;
+            display: flex;
+            text-decoration: none;
+
+            background-color: rgba(23, 54, 79, 1);
+            padding-left: 3%;
+        }
+
+        .aboutimagetext-div {
+            padding-left: 3%;
+            padding-right: 3%;
+            padding-top: 5%;
+        }
+
+        .aboutimagetext-div h2 {
+            color: white;
+            font-size: 96px;
+            padding-bottom: 2%;
+        }
+
+        .aboutimagetext-div {
+            font-size: 32px;
+        }
+
+        .myphoto {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: sans-serif;
+            margin-top: 10px !important;
+            overflow-y: auto;
+        }
+
+        .grid-containerr {
+            z-index: 1;
+            columns: 4 200px !important;
+            column-gap: 1.5rem;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .grid-containerr div {
+            z-index: 1;
+            width: 150px;
+            margin: 0 1.5rem 1rem 0;
+            display: inline-block;
+            width: 100%;
+            padding: 5px;
+            border-radius: 5px;
+            transition: all 0.25s ease-in-out;
+        }
+
+        @media(min-width:992px) {
+            .nav-item:hover {
+                background-color: #D2691E;
+            }
+        }
+
+        .grid-containerr div:hover img {
+            filter: grayscale(100%);
+        }
+
+
+        .grid-containerr div:hover {
+            border-color: coral;
+        }
+
+        .grid-containerr div img {
+            width: 100%;
+            filter: grayscale(0);
+            border-radius: 5px;
+            transition: all 0.25s ease-in-out;
+        }
+
+        .grid-containerr div p {
+            margin: 5px 0;
+            padding: 0;
+            text-align: center;
+            font-style: italic;
+            z-index: 1;
+        }
+
+        .blog-rotate-btn span {
+
+            font-size: 44px;
+        }
+
+        @media (max-width: 992px) {
+            .navbar-collapse {
+                flex-basis: 100% !important;
+            }
+
+            #reab {
+                display: block !important;
+            }
+
+
+        }
+    </style>
+    <style>
+        .containerr {
+            height: 100%;
+            display: flex;
+            justify-content: right;
+            align-items: center;
+        }
+
+        input[type='checkbox'] {
+            display: none;
+        }
+
+        .triggerrs {
+            display: flex;
+        }
+
+        .contentt {
+            position: absolute;
+            display: none;
+            z-index: 2;
+            top: 100%;
+            border-radius: 3px;
+        }
+
+        .inner-section span:hover {
+            font-size: large;
+        }
+
+        .inner-section span a {
+            color: black;
+            font-weight: 600;
+        }
+
+        .label {
+            border: 1px solid #7d7d7d;
+            padding: 0.5em 1.7em;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .label:hover {
+            background: #bcbcbc;
+        }
+
+        .triggerrs>input:checked+label {
+            background: #bcbcbc;
+            border: 1px solid transparent;
+        }
+
+        .triggerrs>input:checked+label>div.contentt {
+            display: flex;
+            top: 100%;
+            padding: 0.5em;
+            background: #d3d3d3;
+            right: -1px;
+        }
+
+        .triggerrs>input:checked+label>div.contentt div {
+            padding: 0em 0.5em;
+        }
+
+        .triggerrs>input:checked+label>div.contentt div+div {
+            border-left: 1px solid #7d7d7d;
+        }
+    </style>
+    <style>
+        .section-padding {
+            padding: 60px 0;
+            gap: 10px;
+        }
+
+        .brand-carousel {
+            background: aliceblue;
+            margin-top: 15%;
+        }
+
+        .owl-dots {
+            display: none;
+            text-align: center;
+            margin-top: 4%;
+        }
+
+        .owl-dot {
+            display: inline-block;
+            height: 15px !important;
+            width: 15px !important;
+            background-color: #878787 !important;
+            opacity: 0.8;
+            border-radius: 50%;
+            margin: 0 5px;
+        }
+
+        .owl-dot.active {
+            background-color: #000 !important;
+        }
+
+        .single-logo img {
+            width: 10%;
+            object-fit: contain;
+            aspect-ratio: 5/1;
+            mix-blend-mode: color-burn;
+        }
+    </style>
+    <style>
+        .mybordering {
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            background: linear-gradient(to right, rgb(147, 147, 147), rgb(174, 174, 174), rgb(147, 147, 147));
+        }
+    </style>
+
+
+    <div class="footer-wrapper">
+        <div class="container">
+            <div class="row" style="align-items: center;">
+                <div class="col-xl-3 text-left" style="display: flex;justify-content: center;margin-bottom: 10px;" ><img style="
+                    height: 105px; " src="{% static 'logo.svg' %}" alt=""></div>
+                <div class="col-xl-9 text-left">
+                    <h4 class="mb-4">"Görkəmli şəxsiyyətlər xalqın zəkasını, elmini, mədəniyyətini, mənəviyyatını dünyaya nümayiş etdirirlər." Heydər Əliyev</h4>
+                </div>
+
+
+                <div style="margin-bottom:3%" class="col-sm-12">
+                    <div class="middle-footer" style="padding-top:40px">
+                        <div class="row">
+
+                            
+                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 divSosialLinks">
+                            <div style="text-align: center;">
+                                <h5 style="font-size: large;">Sosİal şəbəkələr</h5>
+                                <ul style="gap:30px;display: flex;align-items: center;justify-content: center;">
+                                 <i style="margin-right:5px;font-size:48px" class="fa-brands fa-instagram"></i>
+                                    <i style="margin-right: 5px;font-size: 43px;
+                                    padding-bottom: 1px;" class="fa-brands fa-facebook"></i>
+                                  <i style="margin-right:5px;font-size:48px" class="fa-brands fa-youtube"></i> 
+                                   <i style="margin-right:5px;font-size:41px;" class="fa-brands fa-tiktok"></i> 
+
+                                </ul>
+                            </div>
+
+                        </div>
+
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+
+
+
+    <script src="{% static 'templatestyles/js/plugin.js' %}"></script>
+    <script src="{% static 'templatestyles/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'templatestyles/js/scripts.js' %}"></script>
+
+    <div style="text-align: center;display: flex;justify-content: center;align-items: center;background-color:#111;">
+        
+        <p  style="color: white;font-size: 12px;padding-top:20px;padding-bottom:20px"><a target="_blank" href="https://vrproduction.az">VR Media & Marketing</a> © 2023 Bütün hüquqlar qorunur</p>
+
+</div>
+<style>
+    .fm-director-years {
+        display: flex;
+        align-items: baseline;
+ 
+        position: absolute;
+        left: 35px;
+        bottom: -7px;
+    }
+    @media (max-width: 420px) {
+        .fm-director-years-text{
+
+            font-size:28px;
+        }
+        .fm-director-years {
+      
+            left: 15px;
+ 
+        }
+    }
+
+
+    @media (max-width: 550px) {
+        .fm-director-years-text{
+            font-size:50px !important;
+        }}
+        .fm-director-years {
+        display: flex;
+        align-items: baseline;
+ 
+        position: absolute;
+        left: 35px;
+        bottom: -7px;
+    }
+    @media (max-width: 420px) {
+        .fm-director-years-text{
+
+            font-size:28px;
+        }
+        .fm-director-years {
+      
+            left: 15px;
+ 
+        }
+    }
+    .fm-director-years {
+        grid-gap:10px !important;
+    }
+    @media (max-width: 580px) {
+    .fm-director-years h3{
+font-size:48px !important
+    }}
+    @media (min-width: 580px) {
+    .fm-director-years h3{
+font-size:100px !important
+    }}
+    </style>
+</body>
+
+
+<style>
+    .nav-item {
+        color: black;
+    }
+
+    .nav-link {
+
+        font-weight: 600 !important;
+        font-family: Arial, Helvetica, sans-serif
+    }
+</style>
+<style>
+    .navbar-collapse {
+        flex-basis: 0;
+    }
+
+    .myphoto {
+        margin-bottom: 3%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-family: sans-serif;
+        margin-top: 10px !important;
+        overflow-y: auto;
+    }
+
+    .grid-container {
+        columns: 3 250px;
+        column-gap: 1.5rem;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .grid-container div {
+        width: 150px;
+        margin: 0 1.5rem 1rem 0;
+        display: inline-block;
+        width: 100%;
+        padding: 5px;
+        border-radius: 5px;
+        transition: all 0.25s ease-in-out;
+    }
+
+    @media(max-width:992px) {
+
+        .nav-item:hover {
+            background-color: #D2691E;
+        }
+    }
+
+    @media(max-width:700px) {
+        .pop {
+            padding: 5% 0 0 0 !important;
+        }
+
+    }
+
+    @media(max-width:1000px) {
+        .pop {
+            padding: 5% 15% 0 15% !important;
+        }
+
+    }
+
+    .grid-container div:hover img {
+        filter: grayscale(0%);
+    }
+
+
+    .grid-container div:hover {
+        border-color: coral;
+    }
+
+    .grid-container div img {
+        width: 100%;
+        filter: grayscale(0);
+        border-radius: 5px;
+        transition: all 0.25s ease-in-out;
+    }
+
+    /* .fm-featured-thumb img {
+        width: 100%;
+        filter: grayscale(0) !important;
+        position: relative !important;
+    } */
+
+    .grid-container div p {
+        margin: 5px 0;
+        padding: 0;
+        text-align: center;
+        font-style: italic;
+    }
+
+    figure {
+        position: relative;
+        z-index: 0;
+    }
+
+    .myphoto {
+        z-index: 0;
+    }
+
+    @media (max-width: 992px) {
+        .navbar-collapse {
+            flex-basis: 100% !important;
+        }
+
+        #reab {
+            display: block !important;
+        }
+
+    }
+
+    .col-xs-6 a:hover {
+        color: white !important;
+    }
+
+    .col-xs-6 li:hover {
+        color: white !important;
+    }
+
+    .col-xs-6 p:hover {
+        color: white !important;
+    }
+
+    .owl-drag {
+        overflow-x: hidden !important;
+        overflow-y: hidden !important;
+    }
+
+    @media (max-width: 576px) {
+        .popup {
+            padding: 3% 10% 0 10%;
+        }
+
+        .slide-wrapper .slide-slider-full,
+        .category-slider .slide-wrapper .slide-slider {
+            width: 100% !important;
+        }
+</style>
+<!-- border-bottom title -->
+<!-- border-bottom:1px solid rgb(255, 255, 255); -->
+<style>
+    .imageName {
+        color: white !important;
+        font-size: 80%;
+    }
+
+    .owl-nav {
+        display: none;
+    }
+
+    a:hover {
+        color: #D2691E
+    }
+
+    .nav-item {
+        border-radius: 5px;
+    }
+
+    .aboutimagetitle-div {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 8%;
+        width: 90%;
+    }
+
+    .aboutimagetitle-div h3 {
+        font-size: 40px;
+    }
+
+    .videotitle-div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+        margin-top: 3%;
+        color: black;
+        border-bottom: 1px solid black;
+    }
+
+    .videotitle-div a {
+        color: black;
+    }
+
+    .aboutimage-div {
+        margin-top: 1%;
+        display: flex;
+        text-decoration: none;
+
+        background-color: rgba(23, 54, 79, 1);
+        padding-left: 3%;
+    }
+
+    .aboutimagetext-div {
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-top: 5%;
+    }
+
+    .aboutimagetext-div h2 {
+        color: white;
+        font-size: 96px;
+        padding-bottom: 2%;
+    }
+
+    .aboutimagetext-div {
+        font-size: 32px;
+    }
+
+
+
+    .header-wrapper .search-div:after {
+        line-height: -2;
+        top: 9px;
+    }
+
+    .myhovdiv22 {
+        display: flex;
+        flex-direction: column;
+        transform: translateY(0%);
+    }
+
+
+
+    #hvprnt1:hover .myhovdiv22 {
+        transform: translateY(-47%);
+        transition: transform 0.5s ease-in;
+    }
+
+    #hvprnt1:hover .myhovdiv22 a {
+        padding-left: 25px;
+        padding-right: 25px;
+        margin-top: 10%;
+    }
+
+    #hvprnt1:hover .myhovdiv22 i {
+
+        margin-top: 10%;
+    }
+
+    #hvprnt1:not(:hover) .myhovdiv22 img {
+        opacity: 0 !important;
+        transition: opacity 1s ease;
+    }
+
+    #hvprnt1:hover .myimage2 {
+        opacity: 1 !important;
+        transition: opacity 2s ease;
+    }
+
+    #hvprnt1:hover p {
+        opacity: 0;
+        transition: opacity 0.5s ease-in;
+    }
+
+    #hvprnt1:not(:hover) .myhovdiv22 {
+        transition: transform 0.5s ease-in;
+    }
+
+
+    #hvprnt2:hover .myhovdiv22 {
+        transform: translateY(-47%);
+        transition: transform 0.5s ease-in;
+    }
+
+    #hvprnt2:hover .myhovdiv22 a {
+        padding-left: 25px;
+        padding-right: 25px;
+        margin-top: 10%;
+    }
+
+    #hvprnt2:hover .myhovdiv22 i {
+
+        margin-top: 10%;
+    }
+
+    #hvprnt2:not(:hover) .myhovdiv22 img {
+        opacity: 0 !important;
+        transition: opacity 1s ease;
+    }
+
+    #hvprnt2:hover .myimage2 {
+        opacity: 1 !important;
+        transition: opacity 2s ease;
+    }
+
+    #hvprnt2:hover p {
+        opacity: 0;
+        transition: opacity 0.5s ease-in;
+    }
+
+    #hvprnt2:not(:hover) .myhovdiv22 {
+        transition: transform 0.5s ease-in;
+    }
+
+
+    #hvprnt3:hover .myhovdiv22 {
+        transform: translateY(-47%);
+        transition: transform 0.5s ease-in;
+    }
+
+    #hvprnt3:hover .myhovdiv22 a {
+        padding-left: 25px;
+        padding-right: 25px;
+        margin-top: 10%;
+    }
+
+    #hvprnt3:hover .myhovdiv22 i {
+
+        margin-top: 10%;
+    }
+
+    #hvprnt3:not(:hover) .myhovdiv22 img {
+        opacity: 0 !important;
+        transition: opacity 1s ease;
+    }
+
+    #hvprnt3:hover .myimage2 {
+        opacity: 1 !important;
+        transition: opacity 2s ease;
+    }
+
+    #hvprnt3:hover p {
+        opacity: 0;
+        transition: opacity 0.5s ease-in;
+    }
+
+    #hvprnt3:not(:hover) .myhovdiv22 {
+        transition: transform 0.5s ease-in;
+    }
+
+
+    #hvprnt1 {
+        overflow: hidden;
+        padding-right: 0;
+        padding-left: 0;
+        background: linear-gradient(to bottom, rgb(147, 147, 147), rgb(191, 191, 191), rgb(147, 147, 147)) !important;
+    }
+
+    #hvprnt2 {
+        overflow: hidden;
+        padding-right: 0;
+        padding-left: 0;
+        background: linear-gradient(to bottom, rgb(147, 147, 147), rgb(191, 191, 191), rgb(147, 147, 147)) !important;
+    }
+
+    #hvprnt3 {
+        overflow: hidden;
+        padding-right: 0;
+        padding-left: 0;
+        background: linear-gradient(to bottom, rgb(147, 147, 147), rgb(191, 191, 191), rgb(147, 147, 147)) !important;
+    }
+
+    .navbar-toggler-icon:after {
+        background-color: transparent !important;
+
+    }
+
+    .navbar-toggler-icon:before {
+        background-color: transparent !important;
+    }
+
+    .navbar-toggler-icon {
+        background-color: transparent !important;
+        color: white !important;
+        filter: brightness(13.5);
+    }
+
+    .transparent-header {
+        position: relative;
+    }
+
+    .banner-wrapper {
+        margin-top: 10px;
+    }
+    .banner-wrapper .right-wrap:after {
+    background: linear-gradient(to right, rgb(151, 71, 28) 43%, transparent);
+}
+.banner-wrapper .mywrap:after {
+    background: none !important;
+}
+</style>
+<style>
+    #myImg {
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    #myImg:hover {
+        opacity: 0.7;
+    }
+
+    /* The Modal (background) */
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 2001;
+        /* Sit on top */
+        padding-top: 100px;
+        /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.9);
+        /* Black w/ opacity */
+    }
+
+    /* Modal Content (image) */
+    .modal-content {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+    }
+
+    /* Caption of Modal Image */
+    #caption {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+        text-align: center;
+        color: #ccc;
+        padding: 10px 0;
+        height: 150px;
+    }
+
+    /* Add Animation */
+    .modal-content,
+    #caption {
+        -webkit-animation-name: zoom;
+        -webkit-animation-duration: 0.6s;
+        animation-name: zoom;
+        animation-duration: 0.6s;
+    }
+
+    @-webkit-keyframes zoom {
+        from {
+            -webkit-transform: scale(0)
+        }
+
+        to {
+            -webkit-transform: scale(1)
+        }
+    }
+
+    @keyframes zoom {
+        from {
+            transform: scale(0)
+        }
+
+        to {
+            transform: scale(1)
+        }
+    }
+
+    /* The Close Button */
+    .close {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #f1f1f1;
+        font-size: 40px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #bbb;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    /* 100% Image Width on Smaller Screens */
+    @media only screen and (max-width: 700px) {
+        .modal-content {
+            width: 100%;
+        }
+    }
+
+    @media only screen and (min-width: 1350px) {
+        .fm-featured-title {
+            font-size: 120% !important
+        }
+
+        .fm-featured-meta {
+            font-size: 100% !important
+        }
+    }
+
+    @media only screen and (min-width: 700px) and (max-width:900px) {
+        .fm-featured-title {
+            font-size: 70% !important
+        }
+
+        .fm-featured-meta {
+            font-size: 50% !important
+        }
+    }
+</style>
+<style>
+    .myhovdiv22 span{
+        line-height: 10px;
+    }
+    </style>
+<style>
+    .aboutimage-div {
+        margin-top: 1%;
+        display: flex;
+        text-decoration: none;
+
+        background-color: rgba(23, 54, 79, 1);
+        padding-left: 3%;
+    }
+
+    .aboutimagetext-div {
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-top: 5%;
+    }
+
+    .aboutimagetext-div h2 {
+        color: white;
+        font-size: 96px;
+        padding-bottom: 2%;
+    }
+
+    .aboutimagetext-div {
+        font-size: 32px;
+    }
+
+    .myphoto {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-family: sans-serif;
+        margin-top: 10px !important;
+        overflow-y: auto;
+    }
+
+    .grid-containerr {
+        columns: 4 200px !important;
+        column-gap: 1.5rem;
+        width: 90%;
+        margin: 0 auto;
+
+        overflow: hidden;
+    }
+
+    .grid-containerr div {
+        z-index: 0;
+        width: 150px;
+        margin: 0 1.5rem 1rem 0;
+        display: inline-block;
+        width: 100%;
+        padding: 5px;
+        border-radius: 5px;
+        transition: all 0.25s ease-in-out;
+    }
+
+    @media(min-width:992px) {
+        .nav-item:hover {
+            background-color: #D2691E;
+        }
+    }
+
+    .grid-containerr div:hover img {
+        filter: grayscale(100%);
+    }
+
+
+    .grid-containerr div:hover {
+        border-color: coral;
+    }
+
+    .grid-containerr div img {
+        width: 100%;
+        filter: grayscale(0);
+        border-radius: 5px;
+        transition: all 0.25s ease-in-out;
+    }
+
+    .grid-containerr div p {
+        margin: 5px 0;
+        padding: 0;
+        text-align: center;
+        font-style: italic;
+    }
+
+    .blog-rotate-btn span {
+
+        font-size: 44px;
+    }
+
+    @media (max-width: 992px) {
+        .navbar-collapse {
+            flex-basis: 100% !important;
+        }
+
+        #reab {
+            display: block !important;
+        }
+
+
+    }
+</style>
+
+<style>
+    .divSosialLinks {
+        display: flex;
+        justify-content: center;
+    }
+
+    .slide-wrapper .slide-two .slide-image:before {
+        bottom: 40%;
+        right: 45%;
+        background-color: var(--clr-theme-1);
+
+    }
+
+    .owl-carousel .owl-item {
+        position: initial;
+    }
+
+    element.style {
+        width: 305.92px;
+        margin-right: 15px;
+    }
+
+    .full-wrap .owl-carousel .owl-stage-outer .owl-item.active {
+        opacity: 1;
+    }
+
+    .full-wrap .owl-carousel .owl-stage-outer .owl-item {
+        opacity: 0.4;
+    }
+
+    .owl-carousel.owl-drag .owl-item {
+        -ms-touch-action: pan-y;
+        touch-action: pan-y;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .owl-carousel .owl-item {
+        min-height: 1px;
+        float: left;
+        -webkit-touch-callout: none;
+    }
+
+    .owl-carousel,
+    .owl-carousel .owl-item {
+        position: initial !important;
+    }
+
+    .pop .fm-single-featured:after {
+        background-color: transparent !important;
+        background: none !important;
+
+    }
+
+    .pop .fm-single-featured i {
+        display: none !important;
+    }
+
+    @media (max-width: 2300px) {
+
+        .full-wrap .container-fluid,
+        .full-wrap .container-sm,
+        .full-wrap .container-md,
+        .full-wrap .container-lg,
+        .full-wrap .container-xl {
+            padding-left: 5% !important;
+            padding-right: 5% !important;
+        }
+    }
+
+    #testimonial .cards .cardd {
+        margin-right: 3%;
+    }
+</style>
+<style>
+    @media (max-width:1024px){
+  h3{
+    font-size: 21px !important;
+  }
+}
+</style>
+<style>
+    @media screen and (min-width: 61.25rem){
+#bodyy {
+    place-items: start; 
+}}</style>
+
+<style>
+    .footerLinks {
+        width: 100% !important;
+        font-size: medium !important
+    }
+
+    @media screen and (max-width: 500px) {
+        .myhovdiv22 p {
+            height: 150px !important;
+                    font-size:17px !important;
+        }
+    }
+    @media (min-width: 900px) and (max-width: 1000px){
+        .myhovdiv22 p {
+
+            height: 170px !important;
+        }
+        .myhovdiv22 img {
+      
+            height: 170px !important;
+        }
+    }
+    @media (min-width: 600px) {
+        .myhovdiv22 p {
+         
+            height: 180px !important;
+        }
+    }
+    @media (min-width: 1600px) {
+        .myhovdiv22 img {
+         
+            height: 200px !important;
+        }
+        .myhovdiv22 p {
+         
+         font-size: 23px !important;
+     }
+    }
+
+    @media (min-width: 600px) and (max-width:800px) {
+        .myhovdiv22 img {
+            padding-left: 8% !important;
+            padding-right: 8% !important;
+        }
+    }
+    
+    @media (min-width: 1500px) {
+    .fm-single-featured:after {
+    width: 96% !important;
+    }}
+    .popup {
+        padding: 5% 25% 0 25%;
+    }
+
+    .mean-expand {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    .fm-blog-grid-area .section-spacing{
+        background-color: #171717;
+    }
+    .brand-carousel {
+
+        margin-top: 3% !important;
+    }
+    .myplaybtn{
+       opacity: 0 ;
+       cursor: pointer !important;
+    }
+
+    .myplaybtn i{
+        color:rgba(2, 2, 141, 0.842) !important;
+        
+    }
+    .owl-items:hover .myplaybtn {
+      opacity: 1; /* Change opacity to 1 on parent hover */
+      transition: opacity 1s ease; 
+    }
+   
+</style>
+<style>
+    .myplaybtn{
+
+        position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .triangle-container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+ /* Çerçeveyi göstermek için */
+    }
+
+    .triangle {
+      width: 0;
+      height: 0;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-bottom: 34px solid rgb(255, 255, 255); /* Dik üçgen için */
+      position: absolute;
+      top: 4%;
+      left: 9%;
+      transform: translate(-50%, -50%)  rotate(90deg);
+    }
+  
+    </style>
+<style>
+    @media (min-width: 1200px) {
+        #ancaqmobile{
+            display: none;
+        }
+        .fm-header-sidebar-area.header-sidebar-visible {
+        display: none;
+    }}
+
+    .slide-wrapper .slide-one .slide-image:before {background-color: #00000000 !important;top:4000px !important}
+    </style>
+
+
+<script src="{% static 'templatestyles/js/plugin.js' %}"></script>
+<script src="{% static 'templatestyles/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'templatestyles/js/scripts.js' %}"></script>
+<script src="{% static 'templatestyles/js/video-player.js' %}"></script>
+<script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'assets/js/meanmenu.js' %}"></script>
+<script src="{% static 'assets/js/swiper-bundle.min.js' %}"></script>
+<script src="{% static 'assets/js/slick.min.js' %}"></script>
+<script src="{% static 'assets/js/magnific-popup.min.js' %}"></script>
+<script src="{% static 'assets/js/parallax.min.js' %}"></script>
+<script src="{% static 'assets/js/gsap.min.js' %}"></script>
+<script src="{% static 'assets/js/ScrollTrigger.min.js' %}"></script>
+<script src="{% static 'assets/js/ScrollToPlugin.min.js' %}"></script>
+<script src="{% static 'assets/js/SplitText.min.js' %}"></script>
+<script src="{% static 'assets/js/vanilla-tils.js' %}"></script>
+<script src="{% static 'assets/js/knob.min.js' %}"></script>
+<script>
+    var headerBars = document.querySelectorAll('.fm-header-bar-1');
+    var headerBars2 = document.querySelectorAll('.offcanvas-close');
+    
+
+    function handleClick2() {
+
+var sidebarElements = document.querySelectorAll('.fm-header-sidebar-area.fm-header-sidebar-left');
+
+
+sidebarElements.forEach(function (element) {
+element.classList.remove('header-sidebar-visible');
+});}
+
+function handleClick() {
+
+    var sidebarElements = document.querySelectorAll('.fm-header-sidebar-area.fm-header-sidebar-left');
+
+
+sidebarElements.forEach(function (element) {
+    element.classList.add('header-sidebar-visible');
+});}
+
+headerBars.forEach(function (headerBar) {
+    headerBar.addEventListener('click', handleClick);
+});
+headerBars2.forEach(function (headerBar) {
+    headerBar.addEventListener('click', handleClick2);
+});
+    </script>
+<script src="{% static 'assets/js/ajax-form.js' %}"></script>
+<script src="{% static 'assets/js/wow.min.js' %}"></script>
+<script src="{% static 'assets/js/sidebar.js' %}"></script>
+<script src="{% static 'assets/js/imagesloaded.pkgd.min.js' %}"></script>
+<script src="{% static 'assets/js/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'assets/js/fontawesome.min.js' %}"></script>
+<script src="{% static 'assets/js/ui-range-slider.js' %}"></script>
+<script src="{% static 'assets/js/main.js' %}"></script>
+
+
+<script>
+    const firstCardElement = document.querySelector(".cardd");
+    const height = firstCardElement.getBoundingClientRect().height+8;
+    const targetElementId = "scroll"; // Elementin id'sini değiştirin
+    let scrollingDown = true;
+
+function scrollElement() {
+  const element = document.getElementById('scroll');
+  console.log('scroll',element)
+  if (element.scrollHeight - element.scrollTop === element.clientHeight) {
+    scrollingDown = false;
+    console.log('false')
+  }
+
+  // Eğer sayfa en üstündeyse aşağı kaydırmaya başla
+  if (element.scrollHeight - element.scrollTop !== element.clientHeight) {
+    scrollingDown = true;
+    console.log('true')
+  }
+  
+  if (scrollingDown) {
+    element.scrollBy(0, height);
+    console.log('down')
+  } else {
+    element.scrollBy(0, -1000); 
+    console.log('up')
+  }
+
+
+}
+setInterval(scrollElement, 6000);
+const scrollInterval = setInterval(scrollContent, animationDuration / element.clientHeight);
+    </script>
+<script>
+    // Get the modal
+    const clickableDivs = document.querySelectorAll(".clickable-div");
+    var modal = document.getElementById("myModal");
+    const clickableImages = document.querySelectorAll(".myallimages");
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var img = document.getElementById("myImg");
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("caption");
+
+    clickableDivs.forEach(function (div) {
+        div.addEventListener("click", function () {
+            // Inside this function, "this" refers to the clicked image element
+            const img = div.querySelector("img");
+
+            handleImageClick(img);
+        });
+    });
+    function handleImageClick(clickedImage) {
+  
+        modal.style.display = "block";
+        modalImg.src = clickedImage.src;
+
+    }
+
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+</script>
+<script>
+    const div = document.getElementById('loadmorebutton')
+    div.addEventListener("click", function () {
+        const buttontext = document.getElementById('fillload')
+        buttontext.innerText = 'Load more'
+        const loadmorediv = document.getElementById('loadmorediv')
+        if (loadmorediv.style.height == '600px'){
+        loadmorediv.style.height = '900px';
+        buttontext.innerText = 'Load less'}else{
+            loadmorediv.style.height = '600';
+            buttontext.innerText = 'Load more'
+        }
+        });
+    </script>
+<script>
+
+
+    popup = {
+        init: function () {
+            $('figure').click(function () {
+                popup.open($(this));
+            });
+
+            $(document).on('click', '.popup img', function () {
+                return false;
+            }).on('click', '.popup', function () {
+                popup.close();
+            })
+
+        },
+        open: function ($figure) {
+
+
+
+
+            $('.myphoto').addClass('pop');
+            $popup = $('<div class="popup" />').appendTo($('body'));
+            $fig = $figure.clone().appendTo($('.popup'));
+            $bg = $('<div class="bg" />').appendTo($('.popup'));
+            $close = $('<div class="close"><svg><use xlink:href="#close"></use></svg></div>').appendTo($fig);
+            $shadow = $('<div class="shadow" />').appendTo($fig);
+            src = $('img', $fig).attr('src');
+            $shadow.css({ backgroundImage: 'url(' + src + ')' });
+            $bg.css({ backgroundImage: 'url(' + src + ')' });
+            setTimeout(function () {
+                $('.popup').addClass('pop');
+            }, 10);
+        },
+        close: function () {
+            $('.myphoto, .popup').removeClass('pop');
+            setTimeout(function () {
+                $('.popup').remove()
+            }, 100);
+        }
+    }
+
+    popup.init()
+
+
+
+
+</script>
+<style>
+    
+    @media (max-width: 467px) {
+    #loadmorediv2{
+        display: block !important;
+    }}</style>
+<style>
+    @media (max-width: 467px) {
+    #loadmorediv{
+    display: none !important;};
+#loadmorediv2{
+    display: block !important
+}};
+*{
+    font-style: normal !important;
+}
+h3{
+    font-style: normal !important;
+}
+h1{
+    font-style: normal !important;
+}
+h2{
+    font-style: normal !important;
+}
+h4{
+    font-style: normal !important;
+}
+p{
+    font-style: normal !important;
+}
+span{
+    font-style: normal !important;
+}
+div{
+    font-style: normal !important;
+}
+    </style>
+<script>
+    let card = document.querySelectorAll(".cardd");
+    let contentBox = document.querySelectorAll(".contentBox");
+
+    for (let i = 0; i < card.length; i++) {
+        card[i].addEventListener("mouseover", function () {
+            for (let i = 0; i < contentBox.length; i++) {
+                contentBox[i].className = "contentBox";
+            }
+            document.getElementById(this.dataset.id).className = "contentBox active";
+
+            for (let i = 0; i < card.length; i++) {
+                card[i].className = "cardd";
+            }
+            this.className = "cardd active";
+        });
+    }
+</script>
+<script>
+       document.addEventListener('DOMContentLoaded', function () {
+      // Sayfa yüklendiğinde çalışacak kod buraya yazılabilir
+      attachClickEventToElements();
+    });
+
+    function attachClickEventToElements() {
+      var elements = document.querySelectorAll('.mycardhover');
+
+      elements.forEach(function (element) {
+        element.addEventListener('click', function () {
+          var clickedId = element.id;
+          updateShowingDivs(clickedId);
+        });
+      });
+    }
+
+    function updateShowingDivs(clickedId) {
+      var allShowingDivs = document.querySelectorAll('.myshowingdiv');
+        var myelement = document.getElementById(clickedId)
+        
+      allShowingDivs.forEach(function (showingDiv) {
+        var dataId = showingDiv.getAttribute('data-id');
+
+        if (dataId === clickedId) {
+            if (showingDiv.classList.contains('showeddiv')) {
+        showingDiv.classList.remove('showeddiv');
+        myelement.classList.remove('active');
+      } else {
+        myelement.classList.add('active');
+        showingDiv.classList.add('showeddiv');
+      }
+
+        } else {
+          showingDiv.classList.remove('showeddiv');
+
+        }
+      });
+    }
+</script>
+<style>
+        @media (max-width: 850px) {
+    #myiframe{
+        height: 60% !important;
+        width: 100% !important;
+    }}
+       @media (max-width: 650px) {
+    .fm-header-logo {
+        width: 75px !important;
+    }
+    .fm-header-logo-wrapper{
+    padding:8px 0 !important;
+
+    }}
+    
+    @media (min-width: 750px) {
+        .mytest1{display: block !important;}
+        .mytest2{display: none !important;}
+    }
+    @media (max-width: 750px) {
+        .mytest1{display: none !important;}
+        .mytest2{display: block !important;
+}
+    }
+    @media (max-width: 650px) {
+    .fm-header-logo {
+        width: 75px !important;
+    }
+    .fm-header-logo-wrapper{
+    padding:8px 0 !important;
+
+    }}
+    .myimagedivphoto:after{
+        background:none !important
+    }
+    .myshowingdiv{
+        display: none !important;
+    }
+    .showeddiv{
+        display: block !important;
+    }
+    </style>
+
+<script>
+    function myFunction() {
+        const cardElements = document.querySelectorAll('.cardd');
+
+        const currentlyActiveCard = document.querySelector('#testimonial .active');
+    
+        let contentBox = document.querySelectorAll(".contentBox");
+        if (currentlyActiveCard) {
+            currentlyActiveCard.classList.remove('active');
+            let data_id = currentlyActiveCard.getAttribute("data-id");
+       
+            let currentlyContent = document.getElementById(data_id)
+  
+            currentlyContent.classList.remove('active')
+         
+            const currentIndex = Array.from(cardElements).indexOf(currentlyActiveCard);
+
+            const nextIndex = (currentIndex + 1) % cardElements.length;
+
+
+            cardElements[nextIndex].classList.add('active');
+            let next_id = cardElements[nextIndex].getAttribute("data-id");
+            let currentlyContent2 = document.getElementById(next_id)
+        
+            currentlyContent2.classList.add('active')
+        
+        } else {
+
+            cardElements[0].classList.add('active');
+        }
+
+
+
+    }
+
+    var testimonialDiv = document.getElementById('testimonial');
+    var intervalId;
+    
+    testimonialDiv.addEventListener('mouseover', function() {
+        console.log('clear')
+        clearInterval(intervalId);
+    });
+    
+    testimonialDiv.addEventListener('mouseout', function() {
+      console.log('setint')
+        intervalId = setInterval(myFunction, 6000);
+    });
+    intervalId = setInterval(myFunction, 6000);
+</script>
+<script>
+var cardElements = document.querySelectorAll('.mycardhover');
+function addClassOnHover() {
+    this.classList.add('active');
+}
+function removeClassOnHover() {
+    this.classList.remove('active');
+}
+cardElements.forEach(function (cardElement) {
+    cardElement.addEventListener('mouseover', addClassOnHover);
+    cardElement.addEventListener('mouseout', removeClassOnHover);
+});
+</script>
+[class^="plus-icon-"]:not(.plus-icon-shape) {
+    position: relative;
+    height: 20px;
+    width: 20px;
+    transition: 0.5s;
+}
+.schedule-area .schedule-wrapper .single-schedule .schedule-content-wrap .minus-btn [class^="plus-icon-"]:not(.plus-icon-shape) .plus-icon-shape::before {
+    position: absolute;
+    content: "";
+    top: 9px;
+    left: 0px;
+    width: 20px;
+    height: 2px;
+    background: #fc097c;
+    transition: 0.5s;
+    transform: rotate(180deg);
+    transition: 0.5s;
+}
+ .schedule-area .schedule-wrapper .single-schedule .schedule-content-wrap .minus-btn [class^="plus-icon-"]:not(.plus-icon-shape) .plus-icon-shape::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 9px;
+    width: 2px;
+    height: 20px;
+    background: #fc097c;
+    transition: 0.5s;
+}
+.schedule-area .schedule-wrapper .single-schedule .schedule-content-wrap .minus-btn [class^="plus-icon-"]:not(.plus-icon-shape) .plus-icon-shape.active-plus::before {
+    transform: rotate(180deg);
+    transition: 0.5s;
+}
+.schedule-area .schedule-wrapper .single-schedule .schedule-content-wrap .minus-btn [class^="plus-icon-"]:not(.plus-icon-shape) .plus-icon-shape.active-plus::after {
+    transform: rotate(90deg);
+    transition: 0.5s;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Select all elements with a class starting with "plus-icon-" but not having "plus-icon-shape"
+    var plusIcons = document.querySelectorAll('[class^="plus-icon-"]:not(.plus-icon-shape):not(.plus-icon-3):not(.plus-icon-2):not(.plus-icon-1)');
+    
+    // Add a click event listener to each element
+    plusIcons.forEach(function(icon) {
+        icon.addEventListener('click', function() {
+            // Toggle the "active" class for the clicked element and its "plus-icon-shape" child
+            this.classList.toggle("active");
+            var plusIconShape = this.querySelector(".plus-icon-shape");
+            if (plusIconShape) {
+                plusIconShape.classList.toggle("active-plus");
+            }
+        });
+    });
+});
+</script>
+
+
+<script>
+
+var csrfToken = "{{ csrf_token }}";
+function submitData() {
+  
+    event.preventDefault();
+
+    // Get the email input value
+    const name = document.getElementById('name22').value;
+
+
+    // Check if the class name of the clicked button is "submit_btn"
+    const clickedButton = event.target;
+    if (clickedButton.classList.contains('sub222')) {
+        // Send the data to a URL (replace 'your_url' with the actual URL)
+        const url = '{% url "survey" %}';
+
+        // You can use a method like fetch to send the data to the server
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify({
+
+                name: name,
+
+            }), // You can format the data as needed
+
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrfToken
+            }
+        })
+            .then(response => {
+                // Handle the response here (e.g., show a success message)
+                if (response.ok) {
+                    console.log(response)
+                    swal({
+                        title: "Əla",
+                        text: "Məktubunuz uğurla göndərildi !",
+                        icon: "success",
+                        button: "Tamam",
+                    });
+
+                } else {
+                    console.log(response)
+                    console.log(name);
+                    swal('Xəta baş verdi');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+}
+</script>
+
+<script>
+function Wish(id) {
+event.preventDefault();
+user = "{{request.user.id}}"
+console.log(user)
+if(user==undefined|| user==null||user=='None'){
+    swal("Qeydiyyat tələb olunur")
+}
+var csrfToken = "{{ csrf_token }}";
+// You can now use the 'user' object in JavaScript
+
+
+// Example: Send user data via POST request using JavaScript (you may need to use AJAX)
+var data = {
+    id:id,
+    user:user
+    // Add other user properties as needed
+};
+const url = "{% url 'wishlist' %}"
+var icon = document.getElementById("myicon"+id)
+// Send the data to a server endpoint using AJAX
+fetch(url, {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': csrfToken
+    },
+    body: JSON.stringify(data)
+})
+.then(response => {
+    console.log(response.status)
+if(response.status==201){
+    icon.style.fontWeight = 100
+    swal('Uğurla silindi')
+    
+}
+else if(response.status==200){
+    icon.style.fontWeight = 800
+    swal('Uğurla saxlanıldı')
+}
+})
+.then(data => {
+    console.log(data);
+})
+.catch(error => {
+    console.error('Error:', error);
+});}
+</script>
+<style>
+
+.dropdown-menu.show{
+background-color:rgb(234, 234, 234);
+}
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
+
+i[data-tooltip]::after {
+content: attr(data-tooltip);
+width: 200px !important;
+position: absolute;
+left: 0;
+bottom: 0;
+text-align: left;
+background-color: rgba(10, 0, 73, 0.871);
+padding: 4px 8px;
+border-radius: 4px;
+color: rgb(231, 231, 231);
+line-height: 1rem;
+font-weight:600;
+font-size:12px;
+border:1px solid rgb(1, 58, 79);
+transform: scale(0);
+transition: 0.2s ease-in-out;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+i[data-tooltip]:hover::after {
+transform: scale(1);
+bottom: 70%;
+left:0;
+}
+
+/* Additional Styling */
+
+
+
+
+.schedule-content i {
+color: #444444;
+cursor: pointer;
+padding-right:0.2rem
+}
+
+</style>
+<script>
+    $(document).ready(function() {
+        
+    $("[data-media]").on("click", function (e) {
+        e.preventDefault();
+        
+       
+        var $this = $(this);
+
+        var videoUrl = $this.attr("data-media");
+ 
+        var popup = $this.attr("href");
+ 
+        var $popupIframe = $(popup).find("iframe");
+
+        $popupIframe.attr("src", videoUrl);
+
+        $("#pagepage").addClass("show-popup");
+        $('body').css('overflow', 'hidden');
+
+    });
+});
+    $(".popup").on("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        $(".page").removeClass("show-popup");
+        $('body').css('overflow', 'auto');
+        var iframe = $("#myiframe");
+    var newVideoId = "NEW_VIDEO_ID";
+    var newSrc = "https://www.youtube.com/embed/" + newVideoId + "?autoplay=1";
+
+    iframe.attr("src", newSrc);
+    });
+
+    $(".popup > iframe").on("click", function (e) {
+        e.stopPropagation();
+
+        $('body').css('overflow', 'auto');
+        
+        
+    });
+</script>
+<style>
+    .slide-wrapper .slide-two .slide-image:before {
+        bottom:10000000px !important
+    }
+</style>
+</html>

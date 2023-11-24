@@ -1,0 +1,1 @@
+print(len('Grow, scrape their knees, try new things, to be vulnerable, and to have epic adventures together, this time both'))

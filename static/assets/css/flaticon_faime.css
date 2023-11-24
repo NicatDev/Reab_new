@@ -1,0 +1,56 @@
+@font-face {
+  font-family: "flaticon_faime";
+  src: url("../fonts/flaticon_faime3485.ttf?f561c42464e218622d9f3368df877a28")
+      format("truetype"),
+    url("../fonts/flaticon_faime3485.woff?f561c42464e218622d9f3368df877a28")
+      format("woff"),
+    url("../fonts/flaticon_faime3485.woff2?f561c42464e218622d9f3368df877a28")
+      format("woff2"),
+    url("../fonts/flaticon_faime3485.eot?f561c42464e218622d9f3368df877a28#iefix")
+      format("embedded-opentype"),
+    url("../fonts/flaticon_faime3485.svg?f561c42464e218622d9f3368df877a28#flaticon_faime")
+      format("svg");
+}
+
+i[class^="flaticon-"]:before,
+i[class*=" flaticon-"]:before {
+  font-family: flaticon_faime !important;
+  font-style: normal;
+  font-weight: normal !important;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.flaticon-right-arrow:before {
+  content: "\f101";
+}
+.flaticon-right-arrow-1:before {
+  content: "\f102";
+}
+.flaticon-right-arrow-2:before {
+  content: "\f103";
+}
+.flaticon-search-interface-symbol:before {
+  content: "\f104";
+}
+.flaticon-loupe:before {
+  content: "\f105";
+}
+.flaticon-search:before {
+  content: "\f106";
+}
+.flaticon-tv-show:before {
+  content: "\f107";
+}
+.flaticon-award:before {
+  content: "\f108";
+}
+.flaticon-director:before {
+  content: "\f109";
+}
+.flaticon-fireworks:before {
+  content: "\f10a";
+}
