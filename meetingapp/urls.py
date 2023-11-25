@@ -5,7 +5,9 @@ urlpatterns = [
     path('',home,name='home'),
     path('contact',contact,name='contact'),
     path('gorus',gorus,name='gorus'),
-    path('speaker',speaker,name='speaker'),
+    path('meet',meet,name='meet'),
+    path('about',about,name='about'),
+    path('speaker',spiker,name='spiker'),
     path('message',message,name='message'),
     path('login_register',login_register,name='login_register'),
     path('survey',survey,name='survey'),
@@ -17,5 +19,6 @@ urlpatterns = [
     path('send_mail/',sendMail, name='send_mail'),
     path('check_password/',check_password, name='check_password'),
     path('change_password/',change_password, name='change_password'),
-    
+    path('bloq',blog,name='blog'),
+    path('bloq/<slug>',blogsingle,name='blogsingle'),
 ]

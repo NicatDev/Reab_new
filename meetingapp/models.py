@@ -24,20 +24,48 @@ class Partners(models.Model):
     def __str__(self):
         return self.title
     
+
+    
 class About(models.Model):
-    bigimage = models.ImageField(verbose_name='630-522')
-    smallimage = models.ImageField(verbose_name='344-285')
-    title = models.CharField(max_length=50)
-    content = models.CharField(max_length=190,verbose_name='180-190 herf max content')
-    content2 = models.CharField(max_length=120,verbose_name='110-120 herf max content')
+    minititle = models.CharField(max_length=100,null=True,blank=True)
+    title = models.CharField(max_length=180,null=True,blank=True) 
+    content = models.CharField(max_length=3200,null=True,blank=True)
+    content2 =models.CharField(max_length=3200,null=True,blank=True)
+    contentbig = models.TextField(null=True,blank=True)
+    image = models.ImageField(verbose_name='690-732',null=True,blank=True)   
+    imza = models.CharField(max_length=120,null=True,blank=True)
     
     def __str__(self):
-        return "Haqqinda bolmesi"
+        return self.title + 'Ana Sehife lahiye haqqinda'
     
     def save(self, *args, **kwargs):
         self.pk = 1  
         super(About, self).save(*args, **kwargs)
+        
+class Head(models.Model):
+    title = models.CharField(verbose_name='head title',max_length=230)
+    image = models.FileField(verbose_name='favicon',null=True,blank=True)
+    logoheader = models.FileField(null=True,blank=True,verbose_name='diger_butun_loqolar')
+    def __str__(self):
+        return 'favicon'
     
+    def save(self, *args, **kwargs):
+        self.pk = 1
+        super(Head, self).save(*args, **kwargs)   
+
+      
+class AllHeader(models.Model):
+    title = models.CharField(max_length=1200)
+    content = models.TextField(null=True,blank=True)
+    image = models.ImageField(null=True,blank=True)
+    href = models.CharField(max_length=1200,null=True,blank=True)
+    
+    def __str__(self):
+        return 'Diger Sehife Header '+self.title
+    def save(self, *args, **kwargs):
+        self.pk = 1
+        super(AllHeader, self).save(*args, **kwargs)
+
 class Sportmen(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE,related_name='owner')
     field = models.CharField(max_length=120,null=True,blank=True)

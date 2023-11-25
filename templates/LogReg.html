@@ -342,7 +342,7 @@
 
 .act {
   color: white !important;
-  background-color: rgba(104, 85, 224, 1) !important;
+  background-color: #fd6500 !important;
 }
 .reg {
     color: rgb(104, 85, 224);
@@ -1757,7 +1757,7 @@ const scrollInterval = setInterval(scrollContent, animationDuration / element.cl
 
 .act {
   color: white !important;
-  background-color: rgba(104, 85, 224, 1) !important;
+
 }
 .reg {
     color: rgb(104, 85, 224);
@@ -1775,10 +1775,451 @@ const scrollInterval = setInterval(scrollContent, animationDuration / element.cl
   color: white;
 
   box-shadow: 0 0 20px rgba(104, 85, 224, 0.6);
-  background-color: rgba(104, 85, 224, 1);
+  background-color:#fd6500 !important;;
+}
+
+label {
+  display: block;
+  line-height: 1;
+  margin-bottom: 10px;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+/*Input Field & Select*/
+input:not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+textarea {
+  box-shadow: none;
+  border: 0;
+  margin-bottom: 0;
+  padding: 10px 25px;
+  max-width: 100%;
+  width: 100%;
+  font-size: 14px;
+  line-height: 30px;
+  font-weight: 600;
+  transition: all 0.3s linear;
+}
+
+input:not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]):focus,
+textarea:focus {
+  outline: none;
+}
+
+input:not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="file"])::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  font-size: 14px;
+  color: #9d9d9d;
+  font-weight: 400;
+}
+
+input:not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]):-moz-placeholder,
+textarea:-moz-placeholder {
+  font-size: 14px;
+  color: #9d9d9d;
+  font-weight: 400;
+}
+
+input:not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="file"])::-moz-placeholder,
+textarea::-moz-placeholder {
+  font-size: 14px;
+  color: #9d9d9d;
+  font-weight: 400;
+}
+
+input:not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]):-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  font-size: 14px;
+  color: #9d9d9d;
+  font-weight: 400;
+}
+
+.form-check .form-check-input {
+  transition: .2s;
+}
+
+.form-check .form-check-input:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: rgba(0, 0, 0, 0.25);
+}
+
+.form-check .form-check-label {
+  padding-top: 4px;
+}
+
+.hero-form,
+.login-register-form {
+  margin-top: 180px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding: 0 40px;
+  padding-bottom: 60px;
+}
+
+.hero-form .form-title,
+.login-register-form .form-title {
+  font-size: 30px;
+  color: #ffffff;
+  padding: 40px 0;
+}
+
+.hero-form .form-title.black,
+.login-register-form .form-title.black {
+  color: #000000;
+}
+
+.hero-form .exvent-form .single-input,
+.login-register-form .exvent-form .single-input {
+  display: flex;
+}
+
+.hero-form .exvent-form .single-input input,
+.hero-form .exvent-form .single-input textarea,
+.login-register-form .exvent-form .single-input input,
+.login-register-form .exvent-form .single-input textarea {
+  border-radius: 0;
+  background-color: #ebebeb;
+  font-size: 14px;
+  color: #000000;
+  border: none;
+  outline: none;
+}
+
+.hero-form .exvent-form .single-input input::-moz-placeholder,
+.hero-form .exvent-form .single-input textarea::-moz-placeholder,
+.login-register-form .exvent-form .single-input input::-moz-placeholder,
+.login-register-form .exvent-form .single-input textarea::-moz-placeholder {
+  font-size: 14px;
+  color: #9d9d9d;
+  font-weight: 400;
+}
+
+.hero-form .exvent-form .single-input input:-ms-input-placeholder,
+.hero-form .exvent-form .single-input textarea:-ms-input-placeholder,
+.login-register-form .exvent-form .single-input input:-ms-input-placeholder,
+.login-register-form .exvent-form .single-input textarea:-ms-input-placeholder {
+  font-size: 14px;
+  color: #9d9d9d;
+  font-weight: 400;
+}
+
+.hero-form .exvent-form .single-input input::placeholder,
+.hero-form .exvent-form .single-input textarea::placeholder,
+.login-register-form .exvent-form .single-input input::placeholder,
+.login-register-form .exvent-form .single-input textarea::placeholder {
+  font-size: 14px;
+  color: #9d9d9d;
+  font-weight: 400;
+}
+
+.hero-form .exvent-form .single-input input:focus,
+.hero-form .exvent-form .single-input textarea:focus,
+.login-register-form .exvent-form .single-input input:focus,
+.login-register-form .exvent-form .single-input textarea:focus {
+  border: none;
+  outline: none;
+}
+
+.hero-form .exvent-form .single-input textarea,
+.login-register-form .exvent-form .single-input textarea {
+  height: 140px;
+}
+
+.hero-form .exvent-form .single-input.white-bg input,
+.hero-form .exvent-form .single-input.white-bg textarea,
+.login-register-form .exvent-form .single-input.white-bg input,
+.login-register-form .exvent-form .single-input.white-bg textarea {
+  background-color: #ffffff;
+}
+
+.exvent-comment-section {
+  margin-top: 50px;
+  padding: 60px 25px;
+  background-color: #f9fafc;
+}
+
+.exvent-comment-section .comment-title {
+  margin-bottom: 50px;
+}
+
+.exvent-comment-section .comment-title .title {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.exvent-comment-section .comment-title .reuired-messege {
+  color: #686f7a;
+}
+
+.exvent-comment-section .comment-form .comment-form-input {
+  border: 0;
+  color: #666666;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.exvent-comment-section .comment-form textarea.comment-form-input {
+  height: 95px;
+}
+
+/*--
+/*  2.3 - Button CSS
+/*----------------------------------------*/
+.btn-margin {
+  margin-top: 40px;
+}
+
+.btn-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -5px;
+}
+
+.btn-wrap .btn {
+  margin: 5px;
+}
+
+.btn {
+  display: inline-block;
+  position: relative;
+  background: #f1781f;
+  border-color: transparent;
+  color: #ffffff;
+  border-radius: 0px;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  height: 50px;
+  line-height: 48px;
+  padding: 0px 30px;
+  border: 0;
+  border-style: solid;
+  box-shadow: none;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.btn.btn-blue {
+  background: #00acee;
+}
+
+.btn.btn-yellow {
+  background: #f9d464;
+}
+
+.btn.btn-orange {
+  background: #ffae4a;
+}
+
+.btn.btn-purple {
+  background: #a221b9;
+}
+
+.btn.btn-purple-2 {
+  background: #250449;
+}
+
+.btn.btn-purple-2:hover {
+  color: #250449;
+  background: #ffffff;
 }
 
 
+.btn::before {
+  content: '';
+  border: 2px solid #000;
+  padding: 0 30px;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  height: 50px;
+  width: 100%;
+  z-index: -1;
+  overflow: hidden;
+  transition: .3s;
+}
+
+.btn:focus,
+.btn:focus:active {
+  box-shadow: none;
+}
+
+.btn:hover {
+  box-shadow: none;
+  background: #250449;
+  color: #ffffff;
+}
+
+.btn:hover::before {
+  top: 0;
+  left: 0;
+}
+
+.btn-hero {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.btn-2 {
+  display: inline-block;
+  position: relative;
+  background: #38ab66;
+  border-color: transparent;
+  color: #ffffff;
+  border-radius: 0px;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  height: 50px;
+  line-height: 48px;
+  padding: 0px 30px;
+  border: 0;
+  border-style: solid;
+  box-shadow: none;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.btn-2.btn-blue {
+  background: #00acee;
+}
+
+.btn-2.btn-yellow {
+  background: #f9d464;
+}
+
+.btn-2:focus,
+.btn-2:focus:active {
+  box-shadow: none;
+}
+
+.btn-2:hover {
+  box-shadow: none;
+  background: #ffffff;
+  color: #ffae4a;
+}
+
+.btn-4 {
+  height: 50px;
+  line-height: 48px;
+  font-size: 18px;
+  padding: 0 45px;
+  background: #00acee;
+  box-shadow: 11px 10px 38px 0 rgba(46, 63, 99, 0.15);
+  color: #ffffff;
+}
+
+.btn-4:hover {
+  background: #ffffff;
+  color: #00acee;
+}
+
+.submit_btn,
+.btn-5 {
+  display: inline;
+  width: 100%;
+  font-size: 16px;
+  text-decoration: none;
+  background-color: #ffae4a;
+  padding: 15px 0;
+  border: none;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.submit_btn::before,
+.btn-5::before {
+  background: #fff;
+  content: "";
+  height: 155px;
+  opacity: 0;
+  position: absolute;
+  top: -50px;
+  left: -50%;
+  transform: rotate(35deg);
+  width: 50px;
+  transition: all 3000ms cubic-bezier(0.19, 1, 0.22, 1);
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.submit_btn::after,
+.btn-5::after {
+  background: #fff;
+  content: "";
+  height: 20rem;
+  opacity: 0;
+  position: absolute;
+  top: -50px;
+  left: -100%;
+  transform: rotate(35deg);
+  transition: all 3000ms cubic-bezier(0.19, 1, 0.22, 1);
+  overflow: hidden;
+  width: 100px;
+  pointer-events: none;
+}
+
+
+.submit_btn:hover::before,
+.btn-5:hover::before {
+  left: 120%;
+  opacity: .5;
+}
+
+.submit_btn:hover::after,
+.btn-5:hover::after {
+  left: 200%;
+  opacity: .6;
+}
+
+/*----------------------------------------*/
+/*  02. Header CSS
+/*----------------------------------------*/
+/*--
+/*  2.1 - Header Top CSS
+/*----------------------------------------*/
+.exvent-header-section {
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  top: 30px;
+}
+
+.exvent-header-section.sticky {
+  box-shadow: none;
+}
+
+.exvent-header-section.sticky {
+  background-color: #ffffff;
+}
+
+.exvent-header-section.sticky {
+  box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.07);
+}
+
+@media only screen and (max-width: 991px) {
+  .exvent-header-section {
+    padding: 0;
+  }
+}
+#login {
+    border-radius:30px;
+    background-color: rgb(245, 245, 245);
+}
+#register {
+    border-radius:30px;
+    background-color: rgb(245, 245, 245);
+}
 </style>
 
 <style>

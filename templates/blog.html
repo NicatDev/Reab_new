@@ -1,0 +1,787 @@
+{% load static %}
+<html class="no-js" lang="zxx">
+
+{% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+<!-- Mirrored from html.bdevs.net/faime-prev/blog.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Sep 2023 07:00:53 GMT -->
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+   <meta name="description" content="">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!-- Place favicon.ico in the root directory -->
+   <title>{{head.title}}</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="{{head.image.url}}">
+   <!-- CSS here -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <link rel="stylesheet" href="{% static 'templatestyles/css/video-player.css' %}">
+   <link rel="stylesheet" href="{% static 'templatestyles/css/style.css' %}">
+   <link rel="stylesheet" href="{% static 'assets/css/preloader.css' %}">
+   <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+   <link rel="stylesheet" href="{% static 'assets/css/meanmenu.css' %}">
+   <link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %}">
+   <link rel="stylesheet" href="{% static 'assets/css/swiper-bundle.css' %}">
+   <link rel="stylesheet" href="{% static 'assets/css/slick.css' %}">
+   <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+   <link rel="stylesheet" href="{% static 'assets/css/nice-select.css' %}">
+   <link rel="stylesheet" href="{% static 'assets/css/ui-range-slider.css' %}">
+   <link rel="stylesheet" href="{% static 'assets/css/flaticon_faime.css' %}">
+   <link rel="stylesheet" href="{% static 'assets/css/all.min.css' %}">
+   <link rel="stylesheet" href="{% static 'assets/css/default.css' %}">
+   <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+</head>
+
+<body>
+   <div class="preloader"></div>
+   <!-- cursor animation-->
+   <div class="mouseCursor cursor-outer "></div>
+   <div class="mouseCursor cursor-inner"><span>Drag</span></div>
+
+
+   <!-- Go Top Button -->
+   <button id="scroll_top" class="scroll-top">
+      <i class="fa-solid fa-arrow-up"></i>
+   </button>
+
+   <!-- Preloader -->
+   <!-- <div class="loader">
+      <div class="loader__container">
+         <div class="loader__film">
+            <img class=loader__film-img src="{% static 'assets/img/loader/film.png' %}" alt="img not found">
+            <img class=loader__film-img src="{% static 'assets/img/loader/film-2.png' %}" alt="img not found">
+         </div>
+         <img class=loader__camera src="{% static 'assets/img/loader/camera.png' %}" alt="img not found">
+      </div>
+   </div> -->
+
+  <!-- header wrapper -->
+  <header id="header-sticky" class="fm-header-area header-border transparent-header bg-common-black">
+   <div class="container">
+       <div class="row align-items-center justify-content-lg-between pr-5 pl-5">
+           <div class="header-wrapper">
+               <div class="fm-header-logo-wrapper">
+                   <a href="#" class="fm-header-logo">
+                       <img style="height: 65px !important;" src="{{head.logoheader.url}}" alt="img not found">
+                   </a>
+                   
+                   <div class="dinozavr"
+                       style="display:flex;align-items:center;justify-content:center;gap:2rem;">
+                       <div id="lang_selector" class="language-dropdown">
+                           <label for="toggle" class="lang-flag lang-en" title="Click to select the language">
+                               <span class="flag"></span>
+                           </label>
+                           <ul class="lang-list">
+                               <li class="lang lang-en selected" title="AZ">
+                                   <span class="flag"></span>
+                               </li>
+                               <li class="lang lang-pt" title="RU">
+                                   <span class="flag"></span>
+                               </li>
+
+                           </ul>
+                       </div>
+
+                       <a href="#0" class="fm-header-bar-1" id="ancaqmobile">
+                           <span class="fm-header-bar-line fm-header-bar-line-1"></span>
+                           <span class="fm-header-bar-line fm-header-bar-line-2"></span>
+                           <span class="fm-header-bar-line fm-header-bar-line-3"></span>
+                       </a>
+                       <!-- <img src=" {% static 'russia.png' %}" alt="">
+              
+               {% static 'azerbaijan.png' %} -->
+
+
+                   </div>
+                   <style>
+                       .shadow-1,
+                       .language-dropdown ul.lang-list,
+                       .language-dropdown label {
+                           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+                       }
+
+                       .shadow-2,
+                       .language-dropdown.open label {
+                           box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+                       }
+
+                       .shadow-3 {
+                           box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+                       }
+
+                       .shadow-4 {
+                           box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+                       }
+
+                       .shadow-5 {
+                           box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+                       }
+
+                       .language-dropdown {
+                           display: inline-block;
+                           overflow: hidden;
+                           height: 40px;
+
+                       }
+
+                       .language-dropdown .lang-en {
+                           border-left: 4px solid rgb(24, 24, 24);
+                       }
+
+                       .language-dropdown .lang-en .flag {
+                           background-image: url("{% static 'azerbaijan.png' %}");
+                       }
+
+                       .language-dropdown .lang-pt {
+                           border-left: 4px solid rgb(24, 24, 24);
+                       }
+
+                       .language-dropdown .lang-pt .flag {
+                           background-image: url("{% static 'russia.png' %}");
+                       }
+
+                       .language-dropdown .lang-es {
+                           border-left: 4px solid rgb(24, 24, 24);
+                       }
+
+                       .language-dropdown .lang-es .flag {
+                           background-image: url("http://www.imaginarium.pt/responsive/2015/images/iconsFicha/banderaES.png");
+                       }
+
+                       .language-dropdown label,
+                       .language-dropdown ul li {
+                           display: block;
+                           width: 50px;
+                           height: 38px;
+                           background: rgb(25, 25, 25);
+                           padding: 0px 6px;
+                           cursor: pointer;
+                       }
+
+                       .language-dropdown ul.lang-list {
+                           position: relative;
+                           visibility: hidden;
+                           opacity: 0;
+                           z-index: 1;
+                       }
+
+                       .language-dropdown ul.lang-list li {
+                           border-bottom: 1px solid rgb(24, 24, 24);
+                       }
+
+                       .language-dropdown ul.lang-list li:last-child {
+                           border-bottom-right-radius: 2px;
+                           border-bottom-left-radius: 2px;
+                       }
+
+                       .language-dropdown ul.lang-list li.selected {
+                           display: none;
+                       }
+
+                       .language-dropdown label {
+                           position: relative;
+                           border-bottom: 1px solid rgb(24, 24, 24);
+                           border-radius: 3px;
+                           z-index: 2;
+                       }
+
+                       .language-dropdown .lang-flag .flag,
+                       .language-dropdown .lang-list .lang .flag {
+                           float: left;
+                           width: 100%;
+                           height: 100%;
+                           cursor: pointer;
+                           background-size: 35px 35px;
+                           background-repeat: no-repeat;
+                           background-position: center;
+                       }
+
+                       .language-dropdown.open ul.lang-list {
+                           visibility: visible;
+                           opacity: 1;
+                       }
+
+                       .language-dropdown.open label {
+                           border-bottom-left-radius: 0px;
+                           border-bottom-right-radius: 0px;
+                       }
+
+                       .animate,
+                       .lang-flag,
+                       .lang-list {
+                           cursor: pointer;
+                           -webkit-transition: all 0.5s;
+                           -moz-transition: all 0.5s;
+                           -ms-transition: all 0.5s;
+                           -ms-transition: all 0.5s;
+                           transition: all 0.5s;
+                           backface-visibility: hidden;
+                           -webkit-backface-visibility: hidden;
+                           -moz-backface-visibility: hidden;
+                           -ms-backface-visibility: hidden;
+                       }
+                   </style>
+                   <script>
+
+                       $(document).ready(function () {
+                           $(".lang-flag").click(function () {
+                               $(".language-dropdown").toggleClass("open");
+                               $(".language-dropdown").css(
+                                   { 'overflow': 'visible' }
+                               )
+                           });
+
+                           $("ul.lang-list li").click(function () {
+                               $("ul.lang-list li").removeClass("selected");
+                               $(this).addClass("selected");
+                               if ($(this).hasClass('lang-en')) {
+                                   $(".language-dropdown").find(".lang-flag").addClass("lang-en").removeClass("lang-pt");
+                                   $("#lang_selected").html("<p>AZ</p>")
+                                   window.location.href = '/'
+                               } else if ($(this).hasClass('lang-pt')) {
+                                   $(".language-dropdown").find(".lang-flag").addClass("lang-pt").removeClass("lang-en");
+                                   $("#lang_selected").html("<p>RU</p>")
+                                   window.location.href = '/ru'
+                               }
+                               $(".language-dropdown").removeClass("open");
+                           });
+                       })
+                       $(document).click(function (e) {
+                           if (!$(e.target).closest(".language-dropdown").length) {
+                               $(".language-dropdown").removeClass("open");
+                           }
+                       });
+                   </script>
+                   <script>
+                       var currentURL = "{{ request.build_absolute_uri }}";
+                       if (currentURL.endsWith('ru/')) {
+                           $("ul.lang-list li").removeClass("selected");
+
+
+                           $(".language-dropdown").find(".lang-flag").addClass("lang-pt").removeClass("lang-en");
+                           $("#lang_selected").html("<p>RU</p>")
+                           $("ul.lang-list li.lang-pt").remove();
+                       }
+                   </script>
+
+               </div>
+
+               <div class="header-menu-spc d-none d-xl-block">
+                   <div class="fm-header-nav">
+
+                       <nav id="mobile-menu" style="display: block;">
+                           <ul>
+                               <li class="has-dropdown">
+                                   <a href="#">Əsas səhifə</a>
+
+                               </li>
+                               <li class="has-dropdown"><a href="{% url 'about' %}">Haqqında</a>
+                               </li>
+
+                               <li class="has-dropdown"><a href="#">Video</a>
+                                   <!-- <ul class="submenu">
+                                       {% for cat in vidcategories %}
+                                       <li><a href="#?movzu={{cat.id}}">{{cat.name}}</a></li>
+                                       {% endfor %}
+                                   </ul> -->
+                               </li>
+
+                               <li class="has-dropdown"><a href="#">Foto</a>
+                                   <!-- <ul class="submenu">
+                                       {% for cat in fotcategories %}
+                                       <li><a href="#?movzu={{cat.id}}">{{cat.name}}</a></li>
+                                       {% endfor %}
+                                   </ul> -->
+                               </li>
+                               <li class="has-dropdown"><a href="#?m=1">Məqalələr</a>
+
+                               </li>
+                               <li class="has-dropdown"><a href="#">Xatirələr</a>
+
+                               </li>
+                               <li class="has-dropdown has-mega-menu">
+                                   <a href="#">Xəbərlər</a>
+
+                               </li>
+
+                               
+
+
+                               
+                           </ul>
+                       </nav>
+
+                   </div>
+               </div>
+               <!-- sd -->
+               <div class="fm-header-right d-none d-xl-block mr-10" style="text-align: center;letter-spacing: 1px">
+                   <a href="http://75.119.147.165:199/" class="fill-btn"
+                       style="font-size:15px;line-height:20px;border-radius: 3px;">Reabilitasiya <br> Həyatdır
+                       <span>
+                           <i class="fa-regular fa-arrow-right"></i>
+                       </span>
+                   </a>
+               </div>
+           </div>
+
+       </div>
+   </div>
+</header>
+<!-- header wrapper -->
+
+<!-- Headerin sonu hekayenin baslangici gradientd-->
+
+
+
+   <!-- sidebar area start -->
+   <div class="fm-header-sidebar-area fm-header-sidebar-left">
+      <div class="fm-header-sidebar-wrapper">
+         <div class="fm-header-sidebar-action mb-65">
+            <div class="col-sm-3 text-left" style=""><img style="height:80px" src="{{head.logoheader.url}}" alt=""></div>
+            <div class="offcanvas-close">
+               <a class="offcanvas-btn" href="#0">
+                  <i class="fa-thin fa-times"></i>
+               </a>
+            </div>
+         </div>
+    
+         <div class="mobile-menu"></div>
+         <div class="fm-header-right d-none d-xl-block mr-10" style="text-align: center;display: block !important;letter-spacing: 1px">
+            <a href="http://75.119.147.165:199/" class="fill-btn"
+                style="font-size:15px;line-height:20px;border-radius: 3px;">Reabilitasiya <br> Həyatdır
+                <span>
+                    <i class="fa-regular fa-arrow-right"></i>
+                </span>
+            </a>
+        </div>
+      </div>
+   </div>
+   <div class="overlay"></div>
+   <!-- sidebar area end -->
+
+
+   <main>
+      <div class="adjust-header-space bg-common-black"></div>
+<!-- breadcrumb-area-start -->
+<div class="fm-breadcrumb-area" data-background="{{allheader.image.url}}">
+   <div class="container">
+      <div class="row justify-content-center">
+         <div class="col-12">
+            <div class="page-title-wrapper">
+               <h1 style="visibility: inherit !important;" class="page-title p-text">Bloqlar</h1>
+            </div>
+            <div class="breadcrumb-menu">
+               <nav aria-label="Breadcrumbs" class="breadcrumb-trail breadcrumbs">
+                  <ul class="trail-items">
+                   
+                  </ul>
+               </nav>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- breadcrumb-area-end -->
+
+      <!-- page title area start -->
+      <section class="page-title-area section-spacing-top">
+         <div class="container">
+            <div class="row section-title-spacing">
+               <div class="col-xl-6">
+                  <div class="section-title">
+                     <span class="section-subtitle title-anim">Heydər Əliyev 100</span>
+                     <h2 class="section-main-title title-anim">Son xəbərlər </h2>
+                  </div>
+               </div>
+
+            </div>
+         </div>
+      </section>
+      <!-- page titler area end -->
+   
+      <!-- postbox area start -->
+      <section class="postbox__area section-spacing-bottom">
+         <div class="container">
+            <div class="row g-40">
+               <div class="col-xxl-8 col-xl-7 col-lg-7">
+                  <div class="postbox__wrapper">
+                     <!-- bloglar baslayir-->
+                     {% for blog in blog_list %}
+                     <article class="postbox__item mb-60 bdFadeUp">
+                        <div class="postbox__thumb mb-30">
+                           <a href="{% url 'blogsingle' blog.slug %}">
+                              <img style="height: 500px;" src="{{blog.image.url}}" alt="img not found">
+                           </a>
+                        </div>
+                        <div class="postbox__content">
+                           <div class="postbox__meta mb-20">
+                              <!-- <span>
+                                {% for tag in blog.tag.all %} <a href="#"></a>{% endfor %}
+                              </span> -->
+                              <span>
+                                 {{blog.created_at}}
+                              </span>
+                           </div>
+                           <h3 class="postbox__title">
+                              <a href="{% url 'blogsingle' blog.slug %}">{{blog.name}}</a>
+                           </h3>
+                           <div class="postbox__text ">
+                              <p>{{blog.content_without_ck|slice:200}}...</p>
+                           </div>
+                           <div class="col-xl-12 "  style="padding-left:0px; padding-right:0px">
+
+                              <a href="{% url 'blogsingle' blog.slug %}" class="fm-submit-btn ">Daha ətraflı</a>
+                           </div>
+                        </div>
+                     </article>
+                     {% endfor %}
+
+                     
+
+                     <!-- bloglar bitir -->
+     
+                     {% if not blog_list %}
+                     
+                        <div class="container">
+                           <div class="row section-title-spacing">
+                              <div class="col-xl-6">
+                                 <div class="section-title">
+                                    <span class="section-subtitle title-anim">Nəticə mövcud deyil</span>
+
+                                 </div>
+                              </div>
+               
+                           </div>
+                        </div>
+
+                     {% endif %}
+                  </div>
+               </div>
+               <div class="col-xxl-4 col-xl-5 col-lg-5">
+                  <div class="sidebar__wrapper">
+                     <div class="sidebar__widget ">
+                        <div class="sidebar__widget-content">
+                           <div class="sidebar__search">
+                              <form action="#" method="GET">
+                                 {% csrf_token %}
+                                 <div class="sidebar__search-input">
+                                    <input name="blog" type="text" placeholder="Xəbərlərdə axtar...">
+                                    <button type="submit">
+                                       <i class="flaticon-search"></i>
+                                    </button>
+                                 </div>
+                              </form>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="sidebar__widget ">
+                        <h3 class="sidebar__widget-title mb-30">Ən çox oxunanlar</h3>
+                        <div class="sidebar__widget-content">
+                           <div class="sidebar__post">
+                              {% for blg in most_blogs %}
+                              <div class="rc__post">
+                                 <div class="rc__post-thumb">
+                                    <a href="{% url 'blogsingle' blg.slug %}"><img src="{{blg.image.url}}"
+                                          alt="img not found"></a>
+                                 </div>
+                                 <div class="rc__post-content">
+                                    <h5 class="rc__post-title">
+                                       <a href="{% url 'blogsingle' blg.slug %}">{{blg.name}}</a>
+                                    </h5>
+                                    <div class="postbox__meta">
+                                 
+                                   
+                                       <span style="font-size: 14px;">
+                                          {{blg.created_at}}
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                              {% endfor %}
+                           </div>
+                        </div>
+                     </div>
+                     <div class="sidebar__widget ">
+                        <h3 class="sidebar__widget-title mb-30">Ən çox axtarılanlar</h3>
+                        <div class="sidebar__widget-content">
+                           <ul>
+                              {% for x in tags %}
+                     
+                              {% if current_tag == x.name %}
+                              <li><a style="background-color: var(--clr-theme-1);font-weight:500;color:white" href="?tag={{x.name}}"><span>{{x.name}}</span> <span>{{x.blog_count}}</span></a></li>
+                              {% else %}
+                              <li><a  href="?tag={{x.name}}"><span>{{x.name}}</span> <span>{{x.blog_count}}</span></a></li>
+                       
+                              {% endif %}
+
+                              {% endfor %}
+                           </ul>
+                        </div>
+                     </div>
+            
+                    
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <!-- contact-area-start -->
+      {% if blog_list %}
+      <div style="align-items: center;justify-content: center;" class="bd-basic__pagination d-flex align-items-center bdFadeUp">
+         <nav>
+            <ul>
+               <li>
+                  <a {% if not blog_list.has_previous %} disabled="true" style="cursor:not-allowed" {% endif%} {% if  blog_list.has_previous %}  href="?page={{ blog_list.previous_page_number }} "{% endif%}>
+                     <i class="fa-light fa-arrow-left-long"></i>
+                  </a>
+               </li>
+               {% if not pagcheck %}
+               <li>
+                  <a href="?page=1">1</a>
+               </li>
+               {% endif %}
+               {% for page_num in iterator %}
+                  
+               <li>
+                  <a href="?page={{ page_num }}">{{page_num}}</a>
+               </li>
+
+               {% endfor %}
+               
+          
+
+              
+
+               <li>
+                  <a {% if not blog_list.has_next %} disabled="true" style="cursor:not-allowed" {% endif%} {% if blog_list.has_next %}  href="?page={{ blog_list.next_page_number }}" {% endif%}>
+                     <i class="fa-light fa-arrow-right-long"></i>
+                  </a>
+               </li>
+               
+            </ul>
+         </nav>
+      </div>
+      {% endif %}
+      <!-- contact-area-end -->
+
+   </main>
+
+   <!-- footer-area-start -->
+   <div class="footer-wrapper">
+      <div class="container">
+          <div class="row" style="align-items: center;">
+              <div class="col-xl-3 text-left" style="display: flex;justify-content: center;margin-bottom: 10px;" ><img style="
+                  height: 105px; " src="{{head.logoheader.url}}" alt=""></div>
+              <div class="col-xl-9 text-left">
+                  <h4 class="mb-4">"Görkəmli şəxsiyyətlər xalqın zəkasını, elmini, mədəniyyətini, mənəviyyatını dünyaya nümayiş etdirirlər." Heydər Əliyev</h4>
+              </div>
+
+
+              <div style="margin-bottom:3%" class="col-sm-12">
+                  <div class="middle-footer">
+                      <div class="row">
+
+                         
+                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 divSosialLinks">
+                            <div style="text-align: center;">
+                                <h5 style="font-size: large;">Sosİal şəbəkələr</h5>
+                                <ul style="gap:30px;display: flex;align-items: center;justify-content: center;">
+                                 <i style="margin-right:5px;font-size:48px" class="fa-brands fa-instagram"></i>
+                                    <i style="margin-right: 5px;font-size: 43px;
+                                    padding-bottom: 1px;" class="fa-brands fa-facebook"></i>
+                                  <i style="margin-right:5px;font-size:48px" class="fa-brands fa-youtube"></i> 
+                                   <i style="margin-right:5px;font-size:41px;" class="fa-brands fa-tiktok"></i> 
+
+                                </ul>
+                            </div>
+
+                        </div>
+
+
+
+
+
+                      </div>
+                  </div>
+              </div>
+
+
+          </div>
+      </div>
+  </div>
+   <!-- footer-area-end -->
+   <style>
+       .footerLinks {
+        width: 100% !important;
+        font-size: medium !important
+    }
+      .divSosialLinks {
+          display: flex;
+          justify-content: center;
+      }
+  
+      .slide-wrapper .slide-two .slide-image:before {
+          bottom: 40%;
+          right: 45%;
+          background-color: var(--clr-theme-1);
+  
+      }
+  
+      .owl-carousel .owl-item {
+          position: initial;
+      }
+  
+      element.style {
+          width: 305.92px;
+          margin-right: 15px;
+      }
+  
+      .full-wrap .owl-carousel .owl-stage-outer .owl-item.active {
+          opacity: 1;
+      }
+  
+      .full-wrap .owl-carousel .owl-stage-outer .owl-item {
+          opacity: 0.4;
+      }
+  
+      .owl-carousel.owl-drag .owl-item {
+          -ms-touch-action: pan-y;
+          touch-action: pan-y;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+      }
+  
+      .owl-carousel .owl-item {
+          min-height: 1px;
+          float: left;
+          -webkit-touch-callout: none;
+      }
+  
+      .owl-carousel,
+      .owl-carousel .owl-item {
+          position: initial !important;
+      }
+  
+      .pop .fm-single-featured:after {
+          background-color: transparent !important;
+          background: none !important;
+  
+      }
+  
+      .pop .fm-single-featured i {
+          display: none !important;
+      }
+  
+      @media (max-width: 2300px) {
+  
+          .full-wrap .container-fluid,
+          .full-wrap .container-sm,
+          .full-wrap .container-md,
+          .full-wrap .container-lg,
+          .full-wrap .container-xl {
+              padding-left: 5% !important;
+              padding-right: 5% !important;
+          }
+      }
+  
+      #testimonial .cards .cardd {
+          margin-right: 3%;
+      }
+      .page-title .p-text{
+            display: flex;
+            justify-content: center;text-align:center;
+        }
+  </style>
+<style>
+    #lang_selector{
+        display: none;
+    }
+    </style>
+<style>
+    @media (min-width: 1199px) {
+        #ancaqmobile{
+            display: none;
+        }
+        .fm-header-sidebar-area.header-sidebar-visible {
+        display: none;
+    }}
+    @media (max-width: 650px) {
+    .fm-header-logo {
+        width: 75px !important;
+    }
+    .fm-header-logo-wrapper{
+    padding:8px 0 !important;
+
+    }}
+    </style>
+   <!-- JS here -->
+   <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+   <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+   <script src="{% static 'assets/js/meanmenu.js' %}"></script>
+   <script src="{% static 'assets/js/swiper-bundle.min.js' %}"></script>
+   <script src="{% static 'assets/js/slick.min.js' %}"></script>
+   <script src="{% static 'assets/js/magnific-popup.min.js' %}"></script>
+   <script src="{% static 'assets/js/parallax.min.js' %}"></script>
+   <script src="{% static 'assets/js/gsap.min.js' %}"></script>
+   <script src="{% static 'assets/js/ScrollTrigger.min.js' %}"></script>
+   <script src="{% static 'assets/js/ScrollToPlugin.min.js' %}"></script>
+
+   <script src="{% static 'assets/js/SplitText.min.js' %}"></script>
+   <script src="{% static 'assets/js/vanilla-tils.js' %}"></script>
+   <script src="{% static 'assets/js/knob.min.js' %}"></script>
+   <script>
+    var headerBars = document.querySelectorAll('.fm-header-bar-1');
+    var headerBars2 = document.querySelectorAll('.offcanvas-close');
+    
+
+    function handleClick2() {
+
+var sidebarElements = document.querySelectorAll('.fm-header-sidebar-area.fm-header-sidebar-left');
+
+
+sidebarElements.forEach(function (element) {
+element.classList.remove('header-sidebar-visible');
+});}
+
+function handleClick() {
+
+    var sidebarElements = document.querySelectorAll('.fm-header-sidebar-area.fm-header-sidebar-left');
+
+
+sidebarElements.forEach(function (element) {
+    element.classList.add('header-sidebar-visible');
+});}
+
+headerBars.forEach(function (headerBar) {
+    headerBar.addEventListener('click', handleClick);
+});
+headerBars2.forEach(function (headerBar) {
+    headerBar.addEventListener('click', handleClick2);
+});
+    </script>
+   <script src="{% static 'assets/js/ajax-form.js' %}"></script>
+   <script src="{% static 'assets/js/wow.min.js' %}"></script>
+   <script src="{% static 'assets/js/sidebar.js' %}"></script>
+   <script src="{% static 'assets/js/imagesloaded.pkgd.min.js' %}"></script>
+   <script src="{% static 'assets/js/isotope.pkgd.min.js' %}"></script>
+   <script src="{% static 'assets/js/fontawesome.min.js' %}"></script>
+   <script src="{% static 'assets/js/ui-range-slider.js' %}"></script>
+   <script src="{% static 'assets/js/main.js' %}"></script>
+   <script src="{% static 'templatestyles/js/scripts.js' %}"></script>
+   
+   <div style="text-align: center;display: flex;justify-content: center;align-items: center;background-color:#111;">
+        
+    <p  style="color: white;font-size: 12px;padding-top:20px;padding-bottom:20px"><a target="_blank" href="https://vrproduction.az">VR Media & Marketing</a> © 2023 Bütün hüquqlar qorunur</p>
+
+</div>
+</body>
+
+
+<!-- Mirrored from html.bdevs.net/faime-prev/blog.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Sep 2023 07:00:58 GMT -->
+</html>

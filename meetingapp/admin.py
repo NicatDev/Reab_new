@@ -1,5 +1,5 @@
 from django.contrib import admin
-from meetingapp.models import Meeting,Eager,Sportmen,Partners,About,Header,Message,Survey,Blog,Tag,Category
+from meetingapp.models import Meeting,Eager,Sportmen,Partners,About,Header,Message,Survey,Blog,Tag,Category,Head,AllHeader
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -21,4 +21,6 @@ admin.site.register(Survey)
 admin.site.register(Blog)
 admin.site.register(Tag)
 admin.site.register(Category)
+admin.site.register(Head)
+admin.site.register(AllHeader)
 

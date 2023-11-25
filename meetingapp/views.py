@@ -17,7 +17,7 @@ from django.contrib.auth.decorators import login_required
 import pytz
 from django.http import JsonResponse
 import calendar
-
+from django.db.models import Q,F,FloatField,Count
 
 def meetjoin(request,meet):
     mymeet = Meeting.objects.get(id=meet)
@@ -49,25 +49,7 @@ def gorus(request):
    
     return render(request,'gorus.html',context)
 
-@login_required
-def speaker(request):
 
-    
-    if Header.objects.all().exists():
-        header = Header.objects.first()
-    else:
-        header = {}
-    meetnumber = len(Meeting.objects.all())
-    eagernumber = len(Eager.objects.all())
-    sportmennumber = len(Sportmen.objects.all()) 
-    context = {'header':header,
-        'meetnumber':meetnumber,
-        'eagernumber':eagernumber,
-        'sportmennumber':sportmennumber,
-    
-        }
-   
-    return render(request,'speaker.html',context)
 
 def home(request):
     if Header.objects.all().exists():
@@ -404,3 +386,183 @@ def sendMail(request):
     )
     
     return JsonResponse({'message':True})
+
+
+def about(request):
+    allheader = AllHeader.objects.all()
+    if allheader.exists():
+        allheader = allheader.first()
+    if About.objects.all().exists():
+        about = About.objects.first()
+    else:
+        about = {}
+
+
+    context = {
+        
+        'about':about,
+        'allheader':allheader
+    }
+    if Head.objects.all().exists():
+        head = Head.objects.first()
+        context['head'] = head
+
+    return render(request,'about.html',context)
+
+from django.core.paginator import Paginator
+def embed(url):
+    try:
+        b = url.find('src="')
+        if b != -1:
+            e = url.find('"', b + 5)  
+            if e != -1:
+                src = url[b + 5:e]
+        return src
+    except:
+        return ''
+    
+def meet(request):
+    allheader = AllHeader.objects.all()
+    if allheader.exists():
+        allheader = allheader.first()
+    videos = Meeting.objects.all()
+    cat = request.GET.get('movzu')
+    if cat:
+        videos = Meeting.objects.filter(category=cat)
+    # movies = Movie.objects.all()
+    paginator = Paginator(videos,12)
+    page = request.GET.get("page", 1)
+    video_list = paginator.get_page(page)
+
+
+    fcount = Meeting.objects.all().count()
+    page_count = paginator.num_pages
+    count = [count for count in range(page_count)]
+
+  
+    context = {
+        'video_list':video_list,
+        'fcount':fcount,
+        'allheader':allheader,
+        'count':count
+    }
+    if Head.objects.all().exists():
+        head = Head.objects.first()
+        context['head'] = head
+    return render(request,'meet.html',context)
+   
+def spiker(request):
+    allheader = AllHeader.objects.all()
+    if allheader.exists():
+        allheader = allheader.first()
+    videos = Sportmen.objects.all()
+    cat = request.GET.get('movzu')
+    if cat:
+        videos = Sportmen.objects.filter(category=cat)
+    # movies = Movie.objects.all()
+    paginator = Paginator(videos,12)
+    page = request.GET.get("page", 1)
+    video_list = paginator.get_page(page)
+
+
+    fcount = Sportmen.objects.all().count()
+    page_count = paginator.num_pages
+    count = [count for count in range(page_count)]
+
+  
+    context = {
+        'video_list':video_list,
+        'fcount':fcount,
+        'allheader':allheader,
+        'count':count
+    }
+    if Head.objects.all().exists():
+        head = Head.objects.first()
+        context['head'] = head
+    return render(request,'spiker.html',context)
+
+def blog(request):
+    
+    blogs = Blog.objects.all().order_by('ordering')
+    if request.GET.get('blog'):
+        name = request.GET.get('blog')
+        blogs = blogs.filter(Q(name__icontains=name) | Q(content__icontains=name))
+    tag_name = request.GET.get('tag','')
+    if tag_name:
+        blogs = blogs.filter(tag__name = tag_name)
+        
+    paginator = Paginator(blogs, 4)
+    page = request.GET.get("page", 1)
+
+    start = int(page)-3
+    end = int(page)+3
+    if start<1:
+        start = 1
+        end = end+3
+   
+
+    blog_list = paginator.get_page(page)
+    if end > blog_list.number:
+        end = blog_list.number
+
+    
+    most_blogs = Blog.objects.all().order_by('views')[0:3]
+    tags = Tag.objects.annotate(blog_count = Count('blog'))
+    if len(most_blogs)>4:
+        most_blogs=most_blogs[0:4]
+    allheader = AllHeader.objects.all()
+    if allheader.exists():
+        allheader = allheader.first()
+    context = {
+        'blog_list':blog_list,
+        'tags':tags,
+        'most_blogs':most_blogs,
+        'start':start,
+        'end':end,
+        'iterator':range(start,end+1),
+        'allheader':allheader
+    }
+    if Head.objects.all().exists():
+        head = Head.objects.first()
+        context['head'] = head
+        
+    context['current_tag']=tag_name
+
+    if 1 in [x for x in range(start,end+1)]:
+        context['pagcheck']='1'
+    return render(request,'blog.html',context)
+
+
+def blogsingle(request,slug=None):
+
+    blog = get_object_or_404(Blog,slug=slug)
+    next_post = Blog.objects.filter(date__gt=blog.date).order_by('date').first()
+    pre_post = Blog.objects.filter(date__lt=blog.date).order_by('-date').first()
+    if not next_post:
+        next_post = Blog.objects.filter(date__lt=blog.date).order_by('-date').first()
+    if not pre_post:
+        pre_post = Blog.objects.filter(date__gt=blog.date).order_by('date').first()
+    
+    tags = blog.tag.all()
+    related_blogs = Blog.objects.filter(tag__in=tags).exclude(slug=slug).distinct()[:3]  # Adjust the number of related blogs as needed
+    if len(related_blogs)<2:
+        related_blogs = (related_blogs | Blog.objects.all()).distinct()[:3]
+    most_blogs = Blog.objects.all().order_by('views')[0:3]
+    allheader = AllHeader.objects.all()
+    if allheader.exists():
+        allheader = allheader.first()
+    context = {
+        'blog':blog,
+        'tags':tags,
+        'alltags':Tag.objects.all(),
+        'next':next_post,
+        'pre':pre_post,
+        'related_blogs':related_blogs,
+        'most_blogs':most_blogs,
+        'allheader':allheader
+        
+    }
+    if Head.objects.all().exists():
+        head = Head.objects.first()
+        context['head'] = head
+    return render(request,'blog-details.html',context)

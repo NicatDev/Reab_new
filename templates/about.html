@@ -1,0 +1,1176 @@
+{% load static %}
+<html lang="en">
+    {% load static %}
+    {% load i18n %}
+    {% get_current_language as LANGUAGE_CODE %}
+    {% get_available_languages as LANGUAGES %}
+<!-- Mirrored from uitheme.net/vstream/season-full.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Sep 2023 07:57:15 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'templatestyles/css/themify-icons.css' %}">
+    <!-- Favicon icon -->
+    <title>{{head.title}}</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="{{head.image.url}}">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="{% static 'templatestyles/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/preloader.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/meanmenu.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/swiper-bundle.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/ui-range-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/flaticon_faime.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/default.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'sas.scss' %}">
+</head>
+
+<body class="full-wrap">
+   <!-- cursor animation-->
+   <div class="preloader"></div>
+   <div class="mouseCursor cursor-outer "></div>
+   <div class="mouseCursor cursor-inner"><span>Drag</span></div>
+
+
+   <!-- Go Top Button -->
+   <button id="scroll_top" class="scroll-top">
+      <i class="fa-solid fa-arrow-up"></i>
+   </button>
+ 
+
+    <div class="main-wrapper">
+      <!-- header wrapper -->
+      <header id="header-sticky" class="fm-header-area header-border transparent-header bg-common-black">
+        <div class="container">
+            <div class="row align-items-center justify-content-lg-between pr-5 pl-5">
+                <div class="header-wrapper">
+                    <div class="fm-header-logo-wrapper">
+                        <a href="{% url 'home' %}" class="fm-header-logo">
+                            <img style="height: 65px !important;" src="{{head.logoheader.url}}" alt="img not found">
+                        </a>
+                        
+                        <div class="dinozavr"
+                            style="display:flex;align-items:center;justify-content:center;gap:2rem;">
+                            <div id="lang_selector" class="language-dropdown">
+                                <label for="toggle" class="lang-flag lang-en" title="Click to select the language">
+                                    <span class="flag"></span>
+                                </label>
+                                <ul class="lang-list">
+                                    <li class="lang lang-en selected" title="AZ">
+                                        <span class="flag"></span>
+                                    </li>
+                                    <li class="lang lang-pt" title="RU">
+                                        <span class="flag"></span>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                            <a href="#0" class="fm-header-bar-1" id="ancaqmobile">
+                                <span class="fm-header-bar-line fm-header-bar-line-1"></span>
+                                <span class="fm-header-bar-line fm-header-bar-line-2"></span>
+                                <span class="fm-header-bar-line fm-header-bar-line-3"></span>
+                            </a>
+                            <!-- <img src=" {% static 'russia.png' %}" alt="">
+                   
+                    {% static 'azerbaijan.png' %} -->
+
+
+                        </div>
+                        <style>
+                            .shadow-1,
+                            .language-dropdown ul.lang-list,
+                            .language-dropdown label {
+                                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+                            }
+
+                            .shadow-2,
+                            .language-dropdown.open label {
+                                box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+                            }
+
+                            .shadow-3 {
+                                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+                            }
+
+                            .shadow-4 {
+                                box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+                            }
+
+                            .shadow-5 {
+                                box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+                            }
+
+                            .language-dropdown {
+                                display: inline-block;
+                                overflow: hidden;
+                                height: 40px;
+
+                            }
+
+                            .language-dropdown .lang-en {
+                                border-left: 4px solid rgb(24, 24, 24);
+                            }
+
+                            .language-dropdown .lang-en .flag {
+                                background-image: url("{% static 'azerbaijan.png' %}");
+                            }
+
+                            .language-dropdown .lang-pt {
+                                border-left: 4px solid rgb(24, 24, 24);
+                            }
+
+                            .language-dropdown .lang-pt .flag {
+                                background-image: url("{% static 'russia.png' %}");
+                            }
+
+                            .language-dropdown .lang-es {
+                                border-left: 4px solid rgb(24, 24, 24);
+                            }
+
+                            .language-dropdown .lang-es .flag {
+                                background-image: url("http://www.imaginarium.pt/responsive/2015/images/iconsFicha/banderaES.png");
+                            }
+
+                            .language-dropdown label,
+                            .language-dropdown ul li {
+                                display: block;
+                                width: 50px;
+                                height: 38px;
+                                background: rgb(25, 25, 25);
+                                padding: 0px 6px;
+                                cursor: pointer;
+                            }
+
+                            .language-dropdown ul.lang-list {
+                                position: relative;
+                                visibility: hidden;
+                                opacity: 0;
+                                z-index: 1;
+                            }
+
+                            .language-dropdown ul.lang-list li {
+                                border-bottom: 1px solid rgb(24, 24, 24);
+                            }
+
+                            .language-dropdown ul.lang-list li:last-child {
+                                border-bottom-right-radius: 2px;
+                                border-bottom-left-radius: 2px;
+                            }
+
+                            .language-dropdown ul.lang-list li.selected {
+                                display: none;
+                            }
+
+                            .language-dropdown label {
+                                position: relative;
+                                border-bottom: 1px solid rgb(24, 24, 24);
+                                border-radius: 3px;
+                                z-index: 2;
+                            }
+
+                            .language-dropdown .lang-flag .flag,
+                            .language-dropdown .lang-list .lang .flag {
+                                float: left;
+                                width: 100%;
+                                height: 100%;
+                                cursor: pointer;
+                                background-size: 35px 35px;
+                                background-repeat: no-repeat;
+                                background-position: center;
+                            }
+
+                            .language-dropdown.open ul.lang-list {
+                                visibility: visible;
+                                opacity: 1;
+                            }
+
+                            .language-dropdown.open label {
+                                border-bottom-left-radius: 0px;
+                                border-bottom-right-radius: 0px;
+                            }
+
+                            .animate,
+                            .lang-flag,
+                            .lang-list {
+                                cursor: pointer;
+                                -webkit-transition: all 0.5s;
+                                -moz-transition: all 0.5s;
+                                -ms-transition: all 0.5s;
+                                -ms-transition: all 0.5s;
+                                transition: all 0.5s;
+                                backface-visibility: hidden;
+                                -webkit-backface-visibility: hidden;
+                                -moz-backface-visibility: hidden;
+                                -ms-backface-visibility: hidden;
+                            }
+                        </style>
+                        <script>
+
+                            $(document).ready(function () {
+                                $(".lang-flag").click(function () {
+                                    $(".language-dropdown").toggleClass("open");
+                                    $(".language-dropdown").css(
+                                        { 'overflow': 'visible' }
+                                    )
+                                });
+
+                                $("ul.lang-list li").click(function () {
+                                    $("ul.lang-list li").removeClass("selected");
+                                    $(this).addClass("selected");
+                                    if ($(this).hasClass('lang-en')) {
+                                        $(".language-dropdown").find(".lang-flag").addClass("lang-en").removeClass("lang-pt");
+                                        $("#lang_selected").html("<p>AZ</p>")
+                                        window.location.href = '/'
+                                    } else if ($(this).hasClass('lang-pt')) {
+                                        $(".language-dropdown").find(".lang-flag").addClass("lang-pt").removeClass("lang-en");
+                                        $("#lang_selected").html("<p>RU</p>")
+                                        window.location.href = '/ru'
+                                    }
+                                    $(".language-dropdown").removeClass("open");
+                                });
+                            })
+                            $(document).click(function (e) {
+                                if (!$(e.target).closest(".language-dropdown").length) {
+                                    $(".language-dropdown").removeClass("open");
+                                }
+                            });
+                        </script>
+                        <script>
+                            var currentURL = "{{ request.build_absolute_uri }}";
+                            if (currentURL.endsWith('ru/')) {
+                                $("ul.lang-list li").removeClass("selected");
+
+
+                                $(".language-dropdown").find(".lang-flag").addClass("lang-pt").removeClass("lang-en");
+                                $("#lang_selected").html("<p>RU</p>")
+                                $("ul.lang-list li.lang-pt").remove();
+                            }
+                        </script>
+
+                    </div>
+
+                    <div class="header-menu-spc d-none d-xl-block">
+                        <div class="fm-header-nav">
+
+                            <nav id="mobile-menu" style="display: block;">
+                                <ul>
+                                    <li class="has-dropdown">
+                                        <a href="{% url 'home' %}">Əsas səhifə</a>
+
+                                    </li>
+                                    <li class="has-dropdown"><a href="{% url 'about' %}">Haqqında</a>
+                                    </li>
+
+                                    <li class="has-dropdown"><a href="#">Video</a>
+                                        <!-- <ul class="submenu">
+                                            {% for cat in vidcategories %}
+                                            <li><a href="#?movzu={{cat.id}}">{{cat.name}}</a></li>
+                                            {% endfor %}
+                                        </ul> -->
+                                    </li>
+
+                                    <li class="has-dropdown"><a href="#">Foto</a>
+                                        <!-- <ul class="submenu">
+                                            {% for cat in fotcategories %}
+                                            <li><a href="#?movzu={{cat.id}}">{{cat.name}}</a></li>
+                                            {% endfor %}
+                                        </ul> -->
+                                    </li>
+                                    <li class="has-dropdown"><a href="#?m=1">Məqalələr</a>
+
+                                    </li>
+                                    <li class="has-dropdown"><a href="#">Xatirələr</a>
+
+                                    </li>
+                                    <li class="has-dropdown has-mega-menu">
+                                        <a href="#">Xəbərlər</a>
+
+                                    </li>
+
+                                    
+
+
+                                    
+                                </ul>
+                            </nav>
+
+                        </div>
+                    </div>
+                    <!-- sd -->
+                    <div class="fm-header-right d-none d-xl-block mr-10" style="text-align: center;letter-spacing: 1px">
+                        <a href="http://75.119.147.165:199/" class="fill-btn"
+                            style="font-size:15px;line-height:20px;border-radius: 3px;">Reabilitasiya <br> Həyatdır
+                            <span>
+                                <i class="fa-regular fa-arrow-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <!-- header wrapper -->
+
+   <!-- sidebar area start -->
+   <div class="fm-header-sidebar-area fm-header-sidebar-left">
+    <div class="fm-header-sidebar-wrapper">
+        <div class="fm-header-sidebar-action mb-65">
+            <div class="col-sm-3 text-left" style=""><img style="
+               height: 80px;" src="{{head.logoheader.url}}" alt=""></div>
+            <div class="offcanvas-close">
+               <a class="offcanvas-btn" href="#0">
+                  <i class="fa-thin fa-times"></i>
+               </a>
+            </div>
+         </div>
+       <div class="d-none d-sm-block">
+         
+          
+       </div>
+       <div class="mobile-menu"></div>
+       <div class="fm-header-right d-none d-xl-block mr-10" style="text-align: center;display: block !important;letter-spacing: 1px">
+        <a href="http://75.119.147.165:199/" class="fill-btn"
+            style="font-size:15px;line-height:20px;border-radius: 3px;">Reabilitasiya <br> Həyatdır
+            <span>
+                <i class="fa-regular fa-arrow-right"></i>
+            </span>
+        </a>
+    </div>
+    </div>
+ </div>
+ <div class="overlay"></div>
+ <!-- sidebar area end -->
+        <!-- banenr wrapper -->
+     
+        <!-- banenr wrapper -->
+
+        <!-- lahiye haqqinda -->
+        <div class="fm-breadcrumb-area" data-background="{{allheader.image.url}}">
+            <div class="container">
+               <div class="row justify-content-center">
+                  <div class="col-12">
+                     <div class="page-title-wrapper">
+                        <h1 class="page-title p-text">Haqqında</h1>
+                     </div>
+                     <div class="breadcrumb-menu">
+                        <nav aria-label="Breadcrumbs" class="breadcrumb-trail breadcrumbs">
+                           <ul class="trail-items">
+                            
+                           </ul>
+                        </nav>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+            <!-- fm-about-area-start -->
+    <div style="margin-top:3%;" class="fm-about-area section-spacing fix">
+        <div class="container">
+           <div class="row align-items-center g-5 gy-50">
+              <div class="col-xl-6 col-lg-6">
+                 <div class="fm-director-about-img">
+                    <img src="{{about.image.url}}" alt="img not found">
+                    <div class="fm-director-years">
+             
+                       <span class="fm-director-years-content">
+                          <span class="fm-director-plus"></span>
+
+                       </span>
+                    </div>
+                 </div>
+              </div>
+              <div class="col-xl-6 col-lg-6">
+                 <div class="fm-about-content-section">
+                    <span class="section-subtitle title-anim" >{{about.minititle}}</span>
+                    <h2 class="section-main-title text-white mb-25 title-anim" style="color:rgb(19, 19, 19) !important">{{about.title}}
+                    </h2>
+                    <p class="mb-20" style="color:rgb(19, 19, 19) !important">{{about.content}}</p>
+
+                    <p style="color:rgb(19, 19, 19) !important">{{about.content2}}
+                      
+                    </p>
+
+                    <!-- <div class="fm-director-about-name mt-55">
+                       <a href="team-details.html" class="director-about-nam">David Anderson</a>
+                    </div> -->
+                    
+                 </div>
+              
+              </div>
+           </div>
+        
+           
+           <p style="margin-top:3%;    color: var(--clr-body-text4);text-align:start;color: #181818;">{{about.contentbig}}
+         </p>   <div style="display: flex;align-items: center;justify-content: center;padding-top:3%;padding-bottom:1%;">
+          <img src="{% static 'team.jpeg' %}" style="width: 100%;height: 580px;" alt="">
+        </div>
+        </div>
+     </div>
+     <!-- fm-about-area-end -->
+     <style>
+        .footerLinks {
+        width: 100% !important;
+        font-size: medium !important
+        }
+        .divSosialLinks {
+            display: flex;
+            justify-content: center;
+        }
+    
+        .slide-wrapper .slide-two .slide-image:before {
+            bottom: 40%;
+            right: 45%;
+            background-color: var(--clr-theme-1);
+    
+        }
+    
+        .owl-carousel .owl-item {
+            position: initial;
+        }
+    
+        element.style {
+            width: 305.92px;
+            margin-right: 15px;
+        }
+    
+        .full-wrap .owl-carousel .owl-stage-outer .owl-item.active {
+            opacity: 1;
+        }
+    
+        .full-wrap .owl-carousel .owl-stage-outer .owl-item {
+            opacity: 0.4;
+        }
+    
+        .owl-carousel.owl-drag .owl-item {
+            -ms-touch-action: pan-y;
+            touch-action: pan-y;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    
+        .owl-carousel .owl-item {
+            min-height: 1px;
+            float: left;
+            -webkit-touch-callout: none;
+        }
+    
+        .owl-carousel,
+        .owl-carousel .owl-item {
+            position: initial !important;
+        }
+    
+        .pop .fm-single-featured:after {
+            background-color: transparent !important;
+            background: none !important;
+    
+        }
+    
+        .pop .fm-single-featured i {
+            display: none !important;
+        }
+        @media (max-width: 550px) {
+        .fm-director-years-text{
+            font-size:50px !important;
+        }}
+        @media (max-width: 2300px) {
+    
+            .full-wrap .container-fluid,
+            .full-wrap .container-sm,
+            .full-wrap .container-md,
+            .full-wrap .container-lg,
+            .full-wrap .container-xl {
+                padding-left: 5% !important;
+                padding-right: 5% !important;
+            }
+        }
+    
+        #testimonial .cards .cardd {
+            margin-right: 3%;
+        }
+    </style>
+
+    <style>
+        @media screen and  (max-width: 1830px) and (min-width:1600px) {
+            .myhovdiv22 p{font-size:16px !important}
+        }
+        @media screen and  (max-width:1500px) {
+            .myhovdiv22 p{font-size:16px !important}
+        }
+        @media screen and  (max-width: 1300px) and (min-width:1000px) {
+          .myhovdiv22 p{font-size:16px}
+          .myhovdiv22 a{font-size:22px}
+          .myhovdiv22{padding-left:4% !important;padding-right:4% !important}
+          .myhovdiv22 img{padding-left:5px !important;padding-right:5px !important;}
+          #hvprnt2:hover .myhovdiv22 i {
+            margin-top: 8% !important;
+        }
+        #hvprnt1:hover .myhovdiv22 i {
+            margin-top: 8% !important;
+        }
+        #hvprnt3:hover .myhovdiv22 i {
+            margin-top: 8% !important;
+        }
+        }
+        @media screen and  (max-width: 1000px){
+            #kjjj{gap: 10px;
+                padding: 10px 20%;}
+            #hvprnt1{border-radius:15px !important;}
+            #hvprnt2{border-radius:15px !important;}
+            #hvprnt3{border-radius:15px !important;}
+        }
+        @media screen and  (max-width: 800px) {
+            .myhovdiv22 p{font-size:15px}
+          
+            .myhovdiv22{padding-left:4% !important;padding-right:4% !important}
+            .myhovdiv22 img{padding-left:5px !important;padding-right:5px !important;}
+            #hvprnt1:hover .myhovdiv22 a {
+                padding-left: 15px !important; 
+                padding-right: 15px !important;
+                margin-top: 10%;
+            }
+            #hvprnt2:hover .myhovdiv22 a {
+                padding-left: 15px !important; 
+                padding-right: 15px !important;
+                margin-top: 10%;
+            }
+            #hvprnt3:hover .myhovdiv22 a {
+                padding-left: 15px !important; 
+                padding-right: 15px !important;
+                margin-top: 10%;
+            }
+            
+        }
+        @media screen and  (max-width: 600px) {
+            #hvprnt1:hover .myhovdiv22 a {
+                padding-left: 5px !important; 
+                padding-right: 5px !important;
+                margin-top: 10%;
+                font-size: 20px !important;
+            }
+            #hvprnt2:hover .myhovdiv22 a {
+                padding-left: 5px !important; 
+                padding-right: 5px !important;
+                margin-top: 10%;
+                font-size: 20px !important;
+            }
+            #hvprnt3:hover .myhovdiv22 a {
+                padding-left: 5px !important; 
+                padding-right: 5px !important;
+                margin-top: 10%;
+                font-size: 20px !important;
+            }
+            #hvprnt1:hover .myhovdiv22 i {
+                font-size:20px !important
+            }
+            #hvprnt2:hover .myhovdiv22 i {
+                font-size:20px !important
+            }
+            #hvprnt3:hover .myhovdiv22 i {
+                font-size:20px !important
+            }
+        }
+        @media screen and (max-width: 1000px){
+            #kjjj {
+                gap: 10px;
+                padding: 10px 10%;
+}}
+        @media (max-width:992px){
+          
+        }
+        .btn_reab{
+           display: none !important;
+          }
+    </style>
+<!-- meqale area -->
+
+
+<div class="footer-wrapper">
+    <div class="container">
+        <div class="row" style="align-items: center;">
+            <div class="col-xl-3 text-left" style="display: flex;justify-content: center;margin-bottom: 10px;" ><img style="
+                height: 105px; " src="{{head.logoheader.url}}" alt=""></div>
+            <div class="col-xl-9 text-left">
+                <h4 class="mb-4">"Görkəmli şəxsiyyətlər xalqın zəkasını, elmini, mədəniyyətini, mənəviyyatını dünyaya nümayiş etdirirlər." Heydər Əliyev</h4>
+            </div>
+
+
+            <div style="margin-bottom:3%" class="col-sm-12">
+                <div class="middle-footer">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 divSosialLinks">
+                            <div style="text-align: center;">
+                                <h5 style="font-size: large;">Sosİal şəbəkələr</h5>
+                                <ul style="gap:30px;display: flex;align-items: center;justify-content: center;">
+                                 <i style="margin-right:5px;font-size:48px" class="fa-brands fa-instagram"></i>
+                                    <i style="margin-right: 5px;font-size: 43px;
+                                    padding-bottom: 1px;" class="fa-brands fa-facebook"></i>
+                                  <i style="margin-right:5px;font-size:48px" class="fa-brands fa-youtube"></i> 
+                                   <i style="margin-right:5px;font-size:41px;" class="fa-brands fa-tiktok"></i> 
+
+                                </ul>
+                            </div>
+
+                        </div>
+
+
+               
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+    </div>
+
+    
+
+
+
+    <script src="{% static 'templatestyles/js/plugin.js' %}"></script>
+    <script src="{% static 'templatestyles/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'templatestyles/js/scripts.js' %}"></script>
+    
+    <div style="text-align: center;display: flex;justify-content: center;align-items: center;background-color:#111;">
+        
+        <p  style="color: white;font-size: 12px;padding-top:20px;padding-bottom:20px"><a target="_blank" href="https://vrproduction.az">VR Media & Marketing</a> © 2023 Bütün hüquqlar qorunur</p>
+
+</div>
+</body>
+
+<style>
+
+    .nav-item{
+        color:black;
+    }
+
+    .nav-link{
+ 
+        font-weight: 600 !important;
+        font-family:Arial, Helvetica, sans-serif
+    }
+    
+
+
+   
+</style>
+<style>
+    .navbar-collapse {
+        flex-basis: 0;}
+
+    .myphoto {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-family: sans-serif;
+        margin-top:10px !important;
+        overflow-y: auto;
+      }
+      
+      .grid-container {
+        columns: 3 250px;
+        column-gap: 1.5rem;
+        width: 90%;
+        margin: 0 auto;
+      }
+      
+      .grid-container div {
+        width: 150px;
+        margin: 0 1.5rem 1rem 0;
+        display: inline-block;
+        width: 100%;
+        padding: 5px;
+        border-radius: 5px;
+        transition: all 0.25s ease-in-out;
+      }
+      @media(min-width:992px){
+        .nav-item:hover{
+            background-color: #D2691E;
+        }
+    }
+      .grid-container div:hover img {
+        filter: grayscale(0%);
+      }
+
+      
+      .grid-container div:hover {
+        border-color: coral;
+      }
+      
+      .grid-container div img {
+        width: 100%;
+        filter: grayscale(0);
+        border-radius: 5px;
+        transition: all 0.25s ease-in-out;
+      }
+      .fm-featured-thumb img {
+        width: 100%;
+        filter: grayscale(0) !important;
+        position: relative !important;
+    }
+      .grid-container div p {
+        margin: 5px 0;
+        padding: 0;
+        text-align: center;
+        font-style: italic;
+      }
+      figure{
+        position: relative;
+        z-index: 0;
+      }
+      .myphoto{
+        z-index: 0;
+      }
+      .blog-rotate-btn span {
+
+        font-size: 44px;
+    }
+    @media (max-width: 992px){
+    .navbar-collapse {
+        flex-basis: 100% !important;
+    }
+    #reab{
+        display: block !important;
+    }
+   
+}
+.col-xs-6 a:hover{
+    color:white !important;
+}
+.col-xs-6 li:hover{
+    color:white !important;
+}
+.col-xs-6 p:hover{
+    color:white !important;
+}
+      .owl-drag{
+        overflow-x:hidden !important;
+        overflow-y:hidden !important;
+      }
+      @media (max-width: 576px){
+      .slide-wrapper .slide-slider-full, .category-slider .slide-wrapper .slide-slider {
+          width: 100% !important; 
+      }
+</style>
+<!-- border-bottom title -->
+<!-- border-bottom:1px solid rgb(255, 255, 255); -->
+<style>
+
+    .owl-nav{
+        display: none;
+    }
+    a:hover{
+        color:#D2691E
+    }
+    .nav-item{
+        border-radius: 5px;
+    }
+    .aboutimagetitle-div{
+        margin-left:auto;
+        margin-right:auto;
+        margin-top:4%;
+        width: 90%;
+    }
+
+    .aboutimagetitle-div h3{
+        font-size: 40px;
+    }
+
+    .videotitle-div{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-left:auto;
+        margin-right:auto;
+        width: 90%;
+        margin-top:3%;
+        color:black;
+        border-bottom:1px solid black;
+    }
+    
+    .videotitle-div a{
+        color:black;
+    }
+    @media (max-width:770px) {
+        #elaqe{
+            margin-top:1em;
+        }
+    }
+    .aboutimage-div{
+        margin-top:1%;
+        display: flex;
+        text-decoration: none;
+       
+        background-color: rgba(23, 54, 79, 1);
+        padding-left:3%;
+    }
+
+    .aboutimagetext-div{
+        padding-left:3%;
+        padding-right:3%;
+        padding-top: 5%;
+    }
+
+    .aboutimagetext-div h2{
+        color:white;
+        font-size: 96px;
+        padding-bottom: 2%;
+    }
+
+    .aboutimagetext-div{
+        font-size: 32px;
+    }
+
+    .header-wrapper .search-div:after {
+        line-height: -2;
+        top: 9px;
+    }
+    .myhovdiv22{
+        display: flex;
+        flex-direction: column;
+        transform: translateY(0%);
+    }
+
+
+    
+    #hvprnt1:hover .myhovdiv22{
+        transform: translateY(-47%);
+        transition: transform 0.5s ease-in;
+      }
+    #hvprnt1:hover .myhovdiv22 a{
+        padding-left:25px;
+        padding-right: 25px;
+        margin-top:10%;
+    }
+    #hvprnt1:hover .myhovdiv22 i{
+
+        margin-top:10%;
+    }
+    #hvprnt1:not(:hover) .myhovdiv22 img{
+        opacity: 0 !important;
+        transition: opacity 1s ease;
+    }
+    #hvprnt1:hover .myimage2{
+        opacity: 1 !important;
+        transition: opacity 2s ease;
+    }
+    #hvprnt1:hover p{
+        opacity: 0;
+        transition: opacity 0.5s ease-in;
+    }
+    #hvprnt1:not(:hover) .myhovdiv22{
+        transition: transform 0.5s ease-in;
+    }
+
+
+    #hvprnt2:hover .myhovdiv22{
+        transform: translateY(-47%);
+        transition: transform 0.5s ease-in;
+      }
+    #hvprnt2:hover .myhovdiv22 a{
+        padding-left:25px;
+        padding-right: 25px;
+        margin-top:10%;
+    }
+    #hvprnt2:hover .myhovdiv22 i{
+
+        margin-top:10%;
+    }
+    #hvprnt2:not(:hover) .myhovdiv22 img{
+        opacity: 0 !important;
+        transition: opacity 1s ease;
+    }
+    #hvprnt2:hover .myimage2{
+        opacity: 1 !important;
+        transition: opacity 2s ease;
+    }
+    #hvprnt2:hover p{
+        opacity: 0;
+        transition: opacity 0.5s ease-in;
+    }
+    #hvprnt2:not(:hover) .myhovdiv22{
+        transition: transform 0.5s ease-in;
+    }
+
+
+    #hvprnt3:hover .myhovdiv22{
+        transform: translateY(-47%);
+        transition: transform 0.5s ease-in;
+      }
+    #hvprnt3:hover .myhovdiv22 a{
+        padding-left:25px;
+        padding-right: 25px;
+        margin-top:10%;
+    }
+    #hvprnt3:hover .myhovdiv22 i{
+
+        margin-top:10%;
+    }
+    #hvprnt3:not(:hover) .myhovdiv22 img{
+        opacity: 0 !important;
+        transition: opacity 1s ease;
+    }
+    #hvprnt3:hover .myimage2{
+        opacity: 1 !important;
+        transition: opacity 2s ease;
+    }
+    #hvprnt3:hover p{
+        opacity: 0;
+        transition: opacity 0.5s ease-in;
+    }
+    #hvprnt3:not(:hover) .myhovdiv22{
+        transition: transform 0.5s ease-in;
+    }
+
+
+    #hvprnt1{overflow: hidden;}
+    #hvprnt2{overflow: hidden;}
+    #hvprnt3{overflow: hidden;}
+
+    .navbar-toggler-icon:after{
+        background-color: transparent !important;
+
+    }
+    .navbar-toggler-icon:before{
+        background-color: transparent !important;
+    }
+    .navbar-toggler-icon{
+        background-color: transparent !important;
+        color:white !important;
+        filter: brightness(13.5);
+    }
+    .transparent-header{
+        position: relative;
+    }
+    .banner-wrapper{
+        margin-top:10px;
+    }
+</style>
+<style>
+ 
+    .slide-wrapper .slide-two .slide-image:before {  
+        bottom: 40%;
+        right: 45%;
+        background-color: var(--clr-theme-1);
+        
+    }
+    .owl-carousel .owl-item {position:initial;}
+
+    element.style {
+        width: 305.92px;
+        margin-right: 15px;
+    }
+    .full-wrap .owl-carousel .owl-stage-outer .owl-item.active {
+        opacity: 1;
+    }
+    .full-wrap .owl-carousel .owl-stage-outer .owl-item {
+        opacity: 0.4;
+    }
+    .owl-carousel.owl-drag .owl-item {
+        -ms-touch-action: pan-y;
+        touch-action: pan-y;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+ 
+    .owl-carousel .owl-item {
+        min-height: 1px;
+        float: left;
+        -webkit-touch-callout: none;
+    }
+   
+    .owl-carousel, .owl-carousel .owl-item {
+position: initial !important;
+    }
+    
+</style>
+
+
+<style>
+    .mean-expand{
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+</style>
+
+
+<style>
+    .fm-director-years {
+        display: flex;
+        align-items: baseline;
+ 
+        position: absolute;
+        left: 35px;
+        bottom: -7px;
+    }
+    @media (max-width: 420px) {
+        .fm-director-years-text{
+
+            font-size:28px;
+        }
+        .fm-director-years {
+      
+            left: 15px;
+ 
+        }
+    }
+
+
+
+    </style>
+<style>
+    #lang_selector{
+        display: none;
+    }
+    </style>
+    <style>
+        @media (max-width: 490px) {
+        #kkk222{
+height: 300px !important;
+        }}
+        @media (min-width:490px) and (max-width: 950px) {
+        #kkk222{
+height: 350px !important;
+        }}
+        @media (max-width: 650px) {
+    .fm-header-logo {
+        width: 75px !important;
+    }
+    .fm-header-logo-wrapper{
+    padding:8px 0 !important;
+
+    }}
+    @media (min-width: 1199px) {
+        #ancaqmobile{
+            display: none;
+        }
+        .fm-header-sidebar-area.header-sidebar-visible {
+        display: none;
+    }}
+    </style>
+    <style>
+        .page-title .p-text{
+            display: flex;
+            justify-content: center;text-align:center;
+        }
+        </style>
+<script src="{% static 'templatestyles/js/plugin.js' %}"></script>
+<script src="{% static 'templatestyles/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'templatestyles/js/scripts.js' %}"></script>
+<script src="{% static 'templatestyles/js/video-player.js' %}"></script>
+   <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+   <script src="{% static 'assets/js/meanmenu.js' %}"></script>
+   <script src="{% static 'assets/js/swiper-bundle.min.js' %}"></script>
+   <script src="{% static 'assets/js/slick.min.js' %}"></script>
+   <script src="{% static 'assets/js/magnific-popup.min.js' %}"></script>
+   <script src="{% static 'assets/js/parallax.min.js' %}"></script>
+   <script src="{% static 'assets/js/gsap.min.js' %}"></script>
+   <script src="{% static 'assets/js/ScrollTrigger.min.js' %}"></script>
+   <script src="{% static 'assets/js/ScrollToPlugin.min.js' %}"></script>
+   <script src="{% static 'assets/js/SplitText.min.js' %}"></script>
+   <script src="{% static 'assets/js/vanilla-tils.js' %}"></script>
+   <script src="{% static 'assets/js/knob.min.js' %}"></script>
+   <script>
+    var headerBars = document.querySelectorAll('.fm-header-bar-1');
+    var headerBars2 = document.querySelectorAll('.offcanvas-close');
+    
+
+    function handleClick2() {
+
+var sidebarElements = document.querySelectorAll('.fm-header-sidebar-area.fm-header-sidebar-left');
+
+
+sidebarElements.forEach(function (element) {
+element.classList.remove('header-sidebar-visible');
+});}
+
+function handleClick() {
+
+    var sidebarElements = document.querySelectorAll('.fm-header-sidebar-area.fm-header-sidebar-left');
+
+
+sidebarElements.forEach(function (element) {
+    element.classList.add('header-sidebar-visible');
+});}
+
+headerBars.forEach(function (headerBar) {
+    headerBar.addEventListener('click', handleClick);
+});
+headerBars2.forEach(function (headerBar) {
+    headerBar.addEventListener('click', handleClick2);
+});
+    </script>
+   <script src="{% static 'assets/js/ajax-form.js' %}"></script>
+   <script src="{% static 'assets/js/wow.min.js' %}"></script>
+   <script src="{% static 'assets/js/sidebar.js' %}"></script>
+   <script src="{% static 'assets/js/imagesloaded.pkgd.min.js' %}"></script>
+   <script src="{% static 'assets/js/isotope.pkgd.min.js' %}"></script>
+   <script src="{% static 'assets/js/fontawesome.min.js' %}"></script>
+   <script src="{% static 'assets/js/ui-range-slider.js' %}"></script>
+   <script src="{% static 'assets/js/main.js' %}"></script>
+    <script>
+     
+
+        popup = {
+            init: function(){
+              $('figure').click(function(){
+                popup.open($(this));
+              });
+              
+              $(document).on('click', '.popup img', function(){
+                return false;
+              }).on('click', '.popup', function(){
+                popup.close();
+              })
+              
+            },
+            open: function($figure) {
+               
+
+           
+          
+              $('.myphoto').addClass('pop');
+              $popup = $('<div class="popup" />').appendTo($('body'));
+              $fig = $figure.clone().appendTo($('.popup'));
+              $bg = $('<div class="bg" />').appendTo($('.popup'));
+              $close = $('<div class="close"><svg><use xlink:href="#close"></use></svg></div>').appendTo($fig);
+              $shadow = $('<div class="shadow" />').appendTo($fig);
+              src = $('img', $fig).attr('src');
+              $shadow.css({backgroundImage: 'url(' + src + ')'});
+              $bg.css({backgroundImage: 'url(' + src + ')'});
+              setTimeout(function(){
+                $('.popup').addClass('pop');
+              }, 10);
+            },
+            close: function(){
+              $('.myphoto, .popup').removeClass('pop');
+              setTimeout(function(){
+                $('.popup').remove()
+              }, 100);
+            }
+          }
+          
+          popup.init()
+          
+    </script>
+
+</html>
