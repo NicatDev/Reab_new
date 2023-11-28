@@ -3,8 +3,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Font awesome CDN start -->
-    <link rel="stylesheet" href="{% static 'myprofilepage/css/all.min.css' %}" crossorigin="anonymous" referrerpolicy="no-referrer">
+     <!-- Custom Stylesheet -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <script src="custom.js"></script>
+     <link rel="stylesheet" href="{% static 'templatestyles/css/style.css' %}">
+     <link rel="stylesheet" href="{% static 'assets/css/preloader.css' %}">
+     <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+     <link rel="stylesheet" href="{% static 'assets/css/meanmenu.css' %}">
+     <link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %}">
+     <link rel="stylesheet" href="{% static 'assets/css/swiper-bundle.css' %}">
+     <link rel="stylesheet" href="{% static 'assets/css/slick.css' %}">
+     <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+     <link rel="stylesheet" href="{% static 'assets/css/nice-select.css' %}">
+     <link rel="stylesheet" href="{% static 'assets/css/ui-range-slider.css' %}">
+     <link rel="stylesheet" href="{% static 'assets/css/flaticon_faime.css' %}">
+     <link rel="stylesheet" href="{% static 'assets/css/all.min.css' %}">
+    
+     <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+     <link rel="stylesheet" href="{% static 'sas.scss' %}">
+    
     <!-- Font awesome CDN end -->
     <!-- Google Fonts start -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,63 +29,156 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
     <!-- Google Fonts end -->
-    <link rel="stylesheet" href="{% static 'myprofilepage/css/slick.css' %}">
-    <link rel="stylesheet" href="{% static 'myprofilepage/css/style.css' %}">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ 
+  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+      <!-- Font awesome CDN start -->
+      <link rel="stylesheet" href="{% static 'myprofilepage/css/all.min.css' %}" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <link rel="stylesheet" href="{% static 'templatestyles/css/themify-icons.css' %}">
 
-
-    <link rel="stylesheet" href="{% static 'templatestyles/css/themify-icons.css' %}">
     <title>VR Medical Marketing Agency</title>
+    <link rel="stylesheet" href="{% static 'myprofilepage/css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'myprofilepage/css/style.css' %}">
   </head>
   <body class="bg-image-light dark:bg-image-dark bg-center bg-cover bg-no-repeat bg-fixed">
     <!-- Navbar part start -->
-    <nav class="py-5 lg:py-12 bg-gray-100 dark:bg-black lg:bg-transparent">
-      <div class="container grid grid-cols-[auto_1fr] justify-between items-center">
-        <div>
-         <a href="/" id="Return"><img style="height:65px;" src="{% static 'myprofilepage/images/WhatsApp_Image_2023-08-23_at_14.18.25-removebg-preview_1_1.png' %}"></a>
+     
+        <!-- header wrapper -->
+        <header id="header-sticky" class="fm-header-area header-border transparent-header bg-common-black">
+          <div class="container">
+              <div class="row align-items-center justify-content-lg-between pr-5 pl-5">
+                  <div class="header-wrapper">
+                      <div class="fm-header-logo-wrapper">
+                          <a href="" class="fm-header-logo">
+                              <img style="height: 65px !important;" src="{% static 'logo.svg' %}" alt="img not found">
+                          </a>
+                          
+                          <a  class="fm-header-bar-1" >
+                              <span class="fm-header-bar-line fm-header-bar-line-1"></span>
+                              <span class="fm-header-bar-line fm-header-bar-line-2"></span>
+                              <span class="fm-header-bar-line fm-header-bar-line-3"></span>
+                          </a>
+                     
+                              <style>
+                                      @media(min-width:1200px) {
+                                          .fm-header-bar-1{
+                                              display: none;
+                                          }
+                                      }
+                              </style>
+                      </div>
+
+                      <div class="header-menu-spc d-none d-xl-block">
+                          <div class="fm-header-nav">
+
+                              <nav id="mobile-menu" style="display: block;">
+                                  <ul>
+                                      <li class="has-dropdown">
+                                          <a href="{% url 'home' %}">Əsas səhifə</a>
+
+                                      </li>
+                                      <li class="has-dropdown"><a href="{% url 'about' %}">Lahiye haqqinda</a>
+                                      </li>
+
+                                      <li class="has-dropdown"><a href="{% url 'spiker' %}">Spikerler</a>
+                                          <!-- <ul class="submenu">
+                                              {% for cat in vidcategories %}
+                                              <li><a href="{% url 'video' %}?movzu={{cat.id}}">{{cat.name}}</a></li>
+                                              {% endfor %}
+                                          </ul> -->
+                                      </li>
+
+                                      <li class="has-dropdown"><a href="{% url 'meet' %}">Görüşlər</a>
+                                          <!-- <ul class="submenu">
+                                              {% for cat in fotcategories %}
+                                              <li><a href="{% url 'foto' %}?movzu={{cat.id}}">{{cat.name}}</a></li>
+                                              {% endfor %}
+                                          </ul> -->
+                                      </li>
+                                      <li class="has-dropdown"><a href="{% url 'blog' %}">Bloqlar</a>
+
+                                      </li>
+                                      <li class="has-dropdown"><a href=" {% url 'contact' %}">Əlaqə</a>
+
+                                      </li>
+                                     
+
+                                      
+
+
+                                      
+                                  </ul>
+                              </nav>
+
+                          </div>
+                      </div>
+                      <!-- sd -->
+                      <div class="fm-header-right d-none d-xl-block mr-10" style="text-align: center;letter-spacing: 1px">
+                          <a href="http://75.119.147.165:199/" class="fill-btn"
+                              style="font-size:15px;line-height:20px;border-radius: 3px;">Heydər  <br> Əliyev
+                              <span>
+                                  <i class="fa-regular fa-arrow-right"></i>
+                              </span>
+                          </a>
+                      </div>
+                  </div>
+
+              </div>
+          </div>
+      </header>
+      <!-- header wrapper -->
+       <!-- sidebar area start -->
+       <div class="fm-header-sidebar-area fm-header-sidebar-left">
+        <div class="fm-header-sidebar-wrapper">
+            <div class="fm-header-sidebar-action mb-65">
+                <div class="fm-header-sidebar-logo">
+                    <a href=""><img style="width:80px" src="{% static 'logo.svg' %}"
+                            alt="logo not found"></a>
+                </div>
+                <div class="offcanvas-close">
+                    <a class="offcanvas-btn" href="#0">
+                        <i class="fa-thin fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="d-none d-sm-block">
+          
+
+
+            </div>
+            <div class="mobile-menu"></div>
+            <div class="fm-header-right d-none d-xl-block mr-10" style="text-align: center;display: block !important;letter-spacing: 1px">
+                        <a href="http://75.119.147.165:199/" class="fill-btn"
+                            style="font-size:15px;line-height:20px;border-radius: 3px;">Heydər  <br> Əliyev
+                            <span>
+                                <i class="fa-regular fa-arrow-right"></i>
+                            </span>
+                        </a>
+                    </div>
+         
+     
         </div>
-        <div class="text-right flex items-center justify-end gap-3">
-          <span class="inline-flex items-center justify-center darkmode w-10 h-10 rounded-full cursor-pointer bg-slate-100 hover:bg-primary hover:text-slate-50 text-2xl">
-            <svg class="light_icon" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
-            <!-- Dark icon -->
-            <svg class="dark_icon" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="12" cy="12" r="5"></circle>
-              <line x1="12" y1="1" x2="12" y2="3"></line>
-              <line x1="12" y1="21" x2="12" y2="23"></line>
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-              <line x1="1" y1="12" x2="3" y2="12"></line>
-              <line x1="21" y1="12" x2="23" y2="12"></line>
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-            </svg>
-          </span>
-          <span class="bars lg:hidden w-10 h-10 rounded-full bg-primary text-slate-50 inline-flex items-center justify-center cursor-pointer">
-            <i class="fas fa-bars"></i>
-          </span>
-        </div>
-      </div>
-    </nav>
+    </div>
+    
+    <div class="overlay"></div>
+    <!-- sidebar area end -->
     <!-- Side menu start -->
-    <div class="side_menu bg-slate-50 dark:bg-mid-dark rounded-b-2xl py-6 px-4 hidden">
+    <div class="side_menu bg-slate-50 dark:bg-mid-dark rounded-b-2xl py-6 px-4 hidden ">
       <ul class="grid grid-cols-1 gap-2">
         <li>
-          <a href="#" class="block p-2 text-slate-900 rounded-md hover:text-slate-50 hover:hover_active dark:text-slate-100 active">
-            
+          <a style="color:#fff !important;width: 9rem !important;"
+           href="#" class="block p-2 text-slate-900 rounded-md hover:text-slate-50 hover:hover_active dark:text-slate-100 active">
           Haqqında
           </a>
         </li>
         <li>
           <a href="#" class="block p-2 rounded-md text-slate-900 hover:text-slate-50 hover:hover_active dark:text-slate-100"><i class="fa-regular fa-file-lines"></i> Videolar</a>
         </li>
-    
         <li>
           <a href="#" class="block p-2 rounded-md text-slate-900 hover:text-slate-50 hover:hover_active dark:text-slate-100">
-
             Görüşlər
             </a>
         </li>
@@ -79,7 +189,7 @@
 
     <!-- Side bar start -->
     <main>
-      <section class="main_section mt-40">
+      <section class="main_section" style="margin-top: 18rem;">
         <div class="container grid grid-cols-12 lg:gap-10">
           <!-- Sidebar start -->
           <div class="Home_info col-span-12 lg:col-span-4">
@@ -117,7 +227,7 @@
 
                     <span class="text-slate-500 text-xs font-bold">AZ</span>
                     
-                    <a class="transition-all duration-100 hover:text-primary" href="tel:+994 50 739 27 47">+994 50 739 27 47</a> 
+                    <a class="transition-all duration-100 hover:text-primary" style="color: #111;" href="tel:+994 50 739 27 47">+994 50 739 27 47</a> 
                 
                   </div>   
                 </li>
@@ -126,11 +236,11 @@
                   <div class="w-10 h-10 rounded bg-light-gray flex items-center justify-center shadow-md dark:bg-[#111111] hover:hover_active group cursor-pointer">
                     <i class="fa-solid fa-mobile-screen text-pink-600 text-2xl group-hover:text-slate-50"></i>
                   </div>
-                  <div class="flex flex-col dark:text-white">
+                  <div class="flex flex-col ">
 
                     <span class="text-slate-500 text-xs font-bold">AZ</span>
                     
-                    <a class="transition-all duration-100 hover:text-primary" href="tel:+994 55 475 55 05">+994 55 475 55 05</a> 
+                    <a class="transition-all duration-100 hover:text-primary" style="color: #111;" href="tel:+994 55 475 55 05">+994 55 475 55 05</a> 
                 
                   </div>   
                 </li>
@@ -141,7 +251,7 @@
                   </div>
                   <div class="flex flex-col dark:text-white">
                     <span class="text-slate-500 text-xs font-bold">E-poçt</span>
-                    <a class="text-gray-lite text-lg dark:text-[#A6A6A6] " href="/cdn-cgi/l/email-protection#0d64636b624d7968777e6c6a6c61236c77"><span class="__cf_email__" data-cfemail="0960676f66497d6c737a686e6865276873">[email�&nbsp;protected]</span></a>
+                    <a class="text-gray-lite text-x-lg dark:text-[#A6A6A6] " style="color: #111;" href="/cdn-cgi/l/email-protection#0d64636b624d7968777e6c6a6c61236c77"><span class="__cf_email__" data-cfemail="0960676f66497d6c737a686e6865276873">[email�&nbsp;protected]</span></a>
                   </div>
                 </li>
                
@@ -154,23 +264,23 @@
           <div class="col-span-12 lg:col-span-8 rounded-2xl">
             <!-- Menu start -->
             <div class="text-right -mt-10 hidden lg:block">
-              <ul class="md:inline-flex gap-4 py-6 px-10 rounded-3xl bg-slate-50 dark:bg-black menu">
-                <li>
-                  <a href="#" class="text-slate-900 w-20 hover:text-slate-50 text-1xl py-4 rounded-xl flex items-center flex-col justify-center hover:hover_active bg-light-gray dark:bg-mid-dark dark:text-slate-100 active">
+              <ul id="sectionList" class="md:inline-flex gap-4 py-6 px-10 rounded-3xl bg-slate-50 dark:bg-black menu">
+                <li data-target="section1" class="hover_active ">
+                  <a href="#" style="width:14rem; text-decoration: none;" class="text-slate-900  hover:text-slate-50 text-1xl py-4 rounded-xl flex items-center flex-col justify-center hover:hover_active bg-light-gray dark:bg-mid-dark dark:text-slate-100  ">
                     <i class="fa-solid fa-house"></i>
                     Haqqında
                   </a>
                 </li>
 
-                <li>
-                  <a href="#" class="text-slate-900 w-20 hover:text-slate-50 text-1xl py-4 rounded-xl flex items-center flex-col justify-center bg-light-gray dark:bg-mid-dark dark:text-slate-100 hover:hover_active">
+                <li  data-target="section2" >
+                  <a  href="#" style="width: 14rem;" class="text-slate-900  hover:text-slate-50 text-1xl py-4 rounded-xl flex items-center flex-col justify-center bg-light-gray dark:bg-mid-dark dark:text-slate-100 hover:hover_active">
                   <i class="fa-solid fa-video"></i>
                   Videolar
                   </a>
                 </li>
 
-                <li>
-                  <a href="#" class="text-slate-900 w-20 hover:text-slate-50 text-1xl py-4 rounded-xl flex items-center flex-col justify-center bg-light-gray dark:bg-mid-dark dark:text-slate-100 hover:hover_active">
+                <li  data-target="section3">
+                  <a  href="#" style="width: 14rem;" class="text-slate-900  hover:text-slate-50 text-1xl py-4 rounded-xl flex items-center flex-col justify-center bg-light-gray dark:bg-mid-dark dark:text-slate-100 hover:hover_active">
                     <i class="fa-regular fa-address-book"></i>
                     Görüşlər
                   </a>
@@ -180,20 +290,20 @@
             <!-- Menu end -->
 
             <!-- Home tab start -->
-            <div class="tab_item bg-slate-50 dark:bg-[#111111] rounded-xl mb-14">
+            <div id="section1" class="tab_item bg-slate-50 dark:bg-[#111111] rounded-xl mb-14">
               <div class="pt-16 px-12 mt-8">
                 <div>
                   <h2 class="text-4xl text-slate-900 font-roboto-slab dark:text-slate-50 font-bold relative after:contents[] after:w-36 after:h-[2px] after:bg-primary after:absolute after:top-1/2 -translate-y-1/2 after:right-8 after:left-52">
                   Haqqında
                   </h2>
-                  <p style="margin-bottom: 1%; text-align:justify;" class="text-gray-700 dark:text-slate-500 leading-7 font-medium">
+                  <p style="margin-bottom: 1%; text-align:justify;line-height: 2rem;" class="text-gray-700 dark:text-slate-500 leading-7 font-medium">
                   Ümumü məlumat: {{user.personal_information}}
                   </p>
                
   
 
                 </div>
-                <h3 class="text-3xl dark:text-white font-medium pb-6">
+                <h3 style="font-weight: 600;" class="text-3xl dark:text-white font-medium pb-6">
                   Nəaliyyətləri
                   </h3>
                   <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -203,11 +313,11 @@
                     {%for x in user.achis.all%}
                         
                         <div style="background-color: rgb(59 130 246 / 0.2) !important;" class="bg-rose-50 dark:bg-mid-dark py-4 pl-5 pr-3 space-y-2 mb-6 rounded-lg dark:border-[#212425] dark:border-2">
-                          <span class="text-sm text-slate-400">{{x.date}}</span>
-                          <h4 style="font-weight:700" class="text-xl font-medium text-slate-800 dark:text-slate-100">
+                          <span class="text-l text-slate-400">{{x.date}}</span>
+                          <h4 style="font-weight:600 !important ;font-size: 17px !important;" class="">
                           {{x.achi}}
                           </h4>
-                          <p class="text-base font-normal text-slate-700 dark:text-slate-200">
+                          <p style="font-size: 16px;line-height: 3.5rem !important;" class="text-base font-normal text-slate-700 dark:text-slate-200">
                           {{x.content}}
                           </p>
                         </div>
@@ -236,7 +346,7 @@
             <!-- Home tab end ---->
 
            <!-- Blog tab start -->
-              <div class="tab_item hidden bg-slate-50 dark:bg-[#111111] rounded-xl mb-14">
+              <div id="section2" class="hidden" class="tab_item hidden bg-slate-50 dark:bg-[#111111] rounded-xl mb-14">
               <div class="pt-16 px-12 mt-8">
                 <div>
                   <h2 class="text-4xl text-slate-900 font-roboto-slab dark:text-slate-50 font-bold relative after:contents[] after:w-36 after:h-[2px] after:bg-primary after:absolute after:top-1/2 -translate-y-1/2 after:right-8 after:left-52">
@@ -272,7 +382,7 @@
 
 
             <!-- Contact tab start -->
-            <div class="tab_item hidden bg-slate-50 dark:bg-[#111111] rounded-xl mb-14">
+            <div id="section3" class="hidden" class="tab_item hidden bg-slate-50 dark:bg-[#111111] rounded-xl mb-14">
               <div id="ContactDetail" class="pt-16 px-12 mt-8">
                 <div>
                   <h2 class="text-4xl text-slate-900 font-roboto-slab dark:text-slate-50 font-bold relative after:contents[] after:w-36 after:h-[2px] after:bg-primary after:absolute after:top-1/2 -translate-y-1/2 after:right-8 after:left-52">
@@ -321,41 +431,55 @@
           </div>
         </div>
       </section>
+      <div class="footer-wrapper">
+        <div class="container">
+            <div class="row" style="align-items: center;">
+                <div class="col-xl-3 text-left" style="display: flex;justify-content: center;margin-bottom: 10px;" ><img style="
+                    height: 105px; " src="{% static 'logo.svg' %}" alt=""></div>
+                <div class="col-xl-9 text-left">
+                    <h4 class="mb-4" style="font-size:24px !important;font-weight: 300 !important;">"Görkəmli şəxsiyyətlər xalqın zəkasını, elmini, mədəniyyətini, mənəviyyatını dünyaya nümayiş etdirirlər." Heydər Əliyev</h4>
+                </div>
+
+
+                <div style="margin-bottom:3%" class="col-sm-12">
+                    <div class="middle-footer" style="padding-top:40px">
+                        <div class="row">
+
+                            
+                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 divSosialLinks">
+                            <div style="text-align: center;">
+                                <h5 style="font-size: large;">Sosİal şəbəkələr</h5>
+                                <ul style="gap:30px;display: flex;align-items: center;justify-content: center;">
+                                 <i style="margin-right:5px;font-size:48px" class="fa-brands fa-instagram"></i>
+                                    <i style="margin-right: 5px;font-size: 43px;
+                                    padding-bottom: 1px;" class="fa-brands fa-facebook"></i>
+                                  <i style="margin-right:5px;font-size:48px" class="fa-brands fa-youtube"></i> 
+                                   <i style="margin-right:5px;font-size:41px;" class="fa-brands fa-tiktok"></i> 
+
+                                </ul>
+                            </div>
+
+                        </div>
+
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center;display: flex;justify-content: center;align-items: center;background-color:#111;">
+        
+                  <p  style="color: white;font-size: 12px;padding-top:20px;padding-bottom:20px"><a target="_blank" href="https://vrproduction.az">VR Media & Marketing</a> © 2023 Bütün hüquqlar qorunur</p>
+          
+          </div>
+
+            </div>
+        </div>
+    </div>
     </main>
-    <!-- Side bar end -->
-    <script>
-      $(document).ready(function () {
-          $(".owl-carousel").owlCarousel({
-              // Change this value to control the number of items displayed
-              loop: true,
-              margin: 10,
-  
-              autoplay: 4000,
-              autoHeight: true,
-              autoplayTimeout: 6500,
-              smartSpeed: 4000,
-              autoplaySpeed: 4000,
-              responsive: {
-                  0: {
-                      items: 1.1
-                  },
-                  600: {
-                      items: 1.1
-                  },
-                  1000: {
-                      items: 1.1
-                  }
-              }
-          });
-      });
-  </script>
-<script src="{% static 'templatestyles/js/plugin.js' %}"></script>
-<script src="{% static 'templatestyles/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-<script src="{% static 'templatestyles/js/scripts.js' %}"></script>
-<script data-cfasync="false" src="{% static 'myprofilepage/js/email-decode.min.js' %}"></script><script src="{% static 'myprofilepage/js/jquery-1.12.4.min.js' %}"></script>
-<script src="{% static 'myprofilepage/js/slick.min.js' %}"></script>
-<script src="{% static 'myprofilepage/js/script.js' %}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style>
       .after\:w-36::after {
 
@@ -399,5 +523,97 @@
       }
     </style>
   
+    <!-- Side bar end -->
+    <script>
+      $(document).ready(function () {
+          $(".owl-carousel").owlCarousel({
+              // Change this value to control the number of items displayed
+              loop: true,
+              margin: 10,
+  
+              autoplay: 4000,
+              autoHeight: true,
+              autoplayTimeout: 6500,
+              smartSpeed: 4000,
+              autoplaySpeed: 4000,
+              responsive: {
+                  0: {
+                      items: 1.1
+                  },
+                  600: {
+                      items: 1.1
+                  },
+                  1000: {
+                      items: 1.1
+                  }
+              }
+          });
+      });
+      document.addEventListener('DOMContentLoaded', function () {
+  // Get the list items
+  var listItems = document.querySelectorAll('#sectionList li');
+
+  // Add click event listener to each list item
+  listItems.forEach(function (item) {
+    item.addEventListener('click', function () {
+      // Remove 'active' class from all list items
+      listItems.forEach(function (li) {
+        li.classList.remove('hover_active');
+      });
+
+      // Add 'active' class to the clicked list item
+      item.classList.add('hover_active');
+
+      // Hide all sections
+      sections.forEach(function (section) {
+        section.classList.add('hidden');
+      });
+
+      // Get the target section id from the data-target attribute
+      var targetSectionId = item.getAttribute('data-target');
+      
+      // Show the clicked section
+      var targetSection = document.getElementById(targetSectionId);
+      targetSection.classList.remove('hidden');
+    });
+  });
+});
+
+
+      document.addEventListener('DOMContentLoaded', function () {
+  // Get the list of sections
+  var sections = document.querySelectorAll('[id^="section"]');
+  
+  // Get the list items
+  var listItems = document.querySelectorAll('#sectionList li');
+
+  // Add click event listener to each list item
+  listItems.forEach(function (item) {
+    item.addEventListener('click', function () {
+      // Hide all sections
+      sections.forEach(function (section) {
+        section.classList.add('hidden');
+      });
+
+      // Get the target section id from the data-target attribute
+      var targetSectionId = item.getAttribute('data-target');
+      
+      // Show the clicked section
+      var targetSection = document.getElementById(targetSectionId);
+      targetSection.classList.remove('hidden');
+    });
+  });
+});
+
+  </script>
+<script src="{% static 'templatestyles/js/plugin.js' %}"></script>
+<script src="{% static 'templatestyles/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'templatestyles/js/scripts.js' %}"></script>
+<script data-cfasync="false" src="{% static 'myprofilepage/js/email-decode.min.js' %}"></script>
+<script src="{% static 'myprofilepage/js/jquery-1.12.4.min.js' %}"></script>
+<script src="{% static 'myprofilepage/js/slick.min.js' %}"></script>
+<script src="{% static 'myprofilepage/js/script.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 
 </body></html>
