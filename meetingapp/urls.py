@@ -21,6 +21,6 @@ urlpatterns = [
     path('change_password/',change_password, name='change_password'),
     path('bloq',blog,name='blog'),
     path('bloq/<slug>',blogsingle,name='blogsingle'),
-    path('speakersingle/<slug>',speakersingle,name='speakersingle'),
+    path('speakersingle/<slug:slug>',speakersingle,name='speakersingle'),
 
 ]
