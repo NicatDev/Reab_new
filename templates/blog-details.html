@@ -57,209 +57,23 @@
        <div class="row align-items-center justify-content-lg-between pr-5 pl-5">
            <div class="header-wrapper">
                <div class="fm-header-logo-wrapper">
-                   <a href="{% url 'home' %}" class="fm-header-logo">
-                       <img style="height: 65px !important;" src="{{head.logoheader.url}}" alt="img not found">
+                   <a href="" class="fm-header-logo">
+                       <img style="height: 65px !important;" src="{% static 'logo.svg' %}" alt="img not found">
                    </a>
                    
-                   <div class="dinozavr"
-                       style="display:flex;align-items:center;justify-content:center;gap:2rem;">
-                       <div id="lang_selector" class="language-dropdown">
-                           <label for="toggle" class="lang-flag lang-en" title="Click to select the language">
-                               <span class="flag"></span>
-                           </label>
-                           <ul class="lang-list">
-                               <li class="lang lang-en selected" title="AZ">
-                                   <span class="flag"></span>
-                               </li>
-                               <li class="lang lang-pt" title="RU">
-                                   <span class="flag"></span>
-                               </li>
-
-                           </ul>
-                       </div>
-
-                       <a href="#0" class="fm-header-bar-1" id="ancaqmobile">
-                           <span class="fm-header-bar-line fm-header-bar-line-1"></span>
-                           <span class="fm-header-bar-line fm-header-bar-line-2"></span>
-                           <span class="fm-header-bar-line fm-header-bar-line-3"></span>
-                       </a>
-                       <!-- <img src=" {% static 'russia.png' %}" alt="">
+                   <a  class="fm-header-bar-1" >
+                       <span class="fm-header-bar-line fm-header-bar-line-1"></span>
+                       <span class="fm-header-bar-line fm-header-bar-line-2"></span>
+                       <span class="fm-header-bar-line fm-header-bar-line-3"></span>
+                   </a>
               
-               {% static 'azerbaijan.png' %} -->
-
-
-                   </div>
-                   <style>
-                       .shadow-1,
-                       .language-dropdown ul.lang-list,
-                       .language-dropdown label {
-                           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-                       }
-
-                       .shadow-2,
-                       .language-dropdown.open label {
-                           box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-                       }
-
-                       .shadow-3 {
-                           box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-                       }
-
-                       .shadow-4 {
-                           box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-                       }
-
-                       .shadow-5 {
-                           box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-                       }
-
-                       .language-dropdown {
-                           display: inline-block;
-                           overflow: hidden;
-                           height: 40px;
-
-                       }
-
-                       .language-dropdown .lang-en {
-                           border-left: 4px solid rgb(24, 24, 24);
-                       }
-
-                       .language-dropdown .lang-en .flag {
-                           background-image: url("{% static 'azerbaijan.png' %}");
-                       }
-
-                       .language-dropdown .lang-pt {
-                           border-left: 4px solid rgb(24, 24, 24);
-                       }
-
-                       .language-dropdown .lang-pt .flag {
-                           background-image: url("{% static 'russia.png' %}");
-                       }
-
-                       .language-dropdown .lang-es {
-                           border-left: 4px solid rgb(24, 24, 24);
-                       }
-
-                       .language-dropdown .lang-es .flag {
-                           background-image: url("http://www.imaginarium.pt/responsive/2015/images/iconsFicha/banderaES.png");
-                       }
-
-                       .language-dropdown label,
-                       .language-dropdown ul li {
-                           display: block;
-                           width: 50px;
-                           height: 38px;
-                           background: rgb(25, 25, 25);
-                           padding: 0px 6px;
-                           cursor: pointer;
-                       }
-
-                       .language-dropdown ul.lang-list {
-                           position: relative;
-                           visibility: hidden;
-                           opacity: 0;
-                           z-index: 1;
-                       }
-
-                       .language-dropdown ul.lang-list li {
-                           border-bottom: 1px solid rgb(24, 24, 24);
-                       }
-
-                       .language-dropdown ul.lang-list li:last-child {
-                           border-bottom-right-radius: 2px;
-                           border-bottom-left-radius: 2px;
-                       }
-
-                       .language-dropdown ul.lang-list li.selected {
-                           display: none;
-                       }
-
-                       .language-dropdown label {
-                           position: relative;
-                           border-bottom: 1px solid rgb(24, 24, 24);
-                           border-radius: 3px;
-                           z-index: 2;
-                       }
-
-                       .language-dropdown .lang-flag .flag,
-                       .language-dropdown .lang-list .lang .flag {
-                           float: left;
-                           width: 100%;
-                           height: 100%;
-                           cursor: pointer;
-                           background-size: 35px 35px;
-                           background-repeat: no-repeat;
-                           background-position: center;
-                       }
-
-                       .language-dropdown.open ul.lang-list {
-                           visibility: visible;
-                           opacity: 1;
-                       }
-
-                       .language-dropdown.open label {
-                           border-bottom-left-radius: 0px;
-                           border-bottom-right-radius: 0px;
-                       }
-
-                       .animate,
-                       .lang-flag,
-                       .lang-list {
-                           cursor: pointer;
-                           -webkit-transition: all 0.5s;
-                           -moz-transition: all 0.5s;
-                           -ms-transition: all 0.5s;
-                           -ms-transition: all 0.5s;
-                           transition: all 0.5s;
-                           backface-visibility: hidden;
-                           -webkit-backface-visibility: hidden;
-                           -moz-backface-visibility: hidden;
-                           -ms-backface-visibility: hidden;
-                       }
-                   </style>
-                   <script>
-
-                       $(document).ready(function () {
-                           $(".lang-flag").click(function () {
-                               $(".language-dropdown").toggleClass("open");
-                               $(".language-dropdown").css(
-                                   { 'overflow': 'visible' }
-                               )
-                           });
-
-                           $("ul.lang-list li").click(function () {
-                               $("ul.lang-list li").removeClass("selected");
-                               $(this).addClass("selected");
-                               if ($(this).hasClass('lang-en')) {
-                                   $(".language-dropdown").find(".lang-flag").addClass("lang-en").removeClass("lang-pt");
-                                   $("#lang_selected").html("<p>AZ</p>")
-                                   window.location.href = '/'
-                               } else if ($(this).hasClass('lang-pt')) {
-                                   $(".language-dropdown").find(".lang-flag").addClass("lang-pt").removeClass("lang-en");
-                                   $("#lang_selected").html("<p>RU</p>")
-                                   window.location.href = '/ru'
+                       <style>
+                               @media(min-width:1200px) {
+                                   .fm-header-bar-1{
+                                       display: none;
+                                   }
                                }
-                               $(".language-dropdown").removeClass("open");
-                           });
-                       })
-                       $(document).click(function (e) {
-                           if (!$(e.target).closest(".language-dropdown").length) {
-                               $(".language-dropdown").removeClass("open");
-                           }
-                       });
-                   </script>
-                   <script>
-                       var currentURL = "{{ request.build_absolute_uri }}";
-                       if (currentURL.endsWith('ru/')) {
-                           $("ul.lang-list li").removeClass("selected");
-
-
-                           $(".language-dropdown").find(".lang-flag").addClass("lang-pt").removeClass("lang-en");
-                           $("#lang_selected").html("<p>RU</p>")
-                           $("ul.lang-list li.lang-pt").remove();
-                       }
-                   </script>
-
+                       </style>
                </div>
 
                <div class="header-menu-spc d-none d-xl-block">
@@ -271,34 +85,31 @@
                                    <a href="{% url 'home' %}">Əsas səhifə</a>
 
                                </li>
-                               <li class="has-dropdown"><a href="{% url 'about' %}">Haqqında</a>
+                               <li class="has-dropdown"><a href="{% url 'about' %}">Lahiye haqqinda</a>
                                </li>
 
-                               <li class="has-dropdown"><a href="#">Video</a>
+                               <li class="has-dropdown"><a href="{% url 'spiker' %}">Spikerler</a>
                                    <!-- <ul class="submenu">
                                        {% for cat in vidcategories %}
-                                       <li><a href="#?movzu={{cat.id}}">{{cat.name}}</a></li>
+                                       <li><a href="{% url 'video' %}?movzu={{cat.id}}">{{cat.name}}</a></li>
                                        {% endfor %}
                                    </ul> -->
                                </li>
 
-                               <li class="has-dropdown"><a href="#">Foto</a>
+                               <li class="has-dropdown"><a href="{% url 'meet' %}">Görüşlər</a>
                                    <!-- <ul class="submenu">
                                        {% for cat in fotcategories %}
-                                       <li><a href="#?movzu={{cat.id}}">{{cat.name}}</a></li>
+                                       <li><a href="{% url 'foto' %}?movzu={{cat.id}}">{{cat.name}}</a></li>
                                        {% endfor %}
                                    </ul> -->
                                </li>
-                               <li class="has-dropdown"><a href="#?m=1">Məqalələr</a>
+                               <li class="has-dropdown"><a href="{% url 'blog' %}">Bloqlar</a>
 
                                </li>
-                               <li class="has-dropdown"><a href="#">Xatirələr</a>
+                               <li class="has-dropdown"><a href=" {% url 'contact' %}">Əlaqə</a>
 
                                </li>
-                               <li class="has-dropdown has-mega-menu">
-                                   <a href="{% url 'blog' %}">Xəbərlər</a>
-
-                               </li>
+                              
 
                                
 
@@ -312,7 +123,7 @@
                <!-- sd -->
                <div class="fm-header-right d-none d-xl-block mr-10" style="text-align: center;letter-spacing: 1px">
                    <a href="http://75.119.147.165:199/" class="fill-btn"
-                       style="font-size:15px;line-height:20px;border-radius: 3px;">Reabilitasiya <br> Həyatdır
+                       style="font-size:15px;line-height:20px;border-radius: 3px;">Heydər  <br> Əliyev
                        <span>
                            <i class="fa-regular fa-arrow-right"></i>
                        </span>
@@ -412,7 +223,7 @@
                            {% if blog.sideimage1 %}
                            <img src="{{blog.sideimage1.url}}" alt="img not found">
                            {% endif %}
-                           {% if blog.sideimage2.url %}
+                           {% if blog.sideimage2 %}
                            <img src="{{blog.sideimage2.url}}" alt="img not found">
                            {% endif %}
                         </div>
@@ -459,62 +270,7 @@
                         </div>
                  
                      </div>
-                     <div class="postbox__navigation mb-70 ">
-                        <div class="postbox__more-left">
-                           <a class="postbox__more-link mb-15" {% if pre%} href="{% url 'blogsingle' pre.slug %}"{%endif%}>
-                              <span>
-                                 <svg width="19" height="14" viewBox="0 0 19 14" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                       d="M0.241153 7.99375L6.01583 13.7684C6.17142 13.9187 6.37981 14.0018 6.59611 14C6.81241 13.9981 7.01932 13.9113 7.17227 13.7584C7.32522 13.6054 7.41198 13.3985 7.41386 13.1822C7.41574 12.9659 7.33259 12.7575 7.18232 12.6019L2.81584 8.23546L17.3235 8.23546C17.5423 8.23546 17.7521 8.14854 17.9068 7.99383C18.0615 7.83912 18.1484 7.62929 18.1484 7.4105C18.1484 7.19171 18.0615 6.98188 17.9068 6.82717C17.7521 6.67246 17.5423 6.58555 17.3235 6.58555L2.81584 6.58555L7.18232 2.21907C7.26111 2.14297 7.32396 2.05194 7.36719 1.95129C7.41043 1.85064 7.43318 1.74239 7.43414 1.63285C7.43509 1.52332 7.41421 1.41469 7.37274 1.3133C7.33126 1.21192 7.27 1.11981 7.19254 1.04236C7.11509 0.964898 7.02298 0.903642 6.9216 0.862163C6.82021 0.820684 6.71158 0.79981 6.60204 0.800762C6.49251 0.801714 6.38426 0.824473 6.28361 0.867707C6.18296 0.910942 6.09193 0.973788 6.01583 1.05258L0.241153 6.82726C0.0864976 6.98196 -0.000382065 7.19176 -0.000382046 7.4105C-0.000382027 7.62925 0.0864977 7.83904 0.241153 7.99375Z"
-                                       fill="#414141" />
-                                 </svg>
-                              </span>
-                              <h5>Əvvəlki</h5>
-                           </a>
-                           <div class="postbox__more-content">
-                              <h5>
-                                 <a {% if pre %} href="{% url 'blogsingle' pre.slug %}" {% endif %}>{{pre.name}}</a>
-                              </h5>
-                              <div class="postbox__meta">
-                                 <span><a >{{pre.date}}</a></span>
-                  
-                              </div>
-                           </div>
-                        </div>
-                        <div class="postbox__navigation-icon" style="opacity: 0 !important;">
-                           <span>
-                              <a href="#"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                       d="M2 0C0.9 0 0 0.9 0 2C0 3.1 0.9 4 2 4C3.1 4 4 3.1 4 2C4 0.9 3.1 0 2 0ZM2 6C0.9 6 0 6.9 0 8C0 9.1 0.9 10 2 10C3.1 10 4 9.1 4 8C4 6.9 3.1 6 2 6ZM2 12C0.9 12 0 12.9 0 14C0 15.1 0.9 16 2 16C3.1 16 4 15.1 4 14C4 12.9 3.1 12 2 12ZM14 4C15.1 4 16 3.1 16 2C16 0.9 15.1 0 14 0C12.9 0 12 0.9 12 2C12 3.1 12.9 4 14 4ZM8 12C6.9 12 6 12.9 6 14C6 15.1 6.9 16 8 16C9.1 16 10 15.1 10 14C10 12.9 9.1 12 8 12ZM14 12C12.9 12 12 12.9 12 14C12 15.1 12.9 16 14 16C15.1 16 16 15.1 16 14C16 12.9 15.1 12 14 12ZM14 6C12.9 6 12 6.9 12 8C12 9.1 12.9 10 14 10C15.1 10 16 9.1 16 8C16 6.9 15.1 6 14 6ZM8 6C6.9 6 6 6.9 6 8C6 9.1 6.9 10 8 10C9.1 10 10 9.1 10 8C10 6.9 9.1 6 8 6ZM8 0C6.9 0 6 0.9 6 2C6 3.1 6.9 4 8 4C9.1 4 10 3.1 10 2C10 0.9 9.1 0 8 0Z"
-                                       fill="#111111" />
-                                 </svg></a>
-                           </span>
-                        </div>
-                        <div class="postbox__more-right">
-                           <a class="postbox__more-link mb-15" {% if next %} href="{% url 'blogsingle' next.slug %}" {% endif %}>
-                              <h5>Növbəti</h5>
-                              <span>
-                                 <svg width="19" height="14" viewBox="0 0 19 14" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                       d="M17.9073 6.80704L12.1326 1.03236C11.977 0.882086 11.7686 0.798935 11.5523 0.800814C11.336 0.802694 11.1291 0.889454 10.9762 1.04241C10.8232 1.19536 10.7365 1.40227 10.7346 1.61857C10.7327 1.83487 10.8158 2.04325 10.9661 2.19884L15.3326 6.56533L0.824953 6.56532C0.606162 6.56532 0.396331 6.65224 0.241622 6.80695C0.0869135 6.96166 -1.11389e-06 7.17149 -1.15214e-06 7.39028C-1.1904e-06 7.60907 0.0869133 7.8189 0.241622 7.97361C0.396331 8.12832 0.606162 8.21523 0.824953 8.21523L15.3326 8.21524L10.9661 12.5817C10.8873 12.6578 10.8245 12.7488 10.7812 12.8495C10.738 12.9501 10.7152 13.0584 10.7143 13.1679C10.7133 13.2775 10.7342 13.3861 10.7757 13.4875C10.8172 13.5889 10.8784 13.681 10.9559 13.7584C11.0333 13.8359 11.1255 13.8971 11.2268 13.9386C11.3282 13.9801 11.4369 14.001 11.5464 14C11.6559 13.9991 11.7642 13.9763 11.8648 13.9331C11.9655 13.8898 12.0565 13.827 12.1326 13.7482L17.9073 7.97352C18.0619 7.81882 18.1488 7.60903 18.1488 7.39028C18.1488 7.17153 18.0619 6.96174 17.9073 6.80704Z"
-                                       fill="#414141" />
-                                 </svg>
-                              </span>
-                           </a>
-                           <div class="postbox__more-content">
-                              <h5>
-                                 <a {% if next %}  href="{% url 'blogsingle' next.slug %}" {% endif %}>{{next.name}}</a>
-                              </h5>
-                              <div class="postbox__meta">
-                        
-                                 <span><a >{{next.date}}</a></span>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
+             
                
            
                      <div class="postbox__blog pt-60">
@@ -525,7 +281,7 @@
                               <div class="fm-blog-slide-wrapper">
 
                                  <div class="section__title-wrapper">
-                                    <h2 class="section-main-title">Oxşar xəbərlər</h2>
+                                    <h2 class="section-main-title">Oxşar bloqlar</h2>
                                  </div>
 
                                  <div class="blog-slider-btn" style="display: none;">
@@ -577,7 +333,7 @@
                               <form action="{% url 'blog' %}">
                                  {% csrf_token %}
                                  <div class="sidebar__search-input">
-                                    <input type="text" name="blog" placeholder="Xəbərlərdə axtar...">
+                                    <input type="text" name="blog" placeholder="Bloqlarda axtar...">
                                     <button type="submit">
                                        <i class="flaticon-search"></i>
                                     </button>

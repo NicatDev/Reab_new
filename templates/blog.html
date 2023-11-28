@@ -60,275 +60,86 @@
 
   <!-- header wrapper -->
   <header id="header-sticky" class="fm-header-area header-border transparent-header bg-common-black">
-   <div class="container">
-       <div class="row align-items-center justify-content-lg-between pr-5 pl-5">
-           <div class="header-wrapper">
-               <div class="fm-header-logo-wrapper">
-                   <a href="#" class="fm-header-logo">
-                       <img style="height: 65px !important;" src="{{head.logoheader.url}}" alt="img not found">
-                   </a>
-                   
-                   <div class="dinozavr"
-                       style="display:flex;align-items:center;justify-content:center;gap:2rem;">
-                       <div id="lang_selector" class="language-dropdown">
-                           <label for="toggle" class="lang-flag lang-en" title="Click to select the language">
-                               <span class="flag"></span>
-                           </label>
-                           <ul class="lang-list">
-                               <li class="lang lang-en selected" title="AZ">
-                                   <span class="flag"></span>
-                               </li>
-                               <li class="lang lang-pt" title="RU">
-                                   <span class="flag"></span>
-                               </li>
+    <div class="container">
+        <div class="row align-items-center justify-content-lg-between pr-5 pl-5">
+            <div class="header-wrapper">
+                <div class="fm-header-logo-wrapper">
+                    <a href="" class="fm-header-logo">
+                        <img style="height: 65px !important;" src="{% static 'logo.svg' %}" alt="img not found">
+                    </a>
+                    
+                    <a  class="fm-header-bar-1" >
+                        <span class="fm-header-bar-line fm-header-bar-line-1"></span>
+                        <span class="fm-header-bar-line fm-header-bar-line-2"></span>
+                        <span class="fm-header-bar-line fm-header-bar-line-3"></span>
+                    </a>
+               
+                        <style>
+                                @media(min-width:1200px) {
+                                    .fm-header-bar-1{
+                                        display: none;
+                                    }
+                                }
+                        </style>
+                </div>
 
-                           </ul>
-                       </div>
+                <div class="header-menu-spc d-none d-xl-block">
+                    <div class="fm-header-nav">
 
-                       <a href="#0" class="fm-header-bar-1" id="ancaqmobile">
-                           <span class="fm-header-bar-line fm-header-bar-line-1"></span>
-                           <span class="fm-header-bar-line fm-header-bar-line-2"></span>
-                           <span class="fm-header-bar-line fm-header-bar-line-3"></span>
-                       </a>
-                       <!-- <img src=" {% static 'russia.png' %}" alt="">
-              
-               {% static 'azerbaijan.png' %} -->
+                        <nav id="mobile-menu" style="display: block;">
+                            <ul>
+                                <li class="has-dropdown">
+                                    <a href="{% url 'home' %}">Əsas səhifə</a>
 
+                                </li>
+                                <li class="has-dropdown"><a href="{% url 'about' %}">Lahiye haqqinda</a>
+                                </li>
 
-                   </div>
-                   <style>
-                       .shadow-1,
-                       .language-dropdown ul.lang-list,
-                       .language-dropdown label {
-                           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-                       }
+                                <li class="has-dropdown"><a href="{% url 'spiker' %}">Spikerler</a>
+                                    <!-- <ul class="submenu">
+                                        {% for cat in vidcategories %}
+                                        <li><a href="{% url 'video' %}?movzu={{cat.id}}">{{cat.name}}</a></li>
+                                        {% endfor %}
+                                    </ul> -->
+                                </li>
 
-                       .shadow-2,
-                       .language-dropdown.open label {
-                           box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-                       }
+                                <li class="has-dropdown"><a href="{% url 'meet' %}">Görüşlər</a>
+                                    <!-- <ul class="submenu">
+                                        {% for cat in fotcategories %}
+                                        <li><a href="{% url 'foto' %}?movzu={{cat.id}}">{{cat.name}}</a></li>
+                                        {% endfor %}
+                                    </ul> -->
+                                </li>
+                                <li class="has-dropdown"><a href="{% url 'blog' %}">Bloqlar</a>
 
-                       .shadow-3 {
-                           box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-                       }
+                                </li>
+                                <li class="has-dropdown"><a href=" {% url 'contact' %}">Əlaqə</a>
 
-                       .shadow-4 {
-                           box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-                       }
-
-                       .shadow-5 {
-                           box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-                       }
-
-                       .language-dropdown {
-                           display: inline-block;
-                           overflow: hidden;
-                           height: 40px;
-
-                       }
-
-                       .language-dropdown .lang-en {
-                           border-left: 4px solid rgb(24, 24, 24);
-                       }
-
-                       .language-dropdown .lang-en .flag {
-                           background-image: url("{% static 'azerbaijan.png' %}");
-                       }
-
-                       .language-dropdown .lang-pt {
-                           border-left: 4px solid rgb(24, 24, 24);
-                       }
-
-                       .language-dropdown .lang-pt .flag {
-                           background-image: url("{% static 'russia.png' %}");
-                       }
-
-                       .language-dropdown .lang-es {
-                           border-left: 4px solid rgb(24, 24, 24);
-                       }
-
-                       .language-dropdown .lang-es .flag {
-                           background-image: url("http://www.imaginarium.pt/responsive/2015/images/iconsFicha/banderaES.png");
-                       }
-
-                       .language-dropdown label,
-                       .language-dropdown ul li {
-                           display: block;
-                           width: 50px;
-                           height: 38px;
-                           background: rgb(25, 25, 25);
-                           padding: 0px 6px;
-                           cursor: pointer;
-                       }
-
-                       .language-dropdown ul.lang-list {
-                           position: relative;
-                           visibility: hidden;
-                           opacity: 0;
-                           z-index: 1;
-                       }
-
-                       .language-dropdown ul.lang-list li {
-                           border-bottom: 1px solid rgb(24, 24, 24);
-                       }
-
-                       .language-dropdown ul.lang-list li:last-child {
-                           border-bottom-right-radius: 2px;
-                           border-bottom-left-radius: 2px;
-                       }
-
-                       .language-dropdown ul.lang-list li.selected {
-                           display: none;
-                       }
-
-                       .language-dropdown label {
-                           position: relative;
-                           border-bottom: 1px solid rgb(24, 24, 24);
-                           border-radius: 3px;
-                           z-index: 2;
-                       }
-
-                       .language-dropdown .lang-flag .flag,
-                       .language-dropdown .lang-list .lang .flag {
-                           float: left;
-                           width: 100%;
-                           height: 100%;
-                           cursor: pointer;
-                           background-size: 35px 35px;
-                           background-repeat: no-repeat;
-                           background-position: center;
-                       }
-
-                       .language-dropdown.open ul.lang-list {
-                           visibility: visible;
-                           opacity: 1;
-                       }
-
-                       .language-dropdown.open label {
-                           border-bottom-left-radius: 0px;
-                           border-bottom-right-radius: 0px;
-                       }
-
-                       .animate,
-                       .lang-flag,
-                       .lang-list {
-                           cursor: pointer;
-                           -webkit-transition: all 0.5s;
-                           -moz-transition: all 0.5s;
-                           -ms-transition: all 0.5s;
-                           -ms-transition: all 0.5s;
-                           transition: all 0.5s;
-                           backface-visibility: hidden;
-                           -webkit-backface-visibility: hidden;
-                           -moz-backface-visibility: hidden;
-                           -ms-backface-visibility: hidden;
-                       }
-                   </style>
-                   <script>
-
-                       $(document).ready(function () {
-                           $(".lang-flag").click(function () {
-                               $(".language-dropdown").toggleClass("open");
-                               $(".language-dropdown").css(
-                                   { 'overflow': 'visible' }
-                               )
-                           });
-
-                           $("ul.lang-list li").click(function () {
-                               $("ul.lang-list li").removeClass("selected");
-                               $(this).addClass("selected");
-                               if ($(this).hasClass('lang-en')) {
-                                   $(".language-dropdown").find(".lang-flag").addClass("lang-en").removeClass("lang-pt");
-                                   $("#lang_selected").html("<p>AZ</p>")
-                                   window.location.href = '/'
-                               } else if ($(this).hasClass('lang-pt')) {
-                                   $(".language-dropdown").find(".lang-flag").addClass("lang-pt").removeClass("lang-en");
-                                   $("#lang_selected").html("<p>RU</p>")
-                                   window.location.href = '/ru'
-                               }
-                               $(".language-dropdown").removeClass("open");
-                           });
-                       })
-                       $(document).click(function (e) {
-                           if (!$(e.target).closest(".language-dropdown").length) {
-                               $(".language-dropdown").removeClass("open");
-                           }
-                       });
-                   </script>
-                   <script>
-                       var currentURL = "{{ request.build_absolute_uri }}";
-                       if (currentURL.endsWith('ru/')) {
-                           $("ul.lang-list li").removeClass("selected");
-
-
-                           $(".language-dropdown").find(".lang-flag").addClass("lang-pt").removeClass("lang-en");
-                           $("#lang_selected").html("<p>RU</p>")
-                           $("ul.lang-list li.lang-pt").remove();
-                       }
-                   </script>
-
-               </div>
-
-               <div class="header-menu-spc d-none d-xl-block">
-                   <div class="fm-header-nav">
-
-                       <nav id="mobile-menu" style="display: block;">
-                           <ul>
-                               <li class="has-dropdown">
-                                   <a href="#">Əsas səhifə</a>
-
-                               </li>
-                               <li class="has-dropdown"><a href="{% url 'about' %}">Haqqında</a>
-                               </li>
-
-                               <li class="has-dropdown"><a href="#">Video</a>
-                                   <!-- <ul class="submenu">
-                                       {% for cat in vidcategories %}
-                                       <li><a href="#?movzu={{cat.id}}">{{cat.name}}</a></li>
-                                       {% endfor %}
-                                   </ul> -->
-                               </li>
-
-                               <li class="has-dropdown"><a href="#">Foto</a>
-                                   <!-- <ul class="submenu">
-                                       {% for cat in fotcategories %}
-                                       <li><a href="#?movzu={{cat.id}}">{{cat.name}}</a></li>
-                                       {% endfor %}
-                                   </ul> -->
-                               </li>
-                               <li class="has-dropdown"><a href="#?m=1">Məqalələr</a>
-
-                               </li>
-                               <li class="has-dropdown"><a href="#">Xatirələr</a>
-
-                               </li>
-                               <li class="has-dropdown has-mega-menu">
-                                   <a href="#">Xəbərlər</a>
-
-                               </li>
-
+                                </li>
                                
 
+                                
 
-                               
-                           </ul>
-                       </nav>
 
-                   </div>
-               </div>
-               <!-- sd -->
-               <div class="fm-header-right d-none d-xl-block mr-10" style="text-align: center;letter-spacing: 1px">
-                   <a href="http://75.119.147.165:199/" class="fill-btn"
-                       style="font-size:15px;line-height:20px;border-radius: 3px;">Reabilitasiya <br> Həyatdır
-                       <span>
-                           <i class="fa-regular fa-arrow-right"></i>
-                       </span>
-                   </a>
-               </div>
-           </div>
+                                
+                            </ul>
+                        </nav>
 
-       </div>
-   </div>
+                    </div>
+                </div>
+                <!-- sd -->
+                <div class="fm-header-right d-none d-xl-block mr-10" style="text-align: center;letter-spacing: 1px">
+                    <a href="http://75.119.147.165:199/" class="fill-btn"
+                        style="font-size:15px;line-height:20px;border-radius: 3px;">Heydər  <br> Əliyev
+                        <span>
+                            <i class="fa-regular fa-arrow-right"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </header>
 <!-- header wrapper -->
 
@@ -392,8 +203,8 @@
             <div class="row section-title-spacing">
                <div class="col-xl-6">
                   <div class="section-title">
-                     <span class="section-subtitle title-anim">Heydər Əliyev 100</span>
-                     <h2 class="section-main-title title-anim">Son xəbərlər </h2>
+                     <span class="section-subtitle title-anim">Reabilitasiya həyatdır</span>
+                     <h2 class="section-main-title title-anim">Son bloqlar </h2>
                   </div>
                </div>
 
@@ -413,7 +224,7 @@
                      <article class="postbox__item mb-60 bdFadeUp">
                         <div class="postbox__thumb mb-30">
                            <a href="{% url 'blogsingle' blog.slug %}">
-                              <img style="height: 500px;" src="{{blog.image.url}}" alt="img not found">
+                              <img style="height: 500px;" {% if blog.image %} src="{{blog.image.url}}" {% endif %} alt="img not found">
                            </a>
                         </div>
                         <div class="postbox__content">
@@ -468,7 +279,7 @@
                               <form action="#" method="GET">
                                  {% csrf_token %}
                                  <div class="sidebar__search-input">
-                                    <input name="blog" type="text" placeholder="Xəbərlərdə axtar...">
+                                    <input name="blog" type="text" placeholder="Bloqlarda axtar...">
                                     <button type="submit">
                                        <i class="flaticon-search"></i>
                                     </button>

@@ -33,6 +33,7 @@ class About(models.Model):
     content2 =models.CharField(max_length=3200,null=True,blank=True)
     contentbig = models.TextField(null=True,blank=True)
     image = models.ImageField(verbose_name='690-732',null=True,blank=True)   
+    image2 = models.ImageField(verbose_name='cover',null=True,blank=True)   
     imza = models.CharField(max_length=120,null=True,blank=True)
     
     def __str__(self):
@@ -62,11 +63,12 @@ class AllHeader(models.Model):
     
     def __str__(self):
         return 'Diger Sehife Header '+self.title
+    
     def save(self, *args, **kwargs):
         self.pk = 1
         super(AllHeader, self).save(*args, **kwargs)
 
-class Sportmen(models.Model):
+class Sportmen(BaseMixin):
     user = models.OneToOneField(User,on_delete=models.CASCADE,related_name='owner')
     field = models.CharField(max_length=120,null=True,blank=True)
     phone_number = models.CharField(max_length=120,null=True,blank=True)
@@ -79,6 +81,38 @@ class Sportmen(models.Model):
     def __str__(self):
         return self.user.first_name + self.user.last_name + self.field
     
+    def save(self, *args, **kwargs):
+        new_slug = slugify(self.user.first_name + ' ' + self.user.last_name)
+        self.slug = new_slug
+        if Sportmen.objects.filter(slug=new_slug).exists():
+            count = 0
+            while Sportmen.objects.filter(slug=new_slug).exists():
+                new_slug = f"{slugify(self.user.first_name + ' ' + self.user.last_name)}-{count}"
+                count += 1
+        super(Sportmen, self).save(*args, **kwargs)
+        
+class Achi(models.Model):
+    sportmen = models.ForeignKey(Sportmen,on_delete=models.CASCADE,related_name='achis')
+    date = models.CharField(max_length=120, null=True,blank=True,verbose_name='tarix, bos qoy !')
+    achi = models.CharField(max_length=400,null=True,blank=True,verbose_name='nealiyyet adi')
+    content = models.TextField(null=True,blank=True,verbose_name='nealiyyet mezmunu')
+
+    class META:
+        verbose_name = 'Nealiyyetler'
+
+    def __str__(self):
+        return self.sportmen.user.username + ' ' + self.achi
+    
+class SportVideo(models.Model):
+    sportmen = models.ForeignKey(Sportmen,on_delete=models.CASCADE,related_name='videos')
+    embed = models.TextField(null=True,blank=True)
+    title = models.TextField(null=True,blank=True)
+    class META:
+        verbose_name = 'Idmanci videolari ' 
+
+    def __str__(self):
+        return self.sportmen.user.username
+    
 class Message(models.Model):
     name = models.CharField(max_length=120)
     email = models.CharField(max_length=120)
@@ -86,6 +120,8 @@ class Message(models.Model):
     phone = models.CharField(max_length=120)
     message = models.CharField(max_length=120)
     
+    
+
     def __str__(self):
         return self.name
 
@@ -139,7 +175,8 @@ class Meeting(models.Model):
     
     def __str__(self):
         return self.meetingowner.username
-    
+
+
 
 class Survey(models.Model):
     name = models.CharField(max_length=1200)

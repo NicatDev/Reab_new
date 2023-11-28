@@ -13,7 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    
+    <link rel="stylesheet" href="{% static 'templatestyles/css/style.css' %}">
 
     <link rel="stylesheet" href="{% static 'templatestyles/css/themify-icons.css' %}">
     <!-- Favicon icon -->
@@ -22,7 +22,7 @@
     <!-- Custom Stylesheet -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="custom.js"></script>
-    <link rel="stylesheet" href="{% static 'templatestyles/css/style.css' %}">
+
     <link rel="stylesheet" href="{% static 'assets/css/preloader.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/meanmenu.css' %}">
@@ -103,14 +103,25 @@
                             <a href="" class="fm-header-logo">
                                 <img style="height: 65px !important;" src="{% static 'logo.svg' %}" alt="img not found">
                             </a>
-                            
-                            <a  class="fm-header-bar-1" >
-                                <span class="fm-header-bar-line fm-header-bar-line-1"></span>
-                                <span class="fm-header-bar-line fm-header-bar-line-2"></span>
-                                <span class="fm-header-bar-line fm-header-bar-line-3"></span>
-                            </a>
-                       
-              
+                            <div>
+                            <div class="user-icon-mob" style="    cursor: pointer;">
+                         
+                                <i class="fa-regular fa-user" style="color: #ffffff;font-size:22px;"></i>
+                                <a  class="fm-header-bar-1" >
+                                    <span class="fm-header-bar-line fm-header-bar-line-1"></span>
+                                    <span class="fm-header-bar-line fm-header-bar-line-2"></span>
+                                    <span class="fm-header-bar-line fm-header-bar-line-3"></span>
+                                </a>
+                            </div>
+                      
+                        </div>
+                                <style>
+                                        @media(min-width:1200px) {
+                                            .fm-header-bar-1{
+                                                display: none;
+                                            }
+                                        }
+                                </style>
                         </div>
 
                         <div class="header-menu-spc d-none d-xl-block">
@@ -119,13 +130,13 @@
                                 <nav id="mobile-menu" style="display: block;">
                                     <ul>
                                         <li class="has-dropdown">
-                                            <a href="">Əsas səhifə</a>
+                                            <a href="{% url 'home' %}">Əsas səhifə</a>
 
                                         </li>
-                                        <li class="has-dropdown"><a href="">Lahiye haqqinda</a>
+                                        <li class="has-dropdown"><a href="{% url 'about' %}">Lahiye haqqinda</a>
                                         </li>
 
-                                        <li class="has-dropdown"><a href="">Spikerler</a>
+                                        <li class="has-dropdown"><a href="{% url 'spiker' %}">Spikerler</a>
                                             <!-- <ul class="submenu">
                                                 {% for cat in vidcategories %}
                                                 <li><a href="{% url 'video' %}?movzu={{cat.id}}">{{cat.name}}</a></li>
@@ -133,17 +144,17 @@
                                             </ul> -->
                                         </li>
 
-                                        <li class="has-dropdown"><a href="">Görüşlər</a>
+                                        <li class="has-dropdown"><a href="{% url 'meet' %}">Görüşlər</a>
                                             <!-- <ul class="submenu">
                                                 {% for cat in fotcategories %}
                                                 <li><a href="{% url 'foto' %}?movzu={{cat.id}}">{{cat.name}}</a></li>
                                                 {% endfor %}
                                             </ul> -->
                                         </li>
-                                        <li class="has-dropdown"><a href="">Bloqlar</a>
+                                        <li class="has-dropdown"><a href="{% url 'blog' %}">Bloqlar</a>
 
                                         </li>
-                                        <li class="has-dropdown"><a href="">Əlaqə</a>
+                                        <li class="has-dropdown"><a href=" {% url 'contact' %}">Əlaqə</a>
 
                                         </li>
                                        
@@ -157,15 +168,43 @@
 
                             </div>
                         </div>
+                       
                         <!-- sd -->
-                        <div class="fm-header-right d-none d-xl-block mr-10" style="text-align: center;letter-spacing: 1px">
-                            <a href="http://75.119.147.165:199/" class="fill-btn"
-                                style="font-size:15px;line-height:20px;border-radius: 3px;">Heydər  <br> Əliyev
-                                <span>
-                                    <i class="fa-regular fa-arrow-right"></i>
-                                </span>
-                            </a>
+                        <div style="display: flex;align-items: center;justify-content: end;position: relative;gap:30px"> 
+                            <div class="user-icon-desk" style="    cursor: pointer;">
+                         
+                                <i class="fa-regular fa-user" style="color: #ffffff;font-size:22px;"></i>
+                            </div>
+                            <div class="fm-header-right d-none d-xl-block mr-10" style="text-align: center;letter-spacing: 1px;display: flex;align-items: center;justify-content: center;">
+                  
+                                <a href="http://75.119.147.165:199/" class="fill-btn"
+                                    style="font-size:15px;line-height:20px;border-radius: 3px;">Heydər  <br> Əliyev
+                                    <span>
+                                        <i class="fa-regular fa-arrow-right"></i>
+                                    </span>
+                                </a>
+                            </div>
                         </div>
+                        <style>
+                            @media (max-width: 1199px) {
+                                .user-icon-desk{
+                                    display: none;
+                            }}
+                            .user-icon-mob{
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                text-align: center;
+                                gap:30px
+                            }
+                            @media (min-width: 1200px) {
+                                .user-icon-mob{
+                                    display: none;
+                                }
+                            }
+                        </style>
+                     
+                
                     </div>
 
                 </div>
@@ -179,7 +218,7 @@
             <div class="fm-header-sidebar-wrapper">
                 <div class="fm-header-sidebar-action mb-65">
                     <div class="fm-header-sidebar-logo">
-                        <a href=""><img style="width:80px" src=""
+                        <a href=""><img style="width:80px" src="{% static 'logo.svg' %}"
                                 alt="logo not found"></a>
                     </div>
                     <div class="offcanvas-close">
@@ -214,7 +253,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="banner-wrap justify-content-between align-items-center" style="background:#21181300;">
+                        <div class="banner-wrap justify-content-between align-items-center" style="background:linear-gradient(to bottom, transparent, black);;">
                             <div style="position: absolute;z-index: 1;" class="left-wrap">
                                 <span style="opacity:0;" class="rnd">IMDb 6.7</span>
                                 <h2 style="user-select:none ;">Rafael Ağayev</h2>
@@ -228,13 +267,13 @@
                                     style="background-color:var(--clr-theme-1);margin-top:10px;border-radius:5px !important;padding-top:8px !important;padding-bottom:8px !important;height:initial !important;width:200px !important;text-align:center !important;">Görüşə qatıl</a>
                             </div>
                             <div style="    background: linear-gradient(90deg, #181616 24%, #0000001f);width: 100%;flex:0 0 100%;max-width: 100%;" class="right-wrap">
-                              <div style="mix-blend-mode: overlay;width: 100%;    background-color: #ff5200;">
+                              <div style="mix-blend-mode: overlay;width: 100%;    background-color: #ffb387;">
                                 <img style="margin-left:50%;width:  40%;height: 100%;" src="{% static 'gulshen.png' %}" alt="">
                             </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-12">
+                    <div class="col-sm-12"  >
                         <div class="slide-wrapper">
                             <div class="slide-slider-full owl-carousel owl-theme">
                                 {% for video in all_meetings %}
@@ -250,7 +289,7 @@
                                                 style="display:flex;justify-content: space-evenly;padding-bottom:auto;height: 100%;">
                                               
                                                 <h2 style="font-size:20px;text-align: center;margin-left:auto;padding-right: 60px;padding-top:5%;color:rgba(229, 229, 229, 0.863) !important; text-shadow: 2px 2px 4px #333;
-                                               ">{{video.title}}</h2>
+                                               ">{{video.date}}</h2>
                                             </div>
 
                                         </div>
@@ -282,28 +321,24 @@
             </div>
           
         </div>
-        <div style="border-bottom-left-radius: 7%;border-bottom-right-radius: 7%;height: 180px;position: relative;background-color: rgba(17, 7, 1, 0.932);padding-right: 0px;padding-left:0%; box-shadow: 0 0 10px 10px  rgba(17, 7, 1, 0.966);" class="banner2">   <div id="kkk" class="col-sm-12 banner2" style="height: 173px;padding-right: 5%;padding-left:5%;position: absolute;bottom:21px !important">
+        <div style="border-bottom-left-radius: 7%;border-bottom-right-radius: 7%;height: 180px;position: relative;background-color: rgb(14 6 6);padding-right: 0px;padding-left:0%; box-shadow: 0 0 10px 10px  rgba(17, 7, 1, 0.966);" class="banner2">   <div id="kkk" class="col-sm-12 banner2" style="height: 173px;padding-right: 5%;padding-left:5%;position: absolute;bottom:21px !important">
             <div class="slide-wrapper">
                 <div style="height: 180px;" class="slide-slider-full owl-carousel owl-theme">
-                    {% for video in HomeHeaderVideo %}
-                            <div class="owl-items" style="height: 180px">                                <a href="#media-popup" data-media="{{video.embed_full}}">
-                        <div class="myplaybtn" style="color:rgb(5, 5, 139);z-index:1;border-radius: 50%;text-align: center;background:linear-gradient(to bottom, rgb(255, 253, 253) 50%, rgba(147, 147, 147, 0) )">
-                            <i style="font-size: 60px;color:#000;" class="fa-solid fa-circle-play"></i>
-                        </div> </a>
+                    {% for video in all_meetings %}
+                            <div class="owl-items" style="height: 180px">                             
                       
                         <a href="#media-popup" data-media="{{video.embed_full}}"
                             class="slide-one slide-two slide-three">
                             <div  class="slide-image"
-                                style="background-image:url('{{video.coverimage.url}}');"></div>
+                                style="background-image:url('{{video.meetingowner.owner.image.url}}');"></div>
 
                             <div style="position:absolute;width: 100%;height: 100%;padding:0;"
                                 class="slide-content">
                                 <div
                                     style="display:flex;justify-content: space-evenly;padding-bottom:auto;height: 100%;">
-                                    <img style="position: absolute;width: 60px;height: 60px;right:8px;top:70%;"
-                                        src="{{head.logoheader.url}}" alt="">
+                        
                                     <h2 style="font-size:20px;text-align: center;margin-left:auto;padding-right: 14px;padding-top:5%;color:rgba(229, 229, 229, 0.863) !important; text-shadow: 2px 2px 4px #333;
-                                   ">{{video.name}}</h2>
+                                   ">{{video.date}}</h2>
                                 </div>
 
                             </div>
@@ -335,9 +370,59 @@
     .banner1{display: block;}
   }
 </style>
+
+<div class="aboutimagetitle-div" style="display: flex;align-items:center;justify-content:space-between;margin-top:3% !important">
+    <h3 style="user-select:none ;">Spikerlər</h3>
+    <div style="display: flex;align-items:center;">
+        <span><a href="{% url 'spiker' %}" style="font-size:16px;margin-right:7px;" >daha
+                ətraflı</a></span>
+        <span><img style="filter:  brightness(5000%) ;" src="{% static 'templatestyles/images/arrowupright.png' %}"
+                alt=""></span>
+    </div>
+</div>
+
+
+
+
+<!-- slider wrapper -->
+<div style="margin-top:1%;" class="slide-wrapper brand-carousell">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="slide-slider-full owl-carousel owl-theme">
+                    {% for video in sportmen %}
+                    <div class="owl-items">
+                  
+                        <a href="{% url 'speakersingle' video.slug %}" 
+                            style="text-shadow:2px 2px 4px rgba(0, 0, 0, 0.5);" class="slide-one">
+
+                            <div class="slide-image">
+                                {% if video.image %}
+                                <img style="object-fit: cover;max-height: 350px;min-height: 350px;"
+                                    src="{{video.image.url}}" alt="image" loading="lazy">
+                                {% endif %}
+                               
+
+                            </div>
+                            <div class="slide-content" style="height: 12rem !important;">
+                                <p style="text-shadow:2px 2px 4px rgba(0, 0, 0, 0.5);font-size:30px;font-weight: 600;" style="height:4rem">
+                                    {{video.user.first_name}} {{video.user.last_name}}</p>
+                                <p style="text-shadow:2px 2px 4px rgba(0, 0, 0, 0.5);font-size: 20px !important;" style="height:4rem">
+                                  <span style="font-size:20px !important">  {{video.field}} </span> ({{video.titul}})</p>
+
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
         <!-- lahiye haqqinda -->
         <section>
-            <div class="aboutimagetitle-div">
+            <div class="aboutimagetitle-div" style="margin-top:3% !important">
                 <h3 style="cursor:none;user-select:none;">Haqqında</h3>
             </div>
             <!-- fm-about-area-start -->
@@ -346,7 +431,7 @@
                     <div class="row align-items-center g-5 gy-50">
                         <div class="col-xl-6 col-lg-6">
                             <div class="fm-director-about-img">
-                                <img style="height: 450px !important;" src="{% static 'sport.jpeg' %}" alt="img not found">
+                                <img style="height: 450px !important;" src="{{about.image.url}}" alt="img not found">
                                 <div class="fm-director-years" style="align-items: end;margin-bottom:7px">
                                     <span style="user-select:none ;" class="fm-director-years-number"></span>
 
@@ -356,24 +441,22 @@
                         </div>
                         <div class="col-xl-6 col-lg-6">
                             <div class="fm-about-content-section">
-                                <span style="user-select:none ;"
-                                    class="section-subtitle title-anim">  Reablitasiya həyatdır</span>
-                                <a href="">
-                                    <h2 style="user-select:none ;"
-                                        class="section-main-title text-white mb-25 title-anim">
-                                        Reablitasiya həyatdır
-                                    </h2>
-                                </a>
-                                <p class="mb-20">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem voluptatem, voluptatibus iste ducimus illum laboriosam error sapiente iusto maxime nihil nemo officiis culpa a! Porro eveniet aperiam dolorem quas blanditiis quam, esse fuga, aliquid error molestiae necessitatibus dolor aspernatur id.</p>
-
-                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure repellat ex ipsam deserunt repellendus recusandae tenetur sunt aperiam qui adipisci. Lorem ipsum dolor sit amet consectetur adipisicing elit. Et architecto illum earum culpa similique velit sed distinctio quaerat qui. Nostrum doloribus illum et omnis deserunt soluta officia veniam! Aperiam maxime architecto quo consectetur eum excepturi ex quidem accusantium cumque ullam....<a href="" id="dahaFazlaGorLink"> daha ətraflı</a>
-
-                                </p>
-                                 <div style="display: none;" class="fm-director-about-name mt-55">
-                       
-                                </div> 
+                               <span class="section-subtitle title-anim" >{{about.minititle}}</span>
+                               <h2 class="section-main-title text-white mb-25 title-anim" >{{about.title}}
+                               </h2>
+                               <p class="mb-20"  style="text-align: justify;">{{about.content|slice:470}}</p>
+           
+                               <p style="text-align: justify;">{{about.content2|slice:70}}...
+                                 
+                               </p>
+                               <div style="margin-top:10px;text-align: end;"><a  href="{% url 'about' %}" id="dahaFazlaGorLink"> daha ətraflı</a></div>
+                               <!-- <div class="fm-director-about-name mt-55">
+                                  <a href="team-details.html" class="director-about-nam">David Anderson</a>
+                               </div> -->
+                               
                             </div>
-                        </div>
+                         
+                         </div>
                     </div>
                 </div>
             </div>
@@ -416,7 +499,7 @@
                     <div class="section-title-wrap">
                         <div class="section-title text-center">
                             
-                            <h2 class="title">Qəhrəmanını bizimlə tanı</h2>
+                            <h2 style="margin-top:2%;" class="title">Qəhrəmanını bizimlə tanı</h2>
                         </div>
                     </div>
                 </div>
@@ -623,12 +706,27 @@
         </div>
     </div>
     <!-- xatirelerde section end -->
- 
+    <div class="aboutimagetitle-div" style="display: flex;align-items:center;justify-content:space-between;">
+        <h3 style="user-select:none;">Xüsusi təşəkkürlər</h3>
+        <div style="display: flex;align-items:center;">
+        
+
+        </div>
+    </div>
+
+    <div style="padding: 0px !important;background-color: rgba(20, 20, 20, 0.89) !important;" class="brand-carousel section-padding owl-carousel"
+        style="margin-top:3%;background:linear-gradient(to right, rgb(50, 50, 50), rgb(137, 137, 137), rgb(51, 51, 51));">
+        {% for logo in partners %}
+        <div style="display: flex;justify-content: center;align-items: center;padding-top:50px;padding-bottom:50px;" class="single-logo">
+            <img {% if logo.name == 'mitri' %} style="width: 60%;height:80px;padding-top:10px;" {% else %} style="width: 60%;height:100px;"  {% endif %} src="{{logo.image.url}}" alt="{{logo.name}}">
+        </div>
+        {% endfor %}
+    </div>
     <!-- blog-area-start -->
     <div class="aboutimagetitle-div" style="display: flex;align-items:center;justify-content:space-between;">
-        <h3 style="user-select:none;">Xəbərlər</h3>
+        <h3 style="user-select:none;">Bloqlar</h3>
         <div style="display: flex;align-items:center;">
-            <span><a style="font-size:16px;margin-right:7px;" href="">daha ətraflı</a></span>
+            <span><a style="font-size:16px;margin-right:7px;" href="{% url 'blog' %}">daha ətraflı</a></span>
             <span><img style="filter:  brightness(5000%) ;" src="{% static 'templatestyles/images/arrowupright.png' %}"
                     alt=""></span>
         </div>
@@ -645,7 +743,7 @@
                     <div class="fm-blog-inner blog__animation-wrapper  is-white">
 
                         <div class="fm-blog-thumb">
-                            <a href=""> <img style="max-height:370px;"
+                            <a href="{% url 'blogsingle' blog.slug %}"> <img style="max-height:370px;"
                                     src="{{blog.image.url}}" alt="img not found"></a>
                         </div>
 
@@ -656,7 +754,7 @@
                                 </div>
                                 <h4 class="fm-blog-title text-white">
                                     <a style="user-select:none ;color: #000;"
-                                        href="">{{blog.name}}</a>
+                                        href="{% url 'blogsingle' blog.slug %}">{{blog.name}}</a>
                                 </h4>
                                 <div class="fm-blog-text">
                                     <p style="user-select:none ;color: #000;">{{blog.content_without_ck|slice:230}}...</p>
@@ -665,7 +763,7 @@
                         </div>
 
                         <div class="fm-featured-btn btn_wrapper ">
-                            <a href="" class="blog-rotate-btn btn__item-move">
+                            <a href="{% url 'blogsingle' blog.slug %}" class="blog-rotate-btn btn__item-move">
                                 <span>
                                     <i style="color: black;" class="flaticon-right-arrow-1"></i>
                                 </span>
@@ -680,73 +778,8 @@
         </div>
     </section>
     <!-- blog-area-end -->
-    <div class="aboutimagetitle-div" style="display: flex;align-items:center;justify-content:space-between;">
-        <h3 style="user-select:none ;">Spikerlər</h3>
-        <div style="display: flex;align-items:center;">
-            <span><a style="font-size:16px;margin-right:7px;" >daha
-                    ətraflı</a></span>
-            <span><img style="filter:  brightness(5000%) ;" src="{% static 'templatestyles/images/arrowupright.png' %}"
-                    alt=""></span>
-        </div>
-    </div>
-
-
-
-
-    <!-- slider wrapper -->
-    <div style="margin-top:1%;" class="slide-wrapper brand-carousell">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="slide-slider-full owl-carousel owl-theme">
-                        {% for video in sportmen %}
-                        <div class="owl-items">
-                      
-                            <a 
-                                style="text-shadow:2px 2px 4px rgba(0, 0, 0, 0.5);" class="slide-one">
-
-                                <div class="slide-image">
-                                    {% if video.image %}
-                                    <img style="object-fit: cover;max-height: 350px;min-height: 350px;"
-                                        src="{{video.image.url}}" alt="image" loading="lazy">
-                                    {% endif %}
-                                   
-
-                                </div>
-                                <div class="slide-content" style="height: 12rem !important;">
-                                    <p style="text-shadow:2px 2px 4px rgba(0, 0, 0, 0.5);font-size:30px;font-weight: 600;" style="height:4rem">
-                                        Rafael Agayev {{video.user.username}}</p>
-                                    <p style="text-shadow:2px 2px 4px rgba(0, 0, 0, 0.5);" style="height:4rem">
-                                        {{video.personal_information|slice:90}}...</p>
-
-                                </div>
-                            </a>
-                        </div>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--photo galery-->
-
-    <div class="aboutimagetitle-div" style="display: flex;align-items:center;justify-content:space-between;">
-        <h3 style="user-select:none;">Xüsusi təşəkkürlər</h3>
-        <div style="display: flex;align-items:center;">
-        
-            <span><img style="filter:  brightness(5000%) ;" src="{% static 'templatestyles/images/arrowupright.png' %}"
-                    alt=""></span>
-        </div>
-    </div>
-
-    <div style="padding: 0px !important;background-color: rgba(20, 20, 20, 0.89) !important;" class="brand-carousel section-padding owl-carousel"
-        style="margin-top:3%;background:linear-gradient(to right, rgb(50, 50, 50), rgb(137, 137, 137), rgb(51, 51, 51));">
-        {% for logo in partners %}
-        <div style="display: flex;justify-content: center;align-items: center;padding-top:50px;padding-bottom:50px;" class="single-logo">
-            <img {% if logo.name == 'mitri' %} style="width: 60%;height:80px;padding-top:10px;" {% else %} style="width: 60%;height:100px;"  {% endif %} src="{{logo.image.url}}" alt="{{logo.name}}">
-        </div>
-        {% endfor %}
-    </div>
+  
+   
 
     <style>
         .single-logo:hover{
@@ -1475,9 +1508,7 @@ font-size:100px !important
     .banner-wrapper {
         margin-top: 10px;
     }
-    .banner-wrapper .right-wrap:after {
-    background: linear-gradient(to right, rgb(151, 71, 28) 43%, transparent);
-}
+
 .banner-wrapper .mywrap:after {
     background: none !important;
 }
@@ -2317,6 +2348,7 @@ cardElements.forEach(function (cardElement) {
     cardElement.addEventListener('mouseout', removeClassOnHover);
 });
 </script>
+<style>
 [class^="plus-icon-"]:not(.plus-icon-shape) {
     position: relative;
     height: 20px;
@@ -2513,8 +2545,22 @@ left:0;
 
 /* Additional Styling */
 
+.aboutimagetitle-div{
 
+    color:black !important
+}
+.aboutimagetitle-div h3{
 
+color:black !important
+}
+.aboutimagetitle-div span{
+
+color:black !important
+}
+.aboutimagetitle-div img{
+
+    filter:brightness(0%) !important
+}
 
 .schedule-content i {
 color: #444444;

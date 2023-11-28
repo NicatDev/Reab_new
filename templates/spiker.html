@@ -212,277 +212,88 @@
 
     <div class="main-wrapper">
              <!-- header wrapper -->
-        <header id="header-sticky" class="fm-header-area header-border transparent-header bg-common-black">
-            <div class="container">
-                <div class="row align-items-center justify-content-lg-between pr-5 pl-5">
-                    <div class="header-wrapper">
-                        <div class="fm-header-logo-wrapper">
-                            <a href="{% url 'home' %}" class="fm-header-logo">
-                                <img style="height: 65px !important;" src="{{head.logoheader.url}}" alt="img not found">
-                            </a>
-                            
-                            <div class="dinozavr"
-                                style="display:flex;align-items:center;justify-content:center;gap:2rem;">
-                                <div id="lang_selector" class="language-dropdown">
-                                    <label for="toggle" class="lang-flag lang-en" title="Click to select the language">
-                                        <span class="flag"></span>
-                                    </label>
-                                    <ul class="lang-list">
-                                        <li class="lang lang-en selected" title="AZ">
-                                            <span class="flag"></span>
-                                        </li>
-                                        <li class="lang lang-pt" title="RU">
-                                            <span class="flag"></span>
-                                        </li>
-
-                                    </ul>
-                                </div>
-
-                                <a href="#0" class="fm-header-bar-1" id="ancaqmobile">
+             <header id="header-sticky" class="fm-header-area header-border transparent-header bg-common-black">
+                <div class="container">
+                    <div class="row align-items-center justify-content-lg-between pr-5 pl-5">
+                        <div class="header-wrapper">
+                            <div class="fm-header-logo-wrapper">
+                                <a href="" class="fm-header-logo">
+                                    <img style="height: 65px !important;" src="{% static 'logo.svg' %}" alt="img not found">
+                                </a>
+                                
+                                <a  class="fm-header-bar-1" >
                                     <span class="fm-header-bar-line fm-header-bar-line-1"></span>
                                     <span class="fm-header-bar-line fm-header-bar-line-2"></span>
                                     <span class="fm-header-bar-line fm-header-bar-line-3"></span>
                                 </a>
-                                <!-- <img src=" {% static 'russia.png' %}" alt="">
-                       
-                        {% static 'azerbaijan.png' %} -->
-
-
+                           
+                                    <style>
+                                            @media(min-width:1200px) {
+                                                .fm-header-bar-1{
+                                                    display: none;
+                                                }
+                                            }
+                                    </style>
                             </div>
-                            <style>
-                                .shadow-1,
-                                .language-dropdown ul.lang-list,
-                                .language-dropdown label {
-                                    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-                                }
-
-                                .shadow-2,
-                                .language-dropdown.open label {
-                                    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-                                }
-
-                                .shadow-3 {
-                                    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-                                }
-
-                                .shadow-4 {
-                                    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-                                }
-
-                                .shadow-5 {
-                                    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-                                }
-
-                                .language-dropdown {
-                                    display: inline-block;
-                                    overflow: hidden;
-                                    height: 40px;
-
-                                }
-
-                                .language-dropdown .lang-en {
-                                    border-left: 4px solid rgb(24, 24, 24);
-                                }
-
-                                .language-dropdown .lang-en .flag {
-                                    background-image: url("{% static 'azerbaijan.png' %}");
-                                }
-
-                                .language-dropdown .lang-pt {
-                                    border-left: 4px solid rgb(24, 24, 24);
-                                }
-
-                                .language-dropdown .lang-pt .flag {
-                                    background-image: url("{% static 'russia.png' %}");
-                                }
-
-                                .language-dropdown .lang-es {
-                                    border-left: 4px solid rgb(24, 24, 24);
-                                }
-
-                                .language-dropdown .lang-es .flag {
-                                    background-image: url("http://www.imaginarium.pt/responsive/2015/images/iconsFicha/banderaES.png");
-                                }
-
-                                .language-dropdown label,
-                                .language-dropdown ul li {
-                                    display: block;
-                                    width: 50px;
-                                    height: 38px;
-                                    background: rgb(25, 25, 25);
-                                    padding: 0px 6px;
-                                    cursor: pointer;
-                                }
-
-                                .language-dropdown ul.lang-list {
-                                    position: relative;
-                                    visibility: hidden;
-                                    opacity: 0;
-                                    z-index: 1;
-                                }
-
-                                .language-dropdown ul.lang-list li {
-                                    border-bottom: 1px solid rgb(24, 24, 24);
-                                }
-
-                                .language-dropdown ul.lang-list li:last-child {
-                                    border-bottom-right-radius: 2px;
-                                    border-bottom-left-radius: 2px;
-                                }
-
-                                .language-dropdown ul.lang-list li.selected {
-                                    display: none;
-                                }
-
-                                .language-dropdown label {
-                                    position: relative;
-                                    border-bottom: 1px solid rgb(24, 24, 24);
-                                    border-radius: 3px;
-                                    z-index: 2;
-                                }
-
-                                .language-dropdown .lang-flag .flag,
-                                .language-dropdown .lang-list .lang .flag {
-                                    float: left;
-                                    width: 100%;
-                                    height: 100%;
-                                    cursor: pointer;
-                                    background-size: 35px 35px;
-                                    background-repeat: no-repeat;
-                                    background-position: center;
-                                }
-
-                                .language-dropdown.open ul.lang-list {
-                                    visibility: visible;
-                                    opacity: 1;
-                                }
-
-                                .language-dropdown.open label {
-                                    border-bottom-left-radius: 0px;
-                                    border-bottom-right-radius: 0px;
-                                }
-
-                                .animate,
-                                .lang-flag,
-                                .lang-list {
-                                    cursor: pointer;
-                                    -webkit-transition: all 0.5s;
-                                    -moz-transition: all 0.5s;
-                                    -ms-transition: all 0.5s;
-                                    -ms-transition: all 0.5s;
-                                    transition: all 0.5s;
-                                    backface-visibility: hidden;
-                                    -webkit-backface-visibility: hidden;
-                                    -moz-backface-visibility: hidden;
-                                    -ms-backface-visibility: hidden;
-                                }
-                            </style>
-                            <script>
-
-                                $(document).ready(function () {
-                                    $(".lang-flag").click(function () {
-                                        $(".language-dropdown").toggleClass("open");
-                                        $(".language-dropdown").css(
-                                            { 'overflow': 'visible' }
-                                        )
-                                    });
-
-                                    $("ul.lang-list li").click(function () {
-                                        $("ul.lang-list li").removeClass("selected");
-                                        $(this).addClass("selected");
-                                        if ($(this).hasClass('lang-en')) {
-                                            $(".language-dropdown").find(".lang-flag").addClass("lang-en").removeClass("lang-pt");
-                                            $("#lang_selected").html("<p>AZ</p>")
-                                            window.location.href = '/'
-                                        } else if ($(this).hasClass('lang-pt')) {
-                                            $(".language-dropdown").find(".lang-flag").addClass("lang-pt").removeClass("lang-en");
-                                            $("#lang_selected").html("<p>RU</p>")
-                                            window.location.href = '/ru'
-                                        }
-                                        $(".language-dropdown").removeClass("open");
-                                    });
-                                })
-                                $(document).click(function (e) {
-                                    if (!$(e.target).closest(".language-dropdown").length) {
-                                        $(".language-dropdown").removeClass("open");
-                                    }
-                                });
-                            </script>
-                            <script>
-                                var currentURL = "{{ request.build_absolute_uri }}";
-                                if (currentURL.endsWith('ru/')) {
-                                    $("ul.lang-list li").removeClass("selected");
-
-
-                                    $(".language-dropdown").find(".lang-flag").addClass("lang-pt").removeClass("lang-en");
-                                    $("#lang_selected").html("<p>RU</p>")
-                                    $("ul.lang-list li.lang-pt").remove();
-                                }
-                            </script>
-
-                        </div>
-
-                        <div class="header-menu-spc d-none d-xl-block">
-                            <div class="fm-header-nav">
-
-                                <nav id="mobile-menu" style="display: block;">
-                                    <ul>
-                                        <li class="has-dropdown">
-                                            <a href="{% url 'home' %}">Əsas səhifə</a>
-
-                                        </li>
-                                        <li class="has-dropdown"><a href="#">Haqqında</a>
-                                        </li>
-
-                                        <li class="has-dropdown"><a href="#">Video</a>
-                                            <!-- <ul class="submenu">
-                                                {% for cat in vidcategories %}
-                                                <li><a href="{% url 'video' %}?movzu={{cat.id}}">{{cat.name}}</a></li>
-                                                {% endfor %}
-                                            </ul> -->
-                                        </li>
-
-                                        <li class="has-dropdown"><a href="#">Foto</a>
-                                            <!-- <ul class="submenu">
-                                                {% for cat in fotcategories %}
-                                                <li><a href="{% url 'foto' %}?movzu={{cat.id}}">{{cat.name}}</a></li>
-                                                {% endfor %}
-                                            </ul> -->
-                                        </li>
-                                        <li class="has-dropdown"><a href="#">Məqalələr</a>
-
-                                        </li>
-                                        <li class="has-dropdown"><a href="#">Xatirələr</a>
-
-                                        </li>
-                                        <li class="has-dropdown has-mega-menu">
-                                            <a href="#">Xəbərlər</a>
-
-                                        </li>
-
-                                        
-
-
-                                        
-                                    </ul>
-                                </nav>
-
+    
+                            <div class="header-menu-spc d-none d-xl-block">
+                                <div class="fm-header-nav">
+    
+                                    <nav id="mobile-menu" style="display: block;">
+                                        <ul>
+                                            <li class="has-dropdown">
+                                                <a href="{% url 'home' %}">Əsas səhifə</a>
+    
+                                            </li>
+                                            <li class="has-dropdown"><a href="{% url 'about' %}">Lahiye haqqinda</a>
+                                            </li>
+    
+                                            <li class="has-dropdown"><a href="{% url 'spiker' %}">Spikerler</a>
+                                                <!-- <ul class="submenu">
+                                                    {% for cat in vidcategories %}
+                                                    <li><a href="{% url 'video' %}?movzu={{cat.id}}">{{cat.name}}</a></li>
+                                                    {% endfor %}
+                                                </ul> -->
+                                            </li>
+    
+                                            <li class="has-dropdown"><a href="{% url 'meet' %}">Görüşlər</a>
+                                                <!-- <ul class="submenu">
+                                                    {% for cat in fotcategories %}
+                                                    <li><a href="{% url 'foto' %}?movzu={{cat.id}}">{{cat.name}}</a></li>
+                                                    {% endfor %}
+                                                </ul> -->
+                                            </li>
+                                            <li class="has-dropdown"><a href="{% url 'blog' %}">Bloqlar</a>
+    
+                                            </li>
+                                            <li class="has-dropdown"><a href=" {% url 'contact' %}">Əlaqə</a>
+    
+                                            </li>
+                                           
+    
+                                            
+    
+    
+                                            
+                                        </ul>
+                                    </nav>
+    
+                                </div>
+                            </div>
+                            <!-- sd -->
+                            <div class="fm-header-right d-none d-xl-block mr-10" style="text-align: center;letter-spacing: 1px">
+                                <a href="http://75.119.147.165:199/" class="fill-btn"
+                                    style="font-size:15px;line-height:20px;border-radius: 3px;">Heydər  <br> Əliyev
+                                    <span>
+                                        <i class="fa-regular fa-arrow-right"></i>
+                                    </span>
+                                </a>
                             </div>
                         </div>
-                        <!-- sd -->
-                        <div class="fm-header-right d-none d-xl-block mr-10" style="text-align: center;letter-spacing: 1px">
-                            <a href="http://75.119.147.165:199/" class="fill-btn"
-                                style="font-size:15px;line-height:20px;border-radius: 3px;">Reabilitasiya <br> Həyatdır
-                                <span>
-                                    <i class="fa-regular fa-arrow-right"></i>
-                                </span>
-                            </a>
-                        </div>
+    
                     </div>
-
                 </div>
-            </div>
-        </header>
+            </header>
         <!-- header wrapper -->
     
        <!-- sidebar area start -->
@@ -529,7 +340,7 @@
                     <div class="row justify-content-center">
                         <div class="col-12">
                             <div class="page-title-wrapper">
-                                <h1 class="page-title p-text">Görüşlər</h1>
+                                <h1 class="page-title p-text">Spikerlər</h1>
                             </div>
                             <div class="breadcrumb-menu">
                                 <nav aria-label="Breadcrumbs" class="breadcrumb-trail
@@ -546,57 +357,7 @@
             <!-- breadcrumb-area-end -->
         <!-- banenr wrapper -->
 
-        <!-- desktop foto video 020202-->
-        <!-- <div class="category-wrapper slide-wrapper" style="padding-bottom:3% ;">
-            <div class="container">
-                <div class="row big-category">
-                    <div class="col-sm-6 text-left mb-4 mt-1">
-                        <h2>Kateqoriyalar</h2>
-                    </div>
-                     
-                </div>
-                <div class="row big-category">
-                    <div class="col-sm-12">
-                        <div class="category-slider owl-carousel owl-theme">
-                        
-                        {% for cat in categories %}
-                            <div class="owl-items">
-                                <a href="{% url 'video' %}?movzu={{cat.id}}" target="_blank" class="category-wrap" style="background: linear-gradient(to right, rgb(147, 147, 147), rgb(211, 211, 211), rgb(147, 147, 147));"><p>{{cat.name}}</p></a>
-                            </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
-                <div class="aboutimagetitle-div mini-category" style="display: none;align-items:center;justify-content:space-between;width:100%;margin-top:3%;margin-bottom:1%;">
-                    <h3>Videolar</h3>
-                    <div class="isotope-filter isotope-filter--isotope" style="align-items: center;margin:0">
-                        <div style="margin-left:auto" class='containerr'>
-                            <div class='triggerrs'>
-                              <input id='first' type='checkbox'>
-                              <label class='label' for='first' style="background-color: white;margin-bottom:0px !important;">
-                                Kateqoriyalar <i class="fa-solid fa-caret-down"></i>
-                                <div class='contentt'>
-                                  <div class='inner-section'>
-                                    <span class='section-name'><a data-count="{{fcount}}" href="?movzu=">Hamısı</a></span>    
-                           {% for cat in vidcategories %}
-                                            <span class='section-name'><a data-count="{{cat.videolar.count}}" href="?movzu={{cat.id}}" target="_blank">{{cat.name}}</a></span>       
-                                    
-                                     {% endfor %}
-                           
-                                  </div>
-                                  
-                           
-                                </div>
-                              </label>
-                            </div>
-                          </div>
-             
-                    </div>
-                   </div>
-            </div>            
-        </div> -->
-        
-        <!-- desktop foto video 020202-->
+
         <!-- slider wrapper -->
         <div class="ag-collection-block">
             <div class="ag-format-container">
@@ -639,7 +400,7 @@
                         </p>
           
                         <a href="#" class="ag-base_btn">
-                          Görüşə qatıl
+                          Daha ətraflı
                         </a>
                       
                       </div>
@@ -1337,10 +1098,10 @@ a {
   display: grid;
 
 
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 
   grid-auto-columns: minmax(400px, auto);
-  grid-auto-rows: minmax(400px, auto);
+  grid-auto-rows: minmax(500px, auto);
 
   grid-column-gap: 10px;
   grid-row-gap: 10px;
@@ -1362,7 +1123,7 @@ a {
 .ag-collection_info img {
     border-top-right-radius: 12px;
     border-top-left-radius: 12px;
-    height: 330px;
+    height: 410px;
 }
 .ag-collection_text2{
     box-shadow: 0px -33px 14px #211813b4;

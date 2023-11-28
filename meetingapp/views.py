@@ -43,11 +43,11 @@ def meetjoin(request,meet):
     }
     return render(request,'index.html',context)
 
-def gorus(request):
+def profile(request):
 
     context = {}
    
-    return render(request,'gorus.html',context)
+    return render(request,'profile.html',context)
 
 
 
@@ -126,23 +126,7 @@ def home(request):
     
     return render(request,'season-full.html',context)
 
-def contact(request):
-    
-    if Header.objects.all().exists():
-        header = Header.objects.first()
-        
-    else:
-        header = {}
-        
-    meetnumber = len(Meeting.objects.all())
-    eagernumber = len(Eager.objects.all())
-    sportmennumber = len(Sportmen.objects.all()) 
-    context = {'header':header,
-        'meetnumber':meetnumber,
-        'eagernumber':eagernumber,
-        'sportmennumber':sportmennumber
-        }
-    return render(request,'contact.html',context)
+
 
 def logout_view(request):
     if request.user.is_authenticated:
@@ -247,9 +231,12 @@ def login_register(request):
         elif myaction == '1':
             registration_form = CustomUserCreationForm(data)
             phone_number = data.pop('phone_number')
-        
+            
             if registration_form.is_valid():
                 user = registration_form.save()
+
+                user.save()
+
                 eager = Eager(user=user,phone_number=phone_number)
                 eager.save()
                 auth_login(request, user)
@@ -566,3 +553,35 @@ def blogsingle(request,slug=None):
         head = Head.objects.first()
         context['head'] = head
     return render(request,'blog-details.html',context)
+
+def contact(request):
+    allheader = AllHeader.objects.all()
+    if allheader.exists():
+        allheader = allheader.first()
+    context = {
+        'allheader':allheader
+    }
+    if Head.objects.all().exists():
+        head = Head.objects.first()
+        context['head'] = head
+    return render(request,'contact.html',context)
+
+
+def speakersingle(request,slug=None):
+
+    user = get_object_or_404(Sportmen,slug=slug)
+    iframes = SportVideo.objects.filter(sportmen=user)
+    allheader = AllHeader.objects.all()
+    if allheader.exists():
+        allheader = allheader.first()
+    context = {
+        'blog':blog,
+        'allheader':allheader,
+        'user':user,
+        'iframes':iframes
+        
+    }
+    if Head.objects.all().exists():
+        head = Head.objects.first()
+        context['head'] = head
+    return render(request,'sportmenpage.html',context)

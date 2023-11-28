@@ -113,7 +113,13 @@
                                 <span class="fm-header-bar-line fm-header-bar-line-3"></span>
                             </a>
                        
-              
+                                <style>
+                                        @media(min-width:1200px) {
+                                            .fm-header-bar-1{
+                                                display: none;
+                                            }
+                                        }
+                                </style>
                         </div>
 
                         <div class="header-menu-spc d-none d-xl-block">
@@ -122,13 +128,13 @@
                                 <nav id="mobile-menu" style="display: block;">
                                     <ul>
                                         <li class="has-dropdown">
-                                            <a href="">Əsas səhifə</a>
+                                            <a href="{% url 'home' %}">Əsas səhifə</a>
 
                                         </li>
-                                        <li class="has-dropdown"><a href="">Lahiye haqqinda</a>
+                                        <li class="has-dropdown"><a href="{% url 'about' %}">Lahiye haqqinda</a>
                                         </li>
 
-                                        <li class="has-dropdown"><a href="">Spikerler</a>
+                                        <li class="has-dropdown"><a href="{% url 'spiker' %}">Spikerler</a>
                                             <!-- <ul class="submenu">
                                                 {% for cat in vidcategories %}
                                                 <li><a href="{% url 'video' %}?movzu={{cat.id}}">{{cat.name}}</a></li>
@@ -136,17 +142,17 @@
                                             </ul> -->
                                         </li>
 
-                                        <li class="has-dropdown"><a href="">Görüşlər</a>
+                                        <li class="has-dropdown"><a href="{% url 'meet' %}">Görüşlər</a>
                                             <!-- <ul class="submenu">
                                                 {% for cat in fotcategories %}
                                                 <li><a href="{% url 'foto' %}?movzu={{cat.id}}">{{cat.name}}</a></li>
                                                 {% endfor %}
                                             </ul> -->
                                         </li>
-                                        <li class="has-dropdown"><a href="">Bloqlar</a>
+                                        <li class="has-dropdown"><a href="{% url 'blog' %}">Bloqlar</a>
 
                                         </li>
-                                        <li class="has-dropdown"><a href="">Əlaqə</a>
+                                        <li class="has-dropdown"><a href=" {% url 'contact' %}">Əlaqə</a>
 
                                         </li>
                                        
@@ -154,7 +160,7 @@
                                         
 
 
-
+                                        
                                     </ul>
                                 </nav>
 
@@ -479,7 +485,7 @@ function RegisterUser() {
         }
         
         console.log(url)
-
+        var csrfToken = "{{ csrf_token }}";
         // You can use a method like fetch to send the data to the server
         fetch(url, {
             method: 'POST',

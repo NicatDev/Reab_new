@@ -96,81 +96,87 @@
         
         <!-- header wrapper -->
         <header id="header-sticky" class="fm-header-area header-border transparent-header bg-common-black">
-            <div class="container">
-                <div class="row align-items-center justify-content-lg-between pr-5 pl-5">
-                    <div class="header-wrapper">
-                        <div class="fm-header-logo-wrapper">
-                            <a href="" class="fm-header-logo">
-                                <img style="height: 65px !important;" src="{% static 'logo.svg' %}" alt="img not found">
-                            </a>
-                            
-                            <a  class="fm-header-bar-1" >
-                                <span class="fm-header-bar-line fm-header-bar-line-1"></span>
-                                <span class="fm-header-bar-line fm-header-bar-line-2"></span>
-                                <span class="fm-header-bar-line fm-header-bar-line-3"></span>
-                            </a>
-                       
-              
-                        </div>
+          <div class="container">
+              <div class="row align-items-center justify-content-lg-between pr-5 pl-5">
+                  <div class="header-wrapper">
+                      <div class="fm-header-logo-wrapper">
+                          <a href="" class="fm-header-logo">
+                              <img style="height: 65px !important;" src="{% static 'logo.svg' %}" alt="img not found">
+                          </a>
+                          
+                          <a  class="fm-header-bar-1" >
+                              <span class="fm-header-bar-line fm-header-bar-line-1"></span>
+                              <span class="fm-header-bar-line fm-header-bar-line-2"></span>
+                              <span class="fm-header-bar-line fm-header-bar-line-3"></span>
+                          </a>
+                     
+                              <style>
+                                      @media(min-width:1200px) {
+                                          .fm-header-bar-1{
+                                              display: none;
+                                          }
+                                      }
+                              </style>
+                      </div>
 
-                        <div class="header-menu-spc d-none d-xl-block">
-                            <div class="fm-header-nav">
+                      <div class="header-menu-spc d-none d-xl-block">
+                          <div class="fm-header-nav">
 
-                                <nav id="mobile-menu" style="display: block;">
-                                    <ul>
-                                        <li class="has-dropdown">
-                                            <a href="">Əsas səhifə</a>
+                              <nav id="mobile-menu" style="display: block;">
+                                  <ul>
+                                      <li class="has-dropdown">
+                                          <a href="{% url 'home' %}">Əsas səhifə</a>
 
-                                        </li>
-                                        <li class="has-dropdown"><a href="">Lahiye haqqinda</a>
-                                        </li>
+                                      </li>
+                                      <li class="has-dropdown"><a href="{% url 'about' %}">Lahiye haqqinda</a>
+                                      </li>
 
-                                        <li class="has-dropdown"><a href="">Spikerler</a>
-                                            <!-- <ul class="submenu">
-                                                {% for cat in vidcategories %}
-                                                <li><a href="{% url 'video' %}?movzu={{cat.id}}">{{cat.name}}</a></li>
-                                                {% endfor %}
-                                            </ul> -->
-                                        </li>
+                                      <li class="has-dropdown"><a href="{% url 'spiker' %}">Spikerler</a>
+                                          <!-- <ul class="submenu">
+                                              {% for cat in vidcategories %}
+                                              <li><a href="{% url 'video' %}?movzu={{cat.id}}">{{cat.name}}</a></li>
+                                              {% endfor %}
+                                          </ul> -->
+                                      </li>
 
-                                        <li class="has-dropdown"><a href="">Görüşlər</a>
-                                            <!-- <ul class="submenu">
-                                                {% for cat in fotcategories %}
-                                                <li><a href="{% url 'foto' %}?movzu={{cat.id}}">{{cat.name}}</a></li>
-                                                {% endfor %}
-                                            </ul> -->
-                                        </li>
-                                        <li class="has-dropdown"><a href="">Bloqlar</a>
+                                      <li class="has-dropdown"><a href="{% url 'meet' %}">Görüşlər</a>
+                                          <!-- <ul class="submenu">
+                                              {% for cat in fotcategories %}
+                                              <li><a href="{% url 'foto' %}?movzu={{cat.id}}">{{cat.name}}</a></li>
+                                              {% endfor %}
+                                          </ul> -->
+                                      </li>
+                                      <li class="has-dropdown"><a href="{% url 'blog' %}">Bloqlar</a>
 
-                                        </li>
-                                        <li class="has-dropdown"><a href="">Əlaqə</a>
+                                      </li>
+                                      <li class="has-dropdown"><a href=" {% url 'contact' %}">Əlaqə</a>
 
-                                        </li>
-                                       
+                                      </li>
+                                     
 
-                                        
+                                      
 
 
-                                        
-                                    </ul>
-                                </nav>
+                                      
+                                  </ul>
+                              </nav>
 
-                            </div>
-                        </div>
-                        <!-- sd -->
-                        <div class="fm-header-right d-none d-xl-block mr-10" style="text-align: center;letter-spacing: 1px">
-                            <a href="http://75.119.147.165:199/" class="fill-btn"
-                                style="font-size:15px;line-height:20px;border-radius: 3px;">Heydər  <br> Əliyev
-                                <span>
-                                    <i class="fa-regular fa-arrow-right"></i>
-                                </span>
-                            </a>
-                        </div>
-                    </div>
+                          </div>
+                      </div>
+                      <!-- sd -->
+                      <div class="fm-header-right d-none d-xl-block mr-10" style="text-align: center;letter-spacing: 1px">
+                          <a href="http://75.119.147.165:199/" class="fill-btn"
+                              style="font-size:15px;line-height:20px;border-radius: 3px;">Heydər  <br> Əliyev
+                              <span>
+                                  <i class="fa-regular fa-arrow-right"></i>
+                              </span>
+                          </a>
+                      </div>
+                  </div>
 
-                </div>
-            </div>
-        </header>
+              </div>
+          </div>
+      </header>
         <!-- header wrapper -->
 
       

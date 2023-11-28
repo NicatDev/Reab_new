@@ -1,0 +1,840 @@
+{% load static %}
+<html lang="en">
+    {% load static %}
+    {% load i18n %}
+    {% get_current_language as LANGUAGE_CODE %}
+    {% get_available_languages as LANGUAGES %}
+<!-- Mirrored from uitheme.net/vstream/home.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Sep 2023 08:01:07 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+        integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <link rel="stylesheet" href="{% static 'templatestyles/css/themify-icons.css' %}">
+    <!-- Favicon icon -->
+    <title>{{head.title}}</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="{{head.image.url}}">
+    <!-- Custom Stylesheet -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'templatestyles/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'templatestyles/css/video-player.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/preloader.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/meanmenu.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/swiper-bundle.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/ui-range-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/flaticon_faime.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/default.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+</head>
+
+<body class="">
+    <div class="page" id="pagepage">
+
+
+        <div style="  position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);" class="popup" id="media-popup">
+            <iframe id="myiframe" allow="autoplay" style="width:70%;height:70%;" src=""
+                title="Heyder Eliyev" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+        </div>
+    </div>
+    <style>
+        .popup {
+            position: absolute;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            opacity: 0;
+            visibility: hidden;
+            transition: .3s ease;
+        }
+
+        .show-popup .popup {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .popup>iframe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            
+        $("[data-media]").on("click", function (e) {
+            e.preventDefault();
+            
+           
+            var $this = $(this);
+    
+            var videoUrl = $this.attr("data-media");
+     
+            var popup = $this.attr("href");
+     
+            var $popupIframe = $(popup).find("iframe");
+    
+            $popupIframe.attr("src", videoUrl);
+            
+    
+            $("#pagepage").addClass("show-popup");
+            $('body').css('overflow', 'hidden');
+    
+        });
+    });
+        $(".popup").on("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+    
+            $(".page").removeClass("show-popup");
+            var iframe = $("#myiframe");
+    var newVideoId = "NEW_VIDEO_ID";
+    var newSrc = "https://www.youtube.com/embed/" + newVideoId + "?autoplay=1";
+
+    iframe.attr("src", newSrc);
+
+            $('body').css('overflow', 'auto');
+        });
+    
+        $(".popup > iframe").on("click", function (e) {
+            e.stopPropagation();
+            $('body').css('overflow', 'auto');
+        });
+    </script>
+    <div class="preloader"></div>
+
+    <div class="backdrop"></div>
+    <!-- <div class="switchcolor"><img src="{% static 'templatestyles/images/settings.png' %}" alt="icon"></div>
+    <div class="switchcolor-wrap">
+        <a class="link sheet-close"><i class="ti-close"></i></a>
+        <h2>Settings</h2>
+        <h4>Choose Color Theme</h4>
+        <ul>
+            <li>
+                <label class="item-radio item-content">
+                    <input type="radio" name="color-radio" value="red" checked=""><i class="ti-check"></i>
+                    <span class="circle-color bg-red" style="background-color: #ff3b30;"></span>
+                </label>
+            </li>
+            <li>
+                <label class="item-radio item-content">
+                    <input type="radio" name="color-radio" value="green"><i class="ti-check"></i>
+                    <span class="circle-color bg-green" style="background-color: #4cd964;"></span>
+                </label>
+            </li>
+            <li>
+                <label class="item-radio item-content">
+                    <input type="radio" name="color-radio" value="blue" checked=""><i class="ti-check"></i>
+                    <span class="circle-color bg-blue" style="background-color: #132977;"></span>
+                </label>
+            </li>
+            <li>
+                <label class="item-radio item-content">
+                    <input type="radio" name="color-radio" value="pink"><i class="ti-check"></i>
+                    <span class="circle-color bg-pink" style="background-color: #ff2d55;"></span>
+                </label>
+            </li>
+            <li>
+                <label class="item-radio item-content">
+                    <input type="radio" name="color-radio" value="yellow"><i class="ti-check"></i>
+                    <span class="circle-color bg-yellow" style="background-color: #ffcc00;"></span>
+                </label>
+            </li>
+            <li>
+                <label class="item-radio item-content">
+                    <input type="radio" name="color-radio" value="orange"><i class="ti-check"></i>
+                    <span class="circle-color bg-orange" style="background-color: #ff9500;"></span>
+                </label>
+            </li>
+            <li>
+                <label class="item-radio item-content">
+                    <input type="radio" name="color-radio" value="gray"><i class="ti-check"></i>
+                    <span class="circle-color bg-gray" style="background-color: #8e8e93;"></span>
+                </label>
+            </li>
+
+            <li>
+                <label class="item-radio item-content">
+                    <input type="radio" name="color-radio" value="brown"><i class="ti-check"></i>
+                    <span class="circle-color bg-brown" style="background-color: #D2691E;"></span>
+                </label>
+            </li>
+            <li>
+                <label class="item-radio item-content">
+                    <input type="radio" name="color-radio" value="darkgreen"><i class="ti-check"></i>
+                    <span class="circle-color bg-darkgreen" style="background-color: #228B22;"></span>
+                </label>
+            </li>
+            <li>
+                <label class="item-radio item-content">
+                    <input type="radio" name="color-radio" value="deeppink"><i class="ti-check"></i>
+                    <span class="circle-color bg-deeppink" style="background-color: #FFC0CB;"></span>
+                </label>
+            </li>
+            <li>
+                <label class="item-radio item-content">
+                    <input type="radio" name="color-radio" value="cadetblue"><i class="ti-check"></i>
+                    <span class="circle-color bg-cadetblue" style="background-color: #5f9ea0;"></span>
+                </label>
+            </li>
+            <li>
+                <label class="item-radio item-content">
+                    <input type="radio" name="color-radio" value="darkorchid"><i class="ti-check"></i>
+                    <span class="circle-color bg-darkorchid" style="background-color: #9932cc;"></span>
+                </label>
+            </li>
+            
+            
+        </ul>
+        <div class="toggle-div mt-4">
+            <h4 class="d-inline">Dark Mode</h4>
+            <div class="d-inline float-right">
+                <label class="toggle toggle-init"><input type="checkbox"><span class="toggle-icon"></span></label>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="main-wrapper">
+             <!-- header wrapper -->
+             <header id="header-sticky" style="position: relative !important;" class="fm-header-area header-border transparent-header bg-common-black">
+                <div class="container">
+                    <div class="row align-items-center justify-content-lg-between pr-5 pl-5">
+                        <div class="header-wrapper">
+                            <div class="fm-header-logo-wrapper">
+                                <a href="" class="fm-header-logo">
+                                    <img style="height: 65px !important;" src="{% static 'logo.svg' %}" alt="img not found">
+                                </a>
+                                
+                                <a  class="fm-header-bar-1" >
+                                    <span class="fm-header-bar-line fm-header-bar-line-1"></span>
+                                    <span class="fm-header-bar-line fm-header-bar-line-2"></span>
+                                    <span class="fm-header-bar-line fm-header-bar-line-3"></span>
+                                </a>
+                           
+                                    <style>
+                                            @media(min-width:1200px) {
+                                                .fm-header-bar-1{
+                                                    display: none;
+                                                }
+                                            }
+                                    </style>
+                            </div>
+    
+                            <div class="header-menu-spc d-none d-xl-block">
+                                <div class="fm-header-nav">
+    
+                                    <nav id="mobile-menu" style="display: block;">
+                                        <ul>
+                                            <li class="has-dropdown">
+                                                <a href="{% url 'home' %}">Əsas səhifə</a>
+    
+                                            </li>
+                                            <li class="has-dropdown"><a href="{% url 'about' %}">Lahiye haqqinda</a>
+                                            </li>
+    
+                                            <li class="has-dropdown"><a href="{% url 'spiker' %}">Spikerler</a>
+                                                <!-- <ul class="submenu">
+                                                    {% for cat in vidcategories %}
+                                                    <li><a href="{% url 'video' %}?movzu={{cat.id}}">{{cat.name}}</a></li>
+                                                    {% endfor %}
+                                                </ul> -->
+                                            </li>
+    
+                                            <li class="has-dropdown"><a href="{% url 'meet' %}">Görüşlər</a>
+                                                <!-- <ul class="submenu">
+                                                    {% for cat in fotcategories %}
+                                                    <li><a href="{% url 'foto' %}?movzu={{cat.id}}">{{cat.name}}</a></li>
+                                                    {% endfor %}
+                                                </ul> -->
+                                            </li>
+                                            <li class="has-dropdown"><a href="{% url 'blog' %}">Bloqlar</a>
+    
+                                            </li>
+                                            <li class="has-dropdown"><a href=" {% url 'contact' %}">Əlaqə</a>
+    
+                                            </li>
+                                           
+    
+                                            
+    
+    
+                                            
+                                        </ul>
+                                    </nav>
+    
+                                </div>
+                            </div>
+                            <!-- sd -->
+                            <div class="fm-header-right d-none d-xl-block mr-10" style="text-align: center;letter-spacing: 1px">
+                                <a href="http://75.119.147.165:199/" class="fill-btn"
+                                    style="font-size:15px;line-height:20px;border-radius: 3px;">Heydər  <br> Əliyev
+                                    <span>
+                                        <i class="fa-regular fa-arrow-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+            </header>
+        <!-- header wrapper -->
+    
+       <!-- sidebar area start -->
+       <div class="fm-header-sidebar-area fm-header-sidebar-left">
+        <div class="fm-header-sidebar-wrapper">
+           <div class="fm-header-sidebar-action mb-65">
+              <div class="fm-header-sidebar-logo">
+                 <a href="index-2.html"><img style="height: 80px;" src="{{head.logoheader.url}}" alt="logo not found"></a>
+              </div>
+              <div class="offcanvas-close">
+                 <a class="offcanvas-btn" href="#0">
+                    <i class="fa-thin fa-times"></i>
+                 </a>
+              </div>
+           </div>
+           <div class="d-none d-sm-block">
+              <div class="fm-header-sidebar-search">
+                 <form action="https://html.bdevs.net/faime-prev/index.html">
+                    <input type="text" placeholder="Search here">
+                    <button type="submit"><i class="flaticon flaticon-search"></i></button>
+                 </form>
+              </div>
+           </div>
+           <div class="mobile-menu"></div>
+           <div class="fm-header-right d-none d-xl-block mr-10" style="text-align: center;display: block !important;letter-spacing: 1px">
+            <a href="http://75.119.147.165:199/" class="fill-btn"
+                style="font-size:15px;line-height:20px;border-radius: 3px;">Reabilitasiya <br> Həyatdır
+                <span>
+                    <i class="fa-regular fa-arrow-right"></i>
+                </span>
+            </a>
+        </div>
+
+        
+        </div>
+     </div>
+     <div class="overlay"></div>
+     <!-- sidebar area end -->
+        
+        <!-- banenr wrapper -->
+             <!-- breadcrumb-area-start -->
+             <div class="fm-breadcrumb-area" data-background="{{allheader.image.url}}">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <div class="page-title-wrapper">
+                                <h1 class="page-title p-text" style="opacity: 1;visibility: visible;">Əlaqə</h1>
+                            </div>
+                            <div class="breadcrumb-menu">
+                                <nav aria-label="Breadcrumbs" class="breadcrumb-trail
+                               breadcrumbs">
+                                    <ul class="trail-items">
+    
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- breadcrumb-area-end -->
+        <!-- banenr wrapper -->
+
+        <div class="contact-form-section section-padding-02">
+            <div class="container">
+                <div class="row g-5 justify-content-between" style="height: 55px;">
+
+              
+
+                </div>
+
+                <!-- Contact Form Start --> 
+                <div class="contact-form-wrap" style="margin-top:30px">
+                    <form class="contact-form" style="position: inherit !important;">
+                        <input type="hidden" name="csrfmiddlewaretoken" value="3FvPEa7yuZVSe0EuELBdMb3tV9I63sXPJOR712B31x8GpniMTfhZmHm7Sbcivazt">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="section-title-wrap text-center">
+                                    <div class="section-title">
+                                        <h2 class="title" style="margin-bottom:35px">Bizimlə əlaqə saxla !</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row g-4 justify-content-center">
+                            <div class="col-lg-6">
+                                <input type="text" required="true" class="comment-form-input" id="name" placeholder="Adınız">
+                            </div>
+                            <div class="col-lg-6">
+                                <input type="email" required="true" class="comment-form-input" id="email" placeholder="E-poçtunuz">
+                            </div>
+                            <div class="col-lg-6">
+                                <input type="tel" required="true" class="comment-form-input" id="phone" placeholder="Telefon nömrəsi">
+                            </div>
+                            <div class="col-lg-6">
+                                <input type="text" required="true" class="comment-form-input" id="subject" placeholder="Mövzu">
+                            </div>
+                            <div class="col-12">
+                                <textarea id="message" required="true" name="messege" placeholder="Sənin mesajın" class="comment-form-input"></textarea>
+                            </div>
+                            <div class="fm-header-right d-none d-xl-block mr-10" style="text-align: center;letter-spacing: 1px;cursor: pointer;">
+                                <a onclick="submitData()" class="fill-btn submit_btn submit-btn"
+                                    style="font-size:15px;line-height:20px;border-radius: 3px;color: white !important;">Göndər
+                           
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="social">
+                    <a data-text="Tiktok" href="https://twitter.com/steve_walson" style="background-color: black;" target="_blank" class="twitter">
+                      
+
+    <!-- TikTok White -->
+                            <svg  width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <title>Tiktok</title>
+                                <g id="Icon/Social/tiktok-white" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <path d="M38.0766847,15.8542954 C36.0693906,15.7935177 34.2504839,14.8341149 32.8791434,13.5466056 C32.1316475,12.8317108 31.540171,11.9694126 31.1415066,11.0151329 C30.7426093,10.0603874 30.5453728,9.03391952 30.5619062,8 L24.9731521,8 L24.9731521,28.8295196 C24.9731521,32.3434487 22.8773693,34.4182737 20.2765028,34.4182737 C19.6505623,34.4320127 19.0283477,34.3209362 18.4461858,34.0908659 C17.8640239,33.8612612 17.3337909,33.5175528 16.8862248,33.0797671 C16.4386588,32.6422142 16.0833071,32.1196657 15.8404292,31.5426268 C15.5977841,30.9658208 15.4727358,30.3459348 15.4727358,29.7202272 C15.4727358,29.0940539 15.5977841,28.4746337 15.8404292,27.8978277 C16.0833071,27.3207888 16.4386588,26.7980074 16.8862248,26.3604545 C17.3337909,25.9229017 17.8640239,25.5791933 18.4461858,25.3491229 C19.0283477,25.1192854 19.6505623,25.0084418 20.2765028,25.0219479 C20.7939283,25.0263724 21.3069293,25.1167239 21.794781,25.2902081 L21.794781,19.5985278 C21.2957518,19.4900128 20.7869423,19.436221 20.2765028,19.4380839 C18.2431278,19.4392483 16.2560928,20.0426009 14.5659604,21.1729264 C12.875828,22.303019 11.5587449,23.9090873 10.7814424,25.7878401 C10.003907,27.666593 9.80084889,29.7339663 10.1981162,31.7275214 C10.5953834,33.7217752 11.5748126,35.5530237 13.0129853,36.9904978 C14.4509252,38.4277391 16.2828722,39.4064696 18.277126,39.8028054 C20.2711469,40.1991413 22.3382874,39.9951517 24.2163416,39.2169177 C26.0948616,38.4384508 27.7002312,37.1209021 28.8296253,35.4300711 C29.9592522,33.7397058 30.5619062,31.7522051 30.5619062,29.7188301 L30.5619062,18.8324027 C32.7275484,20.3418321 35.3149087,21.0404263 38.0766847,21.0867664 L38.0766847,15.8542954 Z" id="Fill-1" fill="#FFFFFF"></path>
+                                </g>
+                            </svg>
+
+                    </a>
+                    <a data-text="Facebook" href="https://www.facebook.com/steve.wals0n" target="_blank" class="facebook">
+                      <svg viewBox="0 0 1700 1700" height="27">
+                        <title>Facebook</title>
+                        <path d="M1376 128q119 0 203.5 84.5t84.5 203.5v960q0 119-84.5 203.5t-203.5 84.5h-188v-595h199l30-232h-229v-148q0-56 23.5-84t91.5-28l122-1v-207q-63-9-178-9-136 0-217.5 80t-81.5 226v171h-200v232h200v595h-532q-119 0-203.5-84.5t-84.5-203.5v-960q0-119 84.5-203.5t203.5-84.5h960z">
+                      </svg>
+                    </a>
+                    <a data-text="Instagram"  href="https://instagram.com/steve_walson" target="_blank" class="instagram">
+                      <svg viewBox="0 0 25 25" height="32">
+                        <title>Instagram</title>
+                        <path d="M 8 3 C 5.243 3 3 5.243 3 8 L 3 16 C 3 18.757 5.243 21 8 21 L 16 21 C 18.757 21 21 18.757 21 16 L 21 8 C 21 5.243 18.757 3 16 3 L 8 3 z M 8 5 L 16 5 C 17.654 5 19 6.346 19 8 L 19 16 C 19 17.654 17.654 19 16 19 L 8 19 C 6.346 19 5 17.654 5 16 L 5 8 C 5 6.346 6.346 5 8 5 z M 17 6 A 1 1 0 0 0 16 7 A 1 1 0 0 0 17 8 A 1 1 0 0 0 18 7 A 1 1 0 0 0 17 6 z M 12 7 C 9.243 7 7 9.243 7 12 C 7 14.757 9.243 17 12 17 C 14.757 17 17 14.757 17 12 C 17 9.243 14.757 7 12 7 z M 12 9 C 13.654 9 15 10.346 15 12 C 15 13.654 13.654 15 12 15 C 10.346 15 9 13.654 9 12 C 9 10.346 10.346 9 12 9 z" />
+                      </svg>
+                    </a>
+                    <a data-text="Youtube" href="#" class="Youtube" style="padding:10px;background-color: rgb(144, 212, 243);">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-labelledby="title"
+                        aria-describedby="desc" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+                          <title>Youtube</title>
+                          <desc>A line styled icon from Orion Icon Library.</desc>
+                          <path data-name="layer1"
+                          d="M49.539 12H14.461A12.4 12.4 0 0 0 2 24.327v17.346A12.4 12.4 0 0 0 14.461 54h35.078A12.4 12.4 0 0 0 62 41.673V24.327A12.4 12.4 0 0 0 49.539 12z"
+                          fill="red" stroke="#202020" stroke-linecap="round" stroke-miterlimit="10"
+                          stroke-width="0" stroke-linejoin="round"></path>
+                          <path  fill="white" data-name="layer2" d="M41.111 33.844L24.7 41.585a.658.658 0 0 1-.938-.585V25.031a.659.659 0 0 1 .956-.581l16.407 8.225a.649.649 0 0 1-.014 1.169z"
+                         stroke="#202020" stroke-linecap="round" stroke-miterlimit="10"
+                          stroke-width="0" stroke-linejoin="round"></path>
+                        </svg>
+                    </a>
+                  </div>
+                <!-- Contact Form End -->
+            </div>
+        </div>
+
+
+        <div class="contact-info" style="margin-top:54px">
+            <div class="card">
+              <i class="icon fas fa-envelope"></i>
+              <div class="card-content">
+                <h3>E-poçt</h3>
+                <span>vrproduction</span>
+              </div>
+            </div>
+          
+            <div class="card">
+              <i class="icon fas fa-phone"></i>
+              <div class="card-content">
+                <h3>Əlaqə nömrəsi</h3>
+                <span>+9940000000</span>
+              </div>
+            </div>
+          
+            <div class="card">
+              <i class="icon fas fa-map-marker-alt"></i>
+              <div class="card-content">
+                <h3>Ünvan</h3>
+                <span>Bakı şəhəri</span>
+              </div>
+            </div>
+          </div>
+<style>
+    .contact-info{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card{
+    position: relative;
+    flex: 1;
+    max-width: 300px;
+    height: 140px;
+    background-color: #444;
+    margin: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon{
+    font-size: 32px;
+    color: #fd6500;
+    transition: .3s linear;
+}
+
+.card:hover .icon{
+    transform: scale(4);
+    opacity: 0;
+}
+
+.card-content h3,
+.card-content span{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 16px;
+    opacity: 0;
+}
+
+.card-content h3{
+    top: 20px;
+    text-transform: uppercase;
+    color: #ea8685;
+}
+
+.card-content span{
+    bottom: 20px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.card:hover h3{
+    opacity: 1;
+    top: 46px;
+    transition: .3s linear .3s;
+}
+
+.card:hover span{
+    opacity: 1;
+    bottom: 46px;
+    transition: .3s linear .3s;
+}
+
+
+@media screen and (max-width:900px){
+    .card{
+        flex: 100%;
+        max-width: 500px;
+    }
+}
+@media screen and (max-width:900px){
+.contact-form {
+    padding:70px 59px 100px !important;
+}}
+</style>
+<style>
+.social {
+    display: flex;
+    margin-left:auto;
+    justify-content: flex-end;
+    gap: 30px;
+    align-items: center;
+  }
+  
+  .social a {
+    height: 60px;
+    width: 60px;
+    border-radius: 15px;
+    background-color: #37c1fd;
+    display: grid;
+    place-items: center;
+    position: relative;
+    border-radius: 10px;
+    background: #e0e0e0;
+    box-shadow: 14px 14px 28px #c3c3c3, -14px -14px 28px #fdfdfd;
+  }
+  
+  .social .twitter {
+    background-color: #1da1f2;
+  }
+  .social .facebook {
+    background-color: #4267b2;
+  }
+  
+  .social .linkdin {
+    background-color: #0072b1;
+  }
+  .social .instagram {
+    background-color: #e1306c;
+  }
+  
+  .social a svg {
+    fill: #fff;
+    transition: transform 200ms ease-in-out;
+    z-index: 2;
+  }
+  
+  .social a::before {
+    content: attr(data-text);
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #7da0cb;
+    color: #fff;
+    position: absolute;
+    top: -55%;
+    right: 50%;
+    transform: translateX(50%) rotate3d(300, 0, 0, -90deg);
+    padding: 3px 5px 6px 5px;
+    clip-path: polygon(
+      0% 0%,
+      100% 0%,
+      100% 90%,
+      55% 90%,
+      50% 100%,
+      45% 90%,
+        0% 90%
+  );
+  transition: transform 200ms ease-in-out;
+  transform-origin: bottom;
+}
+
+.social a:hover::before {
+  transform: translateX(50%);
+}
+
+.social a:hover svg {
+  transform: scale(1.2);
+}
+
+.social a::after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  background-color: #7da0cb;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  transition: transform 200ms ease-in-out;
+  transform-origin: bottom;
+  clip-path: circle(0% at 50% 100%);
+  border-radius: 10px;
+  transition: clip-path 250ms ease-in-out;
+}
+
+.social a:hover::after {
+  clip-path: circle(100%);
+}
+
+   </style>
+
+
+<script>
+
+    var csrfToken = "{{ csrf_token }}";
+    function submitData() {
+        event.preventDefault();
+
+        // Get the email input value
+        const email = document.getElementById('email').value;
+        const name = document.getElementById('name').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+        const phone = document.getElementById('phone').value;
+
+        // Check if the class name of the clicked button is "submit_btn"
+        const clickedButton = event.target;
+        if (clickedButton.classList.contains('submit_btn')) {
+            // Send the data to a URL (replace 'your_url' with the actual URL)
+            const url = '{% url "message" %}';
+            if (email === '') {
+                swal('Email unvaninizi daxil edin !');
+                return;
+            }
+            else if (name === '') {
+                swal('Adinizi daxil edin !');
+                return;
+            }
+            else if (subject === '') {
+                swal('Mövzunu daxil edin !');
+                return;
+            }
+            else if (phone === '') {
+                swal('Əlaqə nömrəsini daxil edin !');
+                return;
+            }
+            else if (message === '') {
+                swal('Məktubunuzu daxil edin !');
+                return;
+            }
+
+            // You can use a method like fetch to send the data to the server
+            fetch(url, {
+                method: 'POST',
+                body: JSON.stringify({
+                    email: email,
+                    name: name,
+                    message: message,
+                    phone: phone,
+                    subject: subject
+
+                }), // You can format the data as needed
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrfToken
+                }
+            })
+                .then(response => {
+                    // Handle the response here (e.g., show a success message)
+                    if (response.ok) {
+                        console.log(response)
+                        console.log(name, email)
+                        swal({
+                            title: "Əla",
+                            text: "Məktubunuz uğurla göndərildi !",
+                            icon: "success",
+                            button: "Tamam",
+                        });
+
+                    } else {
+                        console.log(response)
+                        swal('Xəta baş verdi');
+                        console.log(name, email)
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+    }
+</script>
+
+    <script src="{% static 'templatestyles/js/plugin.js' %}"></script>
+    <script src="{% static 'templatestyles/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'templatestyles/js/scripts.js' %}"></script>
+    <script src="{% static 'templatestyles/js/video-player.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/js/meanmenu.js' %}"></script>
+    <script src="{% static 'assets/js/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'assets/js/slick.min.js' %}"></script>
+    <script src="{% static 'assets/js/magnific-popup.min.js' %}"></script>
+    <script src="{% static 'assets/js/parallax.min.js' %}"></script>
+    <script src="{% static 'assets/js/gsap.min.js' %}"></script>
+    <script src="{% static 'assets/js/ScrollTrigger.min.js' %}"></script>
+    <script src="{% static 'assets/js/ScrollToPlugin.min.js' %}"></script>
+    <script src="{% static 'assets/js/SplitText.min.js' %}"></script>
+    <script src="{% static 'assets/js/vanilla-tils.js' %}"></script>
+    <script src="{% static 'assets/js/appair.min.js' %}"></script>
+    <script src="{% static 'assets/js/knob.min.js' %}"></script>
+    <script>
+        var headerBars = document.querySelectorAll('.fm-header-bar-1');
+        var headerBars2 = document.querySelectorAll('.offcanvas-close');
+        
+    
+        function handleClick2() {
+    
+    var sidebarElements = document.querySelectorAll('.fm-header-sidebar-area.fm-header-sidebar-left');
+    
+    
+    sidebarElements.forEach(function (element) {
+    element.classList.remove('header-sidebar-visible');
+    });}
+    
+    function handleClick() {
+    
+        var sidebarElements = document.querySelectorAll('.fm-header-sidebar-area.fm-header-sidebar-left');
+    
+    
+    sidebarElements.forEach(function (element) {
+        element.classList.add('header-sidebar-visible');
+    });}
+    
+    headerBars.forEach(function (headerBar) {
+        headerBar.addEventListener('click', handleClick);
+    });
+    headerBars2.forEach(function (headerBar) {
+        headerBar.addEventListener('click', handleClick2);
+    });
+        </script>
+    <script src="{% static 'assets/js/ajax-form.js' %}"></script>
+    <script src="{% static 'assets/js/wow.min.js' %}"></script>
+    <script src="{% static 'assets/js/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'assets/js/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'assets/js/fontawesome.min.js' %}"></script>
+    <script src="{% static 'assets/js/ui-range-slider.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    <script src="{% static 'assets/js/isotope.pkgd.min.js' %}"></script>
+    
+    <div class="footer-wrapper">
+        <div class="container">
+            <div class="row" style="align-items: center;">
+                <div class="col-xl-3 text-left" style="display: flex;justify-content: center;margin-bottom: 10px;" ><img style="
+                    height: 105px; " src="{% static 'logo.svg' %}" alt=""></div>
+                <div class="col-xl-9 text-left">
+                    <h4 class="mb-4">"Görkəmli şəxsiyyətlər xalqın zəkasını, elmini, mədəniyyətini, mənəviyyatını dünyaya nümayiş etdirirlər." Heydər Əliyev</h4>
+                </div>
+
+
+                <div style="margin-bottom:3%" class="col-sm-12">
+                    <div class="middle-footer" style="padding-top:40px">
+                        <div class="row">
+
+                            
+                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 divSosialLinks">
+                            <div style="text-align: center;">
+                                <h5 style="font-size: large;">Sosİal şəbəkələr</h5>
+                                <ul style="gap:30px;display: flex;align-items: center;justify-content: center;">
+                                 <i style="margin-right:5px;font-size:48px" class="fa-brands fa-instagram"></i>
+                                    <i style="margin-right: 5px;font-size: 43px;
+                                    padding-bottom: 1px;" class="fa-brands fa-facebook"></i>
+                                  <i style="margin-right:5px;font-size:48px" class="fa-brands fa-youtube"></i> 
+                                   <i style="margin-right:5px;font-size:41px;" class="fa-brands fa-tiktok"></i> 
+
+                                </ul>
+                            </div>
+
+                        </div>
+
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div style="text-align: center;display: flex;justify-content: center;align-items: center;background-color:#111;">
+        
+        <p  style="color: white;font-size: 12px;padding-top:20px;padding-bottom:20px"><a target="_blank" href="https://vrproduction.az">VR Media & Marketing</a> © 2023 Bütün hüquqlar qorunur</p>
+
+</div>
+</body>
+
+
+<!-- Mirrored from uitheme.net/vstream/home.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Sep 2023 08:02:21 GMT -->
+</html>
