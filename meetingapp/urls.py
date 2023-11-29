@@ -9,6 +9,9 @@ urlpatterns = [
     path('about',about,name='about'),
     path('speaker',spiker,name='spiker'),
     path('message',message,name='message'),
+    path('addorremove',addorremove,name='addorremove'),
+    path('logout/', logout_view, name='logout'),
+
     path('login_register',login_register,name='login_register'),
     path('survey',survey,name='survey'),
     path('login/',login,name='login'),

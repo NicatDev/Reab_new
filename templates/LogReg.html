@@ -419,6 +419,7 @@
 
     </div>
 
+
     <script>
 
 
@@ -626,7 +627,21 @@ button2.classList.remove('act')
 
 </script>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+  // Check if the URL contains '#reg'
+  if (window.location.href.indexOf('#reg') !== -1) {
+      // Run the function to open the register div
+      OpendivRegister();
+  }
+  if (window.location.href.indexOf('#log') !== -1) {
+      // Run the function to open the register div
+      OpendivLogin();
+  }
+  window.scrollTo(0, 0);
+});
 
+</script>
 <script>
 var action = '{{ action }}'
 var targetDiv = document.getElementById('mytarget');

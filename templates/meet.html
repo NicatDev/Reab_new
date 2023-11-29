@@ -411,14 +411,14 @@
         <!-- slider wrapper -->
         <div class="ag-collection-block">
             <div class="ag-format-container">
-              <div role="list" class="ag-collection_list" style="gap:40px">
+              <div role="list" class="ag-collection_list" style="gap:60px">
               
                 {% for meet in video_list %}
-                <div role="listitem" class="js-ag-collection_item">
+                <div role="listitem" class="js-ag-collection_item" style="margin-top:80px">
                
                   <div class="ag-collection_info">
                     
-                    <div style="position: absolute;height: 100px;width: 80px;background-color: #fd6500;left:30px;top:0px;text-align: center;color:white !important">
+                    <div class="Tarix" style="position: absolute;height: 100px;width: 80px;background-color: #fd6500;left:30px;top:0px;text-align: center;color:white !important">
                     <div>
                       <h5 style="color: white;margin-top:5px">{{meet.date|date:"F"}}</h5>
                       <h3 style="color: white;line-height: 3.1rem;">{{meet.date|date:"d"}}</h3>
@@ -426,26 +426,33 @@
                     </div>
                   </div>
 
-                  <div style="position: absolute;height: 300px;width: 130px;background-color: #fd6500;right:-20px;top:-20px;text-align: center;color:white !important;border-bottom-right-radius: 20px;border-top-right-radius: 20px;">
-                    <div style="transform: rotate(90deg);margin-left:50px;margin-top:20px;width: 80px;"><span style="color: white;font-size: 50px;
-                      line-height: 1.2;font-weight: 700;">Rafael </span></div>
-                    <div style="transform: rotate(90deg);margin-right: 50px;margin-top:10px;width: 80px;font-size: 50px;
-                    line-height: 1.2;font-weight: 700;"><span style="color: white;">Ağayev </span></div>
+                  <div style="width: 320px;position: absolute;transform: rotate(90deg);height: 135px;;background-color: #fd6500;right:-108px;top:60px;text-align: center;color:white !important;border-top-left-radius: 20px;border-top-right-radius: 20px;">
+                    <div style="margin-top:2px;padding-left:30px;padding-right: 30px;display: flex;align-items: center;justify-content: center;height: 100%;"><span style="color: white;font-size: 40px;
+                      line-height: 1;font-weight: 650;">{{meet.meetingowner.first_name}} <br> {{meet.meetingowner.last_name}}</span></div>
+
                   </div>
-                  <div style="position: absolute;right:-20px;top:285px;text-align: center;color:white !important;">
-                    <div style="border-bottom-right-radius: 20px;border-top-right-radius: 20px;height: 100px;width: 130px;background-color: #fd6500;text-align: center;display: flex;align-items: center;justify-content: center;height: 100px;align-items: center !important;">
-                      <h4 style="font-weight: 500;color: white;text-align: center;">Yüngül <br> atletika</h4></div>
+                  <div style="width: 134.83px;position: absolute;right:-15px;top:293px;text-align: center;color:white !important;">
+                    <div style="border-bottom-right-radius: 20px;border-top-right-radius: 20px;padding:10px 35px;background-color: #fd6500;text-align: center;display: flex;align-items: center;justify-content: center;height: 100px;align-items: center !important;">
+                      <h4 style="font-weight: 500;color: white;text-align: center;">{{meet.meetingowner.owner.field}}</h4></div>
                                   </div>
                     <img  src="{{meet.meetingowner.owner.image.url}}" class="ag-collection_img" loading="lazy" sizes="(max-width: 479px) 52vw, (max-width: 767px) 26vw, (max-width: 991px) 134.3828125px, (max-width: 1439px) 188.296875px, 224.234375px" srcset="{{meet.meetingowner.owner.image.url}} 500w, {{meet.meetingowner.owner.image.url}} 520w" alt="" />
                     <div class="ag-collection_text2" style="height: 10%;">
                     <div  style="font-weight: 500;font-size: 18px !important;text-align: center;" class="ag-collection_text">
-                     <div>   <h2 style="font-weight: 500;font-size: 18px !important;color: white !important;"> {{meet.meetingowner.first_name}} {{meet.meetingowner.last_name}}</h2></div>
-                     <i style="color: white;" class="fa-regular fa-bookmark"></i>
-                     
-                         <div>    <h3 style="font-weight: 500;font-size: 12px !important;color: rgba(255, 255, 255, 0) !important;"> {{meet.date}}</h3></div>
+                     <div style="display: flex;align-items: center;justify-content:space-between;">
+                      <div style="width: 12%;"></div>
+                      <h2 style="font-weight: 500;font-size: 18px !important;color: white !important;width: 76%;"> {{meet.content|slice:74}}.. <span class="Tarix" style="color: rgb(255, 72, 0);">daha ətraflı</span></h2>     
+                     <div style="display: flex;align-items: center;width: 12%;justify-content: end;padding-right: 15px;" >
+                       <i onclick="AddorRemove('{{meet.id}}')" id="s{{meet.id}}" style="color: white;font-size: 30px;cursor: pointer;" {% if request.user in meet.meeter.all %}class="fa-solid fa-bookmark" {% else %} class="fa-regular fa-bookmark" {%endif%}></i></div>
+                </div><div><h3 style="font-weight: 500;font-size: 12px !important;color: rgba(255, 255, 255, 0) !important;"> {{meet.date}}</h3></div> </div></div>
+                  <div class="viewbutton" style="position: absolute; height: 60px;width: 100%;bottom:-60px;left:0px">
+                    <div style="width: 100%;padding:1% 5%;display: flex;align-items: end;justify-content: space-between;gap:2%">
+                      <div class="mybuttoncard" ><span>Görüşə qatıl</span></div>
+                   <div  href="{% url 'speakersingle' meet.meetingowner.owner.slug %}" class="mybuttoncard profilesend"  ><span>Profili gör</span></div>
+                    
                     </div>
+                 
                   </div>
-                  </div>
+              </div>
           
                   <div class="js-ag-collection-popup_overlay">
                     <div class="js-ag-collection-popup_box">
@@ -468,10 +475,14 @@
                         <p class="ag-collection-popup_text">
                           {{meet.content}}
                         </p>
-          
-                        <a href="#" class="ag-base_btn">
-                          Görüşə qatıl
-                        </a>
+                        <div style="display: flex;gap:20px">
+                          <a style="width: 80%;" href="#" class="ag-base_btn">
+                            Görüşə qatıl
+                          </a>
+                          <a href="{% url 'speakersingle' meet.meetingowner.owner.slug %}" class="ag-base_btn profilesend">
+                            Profili gör
+                          </a></div>
+                       
                       
                       </div>
                     </div>
@@ -481,7 +492,7 @@
               </div>
             </div>
           </div>
-          <div class="bd-basic__pagination d-flex align-items-center bdFadeUp mt-30" style="justify-content:center">
+          <div class="bd-basic__pagination d-flex align-items-center bdFadeUp mt-30" style="justify-content:center;margin-top:70px !important">
             <nav>
                <ul>
                   <li>
@@ -1578,6 +1589,125 @@ a {
 }
 
     </style>
+    <style>
+
+
+/* 14 */
+.btn-14 {
+  background: rgb(255,151,0);
+  border: none;
+  z-index: 1;
+}
+
+.btn-14:hover:after {
+  top: auto;
+  bottom: 0;
+  height: 100%;
+}
+.btn-14:active {
+  top: 2px;
+}
+.mybuttoncard{
+  width: 400px;height: 80px; background-color: rgb(206, 104, 20);border-radius:20px;display:flex;align-items: center;justify-content: center;font-size:24px;color: white;
+  cursor:pointer
+}
+.mybuttoncard:hover{
+  background-color: rgb(161, 81, 14);
+}
+.custom-btn {
+  width: 130px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+}
+.btn-7 {
+background: linear-gradient(0deg, rgba(255,151,0,1) 0%, rgba(251,75,2,1) 100%);
+  line-height: 42px;
+  padding: 0;
+  border: none;
+}
+.btn-7 span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.btn-7:before,
+.btn-7:after {
+  position: absolute;
+  content: "";
+  right: 0;
+  bottom: 0;
+  background: rgba(251,75,2,1);
+  box-shadow:
+   -7px -7px 20px 0px rgba(255,255,255,.9),
+   -4px -4px 5px 0px rgba(255,255,255,.9),
+   7px 7px 20px 0px rgba(0,0,0,.2),
+   4px 4px 5px 0px rgba(0,0,0,.3);
+  transition: all 0.3s ease;
+}
+.btn-7:before{
+   height: 0%;
+   width: 2px;
+}
+.btn-7:after {
+  width: 0%;
+  height: 2px;
+}
+.btn-7:hover{
+  color: rgba(251,75,2,1);
+  background: transparent;
+}
+.btn-7:hover:before {
+  height: 100%;
+}
+.btn-7:hover:after {
+  width: 100%;
+}
+.btn-7 span:before,
+.btn-7 span:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  background: rgba(251,75,2,1);
+  box-shadow:
+   -7px -7px 20px 0px rgba(255,255,255,.9),
+   -4px -4px 5px 0px rgba(255,255,255,.9),
+   7px 7px 20px 0px rgba(0,0,0,.2),
+   4px 4px 5px 0px rgba(0,0,0,.3);
+  transition: all 0.3s ease;
+}
+.btn-7 span:before {
+  width: 2px;
+  height: 0%;
+}
+.btn-7 span:after {
+  height: 2px;
+  width: 0%;
+}
+.btn-7 span:hover:before {
+  height: 100%;
+}
+.btn-7 span:hover:after {
+  width: 100%;
+}
+.tarix{
+  cursor: pointer;
+}
+    </style>
     <script>
         (function ($) {
   $(function () {
@@ -1595,7 +1725,8 @@ a {
         if(agPopupBtnClose.is(e.target)) {
             agPopupClose();
         }else{
-          $(this).children('.js-ag-collection-popup_overlay').addClass('js-ag-collection-popup_overlay__show');
+          if ($(e.target).closest('.tarix').length) {
+          $(this).children('.js-ag-collection-popup_overlay').addClass('js-ag-collection-popup_overlay__show');}
         }
       });
 
@@ -1635,6 +1766,102 @@ a {
     <script src="{% static 'assets/js/vanilla-tils.js' %}"></script>
     <script src="{% static 'assets/js/appair.min.js' %}"></script>
     <script src="{% static 'assets/js/knob.min.js' %}"></script>
+
+    {% if user.is_authenticated %}
+
+    <script>
+        var isAuthenticated = true;
+        var userId = "{{ request.user.id }}";
+    </script>
+
+    {% else %}
+
+    <script>
+        var isAuthenticated = false;
+        var userId = 'auth';  // or set it to a default value
+    </script>
+
+{% endif %}
+
+    <script>
+    var csrfToken = "{{ csrf_token }}";
+    function AddorRemove(id) {
+
+      console.log('222')
+        event.preventDefault();
+        if (userId=='auth'){
+          swal('Hesab xətası');
+          return;
+        }
+        // Get the email input value
+     
+        // Check if the class name of the clicked button is "submit_btn"
+        const clickedButton = event.target;
+        if (clickedButton.classList.contains('fa-bookmark')) {
+            // Send the data to a URL (replace 'your_url' with the actual URL)
+            const url = '{% url "addorremove" %}';
+        
+
+            // You can use a method like fetch to send the data to the server
+            fetch(url, {
+                method: 'POST',
+                body: JSON.stringify({
+                    user:userId,
+                    id:id
+
+
+                }), // You can format the data as needed
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrfToken
+                }
+            })
+                .then(response => {
+                    // Handle the response here (e.g., show a success message)
+                    if (response.ok) {
+                      if (response.status=='200'){
+                      document.getElementById('s'+id).classList.remove('fa-regular')
+                      document.getElementById('s'+id).classList.add('fa-solid')}
+                      if (response.status=='201'){
+                      document.getElementById('s'+id).classList.add('fa-regular')
+                      document.getElementById('s'+id).classList.remove('fa-solid')}
+                        console.log(response)
+                        console.log(name, email)
+                        swal({
+                            title: "Əla",
+                            text: "Məktubunuz uğurla göndərildi !",
+                            icon: "success",
+                            button: "Tamam",
+                        });
+
+                    } else {
+                        console.log(response)
+                        swal('Xəta baş verdi');
+                        console.log(name, email)
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+    }
+
+    </script>
+    <script>
+      $(document).on('click', '.profilesend', function(e) {
+          // Prevent the default behavior of the anchor tag
+          e.preventDefault();
+  
+          // Get the href attribute of the clicked element
+          var href = $(this).attr('href');
+  
+          // Check if the href is not empty
+          if (href) {
+              // Navigate to the URL
+              window.location.href = href;
+          }
+      });
+  </script>
     <script>
         var headerBars = document.querySelectorAll('.fm-header-bar-1');
         var headerBars2 = document.querySelectorAll('.offcanvas-close');

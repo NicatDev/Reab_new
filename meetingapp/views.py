@@ -18,6 +18,13 @@ import pytz
 from django.http import JsonResponse
 import calendar
 from django.db.models import Q,F,FloatField,Count
+from django.contrib.auth import logout
+from django.shortcuts import redirect
+
+def logout_view(request):
+    logout(request)
+    return redirect('home')
+
 
 def meetjoin(request,meet):
     mymeet = Meeting.objects.get(id=meet)
@@ -177,6 +184,21 @@ def message(request):
             return HttpResponse(status=405) 
         data = {'message': 'Data saved successfully'}
         return JsonResponse(data)
+    else:
+        return HttpResponse(status=405) 
+
+def addorremove(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        user = User.objects.get(id=data.get('user'))
+        meeting = Meeting.objects.get(id=data.get('id'))
+        if user in meeting.meeter.all():
+            meeting.meeter.remove(user)
+            return HttpResponse(status=201)
+        else:
+            meeting.meeter.add(user)
+            return HttpResponse(status=200)
+
     else:
         return HttpResponse(status=405) 
 

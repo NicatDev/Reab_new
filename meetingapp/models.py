@@ -164,7 +164,7 @@ class Meeting(models.Model):
     title = models.CharField(max_length=120,null=True,blank=True)
     content = models.TextField(null=True,blank=True)
     content2 = models.TextField(null=True,blank=True)
-    meeter = models.ManyToManyField(User,related_name='meetings')
+    meeter = models.ManyToManyField(User,related_name='meetings',blank=True)
     meetingowner = models.ForeignKey(User,on_delete=models.CASCADE,related_name='adventures')
     date = models.DateTimeField()
     time = models.CharField(max_length=1200,verbose_name='saat like 10:00 or 10:00-11:00')
@@ -172,7 +172,7 @@ class Meeting(models.Model):
     meeting_id = models.TextField(null=True,blank=True)
     finished = models.BooleanField(default=False)
     meeting_duration = models.CharField(max_length=120,verbose_name='gorus vaxti')
-    
+    image = models.ImageField(null=True,blank=True)
     def __str__(self):
         return self.meetingowner.username
 
