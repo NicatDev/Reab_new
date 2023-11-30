@@ -211,8 +211,8 @@
     </div> -->
 
     <div class="main-wrapper">
-             <!-- header wrapper -->
-             <header id="header-sticky" class="fm-header-area header-border transparent-header bg-common-black">
+               <!-- header wrapper -->
+               <header id="header-sticky" class="fm-header-area header-border transparent-header bg-common-black">
                 <div class="container">
                     <div class="row align-items-center justify-content-lg-between pr-5 pl-5">
                         <div class="header-wrapper">
@@ -220,14 +220,56 @@
                                 <a href="" class="fm-header-logo">
                                     <img style="height: 65px !important;" src="{% static 'logo.svg' %}" alt="img not found">
                                 </a>
-                                
-                                <a  class="fm-header-bar-1" >
-                                    <span class="fm-header-bar-line fm-header-bar-line-1"></span>
-                                    <span class="fm-header-bar-line fm-header-bar-line-2"></span>
-                                    <span class="fm-header-bar-line fm-header-bar-line-3"></span>
-                                </a>
-                           
+                                <div>
+                                <div class="user-icon-mob" style="    cursor: pointer;">
+                             
+                                    <i class="fa-regular fa-user" onclick="openclosemob()" id="mob" style="color: #ffffff;font-size:22px;"></i>
+                                    <div class="myboard mob mymobboard" >
+                                        <div class="myinlineboard">
+                                            {% if user.is_authenticated %}
+                                            <div class="myinlineboard">
+                                                {% for meet in request.user.meetings.all %}
+                                                <div class="mymeetcard mymeetcardmeet" style="padding-right: 40px;padding-left:40px"> 
+                                                    <img src="{{meet.image.url}}" alt="">
+                                                    <div class="meettextdiv">
+                                                    <p class="mymeetname">{{meet.meetingowner.first_name}} {{meet.meetingowner.last_name}}</p>
+                                                    <p>{{meet.date}}</p>
+                                                    </div>  
+                                                 
+                                                </div>
+                                                {% endfor %}
+                                     
+        
+                                                <div class="mymeetcard">
+                                                    <div onclick="SendToRegister()" class="mymeetbutton profile">Hesab</div>
+                                                    <div onclick="SendToRegister()" class="mymeetbutton logout">Cıxış et</div>
+                                                </div>
+                                            </div>
+                                            {% else %}
+                                            <div class="myinlineboard">
+                                                <div class="mymeetcard">
+                                                    <div onclick="SendToRegister()" class="mymeetbutton log">Daxil ol</div>
+                                                    <div onclick="SendToRegister()" class="mymeetbutton reg">Qeydiyyat</div>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <a  class="fm-header-bar-1" >
+                                        <span class="fm-header-bar-line fm-header-bar-line-1"></span>
+                                        <span class="fm-header-bar-line fm-header-bar-line-2"></span>
+                                        <span class="fm-header-bar-line fm-header-bar-line-3"></span>
+                                    </a>
+                                </div>
+                          
+                            </div>
                                     <style>
+                                              @media(max-width:420px) {
+                                        
+                                                    .mymobboard{
+                                                        width: 100% !important;
+                                                    }
+                                              }
                                             @media(min-width:1200px) {
                                                 .fm-header-bar-1{
                                                     display: none;
@@ -280,21 +322,230 @@
     
                                 </div>
                             </div>
+                           
                             <!-- sd -->
-                            <div class="fm-header-right d-none d-xl-block mr-10" style="text-align: center;letter-spacing: 1px">
-                                <a href="http://75.119.147.165:199/" class="fill-btn"
-                                    style="font-size:15px;line-height:20px;border-radius: 3px;">Heydər  <br> Əliyev
-                                    <span>
-                                        <i class="fa-regular fa-arrow-right"></i>
-                                    </span>
-                                </a>
+                            <div style="display: flex;align-items: center;justify-content: end;position: relative;gap:30px"> 
+                                <div class="user-icon-desk" style="    cursor: pointer;">
+                             
+                                    <i class="fa-regular fa-user" onclick="openclose()" id="desc" style="color: #ffffff;font-size:22px;"></i>
+                                    <div class="myboard mydescboard"  style="display: none;">
+                                        {% if user.is_authenticated %}
+                                        <div class="myinlineboard">
+                                            {% for meet in request.user.meetings.all %}
+                                            <div class="mymeetcard mymeetcardmeet" style="padding-right: 40px;padding-left:40px"> 
+                                                <img src="{{meet.image.url}}" alt="">
+                                                <div class="meettextdiv">
+                                                <p class="mymeetname">{{meet.meetingowner.first_name}} {{meet.meetingowner.last_name}}</p>
+                                                <p>{{meet.date}}</p>
+                                                </div>  
+                                             
+                                            </div>
+                                            {% endfor %}
+                                 
+    
+                                            <div class="mymeetcard">
+                                                <div onclick="SendToRegister()" class="mymeetbutton profile">Hesab</div>
+                                                <div onclick="SendToRegister()" class="mymeetbutton logout">Cıxış et</div>
+                                            </div>
+                                        </div>
+                                        {% else %}
+                                        <div class="myinlineboard">
+                                            <div class="mymeetcard">
+                                                <div onclick="SendToRegister()" class="mymeetbutton log">Daxil ol</div>
+                                                <div onclick="SendToRegister()" class="mymeetbutton reg">Qeydiyyat</div>
+                                            </div>
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="fm-header-right d-none d-xl-block mr-10" style="text-align: center;letter-spacing: 1px;display: flex;align-items: center;justify-content: center;">
+                      
+                                    <a href="http://75.119.147.165:199/" class="fill-btn"
+                                        style="font-size:15px;line-height:20px;border-radius: 3px;">Heydər  <br> Əliyev
+                                        <span>
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                        </span>
+                                    </a>
+                                </div>
                             </div>
+                            <script>
+                                var regurl = "{% url 'login' %}"
+                                var profile_url = "{% url 'profile' %}"
+                                var logout_url = "{% url 'logout' %}"
+                                function SendToRegister() {
+                                    var clickedElement = event.target;
+                                    if (clickedElement.classList.contains('log')) {
+                                        window.location.href = regurl + '#log'
+                                    } else if (clickedElement.classList.contains('reg')) {
+                                        window.location.href = regurl + '#reg';
+                                    }
+                                    else if (clickedElement.classList.contains('profile')) {
+                                        window.location.href =  profile_url;
+                                    }
+                                    else if (clickedElement.classList.contains('logout')) {
+                                        window.location.href = logout_url;
+                                    }
+                                }
+                            </script>
+                            <script>
+                                function openclose() {
+                              
+                                    var clickedElement = document.getElementById("desc");
+                                    
+                                    if (clickedElement && clickedElement.id === "desc") {
+                                        var myDescElement = document.querySelector(".mydescboard");
+                                        if (myDescElement) {
+                                            myDescElement.style.display = "block";
+                                        }
+                                    }
+    
+                                }
+                                function openclosemob() {
+                              
+                              var clickedElement = document.getElementById("mob");
+                              
+                              if (clickedElement && clickedElement.id === "mob") {
+                                  var myDescElement = document.querySelector(".mymobboard");
+                                  if (myDescElement) {
+                                      myDescElement.style.display = "block";
+                                  }
+                                }
+                                
+                                 } 
+                            </script>
+                      <script>
+                        document.addEventListener('click', function(event) {
+                            var boards = document.querySelectorAll('.myboard');
+                            var userIcons = document.querySelectorAll('.user-icon-desk, .user-icon-mob');
+                        
+                            var clickedInsideBoard = false;
+                        
+                            boards.forEach(function(board) {
+                                var rect = board.getBoundingClientRect();
+                        
+                                if (
+                                    event.clientX >= rect.left &&
+                                    event.clientX <= rect.right &&
+                                    event.clientY >= rect.top &&
+                                    event.clientY <= rect.bottom
+                                ) {
+                                    // Clicked inside the board
+                                    clickedInsideBoard = true;
+                                }
+                            });
+                        
+                            userIcons.forEach(function(userIcon) {
+                                var rect = userIcon.getBoundingClientRect();
+                        
+                                if (
+                                    event.clientX >= rect.left &&
+                                    event.clientX <= rect.right &&
+                                    event.clientY >= rect.top &&
+                                    event.clientY <= rect.bottom
+                                ) {
+                                    // Clicked inside a user icon
+                                    clickedInsideBoard = true;
+                                }
+                            });
+                        
+                            // If clicked outside all boards and user icons, hide them
+                            if (!clickedInsideBoard) {
+                                boards.forEach(function(board) {
+                                    board.style.display = 'none';
+                                });
+                        
+                           
+                            }
+                        });
+                        </script>
+                            <style>
+                                .mymeetbutton{
+                                    background-color: rgb(255, 136, 0);
+                                    height: 60px;
+                                    width: 45%;
+                                    color: white;
+                                    font-size:25px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    cursor: pointer;
+                                }
+                                .mymeetbutton:hover{
+                                    background-color: rgb(255, 0, 0);
+                                }
+                                .mymeetname{
+                                    font-size:23px;
+                                    font-weight: 600;
+                                }
+                                .myx i{
+                                    font-size:50px;
+                                    cursor: pointer;
+                                }
+                                .myx i:hover{
+                                    color: rgb(255, 123, 0);
+                                }
+                                .meettextdiv{
+                                    display: flex;
+                                    flex-direction: column;
+                                }
+                                .myinlineboard{
+                                    display: flex;
+                                    flex-direction: column;
+                                }
+                                .mymeetcard{
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: space-between;
+                                    width: 100%;
+                                    padding:20px
+                                }
+                                .mymeetcard img{
+                                    width: 85px;
+                                    height: 80px;
+                                    border-radius: 50%;
+                                }
+                                .myinlineboard{
+                                    height: 100%;
+                                }
+                                .myboard.mob{
+                                    top:80px !important
+                                }
+                                .myboard{
+                                    display: none;
+                                    position: absolute;
+                                    height: auto;
+                                    width: 400px;
+                                    right:0px;
+                                    
+                                    top: 60px;
+                          
+                                    background-color: white;
+                                }
+                                @media (max-width: 1199px) {
+                                    .user-icon-desk{
+                                        display: none;
+                                }}
+                                .user-icon-mob{
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    text-align: center;
+                                    gap:30px
+                                }
+                                @media (min-width: 1200px) {
+                                    .user-icon-mob{
+                                        display: none;
+                                    }
+                                }
+                            </style>
+                         
+                    
                         </div>
     
                     </div>
                 </div>
             </header>
-        <!-- header wrapper -->
+            <!-- header wrapper -->
     
        <!-- sidebar area start -->
        <div class="fm-header-sidebar-area fm-header-sidebar-left">
@@ -357,23 +608,33 @@
             <!-- breadcrumb-area-end -->
         <!-- banenr wrapper -->
 
-
+     
         <!-- slider wrapper -->
         <div class="ag-collection-block">
             <div class="ag-format-container">
               <div role="list" class="ag-collection_list">
               
                 {% for meet in video_list %}
-                <div role="listitem" class="js-ag-collection_item">
+            
+                <div role="listitem" style="margin-bottom:90px" class="js-ag-collection_item">
+          
                   <div class="ag-collection_info">
+                    <div class="viewbutton" style="position: absolute; height: 60px;width: 100%;bottom:-65px;left:0px;">
+                        <div style="width: 100%;padding:1% 5%;display: flex;align-items: end;justify-content: space-between;gap:2%;justify-content: center;">
+
+                       <div href="{% url 'speakersingle' meet.slug %}" class="mybuttoncard profilesend"><span>Profili gör</span></div>
+                        
+                        </div>
+                     
+                      </div>
                     <div style="position: absolute;">
                     <h2>{{meet.username}}</h2>
                       <h3></h3>
                   </div>
-          
+           
                     <img  src="{{meet.image.url}}" class="ag-collection_img" loading="lazy" sizes="(max-width: 479px) 52vw, (max-width: 767px) 26vw, (max-width: 991px) 134.3828125px, (max-width: 1439px) 188.296875px, 224.234375px" srcset="{{meet.image.url}} 500w, {{meet.image.url}} 520w" alt="" />
                     <div class="ag-collection_text2" style="height: 10%;cursor:pointer">
-                    <div class="ag-collection_text" style="text-align: center;font-size:20px;font-weight: 700;cursor:pointer">
+                    <div class="ag-collection_text tarix" style="text-align: center;font-size:20px;font-weight: 700;cursor:pointer">
                       {{meet.user.first_name}} {{meet.user.last_name}}
                       <br>
                      <span style="font-weight: 500;font-size: 14px;">{{meet.field}} ({{meet.titul}})</span>
@@ -389,7 +650,7 @@
                       </div>
           
                       <div class="ag-collection-popup_col__right">
-                        <h2 class="ag-collection-popup_name">{{meet.user.first_name}} {{meet.user.last_name}}</h2>
+                        <h2 class="ag-collection-popup_name ">{{meet.user.first_name}} {{meet.user.last_name}}</h2>
           
                         <div class="ag-collection-popup_awards">
 
@@ -402,11 +663,12 @@
                           {{meet.field}}
                         </p>
           
-                        <a href="#" class="ag-base_btn">
+                        <a href="{% url 'speakersingle' meet.slug %}"  class="ag-base_btn ">
                           Daha ətraflı
                         </a>
                       
                       </div>
+                 
                     </div>
                   </div>
                 </div>
@@ -414,7 +676,7 @@
               </div>
             </div>
           </div>
-          <div class="bd-basic__pagination d-flex align-items-center bdFadeUp mt-30" style="justify-content:center">
+          <div class="bd-basic__pagination d-flex align-items-center bdFadeUp mt-30" style="justify-content:center;">
             <nav>
                <ul>
                   <li>
@@ -1064,7 +1326,519 @@ a {
     opacity: 0 !important;
 }
 </style>
+<style>
+    .viewbutton{
+        --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #1E74FD;
+    --secondary: #673BB7;
+    --success: #10d876;
+    --info: #2754e6;
+    --warning: #FE9431;
+    --danger: #E50202;
+    --light: #f7f7f7;
+    --dark: #343a40;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --breakpoint-xxl: 1400;
+    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --f7-theme-color: #132977;
+    --bs-blue: #0d6efd;
+    --bs-indigo: #6610f2;
+    --bs-purple: #6f42c1;
+    --bs-pink: #d63384;
+    --bs-red: #dc3545;
+    --bs-orange: #fd7e14;
+    --bs-yellow: #ffc107;
+    --bs-green: #198754;
+    --bs-teal: #20c997;
+    --bs-cyan: #0dcaf0;
+    --bs-black: #000;
+    --bs-white: #fff;
+    --bs-gray: #6c757d;
+    --bs-gray-dark: #343a40;
+    --bs-gray-100: #f8f9fa;
+    --bs-gray-200: #e9ecef;
+    --bs-gray-300: #dee2e6;
+    --bs-gray-400: #ced4da;
+    --bs-gray-500: #adb5bd;
+    --bs-gray-600: #6c757d;
+    --bs-gray-700: #495057;
+    --bs-gray-800: #343a40;
+    --bs-gray-900: #212529;
+    --bs-primary: #0d6efd;
+    --bs-secondary: #6c757d;
+    --bs-success: #198754;
+    --bs-info: #0dcaf0;
+    --bs-warning: #ffc107;
+    --bs-danger: #dc3545;
+    --bs-light: #f8f9fa;
+    --bs-dark: #212529;
+    --bs-primary-rgb: 13,110,253;
+    --bs-secondary-rgb: 108,117,125;
+    --bs-success-rgb: 25,135,84;
+    --bs-info-rgb: 13,202,240;
+    --bs-warning-rgb: 255,193,7;
+    --bs-danger-rgb: 220,53,69;
+    --bs-light-rgb: 248,249,250;
+    --bs-dark-rgb: 33,37,41;
+    --bs-primary-text-emphasis: #052c65;
+    --bs-secondary-text-emphasis: #2b2f32;
+    --bs-success-text-emphasis: #0a3622;
+    --bs-info-text-emphasis: #055160;
+    --bs-warning-text-emphasis: #664d03;
+    --bs-danger-text-emphasis: #58151c;
+    --bs-light-text-emphasis: #495057;
+    --bs-dark-text-emphasis: #495057;
+    --bs-primary-bg-subtle: #cfe2ff;
+    --bs-secondary-bg-subtle: #e2e3e5;
+    --bs-success-bg-subtle: #d1e7dd;
+    --bs-info-bg-subtle: #cff4fc;
+    --bs-warning-bg-subtle: #fff3cd;
+    --bs-danger-bg-subtle: #f8d7da;
+    --bs-light-bg-subtle: #fcfcfd;
+    --bs-dark-bg-subtle: #ced4da;
+    --bs-primary-border-subtle: #9ec5fe;
+    --bs-secondary-border-subtle: #c4c8cb;
+    --bs-success-border-subtle: #a3cfbb;
+    --bs-info-border-subtle: #9eeaf9;
+    --bs-warning-border-subtle: #ffe69c;
+    --bs-danger-border-subtle: #f1aeb5;
+    --bs-light-border-subtle: #e9ecef;
+    --bs-dark-border-subtle: #adb5bd;
+    --bs-white-rgb: 255,255,255;
+    --bs-black-rgb: 0,0,0;
+    --bs-font-sans-serif: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    --bs-font-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+    --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    --bs-body-font-family: var(--bs-font-sans-serif);
+    --bs-body-font-size: 1rem;
+    --bs-body-font-weight: 400;
+    --bs-body-line-height: 1.5;
+    --bs-body-color: #212529;
+    --bs-body-color-rgb: 33,37,41;
+    --bs-body-bg: #fff;
+    --bs-body-bg-rgb: 255,255,255;
+    --bs-emphasis-color: #000;
+    --bs-emphasis-color-rgb: 0,0,0;
+    --bs-secondary-color: rgba(33, 37, 41, 0.75);
+    --bs-secondary-color-rgb: 33,37,41;
+    --bs-secondary-bg: #e9ecef;
+    --bs-secondary-bg-rgb: 233,236,239;
+    --bs-tertiary-color: rgba(33, 37, 41, 0.5);
+    --bs-tertiary-color-rgb: 33,37,41;
+    --bs-tertiary-bg: #f8f9fa;
+    --bs-tertiary-bg-rgb: 248,249,250;
+    --bs-heading-color: inherit;
+    --bs-link-color: #0d6efd;
+    --bs-link-color-rgb: 13,110,253;
+    --bs-link-decoration: underline;
+    --bs-link-hover-color: #0a58ca;
+    --bs-link-hover-color-rgb: 10,88,202;
+    --bs-code-color: #d63384;
+    --bs-highlight-bg: #fff3cd;
+    --bs-border-width: 1px;
+    --bs-border-style: solid;
+    --bs-border-color: #dee2e6;
+    --bs-border-color-translucent: rgba(0, 0, 0, 0.175);
+    --bs-border-radius: 0.375rem;
+    --bs-border-radius-sm: 0.25rem;
+    --bs-border-radius-lg: 0.5rem;
+    --bs-border-radius-xl: 1rem;
+    --bs-border-radius-xxl: 2rem;
+    --bs-border-radius-2xl: var(--bs-border-radius-xxl);
+    --bs-border-radius-pill: 50rem;
+    --bs-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    --bs-box-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --bs-box-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+    --bs-box-shadow-inset: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+    --bs-focus-ring-width: 0.25rem;
+    --bs-focus-ring-opacity: 0.25;
+    --bs-focus-ring-color: rgba(13, 110, 253, 0.25);
+    --bs-form-valid-color: #198754;
+    --bs-form-valid-border-color: #198754;
+    --bs-form-invalid-color: #dc3545;
+    --bs-form-invalid-border-color: #dc3545;
+    --bs-breakpoint-xs: 0;
+    --bs-breakpoint-sm: 576px;
+    --bs-breakpoint-md: 768px;
+    --bs-breakpoint-lg: 992px;
+    --bs-breakpoint-xl: 1200px;
+    --bs-breakpoint-xxl: 1400px;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
+    --fa-font-duotone: normal 900 1em/1 "Font Awesome 6 Duotone";
+    --fa-font-light: normal 300 1em/1 "Font Awesome 6 Pro";
+    --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Pro";
+    --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Pro";
+    --fa-font-thin: normal 100 1em/1 "Font Awesome 6 Pro";
+    --tpl-ff-heading: 'Montserrat', sans-serif;
+    --tpl-ff-body: 'Montserrat', sans-serif;
+    --tpl-ff-fontawesome: 'Font Awesome 6 Pro';
+    --clr-common-white: #fff;
+    --clr-common-black: #171717;
+    --clr-body-text: #b4b4b4;
+    --clr-body-grey: #777777;
+    --clr-body-heading: #ffffff;
+    --clr-body-text2: #313131;
+    --clr-body-text3: #6e777d;
+    --clr-body-text4: #adadad;
+    --clr-bg-1: #f7f7f7;
+    --clr-bg-2: #eee;
+    --clr-border-1: #d9d9d9;
+    --clr-border-2: #414141;
+    --clr-border-3: #3a3a3a;
+    --clr-border-4: #707070;
+    --clr-border-5: #c2c2c2;
+    --clr-border-6: #e5e5e5;
+    --clr-theme-1: #fd6500;
+    --clr-theme-2: #121212;
+    text-align: var(--bs-body-text-align);
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    color: var(--clr-body-text);
+    line-height: 1;
+    cursor: inherit !important;
+    -webkit-box-direction: normal;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    position: absolute;
+    height: 60px;
+    width: 100%;
+    bottom: -60px;
+    left: 0px;
+    
+}
+.mybuttoncard{
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #1E74FD;
+    --secondary: #673BB7;
+    --success: #10d876;
+    --info: #2754e6;
+    --warning: #FE9431;
+    --danger: #E50202;
+    --light: #f7f7f7;
+    --dark: #343a40;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --breakpoint-xxl: 1400;
+    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --f7-theme-color: #132977;
+    --bs-blue: #0d6efd;
+    --bs-indigo: #6610f2;
+    --bs-purple: #6f42c1;
+    --bs-pink: #d63384;
+    --bs-red: #dc3545;
+    --bs-orange: #fd7e14;
+    --bs-yellow: #ffc107;
+    --bs-green: #198754;
+    --bs-teal: #20c997;
+    --bs-cyan: #0dcaf0;
+    --bs-black: #000;
+    --bs-white: #fff;
+    --bs-gray: #6c757d;
+    --bs-gray-dark: #343a40;
+    --bs-gray-100: #f8f9fa;
+    --bs-gray-200: #e9ecef;
+    --bs-gray-300: #dee2e6;
+    --bs-gray-400: #ced4da;
+    --bs-gray-500: #adb5bd;
+    --bs-gray-600: #6c757d;
+    --bs-gray-700: #495057;
+    --bs-gray-800: #343a40;
+    --bs-gray-900: #212529;
+    --bs-primary: #0d6efd;
+    --bs-secondary: #6c757d;
+    --bs-success: #198754;
+    --bs-info: #0dcaf0;
+    --bs-warning: #ffc107;
+    --bs-danger: #dc3545;
+    --bs-light: #f8f9fa;
+    --bs-dark: #212529;
+    --bs-primary-rgb: 13,110,253;
+    --bs-secondary-rgb: 108,117,125;
+    --bs-success-rgb: 25,135,84;
+    --bs-info-rgb: 13,202,240;
+    --bs-warning-rgb: 255,193,7;
+    --bs-danger-rgb: 220,53,69;
+    --bs-light-rgb: 248,249,250;
+    --bs-dark-rgb: 33,37,41;
+    --bs-primary-text-emphasis: #052c65;
+    --bs-secondary-text-emphasis: #2b2f32;
+    --bs-success-text-emphasis: #0a3622;
+    --bs-info-text-emphasis: #055160;
+    --bs-warning-text-emphasis: #664d03;
+    --bs-danger-text-emphasis: #58151c;
+    --bs-light-text-emphasis: #495057;
+    --bs-dark-text-emphasis: #495057;
+    --bs-primary-bg-subtle: #cfe2ff;
+    --bs-secondary-bg-subtle: #e2e3e5;
+    --bs-success-bg-subtle: #d1e7dd;
+    --bs-info-bg-subtle: #cff4fc;
+    --bs-warning-bg-subtle: #fff3cd;
+    --bs-danger-bg-subtle: #f8d7da;
+    --bs-light-bg-subtle: #fcfcfd;
+    --bs-dark-bg-subtle: #ced4da;
+    --bs-primary-border-subtle: #9ec5fe;
+    --bs-secondary-border-subtle: #c4c8cb;
+    --bs-success-border-subtle: #a3cfbb;
+    --bs-info-border-subtle: #9eeaf9;
+    --bs-warning-border-subtle: #ffe69c;
+    --bs-danger-border-subtle: #f1aeb5;
+    --bs-light-border-subtle: #e9ecef;
+    --bs-dark-border-subtle: #adb5bd;
+    --bs-white-rgb: 255,255,255;
+    --bs-black-rgb: 0,0,0;
+    --bs-font-sans-serif: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    --bs-font-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+    --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    --bs-body-font-family: var(--bs-font-sans-serif);
+    --bs-body-font-size: 1rem;
+    --bs-body-font-weight: 400;
+    --bs-body-line-height: 1.5;
+    --bs-body-color: #212529;
+    --bs-body-color-rgb: 33,37,41;
+    --bs-body-bg: #fff;
+    --bs-body-bg-rgb: 255,255,255;
+    --bs-emphasis-color: #000;
+    --bs-emphasis-color-rgb: 0,0,0;
+    --bs-secondary-color: rgba(33, 37, 41, 0.75);
+    --bs-secondary-color-rgb: 33,37,41;
+    --bs-secondary-bg: #e9ecef;
+    --bs-secondary-bg-rgb: 233,236,239;
+    --bs-tertiary-color: rgba(33, 37, 41, 0.5);
+    --bs-tertiary-color-rgb: 33,37,41;
+    --bs-tertiary-bg: #f8f9fa;
+    --bs-tertiary-bg-rgb: 248,249,250;
+    --bs-heading-color: inherit;
+    --bs-link-color: #0d6efd;
+    --bs-link-color-rgb: 13,110,253;
+    --bs-link-decoration: underline;
+    --bs-link-hover-color: #0a58ca;
+    --bs-link-hover-color-rgb: 10,88,202;
+    --bs-code-color: #d63384;
+    --bs-highlight-bg: #fff3cd;
+    --bs-border-width: 1px;
+    --bs-border-style: solid;
+    --bs-border-color: #dee2e6;
+    --bs-border-color-translucent: rgba(0, 0, 0, 0.175);
+    --bs-border-radius: 0.375rem;
+    --bs-border-radius-sm: 0.25rem;
+    --bs-border-radius-lg: 0.5rem;
+    --bs-border-radius-xl: 1rem;
+    --bs-border-radius-xxl: 2rem;
+    --bs-border-radius-2xl: var(--bs-border-radius-xxl);
+    --bs-border-radius-pill: 50rem;
+    --bs-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    --bs-box-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --bs-box-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+    --bs-box-shadow-inset: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+    --bs-focus-ring-width: 0.25rem;
+    --bs-focus-ring-opacity: 0.25;
+    --bs-focus-ring-color: rgba(13, 110, 253, 0.25);
+    --bs-form-valid-color: #198754;
+    --bs-form-valid-border-color: #198754;
+    --bs-form-invalid-color: #dc3545;
+    --bs-form-invalid-border-color: #dc3545;
+    --bs-breakpoint-xs: 0;
+    --bs-breakpoint-sm: 576px;
+    --bs-breakpoint-md: 768px;
+    --bs-breakpoint-lg: 992px;
+    --bs-breakpoint-xl: 1200px;
+    --bs-breakpoint-xxl: 1400px;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
+    --fa-font-duotone: normal 900 1em/1 "Font Awesome 6 Duotone";
+    --fa-font-light: normal 300 1em/1 "Font Awesome 6 Pro";
+    --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Pro";
+    --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Pro";
+    --fa-font-thin: normal 100 1em/1 "Font Awesome 6 Pro";
+    --tpl-ff-heading: 'Montserrat', sans-serif;
+    --tpl-ff-body: 'Montserrat', sans-serif;
+    --tpl-ff-fontawesome: 'Font Awesome 6 Pro';
+    --clr-common-white: #fff;
+    --clr-common-black: #171717;
+    --clr-body-text: #b4b4b4;
+    --clr-body-grey: #777777;
+    --clr-body-heading: #ffffff;
+    --clr-body-text2: #313131;
+    --clr-body-text3: #6e777d;
+    --clr-body-text4: #adadad;
+    --clr-bg-1: #f7f7f7;
+    --clr-bg-2: #eee;
+    --clr-border-1: #d9d9d9;
+    --clr-border-2: #414141;
+    --clr-border-3: #3a3a3a;
+    --clr-border-4: #707070;
+    --clr-border-5: #c2c2c2;
+    --clr-border-6: #e5e5e5;
+    --clr-theme-1: #fd6500;
+    --clr-theme-2: #121212;
+    text-align: var(--bs-body-text-align);
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    font-family: "Montserrat", sans-serif;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-box-direction: normal;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    width: 400px;
+    height: 80px;
+    background-color: rgb(206, 104, 20);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}    
 
+.mybuttoncard{
+  width: 400px;height: 80px; background-color: rgb(206, 104, 20);border-radius:20px;display:flex;align-items: center;justify-content: center;font-size:24px;color: white;
+  cursor:pointer
+  
+}
+.mybuttoncard:hover{
+  background-color: rgb(161, 81, 14);
+}
+.custom-btn {
+  width: 130px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+}
+.btn-7 {
+background: linear-gradient(0deg, rgba(255,151,0,1) 0%, rgba(251,75,2,1) 100%);
+  line-height: 42px;
+  padding: 0;
+  border: none;
+}
+.btn-7 span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.btn-7:before,
+.btn-7:after {
+  position: absolute;
+  content: "";
+  right: 0;
+  bottom: 0;
+  background: rgba(251,75,2,1);
+  box-shadow:
+   -7px -7px 20px 0px rgba(255,255,255,.9),
+   -4px -4px 5px 0px rgba(255,255,255,.9),
+   7px 7px 20px 0px rgba(0,0,0,.2),
+   4px 4px 5px 0px rgba(0,0,0,.3);
+  transition: all 0.3s ease;
+}
+.btn-7:before{
+   height: 0%;
+   width: 2px;
+}
+.btn-7:after {
+  width: 0%;
+  height: 2px;
+}
+.btn-7:hover{
+  color: rgba(251,75,2,1);
+  background: transparent;
+}
+.btn-7:hover:before {
+  height: 100%;
+}
+.btn-7:hover:after {
+  width: 100%;
+}
+.btn-7 span:before,
+.btn-7 span:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  background: rgba(251,75,2,1);
+  box-shadow:
+   -7px -7px 20px 0px rgba(255,255,255,.9),
+   -4px -4px 5px 0px rgba(255,255,255,.9),
+   7px 7px 20px 0px rgba(0,0,0,.2),
+   4px 4px 5px 0px rgba(0,0,0,.3);
+  transition: all 0.3s ease;
+}
+.btn-7 span:before {
+  width: 2px;
+  height: 0%;
+}
+.btn-7 span:after {
+  height: 2px;
+  width: 0%;
+}
+.btn-7 span:hover:before {
+  height: 100%;
+}
+.btn-7 span:hover:after {
+  width: 100%;
+}
+.tarix{
+  cursor: pointer;
+}
+</style>
 <style>
     @media (min-width: 1199px) {
         #ancaqmobile{
@@ -1537,7 +2311,8 @@ a {
         if(agPopupBtnClose.is(e.target)) {
             agPopupClose();
         }else{
-          $(this).children('.js-ag-collection-popup_overlay').addClass('js-ag-collection-popup_overlay__show');
+          if ($(e.target).closest('.tarix').length) {
+          $(this).children('.js-ag-collection-popup_overlay').addClass('js-ag-collection-popup_overlay__show');}
         }
       });
 
@@ -1615,7 +2390,21 @@ a {
     <script src="{% static 'assets/js/ui-range-slider.js' %}"></script>
     <script src="{% static 'assets/js/main.js' %}"></script>
     <script src="{% static 'assets/js/isotope.pkgd.min.js' %}"></script>
-    
+    <script>
+        $(document).on('click', '.profilesend', function(e) {
+            // Prevent the default behavior of the anchor tag
+            e.preventDefault();
+      
+            // Get the href attribute of the clicked element
+            var href = $(this).attr('href');
+      
+            // Check if the href is not empty
+            if (href) {
+                // Navigate to the URL
+                window.location.href = href;
+            }
+        });
+      </script>
     <div style="text-align: center;display: flex;justify-content: center;align-items: center;background-color:#111;">
         
         <p  style="color: white;font-size: 12px;padding-top:20px;padding-bottom:20px"><a target="_blank" href="https://vrproduction.az">VR Media & Marketing</a> © 2023 Bütün hüquqlar qorunur</p>

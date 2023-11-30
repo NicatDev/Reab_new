@@ -47,8 +47,8 @@
  
 
     <div class="main-wrapper">
-      <!-- header wrapper -->
-      <header id="header-sticky" class="fm-header-area header-border transparent-header bg-common-black">
+       <!-- header wrapper -->
+       <header id="header-sticky" class="fm-header-area header-border transparent-header bg-common-black">
         <div class="container">
             <div class="row align-items-center justify-content-lg-between pr-5 pl-5">
                 <div class="header-wrapper">
@@ -56,14 +56,56 @@
                         <a href="" class="fm-header-logo">
                             <img style="height: 65px !important;" src="{% static 'logo.svg' %}" alt="img not found">
                         </a>
-                        
-                        <a  class="fm-header-bar-1" >
-                            <span class="fm-header-bar-line fm-header-bar-line-1"></span>
-                            <span class="fm-header-bar-line fm-header-bar-line-2"></span>
-                            <span class="fm-header-bar-line fm-header-bar-line-3"></span>
-                        </a>
-                   
+                        <div>
+                        <div class="user-icon-mob" style="    cursor: pointer;">
+                     
+                            <i class="fa-regular fa-user" onclick="openclosemob()" id="mob" style="color: #ffffff;font-size:22px;"></i>
+                            <div class="myboard mob mymobboard" >
+                                <div class="myinlineboard">
+                                    {% if user.is_authenticated %}
+                                    <div class="myinlineboard">
+                                        {% for meet in request.user.meetings.all %}
+                                        <div class="mymeetcard mymeetcardmeet" style="padding-right: 40px;padding-left:40px"> 
+                                            <img src="{{meet.image.url}}" alt="">
+                                            <div class="meettextdiv">
+                                            <p class="mymeetname">{{meet.meetingowner.first_name}} {{meet.meetingowner.last_name}}</p>
+                                            <p>{{meet.date}}</p>
+                                            </div>  
+                                         
+                                        </div>
+                                        {% endfor %}
+                             
+
+                                        <div class="mymeetcard">
+                                            <div onclick="SendToRegister()" class="mymeetbutton profile">Hesab</div>
+                                            <div onclick="SendToRegister()" class="mymeetbutton logout">Cıxış et</div>
+                                        </div>
+                                    </div>
+                                    {% else %}
+                                    <div class="myinlineboard">
+                                        <div class="mymeetcard">
+                                            <div onclick="SendToRegister()" class="mymeetbutton log">Daxil ol</div>
+                                            <div onclick="SendToRegister()" class="mymeetbutton reg">Qeydiyyat</div>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <a  class="fm-header-bar-1" >
+                                <span class="fm-header-bar-line fm-header-bar-line-1"></span>
+                                <span class="fm-header-bar-line fm-header-bar-line-2"></span>
+                                <span class="fm-header-bar-line fm-header-bar-line-3"></span>
+                            </a>
+                        </div>
+                  
+                    </div>
                             <style>
+                                      @media(max-width:420px) {
+                                
+                                            .mymobboard{
+                                                width: 100% !important;
+                                            }
+                                      }
                                     @media(min-width:1200px) {
                                         .fm-header-bar-1{
                                             display: none;
@@ -116,15 +158,224 @@
 
                         </div>
                     </div>
+                   
                     <!-- sd -->
-                    <div class="fm-header-right d-none d-xl-block mr-10" style="text-align: center;letter-spacing: 1px">
-                        <a href="http://75.119.147.165:199/" class="fill-btn"
-                            style="font-size:15px;line-height:20px;border-radius: 3px;">Heydər  <br> Əliyev
-                            <span>
-                                <i class="fa-regular fa-arrow-right"></i>
-                            </span>
-                        </a>
+                    <div style="display: flex;align-items: center;justify-content: end;position: relative;gap:30px"> 
+                        <div class="user-icon-desk" style="    cursor: pointer;">
+                     
+                            <i class="fa-regular fa-user" onclick="openclose()" id="desc" style="color: #ffffff;font-size:22px;"></i>
+                            <div class="myboard mydescboard"  style="display: none;">
+                                {% if user.is_authenticated %}
+                                <div class="myinlineboard">
+                                    {% for meet in request.user.meetings.all %}
+                                    <div class="mymeetcard mymeetcardmeet" style="padding-right: 40px;padding-left:40px"> 
+                                        <img src="{{meet.image.url}}" alt="">
+                                        <div class="meettextdiv">
+                                        <p class="mymeetname">{{meet.meetingowner.first_name}} {{meet.meetingowner.last_name}}</p>
+                                        <p>{{meet.date}}</p>
+                                        </div>  
+                                     
+                                    </div>
+                                    {% endfor %}
+                         
+
+                                    <div class="mymeetcard">
+                                        <div onclick="SendToRegister()" class="mymeetbutton profile">Hesab</div>
+                                        <div onclick="SendToRegister()" class="mymeetbutton logout">Cıxış et</div>
+                                    </div>
+                                </div>
+                                {% else %}
+                                <div class="myinlineboard">
+                                    <div class="mymeetcard">
+                                        <div onclick="SendToRegister()" class="mymeetbutton log">Daxil ol</div>
+                                        <div onclick="SendToRegister()" class="mymeetbutton reg">Qeydiyyat</div>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="fm-header-right d-none d-xl-block mr-10" style="text-align: center;letter-spacing: 1px;display: flex;align-items: center;justify-content: center;">
+              
+                            <a href="http://75.119.147.165:199/" class="fill-btn"
+                                style="font-size:15px;line-height:20px;border-radius: 3px;">Heydər  <br> Əliyev
+                                <span>
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                </span>
+                            </a>
+                        </div>
                     </div>
+                    <script>
+                        var regurl = "{% url 'login' %}"
+                        var profile_url = "{% url 'profile' %}"
+                        var logout_url = "{% url 'logout' %}"
+                        function SendToRegister() {
+                            var clickedElement = event.target;
+                            if (clickedElement.classList.contains('log')) {
+                                window.location.href = regurl + '#log'
+                            } else if (clickedElement.classList.contains('reg')) {
+                                window.location.href = regurl + '#reg';
+                            }
+                            else if (clickedElement.classList.contains('profile')) {
+                                window.location.href =  profile_url;
+                            }
+                            else if (clickedElement.classList.contains('logout')) {
+                                window.location.href = logout_url;
+                            }
+                        }
+                    </script>
+                    <script>
+                        function openclose() {
+                      
+                            var clickedElement = document.getElementById("desc");
+                            
+                            if (clickedElement && clickedElement.id === "desc") {
+                                var myDescElement = document.querySelector(".mydescboard");
+                                if (myDescElement) {
+                                    myDescElement.style.display = "block";
+                                }
+                            }
+
+                        }
+                        function openclosemob() {
+                      
+                      var clickedElement = document.getElementById("mob");
+                      
+                      if (clickedElement && clickedElement.id === "mob") {
+                          var myDescElement = document.querySelector(".mymobboard");
+                          if (myDescElement) {
+                              myDescElement.style.display = "block";
+                          }
+                        }
+                        
+                         } 
+                    </script>
+              <script>
+                document.addEventListener('click', function(event) {
+                    var boards = document.querySelectorAll('.myboard');
+                    var userIcons = document.querySelectorAll('.user-icon-desk, .user-icon-mob');
+                
+                    var clickedInsideBoard = false;
+                
+                    boards.forEach(function(board) {
+                        var rect = board.getBoundingClientRect();
+                
+                        if (
+                            event.clientX >= rect.left &&
+                            event.clientX <= rect.right &&
+                            event.clientY >= rect.top &&
+                            event.clientY <= rect.bottom
+                        ) {
+                            // Clicked inside the board
+                            clickedInsideBoard = true;
+                        }
+                    });
+                
+                    userIcons.forEach(function(userIcon) {
+                        var rect = userIcon.getBoundingClientRect();
+                
+                        if (
+                            event.clientX >= rect.left &&
+                            event.clientX <= rect.right &&
+                            event.clientY >= rect.top &&
+                            event.clientY <= rect.bottom
+                        ) {
+                            // Clicked inside a user icon
+                            clickedInsideBoard = true;
+                        }
+                    });
+                
+                    // If clicked outside all boards and user icons, hide them
+                    if (!clickedInsideBoard) {
+                        boards.forEach(function(board) {
+                            board.style.display = 'none';
+                        });
+                
+                   
+                    }
+                });
+                </script>
+                    <style>
+                        .mymeetbutton{
+                            background-color: rgb(255, 136, 0);
+                            height: 60px;
+                            width: 45%;
+                            color: white;
+                            font-size:25px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            cursor: pointer;
+                        }
+                        .mymeetbutton:hover{
+                            background-color: rgb(255, 0, 0);
+                        }
+                        .mymeetname{
+                            font-size:23px;
+                            font-weight: 600;
+                        }
+                        .myx i{
+                            font-size:50px;
+                            cursor: pointer;
+                        }
+                        .myx i:hover{
+                            color: rgb(255, 123, 0);
+                        }
+                        .meettextdiv{
+                            display: flex;
+                            flex-direction: column;
+                        }
+                        .myinlineboard{
+                            display: flex;
+                            flex-direction: column;
+                        }
+                        .mymeetcard{
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            width: 100%;
+                            padding:20px
+                        }
+                        .mymeetcard img{
+                            width: 85px;
+                            height: 80px;
+                            border-radius: 50%;
+                        }
+                        .myinlineboard{
+                            height: 100%;
+                        }
+                        .myboard.mob{
+                            top:80px !important
+                        }
+                        .myboard{
+                            display: none;
+                            position: absolute;
+                            height: auto;
+                            width: 400px;
+                            right:0px;
+                            
+                            top: 60px;
+        
+                            background-color: white;
+                        }
+                        @media (max-width: 1199px) {
+                            .user-icon-desk{
+                                display: none;
+                        }}
+                        .user-icon-mob{
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            text-align: center;
+                            gap:30px
+                        }
+                        @media (min-width: 1200px) {
+                            .user-icon-mob{
+                                display: none;
+                            }
+                        }
+                    </style>
+                 
+            
                 </div>
 
             </div>

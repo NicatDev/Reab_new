@@ -14,6 +14,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <link rel="stylesheet" href="{% static 'templatestyles/css/style.css' %}">
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+  
 
     <link rel="stylesheet" href="{% static 'templatestyles/css/themify-icons.css' %}">
     <!-- Favicon icon -->
@@ -22,7 +27,7 @@
     <!-- Custom Stylesheet -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="custom.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
     <link rel="stylesheet" href="{% static 'assets/css/preloader.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/meanmenu.css' %}">
@@ -147,6 +152,12 @@
                       
                         </div>
                                 <style>
+                                          @media(max-width:420px) {
+                                    
+                                                .mymobboard{
+                                                    width: 100% !important;
+                                                }
+                                          }
                                         @media(min-width:1200px) {
                                             .fm-header-bar-1{
                                                 display: none;
@@ -395,7 +406,7 @@
                                 right:0px;
                                 
                                 top: 60px;
-                                border-radius:5%;
+                  
                                 background-color: white;
                             }
                             @media (max-width: 1199px) {
@@ -464,29 +475,82 @@
         <div class="banner-wrapper banner1">
             <div class="container-fluid">
                 <div class="row">
+                   
                     <div class="col-sm-12">
-                        <div class="banner-wrap justify-content-between align-items-center" style="background:linear-gradient(to bottom, transparent, black);;">
-                            <div style="position: absolute;z-index: 1;" class="left-wrap">
-                                <span style="opacity:0;" class="rnd">IMDb 6.7</span>
-                                <h2 style="user-select:none ;">Rafael Ağayev</h2>
-                                <span style="opacity:0;cursor:none" class="tag"><b>Rafael Ağayev</b></span>
-                                <span style="opacity:0;cursor:none" class="tag">2020</span>
-                                <span style="opacity:0;cursor:none" class="tag"><b>HD</b></span>
-                                <span style="opacity:0;cursor:none" class="tag"><b>16+</b></span>
-                                <span style="opacity:0;cursor:none" class="tag">2 h 20 min</span>
-                                <p style="user-select:none;font-size: 16px !important;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima sequi, saepe, aliquid qui est obcaecati atque illo molestiae laudantium similique quibusdam non eligendi assumenda? Suscipit aperiam sit consequatur expedita ut?</p>
-                                <a href="#media-popup" data-media="{{embed}}"  class="btn btn-lg"
-                                    style="background-color:var(--clr-theme-1);margin-top:10px;border-radius:5px !important;padding-top:8px !important;padding-bottom:8px !important;height:initial !important;width:200px !important;text-align:center !important;">Görüşə qatıl</a>
+                        <div class="swiper-container">
+                            <!-- Additional required wrapper -->
+                            <div class="swiper-wrapper">
+                                <!-- Slides -->
+                                <div class="swiper-slide">  <div class="banner-wrap justify-content-between align-items-center" style="background:linear-gradient(to bottom, transparent, black);;">
+                                    <div style="position: absolute;z-index: 1;" class="left-wrap">
+                                        <span style="opacity:0;" class="rnd">IMDb 6.7</span>
+                                        <h2 style="user-select:none ;width: 20%;">Rafael Ağayev</h2>
+                                        <span style="opacity:0;cursor:none" class="tag"><b>Rafael Ağayev</b></span>
+                                        <span style="opacity:0;cursor:none" class="tag">2020</span>
+                                        <span style="opacity:0;cursor:none" class="tag"><b>HD</b></span>
+                                        <span style="opacity:0;cursor:none" class="tag"><b>16+</b></span>
+                                        <span style="opacity:0;cursor:none" class="tag">2 h 20 min</span>
+                                        <p style="user-select:none;font-size: 16px !important;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima sequi, saepe, aliquid qui est obcaecati atque illo molestiae laudantium similique quibusdam non eligendi assumenda? Suscipit aperiam sit consequatur expedita ut?</p>
+                                        <a   class="btn btn-lg"
+                                            style="background-color:var(--clr-theme-1);margin-top:10px;border-radius:5px !important;padding-top:8px !important;padding-bottom:8px !important;height:initial !important;width:200px !important;text-align:center !important;">Görüşə qatıl</a>
+                                    </div>
+                                    <div style="    background: linear-gradient(90deg, #181616 24%, #0000001f);width: 100%;flex:0 0 100%;max-width: 100%;" class="right-wrap">
+                                      <div style="mix-blend-mode: overlay;width: 100%;    background-color: #ffb387;">
+                                        <img style="margin-left:50%;width:  40%;height: 100%;" src="{% static 'gulshen.png' %}" alt="">
+                                    </div>
+                                    </div>
+                                </div></div>
+                                <div class="swiper-slide">  <div class="banner-wrap justify-content-between align-items-center" style="background:linear-gradient(to bottom, transparent, black);;">
+                                    <div style="position: absolute;z-index: 1;" class="left-wrap">
+                                        <span style="opacity:0;" class="rnd">IMDb 6.7</span>
+                                        <h2 style="user-select:none ;width: 20%;">Rafael Ağayev</h2>
+                                        <span style="opacity:0;cursor:none" class="tag"><b>Rafael Ağayev</b></span>
+                                        <span style="opacity:0;cursor:none" class="tag">2020</span>
+                                        <span style="opacity:0;cursor:none" class="tag"><b>HD</b></span>
+                                        <span style="opacity:0;cursor:none" class="tag"><b>16+</b></span>
+                                        <span style="opacity:0;cursor:none" class="tag">2 h 20 min</span>
+                                        <p style="user-select:none;font-size: 16px !important;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima sequi, saepe, aliquid qui est obcaecati atque illo molestiae laudantium similique quibusdam non eligendi assumenda? Suscipit aperiam sit consequatur expedita ut?</p>
+                                        <a   class="btn btn-lg"
+                                            style="background-color:var(--clr-theme-1);margin-top:10px;border-radius:5px !important;padding-top:8px !important;padding-bottom:8px !important;height:initial !important;width:200px !important;text-align:center !important;">Görüşə qatıl</a>
+                                    </div>
+                                    <div style="    background: linear-gradient(90deg, #181616 24%, #0000001f);width: 100%;flex:0 0 100%;max-width: 100%;" class="right-wrap">
+                                      <div style="mix-blend-mode: overlay;width: 100%;    background-color: #ffb387;">
+                                        <img style="margin-left:50%;width:  40%;height: 100%;" src="{% static 'gulshen.png' %}" alt="">
+                                    </div>
+                                    </div>
+                                </div> </div>
+                                <div class="swiper-slide">  <div class="banner-wrap justify-content-between align-items-center" style="background:linear-gradient(to bottom, transparent, black);;">
+                                    <div style="position: absolute;z-index: 1;" class="left-wrap">
+                                        <span style="opacity:0;" class="rnd">IMDb 6.7</span>
+                                        <h2 style="user-select:none ;width: 20%;">Rafael Ağayev</h2>
+                                        <span style="opacity:0;cursor:none" class="tag"><b>Rafael Ağayev</b></span>
+                                        <span style="opacity:0;cursor:none" class="tag">2020</span>
+                                        <span style="opacity:0;cursor:none" class="tag"><b>HD</b></span>
+                                        <span style="opacity:0;cursor:none" class="tag"><b>16+</b></span>
+                                        <span style="opacity:0;cursor:none" class="tag">2 h 20 min</span>
+                                        <p style="user-select:none;font-size: 16px !important;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima sequi, saepe, aliquid qui est obcaecati atque illo molestiae laudantium similique quibusdam non eligendi assumenda? Suscipit aperiam sit consequatur expedita ut?</p>
+                                        <a   class="btn btn-lg"
+                                            style="background-color:var(--clr-theme-1);margin-top:10px;border-radius:5px !important;padding-top:8px !important;padding-bottom:8px !important;height:initial !important;width:200px !important;text-align:center !important;">Görüşə qatıl</a>
+                                    </div>
+                                    <div style="    background: linear-gradient(90deg, #181616 24%, #0000001f);width: 100%;flex:0 0 100%;max-width: 100%;" class="right-wrap">
+                                      <div style="mix-blend-mode: overlay;width: 100%;    background-color: #ffb387;">
+                                        <img style="margin-left:50%;width:  40%;height: 100%;" src="{% static 'gulshen.png' %}" alt="">
+                                    </div>
+                                    </div>
+                                </div> </div>
+                  
                             </div>
-                            <div style="    background: linear-gradient(90deg, #181616 24%, #0000001f);width: 100%;flex:0 0 100%;max-width: 100%;" class="right-wrap">
-                              <div style="mix-blend-mode: overlay;width: 100%;    background-color: #ffb387;">
-                                <img style="margin-left:50%;width:  40%;height: 100%;" src="{% static 'gulshen.png' %}" alt="">
-                            </div>
-                            </div>
+                            <div class="swiper-pagination"></div>
+    
+                            <!-- If we need navigation buttons -->
+                
                         </div>
+                  
+             
+                 
                     </div>
                     <div class="col-sm-12"  >
-                        <div class="slide-wrapper">
+                        <div class="slide-wrapper" style="    background: linear-gradient(to right, #211813, black) !important;">
                             <div class="slide-slider-full owl-carousel owl-theme">
                                 {% for video in all_meetings %}
 <div class="owl-items">                   
@@ -608,9 +672,9 @@
                         <a href="{% url 'speakersingle' video.slug %}" 
                             style="text-shadow:2px 2px 4px rgba(0, 0, 0, 0.5);" class="slide-one">
 
-                            <div class="slide-image">
+                            <div class="slide-image" style="width: 100%;display: flex;align-items:end;justify-content: center;height: 400px;">
                                 {% if video.image %}
-                                <img style="object-fit: cover;max-height: 350px;min-height: 350px;"
+                                <img style="object-fit: cover;height: 100%;"
                                     src="{{video.image.url}}" alt="image" loading="lazy">
                                 {% endif %}
                                
@@ -703,19 +767,18 @@
  
     <!-- section end -->
     <!-- Xatirelerde section start -->
+    <div class="aboutimagetitle-div" style="display: flex;align-items:center;justify-content:space-between;margin-top:3%">
+        <h3 style="user-select:none;">Görüşlər</h3>
+        <div style="display: flex;align-items:center;">
+            <span><a style="font-size:16px;margin-right:7px;" href="{% url 'meet' %}">daha ətraflı</a></span>
+            <span><img style="filter:  brightness(5000%) ;" src="{% static 'templatestyles/images/arrowupright.png' %}"
+                    alt=""></span>
+        </div>
+    </div>
     <div class="schedule-area section-padding-02 grey-bg">
-       
+      
         <div class="container" style="margin-top:40px">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-title-wrap">
-                        <div class="section-title text-center">
-                            
-                            <h2 style="margin-top:2%;" class="title">Qəhrəmanını bizimlə tanı</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          
             <div class="row g-0 align-items-start">
                 <div class="col-2 sticky-col">
                     <div class="schedule-side-nav">
@@ -734,60 +797,91 @@
                     </div>
                 </div>
                 <div class="col-10">
-                    <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-content" id="v-pills-tabContent" style="z-index: 0;">
                         <div class="tab-pane show active" id="v-pills-home" role="tabpanel">
-                            <div class="schedule-wrapper">
-                                <div class="single-schedule">
+                            <div class="schedule-wrapper" style="z-index: 0;">
+                                <div class="single-schedule " >
                                     {% if day_meetings %}
+                              
                                     {% for meet in day_meetings %}
-                                    <div class="row g-0 align-items-center shedule-row">
-                                        <div class="col-lg-3 col-12">
-                                            <div class="schedule-thumbnail">
-                                                <div class="schedule-time">
-                                                    <h3 style="font-size: 70px;" class="time">{{meet.date|date:"d"}}</h3>
-                                                    <div class="month-time">
-                                                        <span style="font-size: 30px;line-height:31px;" class="month">{{meet.date|date:"F"}}</span>
-                                                        <span style="font-size: 26px;line-height:31px;" class="duration-event">{{meet.date|date:"H:i"}} <i   {% if meet in request.user.meetings.all %} style="margin-left:10px;margin-top:1px;cursor:pointer;font-weight:800" {% else %} style="margin-left:10px;margin-top:1px;cursor:pointer;" {% endif %} id="myicon{{meet.id}}" onclick="Wish('{{meet.id}}')" class="fa-regular fa-bookmark"></i></span>
-                                                    </div>
-                                                </div>
-                                                
+                                    <div class="js-ag-collection_item" style="margin-bottom: 10px;">
+                                        
+                                        <!-- js-ag-collection-popup_overlay__show -->
+                                        <div >
+                                            <div class="js-ag-collection-popup_box" style="margin-top:0px !important;width: 100%;z-index: 0;position: relative;">
+                       
+                                  
+                                              <div class="ag-collection-popup_col__left" style="background-color: #e0dfdf;">
+                                                <img src="{{meet.image.url}}" class="ag-collection-popup_img" loading="lazy" sizes="100vw" srcset="{{meet.image.url}} 500w, {{meet.image.url}} 520w" alt="" />
+                                              </div>
                                               
-                                                   
-                                                <a href="{% url 'meetjoin' meet.id %}"><img src="{{meet.image.url}}"
-                                                    style="max-width:12rem" alt="Thumbnail"
-                                                    class="schedule-thumb-img"></a>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-9 col-12">
-                                            <div class="schedule-content-wrap">
-                                                <div  class="schedule-content">
-                                                    <div class="schedule-location">
-                                                        <p><span><i class="fas fa-map-marker-alt"></i>
-                                                            </span>{{meet.location}}</p>
+
+                                              <div class="ag-collection-popup_col__right" style="background-color: #e0dfdf;">
+                                                <h2 class="ag-collection-popup_name">{{meet.meetingowner.first_name}} {{meet.meetingowner.last_name}}</h2>
+                               
+                                                <div class="ag-collection-popup_awards">
+                                  
                                                     </div>
-                                                <a style="display:flex;align-items:center" {% if chrome %} href="{% url 'meetjoin' meet.id %}" {% else %} href="{{meet.meeting_id}}"{% endif %}><h4 class="schedule-title">{{meet.title}} </h4>    <i style="padding-bottom:16px;font-size:20px" class="fa fa-info-circle" aria-hidden="true"  data-tooltip="Görüşlər Zoom tətbiqi ilə nolunacaq. Daha yaxşı performans üçün İOS istifadəçilərinə Zoom tətbiqini endirməsi tövsiyyə olunur."></i></a> 
-                                                    <div class="schedule-descrip">
-                                                        <p>{{meet.content}}</p>
-                                                        <p class="collapse hidden-desc"
-                                                            id="collapseContent{{meet.id}}">{{meet.content2}} </p>
-                                                    </div>
+                                  
+                                                <div class="ag-collection-popup_title" style="text-align: start;">
+                                                    {{meet.meetingowner.owner.field}} - {{meet.meetingowner.owner.titul}}
                                                 </div>
-                                                <a class="minus-btn" data-bs-toggle="collapse"
-                                                    href="#collapseContent{{meet.id}}" role="button"
-                                                    aria-expanded="false"
-                                                    aria-controls="collapseContent{{meet.id}}">
-                                                    <div class="plus-icon-{{meet.id}}">
-                                                        <div class="plus-icon-shape active-plus"></div>
-                                                    </div>
+                                                <p class="ag-collection-popup_text" style="font-size:20px">
+                                                    {{meet.date}}
+                                                </p>
+                                                <p style="font-size:15px !important;text-align: start;">{{meet.content|slice:100}}...<span class="popup-div" style="font-size:18px; color: rgb(255, 115, 0);cursor: pointer;">daha ətraflı</span></p> 
+                                                       <div style="display: flex;align-items: center;justify-content: center;gap:20px">
+                                                    <a href="#" class="fill-btn"
+                                                    style="font-size:15px;line-height:20px;border-radius: 3px;cursor: pointer !important;">Görüşə qatıl 
+                                              
                                                 </a>
+                                                <i onclick="AddorRemove('{{meet.id}}')" id="s{{meet.id}}" style="color: rgb(0, 0, 0);font-size: 35px;cursor: pointer;" {% if request.user in meet.meeter.all %}class="fa-solid fa-bookmark" {% else %} class="fa-regular fa-bookmark" {%endif%}></i>
+                                                </div>
+                                              
+                                              </div>
                                             </div>
-                                        </div>
-                                    </div>
+                                          </div>
+                                          <div class="js-ag-collection-popup_overlay " style="z-index: 1;" onclick="openclosePopup()">
+                                            <div class="js-ag-collection-popup_box"  style="z-index: 1;height: 450px;">
+                                              <div class="js-ag-collection-popup_btn__close" >Pəncərəni bağla</div>
+                                  
+                                              <div class="ag-collection-popup_col__left">
+                                                <img src="{{meet.image.url}}" class="ag-collection-popup_img" loading="lazy" sizes="100vw" srcset="{{meet.image.url}} 500w, {{meet.image.url}} 520w" alt="" />
+                                              </div>
+                                  
+                                              <div class="ag-collection-popup_col__right">
+                                                <h2 class="ag-collection-popup_name">{{meet.meetingowner.first_name}} {{meet.meetingowner.last_name}}</h2>
+                                        
+                                                <div class="ag-collection-popup_awards">
+                                  
+                                                    </div>
+                                  
+                                                <div class="ag-collection-popup_title">
+                                                    {{meet.meetingowner.owner.field}} - {{meet.meetingowner.owner.titul}}
+                                                </div>
+                                                <p class="ag-collection-popup_text">
+                                                    {{meet.date}}
+                                                </p>
+                                                <p style="font-size:15px !important">{{meet.content}}</p> 
+                                                <div style="display: flex;align-items: center;justify-content: center;gap:20px">
+                                                    <a href="#" class="fill-btn"
+                                                    style="font-size:15px;line-height:20px;border-radius: 3px;cursor: pointer !important;">Görüşə qatıl 
+                                              
+                                                </a>
+                                              
+                                                </div>
+                                              
+                                              </div>
+                                            </div>
+                                                                                       </div>
+                                       </div>
+
+                         
                                     {% endfor %}
                                     {% else %}
                                     <div class="row g-0 align-items-center shedule-row">
                                         <div class="col-lg-12 col-12">
-                                            <h3>Bu gün üçün görüş mövcud deyil 😞</h3>
+                                            <h3>Bu gün üçün görüş mövcud deyil </h3>
                                         </div>
                                     </div>
                                     {% endif %}
@@ -799,49 +893,77 @@
                                 <div class="single-schedule">
                                     {% if week_meetings %}
                                     {% for meet in week_meetings %}
-                                    <div class="row g-0 align-items-center shedule-row">
-                                        <div class="col-lg-3 col-12">
-                                            <div class="schedule-thumbnail">
-                                                <div class="schedule-time">
-                                                    <h3 style="font-size: 70px;" class="time">{{meet.date|date:"d"}}</h3>
-                                                    <div class="month-time">
-                                                        <span style="font-size: 30px;line-height:31px;" class="month">{{meet.date|date:"F"}}</span>
-                                                        <span style="font-size: 26px;line-height:31px;" class="duration-event">{{meet.date|date:"H:i"}} <i   {% if meet in request.user.meetings.all %} style="margin-left:10px;margin-top:1px;cursor:pointer;font-weight:800" {% else %} style="margin-left:10px;margin-top:1px;cursor:pointer;" {% endif %} id="myicon{{meet.id}}" onclick="Wish('{{meet.id}}')" class="fa-regular fa-bookmark"></i></span>
-                                                    </div>
-                                                </div>
-                                                
+                                    <div class="js-ag-collection_item" style="margin-bottom: 10px;">
+                                        
+                                        <!-- js-ag-collection-popup_overlay__show -->
+                                        <div >
+                                            <div class="js-ag-collection-popup_box" style="margin-top:0px !important;width: 100%;z-index: 0;position: relative;">
+                       
+                                  
+                                              <div class="ag-collection-popup_col__left" style="background-color: #e0dfdf;">
+                                                <img src="{{meet.image.url}}" class="ag-collection-popup_img" loading="lazy" sizes="100vw" srcset="{{meet.image.url}} 500w, {{meet.image.url}} 520w" alt="" />
+                                              </div>
                                               
-                                                   
-                                                <a href="{% url 'meetjoin' meet.id %}"><img src="{{meet.image.url}}"
-                                                    style="max-width:12rem" alt="Thumbnail"
-                                                    class="schedule-thumb-img"></a>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-9 col-12">
-                                            <div class="schedule-content-wrap">
-                                                <div  class="schedule-content">
-                                                    <div class="schedule-location">
-                                                        <p><span><i class="fas fa-map-marker-alt"></i>
-                                                            </span>{{meet.location}}</p>
+
+                                              <div class="ag-collection-popup_col__right" style="background-color: #e0dfdf;">
+                                                <h2 class="ag-collection-popup_name">{{meet.meetingowner.first_name}} {{meet.meetingowner.last_name}}</h2>
+                               
+                                                <div class="ag-collection-popup_awards">
+                                  
                                                     </div>
-                                                    <i class="fa fa-info-circle" aria-hidden="true" data-tooltip="Görüşlər Zoom tətbiqi ilə nolunacaq. Daha yaxşı performans üçün İOS istifadəçilərinə Zoom tətbiqini endirməsi tövsiyyə olunur."></i><a {% if chrome %} href="{% url 'meetjoin' meet.id %}" {% else %} href="{{meet.meeting_id}}"{% endif %}><h4 class="schedule-title">{{meet.title}} </h4></a> 
-                                                    <div class="schedule-descrip">
-                                                        <p>{{meet.content}}</p>
-                                                        <p class="collapse hidden-desc"
-                                                            id="collapseContent{{meet.id}}">{{meet.content2}} </p>
-                                                    </div>
+                                  
+                                                <div class="ag-collection-popup_title" style="text-align: start;">
+                                                    {{meet.meetingowner.owner.field}} - {{meet.meetingowner.owner.titul}}
                                                 </div>
-                                                <a class="minus-btn" data-bs-toggle="collapse"
-                                                    href="#collapseContent{{meet.id}}" role="button"
-                                                    aria-expanded="false"
-                                                    aria-controls="collapseContent{{meet.id}}">
-                                                    <div class="plus-icon-{{meet.id}}">
-                                                        <div class="plus-icon-shape active-plus"></div>
-                                                    </div>
+                                                <p class="ag-collection-popup_text" style="font-size:20px">
+                                                    {{meet.date}}
+                                                </p>
+                                                <p style="font-size:15px !important;text-align: start;">{{meet.content|slice:100}}...<span class="popup-div" style="font-size:18px; color: rgb(255, 115, 0);cursor: pointer;">daha ətraflı</span></p> 
+                                                       <div style="display: flex;align-items: center;justify-content: center;gap:20px">
+                                                    <a href="#" class="fill-btn"
+                                                    style="font-size:15px;line-height:20px;border-radius: 3px;cursor: pointer !important;">Görüşə qatıl 
+                                              
                                                 </a>
+                                                <i onclick="AddorRemove('{{meet.id}}')" id="s{{meet.id}}" style="color: rgb(0, 0, 0);font-size: 35px;cursor: pointer;" {% if request.user in meet.meeter.all %}class="fa-solid fa-bookmark" {% else %} class="fa-regular fa-bookmark" {%endif%}></i>
+                                                </div>
+                                              
+                                              </div>
                                             </div>
-                                        </div>
-                                    </div>
+                                          </div>
+                                          <div class="js-ag-collection-popup_overlay " style="z-index: 1;" onclick="openclosePopup()">
+                                            <div class="js-ag-collection-popup_box"  style="z-index: 1;height: 450px;">
+                                              <div class="js-ag-collection-popup_btn__close" >Pəncərəni bağla</div>
+                                  
+                                              <div class="ag-collection-popup_col__left">
+                                                <img src="{{meet.image.url}}" class="ag-collection-popup_img" loading="lazy" sizes="100vw" srcset="{{meet.image.url}} 500w, {{meet.image.url}} 520w" alt="" />
+                                              </div>
+                                  
+                                              <div class="ag-collection-popup_col__right">
+                                                <h2 class="ag-collection-popup_name">{{meet.meetingowner.first_name}} {{meet.meetingowner.last_name}}</h2>
+                                        
+                                                <div class="ag-collection-popup_awards">
+                                  
+                                                    </div>
+                                  
+                                                <div class="ag-collection-popup_title">
+                                                    {{meet.meetingowner.owner.field}} - {{meet.meetingowner.owner.titul}}
+                                                </div>
+                                                <p class="ag-collection-popup_text">
+                                                    {{meet.date}}
+                                                </p>
+                                                <p style="font-size:15px !important">{{meet.content}}</p> 
+                                                <div style="display: flex;align-items: center;justify-content: center;gap:20px">
+                                                    <a href="#" class="fill-btn"
+                                                    style="font-size:15px;line-height:20px;border-radius: 3px;cursor: pointer !important;">Görüşə qatıl 
+                                              
+                                                </a>
+                                              
+                                                </div>
+                                              
+                                              </div>
+                                            </div>
+                                                                                       </div>
+                                       </div>
                                     {% endfor %}
                                     {% else %}
                                     <div class="row g-0 align-items-center shedule-row">
@@ -858,49 +980,77 @@
                                 <div class="single-schedule">
                                     {% if month_meetings %}
                                     {% for meet in month_meetings %}
-                                    <div class="row g-0 align-items-center shedule-row">
-                                        <div class="col-lg-3 col-12">
-                                            <div class="schedule-thumbnail">
-                                                <div class="schedule-time">
-                                                    <h3 style="font-size: 70px;" class="time">{{meet.date|date:"d"}}</h3>
-                                                    <div class="month-time">
-                                                        <span style="font-size: 30px;line-height:31px;" class="month">{{meet.date|date:"F"}}</span>
-                                                        <span style="font-size: 26px;line-height:31px;" class="duration-event">{{meet.date|date:"H:i"}} <i   {% if meet in request.user.meetings.all %} style="margin-left:10px;margin-top:1px;cursor:pointer;font-weight:800" {% else %} style="margin-left:10px;margin-top:1px;cursor:pointer;" {% endif %} id="myicon{{meet.id}}" onclick="Wish('{{meet.id}}')" class="fa-regular fa-bookmark"></i></span>
-                                                    </div>
-                                                </div>
-                                                
+                                    <div class="js-ag-collection_item" style="margin-bottom: 10px;">
+                                        
+                                        <!-- js-ag-collection-popup_overlay__show -->
+                                        <div >
+                                            <div class="js-ag-collection-popup_box" style="margin-top:0px !important;width: 100%;z-index: 0;position: relative;">
+                       
+                                  
+                                              <div class="ag-collection-popup_col__left" style="background-color: #e0dfdf;">
+                                                <img src="{{meet.image.url}}" class="ag-collection-popup_img" loading="lazy" sizes="100vw" srcset="{{meet.image.url}} 500w, {{meet.image.url}} 520w" alt="" />
+                                              </div>
                                               
-                                                   
-                                                <a href="{% url 'meetjoin' meet.id %}"><img src="{{meet.image.url}}"
-                                                    style="max-width:12rem" alt="Thumbnail"
-                                                    class="schedule-thumb-img"></a>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-9 col-12">
-                                            <div class="schedule-content-wrap">
-                                                <div  class="schedule-content">
-                                                    <div class="schedule-location">
-                                                        <p><span><i class="fas fa-map-marker-alt"></i>
-                                                            </span>{{meet.location}}</p>
+
+                                              <div class="ag-collection-popup_col__right" style="background-color: #e0dfdf;">
+                                                <h2 class="ag-collection-popup_name">{{meet.meetingowner.first_name}} {{meet.meetingowner.last_name}}</h2>
+                               
+                                                <div class="ag-collection-popup_awards">
+                                  
                                                     </div>
-                                                    <i class="fa fa-info-circle" aria-hidden="true" data-tooltip="Görüşlər Zoom tətbiqi ilə nolunacaq. Daha yaxşı performans üçün İOS istifadəçilərinə Zoom tətbiqini endirməsi tövsiyyə olunur."></i><a {% if chrome %} href="{% url 'meetjoin' meet.id %}" {% else %} href="{{meet.meeting_id}}"{% endif %}><h4 class="schedule-title">{{meet.title}} </h4></a> 
-                                                    <div class="schedule-descrip">
-                                                        <p>{{meet.content}}</p>
-                                                        <p class="collapse hidden-desc"
-                                                            id="collapseContent{{meet.id}}">{{meet.content2}} </p>
-                                                    </div>
+                                  
+                                                <div class="ag-collection-popup_title" style="text-align: start;">
+                                                    {{meet.meetingowner.owner.field}} - {{meet.meetingowner.owner.titul}}
                                                 </div>
-                                                <a class="minus-btn" data-bs-toggle="collapse"
-                                                    href="#collapseContent{{meet.id}}" role="button"
-                                                    aria-expanded="false"
-                                                    aria-controls="collapseContent{{meet.id}}">
-                                                    <div class="plus-icon-{{meet.id}}">
-                                                        <div class="plus-icon-shape active-plus"></div>
-                                                    </div>
+                                                <p class="ag-collection-popup_text" style="font-size:20px">
+                                                    {{meet.date}}
+                                                </p>
+                                                <p style="font-size:15px !important;text-align: start;">{{meet.content|slice:100}}...<span class="popup-div" style="font-size:18px; color: rgb(255, 115, 0);cursor: pointer;">daha ətraflı</span></p> 
+                                                       <div style="display: flex;align-items: center;justify-content: center;gap:20px">
+                                                    <a href="#" class="fill-btn"
+                                                    style="font-size:15px;line-height:20px;border-radius: 3px;cursor: pointer !important;">Görüşə qatıl 
+                                              
                                                 </a>
+                                                <i onclick="AddorRemove('{{meet.id}}')" id="s{{meet.id}}" style="color: rgb(0, 0, 0);font-size: 35px;cursor: pointer;" {% if request.user in meet.meeter.all %}class="fa-solid fa-bookmark" {% else %} class="fa-regular fa-bookmark" {%endif%}></i>
+                                                </div>
+                                              
+                                              </div>
                                             </div>
-                                        </div>
-                                    </div>
+                                          </div>
+                                          <div class="js-ag-collection-popup_overlay " style="z-index: 1;" onclick="openclosePopup()">
+                                            <div class="js-ag-collection-popup_box"  style="z-index: 1;height: 450px;">
+                                              <div class="js-ag-collection-popup_btn__close" >Pəncərəni bağla</div>
+                                  
+                                              <div class="ag-collection-popup_col__left">
+                                                <img src="{{meet.image.url}}" class="ag-collection-popup_img" loading="lazy" sizes="100vw" srcset="{{meet.image.url}} 500w, {{meet.image.url}} 520w" alt="" />
+                                              </div>
+                                  
+                                              <div class="ag-collection-popup_col__right">
+                                                <h2 class="ag-collection-popup_name">{{meet.meetingowner.first_name}} {{meet.meetingowner.last_name}}</h2>
+                                        
+                                                <div class="ag-collection-popup_awards">
+                                  
+                                                    </div>
+                                  
+                                                <div class="ag-collection-popup_title">
+                                                    {{meet.meetingowner.owner.field}} - {{meet.meetingowner.owner.titul}}
+                                                </div>
+                                                <p class="ag-collection-popup_text">
+                                                    {{meet.date}}
+                                                </p>
+                                                <p style="font-size:15px !important">{{meet.content}}</p> 
+                                                <div style="display: flex;align-items: center;justify-content: center;gap:20px">
+                                                    <a href="#" class="fill-btn"
+                                                    style="font-size:15px;line-height:20px;border-radius: 3px;cursor: pointer !important;">Görüşə qatıl 
+                                              
+                                                </a>
+                                              
+                                                </div>
+                                              
+                                              </div>
+                                            </div>
+                                                                                       </div>
+                                       </div>
                                     {% endfor %}
                                     {% else %}
                                     <div class="row g-0 align-items-center shedule-row">
@@ -2173,7 +2323,7 @@ font-size:100px !important
     .slide-wrapper .slide-one .slide-image:before {background-color: #00000000 !important;top:4000px !important}
     </style>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="{% static 'templatestyles/js/plugin.js' %}"></script>
 <script src="{% static 'templatestyles/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 <script src="{% static 'templatestyles/js/scripts.js' %}"></script>
@@ -2476,9 +2626,20 @@ div{
     }
     @media (max-width: 750px) {
         .mytest1{display: none !important;}
-        .mytest2{display: block !important;
-}
+        .mytest2{display: block !important;}
     }
+    @media (max-width: 770px) {
+        .meetindayresp{
+            flex-wrap: wrap !important;
+            align-items: center;
+            justify-content: center !important;
+            width: 100%;
+        }
+        .schedule-location{
+            width: 100% !important;
+        }
+    }
+    
     @media (max-width: 650px) {
     .fm-header-logo {
         width: 75px !important;
@@ -2824,9 +2985,648 @@ padding-right:0.2rem
         
     });
 </script>
+{% if user.is_authenticated %}
+
+<script>
+    var isAuthenticated = true;
+    var userId = "{{ request.user.id }}";
+</script>
+
+{% else %}
+
+<script>
+    var isAuthenticated = false;
+    var userId = 'auth';  // or set it to a default value
+</script>
+
+{% endif %}
+<script>
+    var csrfToken = "{{ csrf_token }}";
+
+    function AddorRemove(id) {
+
+      console.log('222')
+        event.preventDefault();
+        if (userId=='auth'){
+          swal('Hesab xətası');
+          return;
+        }
+        // Get the email input value
+     
+        // Check if the class name of the clicked button is "submit_btn"
+        const clickedButton = event.target;
+        if (clickedButton.classList.contains('fa-bookmark')) {
+            // Send the data to a URL (replace 'your_url' with the actual URL)
+            const url = '{% url "addorremove" %}';
+        
+
+            // You can use a method like fetch to send the data to the server
+            fetch(url, {
+                method: 'POST',
+                body: JSON.stringify({
+                    user:userId,
+                    id:id
+
+
+                }), // You can format the data as needed
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrfToken
+                }
+            })
+                .then(response => {
+                    // Handle the response here (e.g., show a success message)
+                    if (response.ok) {
+                      if (response.status=='200'){
+                      document.getElementById('s'+id).classList.remove('fa-regular')
+                      document.getElementById('s'+id).classList.add('fa-solid')}
+                      if (response.status=='201'){
+                      document.getElementById('s'+id).classList.add('fa-regular')
+                      document.getElementById('s'+id).classList.remove('fa-solid')}
+                        console.log(response)
+                        console.log(name, email)
+                        swal({
+                            title: "Əla",
+                            text: "Məktubunuz uğurla göndərildi !",
+                            icon: "success",
+                            button: "Tamam",
+                        });
+
+                    } else {
+                        console.log(response)
+                        swal('Xəta baş verdi');
+                        console.log(name, email)
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+    }
+
+    </script>
+<style>
+    @media (max-width: 992px) {
+  .banner-wrap .left-wrap{
+      position: absolute;
+      z-index: 1;
+      display: flex !important;
+      text-align: center !important;
+      align-items: center !important;
+      justify-content: center !important;
+      flex-wrap: wrap !important;
+  }}
+ .left-wrap h2{
+    width: 100% !important;
+  }
+    @media (min-width: 1199px) {
+        #ancaqmobile{
+            display: none;
+        }
+        .fm-header-sidebar-area.header-sidebar-visible {
+        display: none;
+    }}
+    @media (max-width: 650px) {
+    .fm-header-logo {
+        width: 75px !important;
+    }
+    .fm-header-logo-wrapper{
+    padding:8px 0 !important;
+
+    }}
+    </style>
+    <style>
+        .ag-collection-block {
+  padding: 50px 0;
+}
+@media (min-width: 1399px) {
+    .ag-format-container {
+  width: 1350px !important;
+  margin: 0 auto;
+}}
+@media (min-width: 1499px) {
+    .ag-format-container {
+  width: 1450px !important;
+  margin: 0 auto;
+}
+}
+.ag-format-container {
+  width: 1142px;
+  margin: 0 auto;
+}
+
+.ag-collection_list {
+  display: -ms-grid;
+  display: grid;
+
+
+  grid-template-columns: repeat(3, 1fr);
+
+  grid-auto-columns: minmax(400px, auto);
+  grid-auto-rows: minmax(500px, auto);
+
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+.js-ag-collection_item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.ag-collection_info img {
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+    height: 410px;
+}
+.ag-collection_text2{
+    box-shadow: 0px -33px 14px #211813b4;
+}
+.ag-collection_text{
+    box-shadow: 0px -23px 14px #211813c9;
+    text-shadow: white;
+    color: white !important;
+}
+.ag-collection_info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+
+
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
+  align-self: center;
+
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+
+
+  height: 100%;
+  width: 100%;
+
+  background-color: #211813;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  
+  position: relative;
+}
+.svg-arrow-top-right {
+  height: 12px;
+  width: 12px;
+
+  cursor: pointer;
+
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+.ag-collection_img {
+  max-width: 100%;
+}
+
+.ag-collection_text {
+  line-height: 1.2;
+  margin: 15px 10px;
+
+  text-transform: none;
+  font-size: 12px;
+  color: #00a0d2;
+}
+
+.js-ag-collection-popup_overlay {
+  display: none;
+
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+
+  height: 100vh;
+  width: 100vw;
+
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+
+  background-color: rgba(0,1,2,.16);
+
+  mix-blend-mode: normal;
+
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.js-ag-collection-popup_overlay__show {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.js-ag-collection-popup_box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+
+  height: 370px;
+  width: 60%;
+  padding-left: 0;
+  padding-right: 0;
+  background-color: transparent;
+
+  z-index: 200;
+
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+
+  position: relative;
+}
+.js-ag-collection-popup_btn__close {
+  -webkit-writing-mode: vertical-lr;
+  -ms-writing-mode: tb-lr;
+  writing-mode: vertical-lr;
+
+  cursor: pointer;
+
+  position: absolute;
+  top: 0;
+  right: -20px;
+    background-color: #000;
+    border-radius: 15px ;
+    padding: 10px;
+  font-size: 14px;
+  z-index: 2;
+  color: rgb(241, 241, 241);
+
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+
+  -webkit-transition: all .2s;
+  -moz-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+}
+.js-ag-collection-popup_btn_close:hover {
+  color: #000;
+}
+.ag-collection-popup_col__left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 40%;
+  height: 100%;
+  background-color: #F5F5F5;
+
+  -webkit-border-radius: 8px 0 0 8px;
+  -moz-border-radius: 8px 0 0 8px;
+  border-radius: 8px 0 0 8px;
+}
+.ag-collection-popup_col__right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+
+  height: 100%;
+  width: 60%;
+  padding: 40px;
+  background-color: #FFF;
+
+  -webkit-border-radius: 0 8px 8px 0;
+  -moz-border-radius: 0 8px 8px 0;
+  border-radius: 0 8px 8px 0;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  position: relative;
+}
+.ag-collection-popup_img {
+    aspect-ratio: 3/2;
+  width: 100%;
+}
+.ag-collection-popup_name {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 auto;
+  flex: 0 auto;
+
+  line-height: 1.2;
+  margin: 0 0 15px;
+
+  text-transform: none;
+  font-weight: bold;
+  font-size: 32px;
+  color: #000;
+}
+.ag-collection-popup_awards {
+  margin: 0 0 15px;
+}
+.ag-collection-popup-awards_img {
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+
+  -o-object-fit: fill;
+  object-fit: fill;
+}
+.ag-collection-popup_title {
+  line-height: 1.2;
+  margin: 0 0 10px;
+
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 14px;
+  color: #000;
+}
+.ag-collection-popup_text {
+  line-height: 1.42;
+  margin: 0 0 20px;
+
+  font-size: 14px;
+}
+.ag-base_btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+
+  height: 45px;
+  width: 177px;
+  margin-top: 10px;
+  border: 1px solid #4EBE8A;
+
+  color: #4EBE8A;
+
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+
+  -webkit-transition: all .2s;
+  -moz-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+}
+.ag-base_btn:hover {
+  background-color: #4EBE8A;
+
+  text-decoration: none;
+  color: #FFF;
+
+  -webkit-transition: all .2s;
+  -moz-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+}
+
+@media only screen and (max-width: 767px) {
+  .ag-format-container {
+    width: 96%;
+  }
+
+  .ag-collection_list {
+    display: -ms-grid;
+    display: grid;
+
+
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .js-ag-collection-popup_overlay__show {
+    overflow-y: auto;
+  }
+  .js-ag-collection-popup_box {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .js-ag-collection-popup_box {
+    height: auto;
+    width: 90%;
+    margin: 200px 0 50px;
+  }
+
+  .ag-collection-popup_col__left,
+  .ag-collection-popup_col__right {
+    width: auto;
+  }
+  .ag-collection-popup_col__left {
+    -webkit-border-radius: 8px 8px 0 0;
+    -moz-border-radius: 8px 8px 0 0;
+    border-radius: 8px 8px 0 0;
+  }
+  .ag-collection-popup_col__right {
+    -webkit-border-radius: 0 0 8px 8px;
+    -moz-border-radius: 0 0 8px 8px;
+    border-radius: 0 0 8px 8px;
+  }
+
+}
+
+@media only screen and (max-width: 639px) {
+
+}
+
+@media only screen and (max-width: 479px) {
+  .ag-collection_list {
+    display: -ms-grid;
+    display: grid;
+
+
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+  .ag-format-container {
+    width: 750px;
+  }
+
+  .ag-collection_list {
+    display: -ms-grid;
+    display: grid;
+
+    -ms-grid-columns: (1fr)[];
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .js-ag-collection-popup_box {
+    width: 90%;
+  }
+}
+.p-text{
+    visibility: inherit !important;
+}
+@media (min-width: 980px) and (max-width: 1161px) {
+  .ag-format-container {
+    width: 960px;
+  }
+
+  .ag-collection_list {
+    display: -ms-grid;
+    display: grid;
+
+
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 11600px) and (max-width: 1421px) {
+  .ag-collection_list {
+  grid-template-columns: repeat(2, 1fr)  }
+}
+    </style>
+    <script>
+        (function ($) {
+  $(function () {
+
+    var agPopupItem = $('.js-ag-collection_item'),
+      agPopupOverlay = $('.js-ag-collection-popup_overlay'),
+      agPopupBox = $('.js-ag-collection-popup_box'),
+      agPopupBtnClose = $('.js-ag-collection-popup_btn__close');
+
+    console.log('1')
+      agPopupItem.on('click', function (e) {
+        e.preventDefault();
+   
+
+        if(agPopupBtnClose.is(e.target)) {
+       
+            agPopupClose();
+        }else{
+     
+            if ($(e.target).closest('.popup-div').length > 0) {
+          
+          $(this).children('.js-ag-collection-popup_overlay').addClass('js-ag-collection-popup_overlay__show');}else{
+            console.log(    $(this).children('.js-ag-collection-popup_overlay'))
+        }
+        }
+      });
+
+    $(document).bind('keyup', function (e) {
+      if (e.keyCode !== 27) {
+        return true;
+      }
+
+      if (e.keyCode === 27 && agPopupBox.is(':visible')) {
+        agPopupOverlay.removeClass('js-ag-collection-popup_overlay__show');
+      }
+
+    });
+
+
+   function agPopupClose() {
+      agPopupOverlay.removeClass('js-ag-collection-popup_overlay__show');
+   }
+
+  });
+})(jQuery);
+    </script>
+<script>
+    var mySwiper = new Swiper('.swiper-container', {
+    // Your existing Swiper options
+
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true, // Enable pagination clickable
+    },
+});
+</script>
 <style>
     .slide-wrapper .slide-two .slide-image:before {
         bottom:10000000px !important
     }
+    .swiper-pagination {
+	position: absolute;
+	top: 50%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+	right:22px;
+	width: auto !important;
+	left: auto !important;
+	margin: 0;
+}
+.banner-wrap{
+    height: 585px !important;
+}
+.swiper-pagination-bullet {
+    border-radius: 50% !important;
+    height: 20px;
+    width: 20px;
+	padding: 5px 10px;
+	border-radius: 0;
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	line-height: 30px;
+	font-size: 12px;
+	color:#000;
+	opacity: 1;
+	background: rgba(0,0,0,0.2);
+}
+.swiper-pagination-bullet-active {
+	color:#fff;
+	background: rgb(255, 123, 0);
+}
 </style>
 </html>

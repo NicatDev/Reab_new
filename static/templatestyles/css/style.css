@@ -12335,6 +12335,17 @@ label.error {
   }
 }
 @media only screen and (max-width: 992px) {
+  .banner-wrap .left-wrap{
+    element.style {
+      position: absolute;
+      z-index: 1;
+      display: flex !important;
+      text-align: center !important;
+      align-items: center !important;
+      justify-content: center !important;
+      flex-wrap: wrap !important;
+  }
+  }
   .banner-wrapper .left-wrap p {
     display: none;
   }
