@@ -57,7 +57,8 @@ INSTALLED_APPS = [
     'meetingapp',
     'django_user_agents',
     #thirdparty
-
+    'ckeditor',
+    'ckeditor_uploader',
 
     
     
@@ -141,8 +142,8 @@ ORTAWARE_CLASSES = (
     'django_user_agents.middleware.UserAgentMiddleware', 
 )
 
-
-
+CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/'
+CKEDITOR_UPLOAD_PATH = 'uploads'
 STATIC_URL = '/static/'
 
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
