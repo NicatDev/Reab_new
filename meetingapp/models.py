@@ -211,9 +211,6 @@ class Blog(BaseMixin):
     sidecontent = models.TextField(null=True,blank=True)
     sideimage1 = models.ImageField(null=True,blank=True)
     sideimage2 = models.ImageField(null=True,blank=True)
-    bottomname = models.CharField(max_length=1200,null=True,blank=True)
-    bottomcontent = models.CharField(max_length=12000,null=True,blank=True)
-    bottomimage = models.ImageField(null=True,blank=True)
     views = models.CharField(max_length=1000,null=True,blank=True,default=0)
 
     def __str__(self):
