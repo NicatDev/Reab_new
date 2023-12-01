@@ -9,7 +9,7 @@ class MyModelAdmin(admin.ModelAdmin):
     formfield_overrides = {
         models.TextField: {'widget': CKEditorWidget(config_name='default')},
     }
-    exclude = ('content_without_ck','content','name','bottomcontent','sidename','sidecontent','bottomname')
+    # exclude = ('content_without_ck','content','name','bottomcontent','sidename','sidecontent','bottomname')
 # admin.site.register(HomeHeader)
 admin.site.register(Message)
 admin.site.register(Meeting)
