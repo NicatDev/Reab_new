@@ -144,6 +144,12 @@ ORTAWARE_CLASSES = (
 
 CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/'
 CKEDITOR_UPLOAD_PATH = 'uploads'
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': None,
+    },
+}
 STATIC_URL = '/static/'
 
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
