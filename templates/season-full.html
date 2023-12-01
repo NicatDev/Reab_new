@@ -668,7 +668,6 @@
                 <div class="slide-slider-full owl-carousel owl-theme">
                     {% for video in sportmen %}
                     <div class="owl-items">
-                  
                         <a href="{% url 'speakersingle' video.slug %}" 
                             style="text-shadow:2px 2px 4px rgba(0, 0, 0, 0.5);" class="slide-one">
 
@@ -682,7 +681,7 @@
                                
 
                             </div>
-                            <div class="slide-content" style="height: 12rem !important;">
+                            <div class="slide-content" style="height: 14rem !important;">
                                 <p style="text-shadow:2px 2px 4px rgba(0, 0, 0, 0.5);font-size:30px;font-weight: 600;" style="height:4rem">
                                     {{video.user.first_name}} {{video.user.last_name}}</p>
                                 <p style="text-shadow:2px 2px 4px rgba(0, 0, 0, 0.5);font-size: 20px !important;" style="height:4rem">
