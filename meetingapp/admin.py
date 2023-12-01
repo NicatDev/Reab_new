@@ -33,6 +33,9 @@ class SportVideoInline(admin.TabularInline):
     extra = 0
 
 class SportmenAdmin(admin.ModelAdmin):
+    formfield_overrides = {
+        models.TextField: {'widget': CKEditorWidget(config_name='default')},
+    }
     inlines = [AchiInline,SportVideoInline]
     list_display = ('user', 'field', 'phone_number', 'is_active', 'image')  
 
