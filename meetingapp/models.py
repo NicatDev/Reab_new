@@ -173,6 +173,7 @@ class Meeting(models.Model):
     finished = models.BooleanField(default=False)
     meeting_duration = models.CharField(max_length=120,verbose_name='gorus vaxti')
     image = models.ImageField(null=True,blank=True)
+    header_exist = models.
     def __str__(self):
         return self.meetingowner.username
 
