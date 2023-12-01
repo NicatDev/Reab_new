@@ -59,12 +59,13 @@
                 // Change this value to control the number of items displayed
                 loop: true,
                 margin: 10,
-    
-                autoplay: 4000,
+                slideSpeed: 7000,
+                paginationSpeed: 12000,
+                autoplay: 8000,
                 autoHeight: true,
-                autoplayTimeout: 6500,
-                smartSpeed: 4000,
-                autoplaySpeed: 4000,
+                autoplayTimeout: 8000,
+                smartSpeed: 8000,
+                autoplaySpeed: 8000,
                 responsive: {
                     0: {
                         items: 1.1
@@ -105,7 +106,7 @@
                 <div class="row align-items-center justify-content-lg-between pr-5 pl-5">
                     <div class="header-wrapper">
                         <div class="fm-header-logo-wrapper">
-                            <a href="" class="fm-header-logo">
+                            <a href="{% url 'home' %}" class="fm-header-logo">
                                 <img style="height: 65px !important;" src="{% static 'logo.svg' %}" alt="img not found">
                             </a>
                             <div>
@@ -172,13 +173,15 @@
                                 <nav id="mobile-menu" style="display: block;">
                                     <ul>
                                         <li class="has-dropdown">
-                                            <a href="{% url 'home' %}">Əsas səhifə</a>
+                                            
+                                            <a {% if request.resolver_match.url_name == 'home' %} style="color: #fd6500 !important;" {% endif %}  href="{% url 'home' %}">Əsas səhifə</a>
+                                        
 
                                         </li>
-                                        <li class="has-dropdown"><a href="{% url 'about' %}">Lahiye haqqında</a>
+                                        <li class="has-dropdown"><a {% if request.resolver_match.url_name == 'about' %} style="color: #fd6500 !important;" {% endif %} href="{% url 'about' %}">Lahiye haqqında</a>
                                         </li>
 
-                                        <li class="has-dropdown"><a href="{% url 'spiker' %}">Spikerler</a>
+                                        <li class="has-dropdown"><a {% if request.resolver_match.url_name == 'spiker' %} style="color: #fd6500 !important;" {% endif %} href="{% url 'spiker' %}">Spikerler</a>
                                             <!-- <ul class="submenu">
                                                 {% for cat in vidcategories %}
                                                 <li><a href="{% url 'video' %}?movzu={{cat.id}}">{{cat.name}}</a></li>
@@ -186,17 +189,17 @@
                                             </ul> -->
                                         </li>
 
-                                        <li class="has-dropdown"><a href="{% url 'meet' %}">Görüşlər</a>
+                                        <li class="has-dropdown"><a {% if request.resolver_match.url_name == 'meet' %} style="color: #fd6500 !important;" {% endif %} href="{% url 'meet' %}">Görüşlər</a>
                                             <!-- <ul class="submenu">
                                                 {% for cat in fotcategories %}
                                                 <li><a href="{% url 'foto' %}?movzu={{cat.id}}">{{cat.name}}</a></li>
                                                 {% endfor %}
                                             </ul> -->
                                         </li>
-                                        <li class="has-dropdown"><a href="{% url 'blog' %}">Bloqlar</a>
+                                        <li class="has-dropdown"><a {% if request.resolver_match.url_name == 'blog' %} style="color: #fd6500 !important;" {% endif %} href="{% url 'blog' %}">Bloqlar</a>
 
                                         </li>
-                                        <li class="has-dropdown"><a href=" {% url 'contact' %}">Əlaqə</a>
+                                        <li class="has-dropdown"><a {% if request.resolver_match.url_name == 'contact' %} style="color: #fd6500 !important;" {% endif %} href=" {% url 'contact' %}">Əlaqə</a>
 
                                         </li>
                                        
@@ -215,7 +218,7 @@
                         <div style="display: flex;align-items: center;justify-content: end;position: relative;gap:30px"> 
                             <div class="user-icon-desk" style="    cursor: pointer;">
                          
-                                <i class="fa-regular fa-user" onclick="openclose()" id="desc" style="color: #ffffff;font-size:22px;"></i>
+                                <i class="fa-regular fa-user" onclick="openclose()" id="desc" style="font-size:22px;"></i>
                                 <div class="myboard mydescboard"  style="display: none;">
                                     {% if user.is_authenticated %}
                                     <div class="myinlineboard">
@@ -350,7 +353,7 @@
                             .mymeetbutton{
                                 background-color: rgb(255, 136, 0);
                                 height: 60px;
-                                width: 45%;
+                                width: 40%;
                                 color: white;
                                 font-size:25px;
                                 display: flex;
@@ -383,7 +386,7 @@
                             .mymeetcard{
                                 display: flex;
                                 align-items: center;
-                                justify-content: space-between;
+                                justify-content: space-around;
                                 width: 100%;
                                 padding:20px
                             }
@@ -441,7 +444,7 @@
             <div class="fm-header-sidebar-wrapper">
                 <div class="fm-header-sidebar-action mb-65">
                     <div class="fm-header-sidebar-logo">
-                        <a href=""><img style="width:80px" src="{% static 'logo.svg' %}"
+                        <a href="{% url 'home' %}"><img style="width:80px" src="{% static 'logo.svg' %}"
                                 alt="logo not found"></a>
                     </div>
                     <div class="offcanvas-close">
@@ -481,63 +484,27 @@
                             <!-- Additional required wrapper -->
                             <div class="swiper-wrapper">
                                 <!-- Slides -->
+                                {% for meet in header_meetings %}
                                 <div class="swiper-slide">  <div class="banner-wrap justify-content-between align-items-center" style="background:linear-gradient(to bottom, transparent, black);;">
                                     <div style="position: absolute;z-index: 1;" class="left-wrap">
                                         <span style="opacity:0;" class="rnd">IMDb 6.7</span>
-                                        <h2 style="user-select:none ;width: 20%;">Rafael Ağayev</h2>
-                                        <span style="opacity:0;cursor:none" class="tag"><b>Rafael Ağayev</b></span>
+                                        <h2 style="user-select:none ;width: 20%;">{{meet.meetingowner.first_name}} {{meet.meetingowner.last_name}}</h2>
+                                        <span style="opacity:0;cursor:none" class="tag"><b>{{meet.meetingowner.first_name}} {{meet.meetingowner.last_name}}</b></span>
                                         <span style="opacity:0;cursor:none" class="tag">2020</span>
                                         <span style="opacity:0;cursor:none" class="tag"><b>HD</b></span>
                                         <span style="opacity:0;cursor:none" class="tag"><b>16+</b></span>
                                         <span style="opacity:0;cursor:none" class="tag">2 h 20 min</span>
-                                        <p style="user-select:none;font-size: 16px !important;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima sequi, saepe, aliquid qui est obcaecati atque illo molestiae laudantium similique quibusdam non eligendi assumenda? Suscipit aperiam sit consequatur expedita ut?</p>
+                                        <p style="user-select:none;font-size: 16px !important;">{{meet.content|slice:200}}</p>
                                         <a   class="btn btn-lg"
                                             style="background-color:var(--clr-theme-1);margin-top:10px;border-radius:5px !important;padding-top:8px !important;padding-bottom:8px !important;height:initial !important;width:200px !important;text-align:center !important;">Görüşə qatıl</a>
                                     </div>
                                     <div style="    background: linear-gradient(90deg, #181616 24%, #0000001f);width: 100%;flex:0 0 100%;max-width: 100%;" class="right-wrap">
                                       <div style="mix-blend-mode: overlay;width: 100%;    background-color: #ffb387;">
-                                        <img style="margin-left:50%;width:  40%;height: 100%;" src="{% static 'gulshen.png' %}" alt="">
+                                        <img style="margin-left:50%;width:  40%;height: 100%;" src="{{meet.meetingowner.owner.image.url}}" alt="">
                                     </div>
                                     </div>
                                 </div></div>
-                                <div class="swiper-slide">  <div class="banner-wrap justify-content-between align-items-center" style="background:linear-gradient(to bottom, transparent, black);;">
-                                    <div style="position: absolute;z-index: 1;" class="left-wrap">
-                                        <span style="opacity:0;" class="rnd">IMDb 6.7</span>
-                                        <h2 style="user-select:none ;width: 20%;">Rafael Ağayev</h2>
-                                        <span style="opacity:0;cursor:none" class="tag"><b>Rafael Ağayev</b></span>
-                                        <span style="opacity:0;cursor:none" class="tag">2020</span>
-                                        <span style="opacity:0;cursor:none" class="tag"><b>HD</b></span>
-                                        <span style="opacity:0;cursor:none" class="tag"><b>16+</b></span>
-                                        <span style="opacity:0;cursor:none" class="tag">2 h 20 min</span>
-                                        <p style="user-select:none;font-size: 16px !important;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima sequi, saepe, aliquid qui est obcaecati atque illo molestiae laudantium similique quibusdam non eligendi assumenda? Suscipit aperiam sit consequatur expedita ut?</p>
-                                        <a   class="btn btn-lg"
-                                            style="background-color:var(--clr-theme-1);margin-top:10px;border-radius:5px !important;padding-top:8px !important;padding-bottom:8px !important;height:initial !important;width:200px !important;text-align:center !important;">Görüşə qatıl</a>
-                                    </div>
-                                    <div style="    background: linear-gradient(90deg, #181616 24%, #0000001f);width: 100%;flex:0 0 100%;max-width: 100%;" class="right-wrap">
-                                      <div style="mix-blend-mode: overlay;width: 100%;    background-color: #ffb387;">
-                                        <img style="margin-left:50%;width:  40%;height: 100%;" src="{% static 'gulshen.png' %}" alt="">
-                                    </div>
-                                    </div>
-                                </div> </div>
-                                <div class="swiper-slide">  <div class="banner-wrap justify-content-between align-items-center" style="background:linear-gradient(to bottom, transparent, black);;">
-                                    <div style="position: absolute;z-index: 1;" class="left-wrap">
-                                        <span style="opacity:0;" class="rnd">IMDb 6.7</span>
-                                        <h2 style="user-select:none ;width: 20%;">Rafael Ağayev</h2>
-                                        <span style="opacity:0;cursor:none" class="tag"><b>Rafael Ağayev</b></span>
-                                        <span style="opacity:0;cursor:none" class="tag">2020</span>
-                                        <span style="opacity:0;cursor:none" class="tag"><b>HD</b></span>
-                                        <span style="opacity:0;cursor:none" class="tag"><b>16+</b></span>
-                                        <span style="opacity:0;cursor:none" class="tag">2 h 20 min</span>
-                                        <p style="user-select:none;font-size: 16px !important;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima sequi, saepe, aliquid qui est obcaecati atque illo molestiae laudantium similique quibusdam non eligendi assumenda? Suscipit aperiam sit consequatur expedita ut?</p>
-                                        <a   class="btn btn-lg"
-                                            style="background-color:var(--clr-theme-1);margin-top:10px;border-radius:5px !important;padding-top:8px !important;padding-bottom:8px !important;height:initial !important;width:200px !important;text-align:center !important;">Görüşə qatıl</a>
-                                    </div>
-                                    <div style="    background: linear-gradient(90deg, #181616 24%, #0000001f);width: 100%;flex:0 0 100%;max-width: 100%;" class="right-wrap">
-                                      <div style="mix-blend-mode: overlay;width: 100%;    background-color: #ffb387;">
-                                        <img style="margin-left:50%;width:  40%;height: 100%;" src="{% static 'gulshen.png' %}" alt="">
-                                    </div>
-                                    </div>
-                                </div> </div>
+                                {% endfor %}
                   
                             </div>
                             <div class="swiper-pagination"></div>
@@ -652,8 +619,9 @@
     <div style="display: flex;align-items:center;">
         <span><a href="{% url 'spiker' %}" style="font-size:16px;margin-right:7px;" >daha
                 ətraflı</a></span>
-        <span><img style="filter:  brightness(5000%) ;" src="{% static 'templatestyles/images/arrowupright.png' %}"
-                alt=""></span>
+                <span style="transform: rotate(45deg);" >
+                    <a href="{% url 'spiker' %}"><i  class="fa-solid fa-arrow-up fa-beat-fade ox" ></i></a>
+                </span>
     </div>
 </div>
 
@@ -684,8 +652,8 @@
                             <div class="slide-content" style="height: 14rem !important;">
                                 <p style="text-shadow:2px 2px 4px rgba(0, 0, 0, 0.5);font-size:30px;font-weight: 600;" style="height:4rem">
                                     {{video.user.first_name}} {{video.user.last_name}}</p>
-                                <p style="text-shadow:2px 2px 4px rgba(0, 0, 0, 0.5);font-size: 20px !important;" style="height:4rem">
-                                  <span style="font-size:20px !important">  {{video.field}} </span> ({{video.titul}})</p>
+                                <p style="text-shadow:2px 2px 4px rgba(0, 0, 0, 0.5);font-size: 17px !important;color: rgb(235, 235, 235);" style="height:4rem">
+                                  <span style="font-size:17px !important">  {{video.field}} </span> ({{video.titul}})</p>
 
                             </div>
                         </a>
@@ -772,8 +740,9 @@
         <h3 style="user-select:none;">Görüşlər</h3>
         <div style="display: flex;align-items:center;">
             <span><a style="font-size:16px;margin-right:7px;" href="{% url 'meet' %}">daha ətraflı</a></span>
-            <span><img style="filter:  brightness(5000%) ;" src="{% static 'templatestyles/images/arrowupright.png' %}"
-                    alt=""></span>
+            <span style="transform: rotate(45deg);" >
+                <a href="{% url 'meet' %}"><i  class="fa-solid fa-arrow-up fa-beat-fade ox" ></i></a>
+            </span>
         </div>
     </div>
     <div class="schedule-area section-padding-02 grey-bg">
@@ -812,14 +781,23 @@
                                             <div class="js-ag-collection-popup_box" style="margin-top:0px !important;width: 100%;z-index: 0;position: relative;">
                        
                                   
-                                              <div class="ag-collection-popup_col__left" style="background-color: #e0dfdf;">
+                                              <div class="ag-collection-popup_col__left" style="background-color:#e0dfdf73">
                                                 <img src="{{meet.image.url}}" class="ag-collection-popup_img" loading="lazy" sizes="100vw" srcset="{{meet.image.url}} 500w, {{meet.image.url}} 520w" alt="" />
                                               </div>
                                               
 
-                                              <div class="ag-collection-popup_col__right" style="background-color: #e0dfdf;">
-                                                <h2 class="ag-collection-popup_name">{{meet.meetingowner.first_name}} {{meet.meetingowner.last_name}}</h2>
-                               
+                                              <div class="ag-collection-popup_col__right" style="background-color: #e0dfdf73">
+                                                <div style="display: flex;align-items: center;gap:10px">
+                                                  
+                                                <h2 class="ag-collection-popup_name">{{meet.meetingowner.first_name}} {{meet.meetingowner.last_name}} </h2>
+                                                <div>  
+                                                    <div class="zoomhoverclass" id="2zoom{{meet.id}}">
+                                                        <div style="width: 200px;"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, facilis.</div>
+                                                   
+                                                </div>
+                                                <img class="zoomclass" id="zoom{{meet.id}}" style="height: 40px;" src="{% static 'zoom.svg' %}" alt=""></div>
+                                            </div>
+
                                                 <div class="ag-collection-popup_awards">
                                   
                                                     </div>
@@ -901,12 +879,12 @@
                                             <div class="js-ag-collection-popup_box" style="margin-top:0px !important;width: 100%;z-index: 0;position: relative;">
                        
                                   
-                                              <div class="ag-collection-popup_col__left" style="background-color: #e0dfdf;">
+                                              <div class="ag-collection-popup_col__left" style="background-color:#e0dfdf73">
                                                 <img src="{{meet.image.url}}" class="ag-collection-popup_img" loading="lazy" sizes="100vw" srcset="{{meet.image.url}} 500w, {{meet.image.url}} 520w" alt="" />
                                               </div>
                                               
 
-                                              <div class="ag-collection-popup_col__right" style="background-color: #e0dfdf;">
+                                              <div class="ag-collection-popup_col__right" style="background-color: #e0dfdf73">
                                                 <h2 class="ag-collection-popup_name">{{meet.meetingowner.first_name}} {{meet.meetingowner.last_name}}</h2>
                                
                                                 <div class="ag-collection-popup_awards">
@@ -988,12 +966,12 @@
                                             <div class="js-ag-collection-popup_box" style="margin-top:0px !important;width: 100%;z-index: 0;position: relative;">
                        
                                   
-                                              <div class="ag-collection-popup_col__left" style="background-color: #e0dfdf;">
+                                              <div class="ag-collection-popup_col__left" style="background-color:#e0dfdf73">
                                                 <img src="{{meet.image.url}}" class="ag-collection-popup_img" loading="lazy" sizes="100vw" srcset="{{meet.image.url}} 500w, {{meet.image.url}} 520w" alt="" />
                                               </div>
                                               
 
-                                              <div class="ag-collection-popup_col__right" style="background-color: #e0dfdf;">
+                                              <div class="ag-collection-popup_col__right" style="background-color: #e0dfdf73">
                                                 <h2 class="ag-collection-popup_name">{{meet.meetingowner.first_name}} {{meet.meetingowner.last_name}}</h2>
                                
                                                 <div class="ag-collection-popup_awards">
@@ -1090,8 +1068,9 @@
         <h3 style="user-select:none;">Bloqlar</h3>
         <div style="display: flex;align-items:center;">
             <span><a style="font-size:16px;margin-right:7px;" href="{% url 'blog' %}">daha ətraflı</a></span>
-            <span><img style="filter:  brightness(5000%) ;" src="{% static 'templatestyles/images/arrowupright.png' %}"
-                    alt=""></span>
+            <span style="transform: rotate(45deg);" >
+                <a href="{% url 'blog' %}"><i  class="fa-solid fa-arrow-up fa-beat-fade ox" ></i></a>
+            </span>
         </div>
     </div>
     <!-- blog-area-start -->
@@ -2606,6 +2585,42 @@ div{
       });
     }
 </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var elements = document.querySelectorAll('.zoomclass');
+
+        elements.forEach(function (element) {
+            element.addEventListener('mouseover', function () {
+      
+                var classes = this.id;
+                var matchingElement = document.getElementById('2'+classes);
+                
+
+                if (matchingElement){
+                    console.log('23232323')
+                
+                    matchingElement.style.boxShadow = '2px 2px 12px #000'
+                matchingElement.style.padding = '10px'; 
+                matchingElement.style.position = 'absolute'; 
+                matchingElement.style.backgroundColor = 'white'; 
+                matchingElement.style.color = 'color'; 
+
+                matchingElement.style.top = '120px'; 
+                matchingElement.style.left = '50%'; 
+                matchingElement.style.display = 'block'; 
+
+                }
+                this.style.color = 'blue'; 
+
+         
+            element.addEventListener('mouseout', function () {
+                var classes = this.id;
+                var matchingElement = document.getElementById('2'+classes);
+                matchingElement.style.display = 'none'; 
+            });
+        });
+    });})
+</script>
 <style>
         @media (max-width: 850px) {
     #myiframe{
@@ -3363,7 +3378,6 @@ padding-right:0.2rem
   flex: 0 auto;
 
   line-height: 1.2;
-  margin: 0 0 15px;
 
   text-transform: none;
   font-weight: bold;
@@ -3609,6 +3623,22 @@ padding-right:0.2rem
 }
 .banner-wrap{
     height: 585px !important;
+}
+.zoomclass:hover{
+    filter: grayscale(4);
+}
+.zoomhoverclass{
+    display: none;
+}
+.zoomclass:hover .zoomhoverclass{
+    height: 60px;
+    width: 100px;
+    position: absolute;
+    display: block;
+    background-color: white;
+    color: black;
+    top: 0px;
+    left: 0px;
 }
 .swiper-pagination-bullet {
     border-radius: 50% !important;

@@ -56,10 +56,7 @@ class Head(models.Model):
 
       
 class AllHeader(models.Model):
-    title = models.CharField(max_length=1200)
-    content = models.TextField(null=True,blank=True)
     image = models.ImageField(null=True,blank=True)
-    href = models.CharField(max_length=1200,null=True,blank=True)
     
     def __str__(self):
         return 'Diger Sehife Header '+self.title
@@ -93,7 +90,7 @@ class Sportmen(BaseMixin):
         
 class Achi(models.Model):
     sportmen = models.ForeignKey(Sportmen,on_delete=models.CASCADE,related_name='achis')
-    date = models.CharField(max_length=120, null=True,blank=True,verbose_name='tarix, bos qoy !')
+
     achi = models.CharField(max_length=400,null=True,blank=True,verbose_name='nealiyyet adi')
     content = models.TextField(null=True,blank=True,verbose_name='nealiyyet mezmunu')
 
@@ -174,6 +171,7 @@ class Meeting(models.Model):
     meeting_duration = models.CharField(max_length=120,verbose_name='gorus vaxti')
     image = models.ImageField(null=True,blank=True)
     header_exist = models.BooleanField(default=False)
+
     def __str__(self):
         return self.meetingowner.username
 

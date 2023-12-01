@@ -53,7 +53,7 @@
             <div class="row align-items-center justify-content-lg-between pr-5 pl-5">
                 <div class="header-wrapper">
                     <div class="fm-header-logo-wrapper">
-                        <a href="" class="fm-header-logo">
+                        <a href="{% url 'home' %}" class="fm-header-logo">
                             <img style="height: 65px !important;" src="{% static 'logo.svg' %}" alt="img not found">
                         </a>
                         <div>
@@ -298,7 +298,7 @@
                         .mymeetbutton{
                             background-color: rgb(255, 136, 0);
                             height: 60px;
-                            width: 45%;
+                            width: 40%;
                             color: white;
                             font-size:25px;
                             display: flex;
@@ -331,7 +331,7 @@
                         .mymeetcard{
                             display: flex;
                             align-items: center;
-                            justify-content: space-between;
+                            justify-content: space-around;
                             width: 100%;
                             padding:20px
                         }
@@ -474,7 +474,9 @@
            
            <p style="margin-top:3%;    color: var(--clr-body-text4);text-align:start;color: #181818;">{{about.contentbig}}
          </p>   <div style="display: flex;align-items: center;justify-content: center;padding-top:3%;padding-bottom:1%;">
-          <img {% if about.image2 %} src="{{about.image2.url}}" {% endif %} style="width: 100%;height: 580px;" alt="">
+            {% if about.image2 %}
+          <img {% if about.image2 %}  src="{{about.image2.url}}" {% endif %} style="width: 100%;height: 580px;" alt="">
+          {% endif %}
         </div>
         </div>
      </div>

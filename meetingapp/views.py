@@ -112,6 +112,7 @@ def home(request):
     sportmennumber = len(Sportmen.objects.all())
     blogs = Blog.objects.all()
     partners = Partners.objects.all()   
+    header_meetings = Meeting.objects.filter(header_exist=True)
     context = {
         'partners':partners,
         'header':header,
@@ -128,7 +129,8 @@ def home(request):
         'sportmennumber':sportmennumber,
         'chrome':chrome,
         'all_meetings':all_meetings,
-        'blogs':blogs
+        'blogs':blogs,
+        'header_meetings':header_meetings
     }
     
     return render(request,'season-full.html',context)
