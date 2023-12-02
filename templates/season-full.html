@@ -813,7 +813,7 @@
                                                 <p style="font-size:15px !important;text-align: start;">{{meet.content|slice:100}}...<span class="popup-div" style="font-size:18px; color: rgb(255, 115, 0);cursor: pointer;">daha ətraflı</span></p> 
                                                        <div style="display: flex;align-items: center;justify-content: center;gap:20px">
                                                     <a href="#" class="fill-btn"
-                                                    style="font-size:15px;line-height:20px;border-radius: 3px;cursor: pointer !important;">Görüşə qatıl 
+                                                    style="font-size:15px;line-height:20px;border-radius: 3px;cursor: pointer !important;border-radius: 15px;">Görüşə qatıl 
                                               
                                                 </a>
                                                 <i onclick="AddorRemove('{{meet.id}}')" id="s{{meet.id}}" style="color: rgb(0, 0, 0);font-size: 35px;cursor: pointer;" {% if request.user in meet.meeter.all %}class="fa-solid fa-bookmark" {% else %} class="fa-regular fa-bookmark" {%endif%}></i>
@@ -3410,7 +3410,7 @@ padding-right:0.2rem
 
   height: 100%;
   width: 60%;
-  padding:10px 10px;
+  padding:30px;
   background-color: #FFF;
 
   -webkit-border-radius: 0 8px 8px 0;
