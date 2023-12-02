@@ -196,29 +196,25 @@ def addorremove(request):
         meeting = Meeting.objects.get(id=data.get('id'))
         if user in meeting.meeter.all():
             meeting.meeter.remove(user)
-            data=request.user.meetings.all()
+            data=Meeting.objects.select_related('meetingowner').filter(meeter=request.user)
           
             json_data = {}
-            a = ''
-            for x in data:
-                a = a + '-'+str(x.id)
 
-            json_data['response']=a
+
+            json_data=list(data.values('date', 'image_url', 'meetingowner__first_name', 'meetingowner__last_name'))
             print(json_data)
-            return JsonResponse(json_data, status=201)
+            return JsonResponse({'data':json_data}, status=201)
 
         else:
             meeting.meeter.add(user)
-            data=request.user.meetings.all()
+            data=Meeting.objects.select_related('meetingowner').filter(meeter=request.user)
           
-            json_data = {}
-            a = ''
-            for x in data:
-                a = a + '-'+str(x.id)
+            
 
-            json_data['response']=a
+            json_data=list(data.values('date', 'image', 'meetingowner__first_name', 'meetingowner__last_name'))
+
             print(json_data)
-            return JsonResponse(json_data, status=200)
+            return JsonResponse({'data':json_data}, status=200)
 
     else:
         return HttpResponse(status=405) 

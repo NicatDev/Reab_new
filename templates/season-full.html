@@ -118,7 +118,7 @@
                                 <div class="myboard mob mymobboard" >
                                     <div class="myinlineboard">
                                         {% if user.is_authenticated %}
-                                        <div class="myinlineboard">
+                                        <div class="myinlineboard myinlineboardinline">
                                             {% for meet in request.user.meetings.all %}
                                             <div class="mymeetcard mymeetcardmeet" style="padding-right: 40px;padding-left:40px"> 
                                                 <img src="{{meet.image.url}}" alt="">
@@ -223,7 +223,7 @@
                                 <i class="fa-regular fa-user" onclick="openclose()" id="desc" style="font-size:22px;"></i>
                                 <div class="myboard mydescboard"  style="display: none;">
                                     {% if user.is_authenticated %}
-                                    <div class="myinlineboard">
+                                    <div class="myinlineboard myinlineboardinline">
                                         {% for meet in request.user.meetings.all %}
                                         <div class="mymeetcard mymeetcardmeet" style="padding-right: 40px;padding-left:40px"> 
                                             <img src="{{meet.image.url}}" alt="">
@@ -3032,7 +3032,8 @@ padding-right:0.2rem
   console.log('hesab xetasi')
         }
         // Get the email input value
-     
+        const myinlineboardContainer = document.querySelectorAll('.myinlineboardinline');
+        
         // Check if the class name of the clicked button is "submit_btn"
         const clickedButton = event.target;
         if (clickedButton.classList.contains('fa-bookmark')) {
@@ -3069,14 +3070,46 @@ padding-right:0.2rem
                     } else {
                         swal('Xəta baş verdi');
                     }
-                    }).then(response => console.log(response))
-                    .then(data => {
-                        console.log('Data received:', data);
-                        console.log(data,)
-                    })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
+                    }).then(response => {  
+                        console.log(response)
+                        myinlineboardContainer.forEach(myin => {
+                            myin.innerHTML = '';
+                            response.data.forEach(meet => {
+                        const meetCard = document.createElement('div');
+                        meetCard.classList.add('mymeetcard', 'mymeetcardmeet');
+                        meetCard.style.paddingRight = '40px';
+                        meetCard.style.paddingLeft = '40px';
+
+                        const img = document.createElement('img');
+                        img.src = meet.image_url;
+                        img.alt = '';
+
+                        const meetTextDiv = document.createElement('div');
+                        meetTextDiv.classList.add('meettextdiv');
+
+                        const meetName = document.createElement('p');
+                        meetName.classList.add('mymeetname');
+                        meetName.textContent = `${meet.meeting_onwer__first_name} ${meet.meeting_onwer__last_name}`;
+
+                        const date = document.createElement('p');
+                        date.textContent = meet.date;
+
+                        meetTextDiv.appendChild(meetName);
+                        meetTextDiv.appendChild(date);
+
+                        meetCard.appendChild(img);
+                        meetCard.appendChild(meetTextDiv);
+
+                        myin.appendChild(meetCard);
+                    });
+                        })
+                      
+
+                    // Iterate through the data and create new elements
+             
+                })
+                 
+               
         }
     }
 
