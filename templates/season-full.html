@@ -792,6 +792,9 @@
                                                 <div style="display: flex;align-items: center;gap:30px">
                                                   
                                                 <h2 class="ag-collection-popup_name" style="margin:0px !important">{{meet.meetingowner.first_name}} {{meet.meetingowner.last_name}} </h2>
+                                                <div class="ag-collection-popup_title" style="text-align: start;margin-bottom:0px">
+                                                    {{meet.meetingowner.owner.field}} - {{meet.meetingowner.owner.titul}}
+                                                </div>
                                                 <div>  
                                                     <div class="zoomhoverclass" id="2zoom{{meet.id}}">
                                                         <div style="width: 200px;"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, facilis.</div>
@@ -804,9 +807,7 @@
                                   
                                                     </div>
                                   
-                                                <div class="ag-collection-popup_title" style="text-align: start;margin:0px !important">
-                                                    {{meet.meetingowner.owner.field}} - {{meet.meetingowner.owner.titul}}
-                                                </div>
+                                             
                                                 <p class="ag-collection-popup_text" style="font-size:20px;margin:0px !important">
                                                     {{meet.date}}
                                                 </p>
