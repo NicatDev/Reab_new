@@ -1,5 +1,5 @@
 from django.contrib import admin
-from meetingapp.models import Meeting,Eager,Sportmen,Partners,About,Header,Message,Survey,Blog,Tag,Category,Head,AllHeader,Achi,SportVideo
+from meetingapp.models import Meeting,Eager,Sportmen,Partners,About,Header,Message,Survey,Blog,Tag,Category,Head,AllHeader,Achi,SportVideo,Headerphotos
 from django.contrib.auth import get_user_model
 from ckeditor.widgets import CKEditorWidget
 User = get_user_model()
@@ -13,7 +13,7 @@ class MyModelAdmin(admin.ModelAdmin):
 # admin.site.register(HomeHeader)
 admin.site.register(Message)
 admin.site.register(Meeting)
-
+admin.site.register(Headerphotos)
 admin.site.register(Partners)
 admin.site.register(Eager)
 admin.site.register(About)
