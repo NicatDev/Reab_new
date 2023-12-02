@@ -20,7 +20,7 @@ import calendar
 from django.db.models import Q,F,FloatField,Count
 from django.contrib.auth import logout
 from django.shortcuts import redirect
-
+from django.http import JsonResponse
 def logout_view(request):
     logout(request)
     return redirect('home')
@@ -196,10 +196,29 @@ def addorremove(request):
         meeting = Meeting.objects.get(id=data.get('id'))
         if user in meeting.meeter.all():
             meeting.meeter.remove(user)
-            return HttpResponse(status=201)
+            data=request.user.meetings.all()
+          
+            json_data = {}
+            a = ''
+            for x in data:
+                a = a + '-'+str(x.id)
+
+            json_data['response']=a
+            print(json_data)
+            return JsonResponse(json_data, status=201)
+
         else:
             meeting.meeter.add(user)
-            return HttpResponse(status=200)
+            data=request.user.meetings.all()
+          
+            json_data = {}
+            a = ''
+            for x in data:
+                a = a + '-'+str(x.id)
+
+            json_data['response']=a
+            print(json_data)
+            return JsonResponse(json_data, status=200)
 
     else:
         return HttpResponse(status=405) 

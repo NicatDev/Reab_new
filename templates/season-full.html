@@ -18,7 +18,9 @@
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
   />
-  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+  integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <link rel="stylesheet" href="{% static 'templatestyles/css/themify-icons.css' %}">
     <!-- Favicon icon -->
@@ -3021,11 +3023,13 @@ padding-right:0.2rem
 
     function AddorRemove(id) {
 
-      console.log('222')
+      console.log(userId,isAuthenticated)
         event.preventDefault();
-        if (userId=='auth'){
-          swal('Hesab xətası');
+        if (!isAuthenticated){
+            console.log('hesa')
+          swal('Öncə hesabınıza daxil olmanız xahiş olunur !');
           return;
+  console.log('hesab xetasi')
         }
         // Get the email input value
      
@@ -3056,24 +3060,20 @@ padding-right:0.2rem
                       if (response.status=='200'){
                       document.getElementById('s'+id).classList.remove('fa-regular')
                       document.getElementById('s'+id).classList.add('fa-solid')}
+                      console.log('t')
                       if (response.status=='201'){
                       document.getElementById('s'+id).classList.add('fa-regular')
                       document.getElementById('s'+id).classList.remove('fa-solid')}
-                        console.log(response)
-                        console.log(name, email)
-                        swal({
-                            title: "Əla",
-                            text: "Məktubunuz uğurla göndərildi !",
-                            icon: "success",
-                            button: "Tamam",
-                        });
-
+               
+                      return response.json();
                     } else {
-                        console.log(response)
                         swal('Xəta baş verdi');
-                        console.log(name, email)
                     }
-                })
+                    }).then(response => console.log(response))
+                    .then(data => {
+                        console.log('Data received:', data);
+                        console.log(data,)
+                    })
                 .catch(error => {
                     console.error('Error:', error);
                 });
@@ -3081,6 +3081,7 @@ padding-right:0.2rem
     }
 
     </script>
+
 <style>
     @media (max-width: 992px) {
   .banner-wrap .left-wrap{
