@@ -231,7 +231,7 @@
                                                 {% for meet in request.user.meetings.all %}
                                                 <div class="mymeetcard mymeetcardmeet" style="padding-right: 40px;padding-left:40px"> 
                                                     <img src="{{meet.image.url}}" alt="">
-                                                    <div class="meettextdiv">
+                                                    <div class="meettextdiv" style="width: 60%;">
                                                     <p class="mymeetname">{{meet.meetingowner.first_name}} {{meet.meetingowner.last_name}}</p>
                                                     <p>{{meet.date}}</p>
                                                     </div>  
@@ -336,7 +336,7 @@
                                             {% for meet in request.user.meetings.all %}
                                             <div class="mymeetcard mymeetcardmeet" style="padding-right: 40px;padding-left:40px"> 
                                                 <img src="{{meet.image.url}}" alt="">
-                                                <div class="meettextdiv">
+                                                <div class="meettextdiv" style="width: 60%;">
                                                 <p class="mymeetname">{{meet.meetingowner.first_name}} {{meet.meetingowner.last_name}}</p>
                                                 <p>{{meet.date}}</p>
                                                 </div>  
@@ -362,7 +362,7 @@
                                 </div>
                                 <div class="fm-header-right d-none d-xl-block mr-10" style="text-align: center;letter-spacing: 1px;display: flex;align-items: center;justify-content: center;">
                       
-                                    <a href="http://75.119.147.165:199/" class="fill-btn"
+                                    <a href="http://75.119.147.165:99/" class="fill-btn"
                                         style="font-size:15px;line-height:20px;border-radius: 3px;">Heydər  <br> Əliyev 100
                                         <span>
                                             <i class="fa-regular fa-arrow-right"></i>
