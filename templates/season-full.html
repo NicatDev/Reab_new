@@ -803,7 +803,7 @@
                                                 </div>
                                                 <img class="zoomclass" id="zoom{{meet.id}}" style="height: 40px;" src="{% static 'zoom.svg' %}" alt=""></div>
                                             </div>
-                                            <div class="ag-collection-popup_title" style="text-align: start;margin-top:10px;margin-bottom:0px; font-weight: 600;">
+                                            <div class="ag-collection-popup_title" style="text-align: start;margin-top:10px;margin-bottom:0px; font-style: italic !important;font-size:16px !important">
                                                 {{meet.meetingowner.owner.field}} - {{meet.meetingowner.owner.titul}}
                                             </div>
                                         </div>
@@ -817,7 +817,7 @@
                                                 <p class="ag-collection-popup_text" style="font-size:32px;font-weight: 800;margin:0px !important;color:black">
                                                     {{meet.date}}
                                                 </p>
-                                                <p style="font-size:15px !important;text-align: start;">{{meet.content|slice:150}}...<span class="popup-div" style="font-size:18px; color: rgb(255, 115, 0);cursor: pointer;">daha ətraflı</span></p> 
+                                                <p style="font-size:16px !important;text-align: start;">{{meet.content|slice:150}}...<span class="popup-div" style="font-size:18px; color: rgb(255, 115, 0);cursor: pointer;">daha ətraflı</span></p> 
                                                        <div style="display: flex;align-items: center;justify-content: center;gap:20px">
                                                     <a href="#" class="fill-btn"
                                                     style="font-size:15px;line-height:20px;border-radius: 3px;cursor: pointer !important;border-radius: 15px;">Görüşə qatıl 
