@@ -885,18 +885,25 @@
                                         
                                         <!-- js-ag-collection-popup_overlay__show -->
                                         <div >
-                                            <div class="js-ag-collection-popup_box" style="margin-top:0px !important;width: 100%;z-index: 0;position: relative;">
+                                            <div class="js-ag-collection-popup_box" style="margin-top:0px !important;width: 100%;z-index: 0;position: relative;background-color:#e9e9e9d3 ;">
                        
                                   
-                                              <div class="ag-collection-popup_col__left" style="background-color:#e0dfdf73">
-                                                <img src="{{meet.image.url}}" class="ag-collection-popup_img" loading="lazy" sizes="100vw" srcset="{{meet.image.url}} 500w, {{meet.image.url}} 520w" alt="" />
-                                              </div>
+                                              <div class="ag-collection-popup_col__left" style="    background-color: #D65B0A;
+                                              border-top-right-radius: 20px;
+                                              border-bottom-right-radius: 20px; ">
+                                              <div style="width: 100%">  <img style="height: 100%;" src="{{meet.image.url}}" class="ag-collection-popup_img" loading="lazy" sizes="100vw" srcset="{{meet.image.url}} 500w, {{meet.image.url}} 520w" alt="" />
+                                              </div>      </div>
                                               
 
-                                              <div class="ag-collection-popup_col__right" style="background-color: #e0dfdf73">
-                                                <div style="display: flex;align-items: center;gap:10px">
+                                              <div class="ag-collection-popup_col__right" style="background-color: #e9e9e99c;gap:10px">
+
+
+
+
+                                                <div>
+                                                <div style="display: flex;align-items: center;gap:30px">
                                                   
-                                                <h2 class="ag-collection-popup_name">{{meet.meetingowner.first_name}} {{meet.meetingowner.last_name}} </h2>
+                                                <h2 class="ag-collection-popup_name" style="margin:0px !important">{{meet.meetingowner.first_name}} {{meet.meetingowner.last_name}} </h2>
                                                 <div>  
                                                     <div class="zoomhoverclass" id="2zoom{{meet.id}}">
                                                         <div style="width: 200px;"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, facilis.</div>
@@ -904,24 +911,27 @@
                                                 </div>
                                                 <img class="zoomclass" id="zoom{{meet.id}}" style="height: 40px;" src="{% static 'zoom.svg' %}" alt=""></div>
                                             </div>
+                                            <div class="ag-collection-popup_title" style="text-align: start;margin-top:10px;margin-bottom:0px; font-style: italic !important;font-size:16px !important">
+                                                {{meet.meetingowner.owner.field}} - {{meet.meetingowner.owner.titul}}
+                                            </div>
+                                        </div>
+
+
+
+
 
                                                 <div class="ag-collection-popup_awards">
-                                  
                                                     </div>
-                                  
-                                                <div class="ag-collection-popup_title" style="text-align: start;">
-                                                    {{meet.meetingowner.owner.field}} - {{meet.meetingowner.owner.titul}}
-                                                </div>
-                                                <p class="ag-collection-popup_text" style="font-size:20px">
+                                                <p class="ag-collection-popup_text" style="font-size:32px;font-weight: 800;margin:0px !important;color:black">
                                                     {{meet.date}}
                                                 </p>
-                                                <p style="font-size:15px !important;text-align: start;">{{meet.content|slice:100}}...<span class="popup-div" style="font-size:18px; color: rgb(255, 115, 0);cursor: pointer;">daha ətraflı</span></p> 
+                                                <p style="font-size:16px !important;text-align: start;">{{meet.content|slice:150}}...<span class="popup-div" style="font-size:18px; color: rgb(255, 115, 0);cursor: pointer;">daha ətraflı</span></p> 
                                                        <div style="display: flex;align-items: center;justify-content: center;gap:20px">
                                                     <a href="#" class="fill-btn"
-                                                    style="font-size:15px;line-height:20px;border-radius: 3px;cursor: pointer !important;">Görüşə qatıl 
+                                                    style="font-size:15px;line-height:20px;border-radius: 3px;cursor: pointer !important;border-radius: 15px;background-color: #D65B0A;">Görüşə qatıl 
                                               
                                                 </a>
-                                                <i onclick="AddorRemove('{{meet.id}}')" id="s{{meet.id}}" style="color: rgb(0, 0, 0);font-size: 35px;cursor: pointer;" {% if request.user in meet.meeter.all %}class="fa-solid fa-bookmark" {% else %} class="fa-regular fa-bookmark" {%endif%}></i>
+                                                <i onclick="AddorRemove('{{meet.id}}')" id="s{{meet.id}}" style="color: #fd6500;font-size: 35px;cursor: pointer;" {% if request.user in meet.meeter.all %}class="fa-solid fa-bookmark" {% else %} class="fa-regular fa-bookmark" {%endif%}></i>
                                                 </div>
                                               
                                               </div>
@@ -935,7 +945,7 @@
                                                 <img src="{{meet.image.url}}" class="ag-collection-popup_img" loading="lazy" sizes="100vw" srcset="{{meet.image.url}} 500w, {{meet.image.url}} 520w" alt="" />
                                               </div>
                                   
-                                              <div class="ag-collection-popup_col__right">
+                                              <div class="ag-collection-popup_col__right" style="gap:10px">
                                                 <h2 class="ag-collection-popup_name">{{meet.meetingowner.first_name}} {{meet.meetingowner.last_name}}</h2>
                                         
                                                 <div class="ag-collection-popup_awards">
@@ -981,18 +991,25 @@
                                         
                                         <!-- js-ag-collection-popup_overlay__show -->
                                         <div >
-                                            <div class="js-ag-collection-popup_box" style="margin-top:0px !important;width: 100%;z-index: 0;position: relative;">
+                                            <div class="js-ag-collection-popup_box" style="margin-top:0px !important;width: 100%;z-index: 0;position: relative;background-color:#e9e9e9d3 ;">
                        
                                   
-                                              <div class="ag-collection-popup_col__left" style="background-color:#e0dfdf73">
-                                                <img src="{{meet.image.url}}" class="ag-collection-popup_img" loading="lazy" sizes="100vw" srcset="{{meet.image.url}} 500w, {{meet.image.url}} 520w" alt="" />
-                                              </div>
+                                              <div class="ag-collection-popup_col__left" style="    background-color: #D65B0A;
+                                              border-top-right-radius: 20px;
+                                              border-bottom-right-radius: 20px; ">
+                                              <div style="width: 100%">  <img style="height: 100%;" src="{{meet.image.url}}" class="ag-collection-popup_img" loading="lazy" sizes="100vw" srcset="{{meet.image.url}} 500w, {{meet.image.url}} 520w" alt="" />
+                                              </div>      </div>
                                               
 
-                                              <div class="ag-collection-popup_col__right" style="background-color: #e0dfdf73">
-                                                <div style="display: flex;align-items: center;gap:10px">
+                                              <div class="ag-collection-popup_col__right" style="background-color: #e9e9e99c;gap:10px">
+
+
+
+
+                                                <div>
+                                                <div style="display: flex;align-items: center;gap:30px">
                                                   
-                                                <h2 class="ag-collection-popup_name">{{meet.meetingowner.first_name}} {{meet.meetingowner.last_name}} </h2>
+                                                <h2 class="ag-collection-popup_name" style="margin:0px !important">{{meet.meetingowner.first_name}} {{meet.meetingowner.last_name}} </h2>
                                                 <div>  
                                                     <div class="zoomhoverclass" id="2zoom{{meet.id}}">
                                                         <div style="width: 200px;"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, facilis.</div>
@@ -1000,24 +1017,27 @@
                                                 </div>
                                                 <img class="zoomclass" id="zoom{{meet.id}}" style="height: 40px;" src="{% static 'zoom.svg' %}" alt=""></div>
                                             </div>
+                                            <div class="ag-collection-popup_title" style="text-align: start;margin-top:10px;margin-bottom:0px; font-style: italic !important;font-size:16px !important">
+                                                {{meet.meetingowner.owner.field}} - {{meet.meetingowner.owner.titul}}
+                                            </div>
+                                        </div>
+
+
+
+
 
                                                 <div class="ag-collection-popup_awards">
-                                  
                                                     </div>
-                                  
-                                                <div class="ag-collection-popup_title" style="text-align: start;">
-                                                    {{meet.meetingowner.owner.field}} - {{meet.meetingowner.owner.titul}}
-                                                </div>
-                                                <p class="ag-collection-popup_text" style="font-size:20px">
+                                                <p class="ag-collection-popup_text" style="font-size:32px;font-weight: 800;margin:0px !important;color:black">
                                                     {{meet.date}}
                                                 </p>
-                                                <p style="font-size:15px !important;text-align: start;">{{meet.content|slice:100}}...<span class="popup-div" style="font-size:18px; color: rgb(255, 115, 0);cursor: pointer;">daha ətraflı</span></p> 
+                                                <p style="font-size:16px !important;text-align: start;">{{meet.content|slice:150}}...<span class="popup-div" style="font-size:18px; color: rgb(255, 115, 0);cursor: pointer;">daha ətraflı</span></p> 
                                                        <div style="display: flex;align-items: center;justify-content: center;gap:20px">
                                                     <a href="#" class="fill-btn"
-                                                    style="font-size:15px;line-height:20px;border-radius: 3px;cursor: pointer !important;">Görüşə qatıl 
+                                                    style="font-size:15px;line-height:20px;border-radius: 3px;cursor: pointer !important;border-radius: 15px;background-color: #D65B0A;">Görüşə qatıl 
                                               
                                                 </a>
-                                                <i onclick="AddorRemove('{{meet.id}}')" id="s{{meet.id}}" style="color: rgb(0, 0, 0);font-size: 35px;cursor: pointer;" {% if request.user in meet.meeter.all %}class="fa-solid fa-bookmark" {% else %} class="fa-regular fa-bookmark" {%endif%}></i>
+                                                <i onclick="AddorRemove('{{meet.id}}')" id="s{{meet.id}}" style="color: #fd6500;font-size: 35px;cursor: pointer;" {% if request.user in meet.meeter.all %}class="fa-solid fa-bookmark" {% else %} class="fa-regular fa-bookmark" {%endif%}></i>
                                                 </div>
                                               
                                               </div>
@@ -1031,7 +1051,7 @@
                                                 <img src="{{meet.image.url}}" class="ag-collection-popup_img" loading="lazy" sizes="100vw" srcset="{{meet.image.url}} 500w, {{meet.image.url}} 520w" alt="" />
                                               </div>
                                   
-                                              <div class="ag-collection-popup_col__right">
+                                              <div class="ag-collection-popup_col__right" style="gap:10px">
                                                 <h2 class="ag-collection-popup_name">{{meet.meetingowner.first_name}} {{meet.meetingowner.last_name}}</h2>
                                         
                                                 <div class="ag-collection-popup_awards">
