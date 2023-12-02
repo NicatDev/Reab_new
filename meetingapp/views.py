@@ -77,7 +77,7 @@ def home(request):
     end_week = today + timedelta(days=(7-today.weekday()))
 
     end_month = today + timedelta(days=(days_in_current_month-today.day))
-
+    headerphotos = Headerphotos.objects.all()
     day_meetings = meetings.filter(date__date=today)
     week_meetings = meetings.filter(date__date__gte=datetime.now(),date__date__lte=end_week).exclude(date__date=today)
     month_meetings = meetings.filter(date__date__gte=datetime.now(),date__date__lte=end_month).exclude(date__date__gte=datetime.now(),date__date__lte=end_week)
@@ -130,7 +130,8 @@ def home(request):
         'chrome':chrome,
         'all_meetings':all_meetings,
         'blogs':blogs,
-        'header_meetings':header_meetings
+        'header_meetings':header_meetings,
+        'headerphotos':headerphotos
     }
     
     return render(request,'season-full.html',context)
@@ -201,8 +202,8 @@ def addorremove(request):
             json_data = {}
 
 
-            json_data=list(data.values('date', 'image_url', 'meetingowner__first_name', 'meetingowner__last_name'))
-            print(json_data)
+            json_data=list(data.values('date', 'image', 'meetingowner__first_name', 'meetingowner__last_name'))
+    
             return JsonResponse({'data':json_data}, status=201)
 
         else:
@@ -213,7 +214,6 @@ def addorremove(request):
 
             json_data=list(data.values('date', 'image', 'meetingowner__first_name', 'meetingowner__last_name'))
 
-            print(json_data)
             return JsonResponse({'data':json_data}, status=200)
 
     else:

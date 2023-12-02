@@ -521,7 +521,7 @@
                     <div class="col-sm-12"  >
                         <div class="slide-wrapper" style="    background: linear-gradient(to right, #211813, black) !important;">
                             <div class="slide-slider-full owl-carousel owl-theme">
-                                {% for video in all_meetings %}
+                                {% for video in headerphotos %}
 <div class="owl-items">                   
                                   
                                     <a  class="slide-one slide-two slide-three">
@@ -533,8 +533,7 @@
                                             <div
                                                 style="display:flex;justify-content: space-evenly;padding-bottom:auto;height: 100%;">
                                               
-                                                <h2 style="font-size:20px;text-align: center;margin-left:auto;padding-right: 60px;padding-top:5%;color:rgba(229, 229, 229, 0.863) !important; text-shadow: 2px 2px 4px #333;
-                                               ">{{video.date}}</h2>
+                                             
                                             </div>
 
                                         </div>
@@ -2607,7 +2606,7 @@ div{
                 matchingElement.style.backgroundColor = 'white'; 
                 matchingElement.style.color = 'color'; 
 
-                matchingElement.style.top = '120px'; 
+                matchingElement.style.top = '130px'; 
                 matchingElement.style.left = '50%'; 
                 matchingElement.style.display = 'block'; 
 
@@ -3081,7 +3080,7 @@ padding-right:0.2rem
                         meetCard.style.paddingLeft = '40px';
 
                         const img = document.createElement('img');
-                        img.src = meet.image_url;
+                        img.src ='/media/'+meet.image;
                         img.alt = '';
 
                         const meetTextDiv = document.createElement('div');
@@ -3089,7 +3088,8 @@ padding-right:0.2rem
 
                         const meetName = document.createElement('p');
                         meetName.classList.add('mymeetname');
-                        meetName.textContent = `${meet.meeting_onwer__first_name} ${meet.meeting_onwer__last_name}`;
+                        console.log(meet,'22222222222222222')
+                        meetName.textContent = `${meet.meetingowner__first_name} ${meet.meetingowner__last_name}`;
 
                         const date = document.createElement('p');
                         date.textContent = meet.date;
@@ -3671,8 +3671,8 @@ padding-right:0.2rem
     display: block;
     background-color: white;
     color: black;
-    top: 0px;
-    left: 0px;
+    top: 130px;
+    left: 50%;
 }
 .swiper-pagination-bullet {
     border-radius: 50% !important;

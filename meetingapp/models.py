@@ -54,7 +54,12 @@ class Head(models.Model):
         self.pk = 1
         super(Head, self).save(*args, **kwargs)   
 
-      
+class Headerphotos(models.Model):
+    image = models.ImageField(null=True,blank=True)
+
+    def __str__(self) -> str:
+        return '3v1'
+
 class AllHeader(models.Model):
     image = models.ImageField(null=True,blank=True)
     
