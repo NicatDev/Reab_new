@@ -180,7 +180,7 @@
                                         
 
                                         </li>
-                                        <li class="has-dropdown"><a {% if request.resolver_match.url_name == 'about' %} style="color: #fd6500 !important;" {% endif %} href="{% url 'about' %}">Lahiye haqqında</a>
+                                        <li class="has-dropdown"><a {% if request.resolver_match.url_name == 'about' %} style="color: #fd6500 !important;" {% endif %} href="{% url 'about' %}">Lahiyə haqqında</a>
                                         </li>
 
                                         <li class="has-dropdown"><a {% if request.resolver_match.url_name == 'spiker' %} style="color: #fd6500 !important;" {% endif %} href="{% url 'spiker' %}">Spikerler</a>
@@ -496,7 +496,7 @@
                                         <span style="opacity:0;cursor:none" class="tag"><b>HD</b></span>
                                         <span style="opacity:0;cursor:none" class="tag"><b>16+</b></span>
                                         <span style="opacity:0;cursor:none" class="tag">2 h 20 min</span>
-                                        <p style="user-select:none;font-size: 16px !important;">{{meet.content|slice:200}}</p>
+                                        <p style="user-select:none;font-size: 16px !important;">{{meet.content}}</p>
                                         <a   class="btn btn-lg"
                                             style="background-color:var(--clr-theme-1);margin-top:10px;border-radius:5px !important;padding-top:8px !important;padding-bottom:8px !important;height:initial !important;width:200px !important;text-align:center !important;">Görüşə qatıl</a>
                                     </div>
@@ -664,7 +664,7 @@
     </div>
 </div>
 
-        <!-- lahiye haqqinda -->
+        <!-- Lahiyə haqqinda -->
         <section>
             <div class="aboutimagetitle-div" style="margin-top:3% !important">
                 <h3 style="cursor:none;user-select:none;">Lahiyə haqqında</h3>
