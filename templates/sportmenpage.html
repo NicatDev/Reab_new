@@ -1549,6 +1549,22 @@
     background: white !important;
   }
   </style>
+  
+{% if user.is_authenticated %}
+
+<script>
+    var isAuthenticated = true;
+    var userId = "{{ request.user.id }}";
+</script>
+
+{% else %}
+
+<script>
+    var isAuthenticated = false;
+    var userId = 'auth';  // or set it to a default value
+</script>
+
+{% endif %}
   <script>
     document.addEventListener('DOMContentLoaded', function () {
         var elements = document.querySelectorAll('.zoomclass');
