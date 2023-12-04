@@ -679,7 +679,7 @@
                                 <div class="ag-collection-popup_col__left" style="    background-color: #D65B0A;
                                 border-top-right-radius: 20px;
                                 border-bottom-right-radius: 20px; ">
-                                <div style="width: 100%;height: 100%;padding-top:30px" >  <img style="height: 100%;width: 100%;object-fit: contain;" src="{{meet.image.url}}" class="ag-collection-popup_img" loading="lazy" sizes="100vw" srcset="{{meet.image.url}} 500w, {{meet.image.url}} 520w" alt="" />
+                                <div style="width: 100%;height: 100%;padding-top:30px" >  <img style="height: 100%;width: 100%;object-fit: contain;" src="{{video.image.url}}" class="ag-collection-popup_img" loading="lazy" sizes="100vw" srcset="{{video.image.url}} 500w, {{video.image.url}} 520w" alt="" />
                                 </div>      </div>
                                 
 
@@ -691,18 +691,18 @@
                                   <div>
                                   <div style="display: flex;align-items: center;gap:30px">
                                     
-                                  <h2 class="ag-collection-popup_name" style="margin:0px !important">{{meet.meetingowner.first_name}} {{meet.meetingowner.last_name}} </h2>
+                                  <h2 class="ag-collection-popup_name" style="margin:0px !important">{{video.meetingowner.first_name}} {{video.meetingowner.last_name}} </h2>
                                   <div>  
-                                      <div class="zoomhoverclass" id="2zoom{{meet.id}}">
+                                      <div class="zoomhoverclass" id="2zoom{{video.id}}">
                                           <div style="width: 200px;"> Bu görüş Zoom tətbiqi üzərindən həyata keçiriləcəkdir. Tədbiqin telefon və ya kompüterinizdə olduğundan əmin olun</div>
                                      
                                   </div>
-                                  <img class="zoomclass" id="zoom{{meet.id}}" style="height: 40px;" src="{% static 'zoom.svg' %}" alt=""></div>
+                                  <img class="zoomclass" id="zoom{{video.id}}" style="height: 40px;" src="{% static 'zoom.svg' %}" alt=""></div>
                               </div>
                               <div class="ag-collection-popup_title" style="text-align: start;margin-top:10px;margin-bottom:0px; font-style: italic !important;font-size:16px !important;    width: 302px;
                               font-size: 22px;
                               line-height: 29px;">
-                                  {{meet.meetingowner.owner.field}} - {{meet.meetingowner.owner.titul}}
+                                  {{video.meetingowner.owner.field}} - {{video.meetingowner.owner.titul}}
                               </div>
                           </div>
 
@@ -713,15 +713,15 @@
                                   <div class="ag-collection-popup_awards">
                                       </div>
                                   <p class="ag-collection-popup_text" style="font-size:32px;font-weight: 800;margin:0px !important;color:black">
-                                      {{meet.date}}
+                                      {{video.date}}
                                   </p>
-                                  <p style="font-size:16px !important;text-align: start;">{{meet.content|slice:150}}...<span class="popup-div" style="font-size:18px; color: rgb(255, 115, 0);cursor: pointer;">daha ətraflı</span></p> 
+                                  <p style="font-size:16px !important;text-align: start;">{{video.content|slice:150}}...<span class="popup-div" style="font-size:18px; color: rgb(255, 115, 0);cursor: pointer;">daha ətraflı</span></p> 
                                          <div style="display: flex;align-items: center;justify-content: center;gap:20px">
                                       <a href="#" class="fill-btn"
                                       style="font-size:15px;line-height:20px;border-radius: 3px;cursor: pointer !important;border-radius: 15px;background-color: #D65B0A;">Görüşə qatıl 
                                 
                                   </a>
-                                  <i onclick="AddorRemove('{{meet.id}}')" id="s{{meet.id}}" style="color: #fd6500;font-size: 35px;cursor: pointer;" {% if request.user in meet.meeter.all %}class="fa-solid fa-bookmark" {% else %} class="fa-regular fa-bookmark" {%endif%}></i>
+                                  <i onclick="AddorRemove('{{video.id}}')" id="s{{video.id}}" style="color: #fd6500;font-size: 35px;cursor: pointer;" {% if request.user in meet.meeter.all %}class="fa-solid fa-bookmark" {% else %} class="fa-regular fa-bookmark" {%endif%}></i>
                                   </div>
                                 
                                 </div>
