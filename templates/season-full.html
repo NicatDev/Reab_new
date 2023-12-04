@@ -219,7 +219,16 @@
                         <!-- sd -->
                         <div style="display: flex;align-items: center;justify-content: end;position: relative;gap:30px"> 
                             <div class="user-icon-desk" style="    cursor: pointer;">
-                         
+                                <p id="meeting_len" style="    position: absolute;
+                                left: 17px;
+                                bottom: -5px;
+                                color: white;
+                                background-color: orange;
+                                /* padding: 5px; */
+                                border-radius: 50%;
+                                height: 30px;
+                                width: 30px;
+                                text-align: center;">{{request.user.meetings.all|length}}</p>
                                 <i class="fa-regular fa-user" onclick="openclose()" id="desc" style="font-size:22px;"></i>
                                 <div class="myboard mydescboard"  style="display: none;">
                                     {% if user.is_authenticated %}
@@ -3151,6 +3160,8 @@ padding-right:0.2rem
                         meetCard.appendChild(meetTextDiv);
 
                         myin.appendChild(meetCard);
+                        const meeting_length = document.getElementById('meeting_len') 
+                        meeting_length.textContent =  response.data.length
                     });
                         })
                       
