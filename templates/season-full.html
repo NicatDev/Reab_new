@@ -132,7 +132,7 @@
                                         <div class="myinlineboard myinlineboardinline">
                                             {% for meet in request.user.meetings.all %}
                                             <div class="mymeetcard mymeetcardmeet" style="padding-right: 40px;padding-left:40px"> 
-                                                <img src="{{meet.meetingowner.owner.image.url}}" alt="">
+                                                <img src="{{meet.image.url}}" alt="">
                                                 <div class="meettextdiv" style="width: 60%;">
                                                 <p class="mymeetname">{{meet.meetingowner.first_name}} {{meet.meetingowner.last_name}}</p>
                                                 <p>{{meet.date}}</p>
@@ -522,7 +522,7 @@
                                     </div>
                                     <div style="    background: linear-gradient(90deg, #181616 24%, #0000001f);width: 100%;flex:0 0 100%;max-width: 100%;" class="right-wrap">
                                       <div style="mix-blend-mode: overlay;width: 100%;    background-color: #ffb387;">
-                                        <img style="margin-left:50%;width:  40%;height: 100%;object-fit: contain;" src="{{meet.meetingowner.owner.image.url}}" alt="">
+                                        <img style="margin-left:50%;width:  40%;height: 100%;object-fit: contain;" src="{{meet.image.url}}" alt="">
                                     </div>
                                     </div>
                                 </div></div>
