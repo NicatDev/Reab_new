@@ -1641,15 +1641,16 @@ console.log('hesab xetasi')
                     if (response.status=='201'){
                     document.getElementById('s'+id).classList.add('fa-regular')
                     document.getElementById('s'+id).classList.remove('fa-solid')}
-             
+             console.log('================')
                     return response.json();
                   } else {
                       swal('Xəta baş verdi');
                   }
                   }).then(response => {  
                       console.log(response)
+                      console.log('-----------------')
                       myinlineboardContainer.forEach(myin => {
-                        console.log(myin)
+                        console.log(myin,'++++++++++++++++++')
                           myin.innerHTML = '';
                           response.data.forEach(meet => {
                           console.log('data')
