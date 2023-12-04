@@ -669,26 +669,98 @@
                       {% for video in user.user.adventures.all %}
 
                       <div class="owl-items">
+                        <div class="js-ag-collection_item" style="margin-bottom: 10px;">
+                                        
+                          <!-- js-ag-collection-popup_overlay__show -->
+                          <div >
+                              <div class="js-ag-collection-popup_box" style="margin-top:0px !important;width: 100%;z-index: 0;position: relative;background-color:#e9e9e9d3 ;">
+         
                     
-                          <a 
-                              style="text-shadow:2px 2px 4px rgba(0, 0, 0, 0.5);" class="slide-one">
-  
-                              <div class="slide-image">
-                                  {% if video.meetingowner.owner.image %}
-                                  <img style="object-fit: cover;height: 300px;"
-                                      src="{{video.meetingowner.owner.image.url}}" alt="image" loading="lazy">
-                                  {% endif %}
-                                 
-  
+                                <div class="ag-collection-popup_col__left" style="    background-color: #D65B0A;
+                                border-top-right-radius: 20px;
+                                border-bottom-right-radius: 20px; ">
+                                <div style="width: 100%;height: 100%;padding-top:30px" >  <img style="height: 100%;width: 100%;object-fit: contain;" src="{{meet.image.url}}" class="ag-collection-popup_img" loading="lazy" sizes="100vw" srcset="{{meet.image.url}} 500w, {{meet.image.url}} 520w" alt="" />
+                                </div>      </div>
+                                
+
+                                <div class="ag-collection-popup_col__right" style="background-color: #e9e9e99c;gap:10px">
+
+
+
+
+                                  <div>
+                                  <div style="display: flex;align-items: center;gap:30px">
+                                    
+                                  <h2 class="ag-collection-popup_name" style="margin:0px !important">{{meet.meetingowner.first_name}} {{meet.meetingowner.last_name}} </h2>
+                                  <div>  
+                                      <div class="zoomhoverclass" id="2zoom{{meet.id}}">
+                                          <div style="width: 200px;"> Bu görüş Zoom tətbiqi üzərindən həyata keçiriləcəkdir. Tədbiqin telefon və ya kompüterinizdə olduğundan əmin olun</div>
+                                     
+                                  </div>
+                                  <img class="zoomclass" id="zoom{{meet.id}}" style="height: 40px;" src="{% static 'zoom.svg' %}" alt=""></div>
                               </div>
-                              <div class="slide-content" style="height: 12rem !important;">
-                                  <p style="text-shadow:2px 2px 4px rgba(0, 0, 0, 0.5);font-size:14px;font-weight: 600;" style="height:4rem">
-                                      {{video.meetingowner.first_name}} {{video.meetingowner.last_name}}</p>
-                                  <p style="text-shadow:2px 2px 4px rgba(0, 0, 0, 0.5);" style="height:4rem">
-                                      {{video.date}}</p>
-  
+                              <div class="ag-collection-popup_title" style="text-align: start;margin-top:10px;margin-bottom:0px; font-style: italic !important;font-size:16px !important;    width: 302px;
+                              font-size: 22px;
+                              line-height: 29px;">
+                                  {{meet.meetingowner.owner.field}} - {{meet.meetingowner.owner.titul}}
                               </div>
-                          </a>
+                          </div>
+
+
+
+
+
+                                  <div class="ag-collection-popup_awards">
+                                      </div>
+                                  <p class="ag-collection-popup_text" style="font-size:32px;font-weight: 800;margin:0px !important;color:black">
+                                      {{meet.date}}
+                                  </p>
+                                  <p style="font-size:16px !important;text-align: start;">{{meet.content|slice:150}}...<span class="popup-div" style="font-size:18px; color: rgb(255, 115, 0);cursor: pointer;">daha ətraflı</span></p> 
+                                         <div style="display: flex;align-items: center;justify-content: center;gap:20px">
+                                      <a href="#" class="fill-btn"
+                                      style="font-size:15px;line-height:20px;border-radius: 3px;cursor: pointer !important;border-radius: 15px;background-color: #D65B0A;">Görüşə qatıl 
+                                
+                                  </a>
+                                  <i onclick="AddorRemove('{{meet.id}}')" id="s{{meet.id}}" style="color: #fd6500;font-size: 35px;cursor: pointer;" {% if request.user in meet.meeter.all %}class="fa-solid fa-bookmark" {% else %} class="fa-regular fa-bookmark" {%endif%}></i>
+                                  </div>
+                                
+                                </div>
+                              </div>
+                            </div>
+                            <div class="js-ag-collection-popup_overlay " style="z-index: 1;" onclick="openclosePopup()">
+                              <div class="js-ag-collection-popup_box"  style="z-index: 1;height: 450px;">
+                                <div class="js-ag-collection-popup_btn__close" >Pəncərəni bağla</div>
+                    
+                                <div class="ag-collection-popup_col__left">
+                                  <img src="{{meet.image.url}}" class="ag-collection-popup_img" loading="lazy" sizes="100vw" srcset="{{meet.image.url}} 500w, {{meet.image.url}} 520w" alt="" />
+                                </div>
+                    
+                                <div class="ag-collection-popup_col__right" style="gap:10px">
+                                  <h2 class="ag-collection-popup_name">{{meet.meetingowner.first_name}} {{meet.meetingowner.last_name}}</h2>
+                          
+                                  <div class="ag-collection-popup_awards">
+                    
+                                      </div>
+                    
+                                  <div class="ag-collection-popup_title">
+                                      {{meet.meetingowner.owner.field}} - {{meet.meetingowner.owner.titul}}
+                                  </div>
+                                  <p class="ag-collection-popup_text">
+                                      {{meet.date}}
+                                  </p>
+                                  <p style="font-size:15px !important">{{meet.content}}</p> 
+                                  <div style="display: flex;align-items: center;justify-content: center;gap:20px">
+                                      <a href="#" class="fill-btn"
+                                      style="font-size:15px;line-height:20px;border-radius: 3px;cursor: pointer !important;">Görüşə qatıl 
+                                
+                                  </a>
+                                
+                                  </div>
+                                
+                                </div>
+                              </div>
+                                                                         </div>
+                         </div>
                       </div>
                       {% endfor %}
                   </div>
