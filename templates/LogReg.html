@@ -108,8 +108,19 @@
                             </a>
                             <div>
                             <div class="user-icon-mob" style="    cursor: pointer;">
-                         
-                                <i class="fa-regular fa-user" onclick="openclosemob()" id="mob" style="color: #ffffff;font-size:22px;"></i>
+                         <div>
+                                <p id="meeting_len" style="    position: absolute;
+                                right: 42px;
+                                bottom: 20px;
+                                color: white;
+                                background-color:#fd6500;
+                                /* padding: 5px; */
+                                border-radius: 50%;
+                                height: 30px;
+                                width: 30px;
+                                text-align: center;">{{request.user.meetings.all|length}}</p>
+                                <i class="fa-regular fa-user" onclick="openclosemob()" id="desc" style="font-size:22px;"></i>
+                            </div>
                                 <div class="myboard mob mymobboard" >
                                     <div class="myinlineboard">
                                         {% if user.is_authenticated %}
@@ -163,21 +174,21 @@
                                         }
                                 </style>
                         </div>
-
+    
                         <div class="header-menu-spc d-none d-xl-block">
                             <div class="fm-header-nav">
-
+    
                                 <nav id="mobile-menu" style="display: block;">
                                     <ul>
                                         <li class="has-dropdown">
                                             
                                             <a {% if request.resolver_match.url_name == 'home' %} style="color: #fd6500 !important;" {% endif %}  href="{% url 'home' %}">Əsas səhifə</a>
                                         
-
+    
                                         </li>
                                         <li class="has-dropdown"><a {% if request.resolver_match.url_name == 'about' %} style="color: #fd6500 !important;" {% endif %} href="{% url 'about' %}">Lahiyə haqqında</a>
                                         </li>
-
+    
                                         <li class="has-dropdown"><a {% if request.resolver_match.url_name == 'spiker' %} style="color: #fd6500 !important;" {% endif %} href="{% url 'spiker' %}">Spikerler</a>
                                             <!-- <ul class="submenu">
                                                 {% for cat in vidcategories %}
@@ -185,7 +196,7 @@
                                                 {% endfor %}
                                             </ul> -->
                                         </li>
-
+    
                                         <li class="has-dropdown"><a {% if request.resolver_match.url_name == 'meet' %} style="color: #fd6500 !important;" {% endif %} href="{% url 'meet' %}">Görüşlər</a>
                                             <!-- <ul class="submenu">
                                                 {% for cat in fotcategories %}
@@ -194,27 +205,36 @@
                                             </ul> -->
                                         </li>
                                         <li class="has-dropdown"><a {% if request.resolver_match.url_name == 'blog' %} style="color: #fd6500 !important;" {% endif %} href="{% url 'blog' %}">Bloqlar</a>
-
+    
                                         </li>
                                         <li class="has-dropdown"><a {% if request.resolver_match.url_name == 'contact' %} style="color: #fd6500 !important;" {% endif %} href=" {% url 'contact' %}">Əlaqə</a>
-
+    
                                         </li>
                                        
-
+    
                                         
-
-
+    
+    
                                         
                                     </ul>
                                 </nav>
-
+    
                             </div>
                         </div>
                        
                         <!-- sd -->
-                        <div style="display: flex;align-items: center;justify-content: end;position: relative;gap:30px"> 
+                        <div style="display: flex;align-items: center;justify-content: end;position: relative;gap:36px"> 
                             <div class="user-icon-desk" style="    cursor: pointer;">
-                         
+                                {% if request.user.meetings.all %}    <p id="meeting_len2" style="    position: absolute;
+                                left: 17px;
+                                bottom: -5px;
+                                color: white;
+                                background-color:#fd6500;
+                                /* padding: 5px; */
+                                border-radius: 50%;
+                                height: 30px;
+                                width: 30px;
+                                text-align: center;">{{request.user.meetings.all|length}}</p>{% endif %}
                                 <i class="fa-regular fa-user" onclick="openclose()" id="desc" style="font-size:22px;"></i>
                                 <div class="myboard mydescboard"  style="display: none;">
                                     {% if user.is_authenticated %}
@@ -230,7 +250,7 @@
                                         </div>
                                         {% endfor %}
                              
-
+    
                                         <div class="mymeetcard">
                                             <div onclick="SendToRegister()" class="mymeetbutton profile">Hesab</div>
                                             <div onclick="SendToRegister()" class="mymeetbutton logout">Cıxış et</div>
@@ -286,7 +306,7 @@
                                         myDescElement.style.display = "block";
                                     }
                                 }
-
+    
                             }
                             function openclosemob() {
                           
@@ -429,7 +449,7 @@
                      
                 
                     </div>
-
+    
                 </div>
             </div>
         </header>
