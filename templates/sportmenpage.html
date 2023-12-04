@@ -125,21 +125,21 @@
                                       }
                               </style>
                       </div>
-  
+
                       <div class="header-menu-spc d-none d-xl-block">
                           <div class="fm-header-nav">
-  
+
                               <nav id="mobile-menu" style="display: block;">
                                   <ul>
                                       <li class="has-dropdown">
                                           
                                           <a {% if request.resolver_match.url_name == 'home' %} style="color: #fd6500 !important;" {% endif %}  href="{% url 'home' %}">Əsas səhifə</a>
                                       
-  
+
                                       </li>
                                       <li class="has-dropdown"><a {% if request.resolver_match.url_name == 'about' %} style="color: #fd6500 !important;" {% endif %} href="{% url 'about' %}">Lahiyə haqqında</a>
                                       </li>
-  
+
                                       <li class="has-dropdown"><a {% if request.resolver_match.url_name == 'spiker' %} style="color: #fd6500 !important;" {% endif %} href="{% url 'spiker' %}">Spikerler</a>
                                           <!-- <ul class="submenu">
                                               {% for cat in vidcategories %}
@@ -147,7 +147,7 @@
                                               {% endfor %}
                                           </ul> -->
                                       </li>
-  
+
                                       <li class="has-dropdown"><a {% if request.resolver_match.url_name == 'meet' %} style="color: #fd6500 !important;" {% endif %} href="{% url 'meet' %}">Görüşlər</a>
                                           <!-- <ul class="submenu">
                                               {% for cat in fotcategories %}
@@ -156,20 +156,20 @@
                                           </ul> -->
                                       </li>
                                       <li class="has-dropdown"><a {% if request.resolver_match.url_name == 'blog' %} style="color: #fd6500 !important;" {% endif %} href="{% url 'blog' %}">Bloqlar</a>
-  
+
                                       </li>
                                       <li class="has-dropdown"><a {% if request.resolver_match.url_name == 'contact' %} style="color: #fd6500 !important;" {% endif %} href=" {% url 'contact' %}">Əlaqə</a>
-  
+
                                       </li>
                                      
-  
+
                                       
-  
-  
+
+
                                       
                                   </ul>
                               </nav>
-  
+
                           </div>
                       </div>
                      
@@ -201,7 +201,7 @@
                                       </div>
                                       {% endfor %}
                            
-  
+
                                       <div class="mymeetcard">
                                           <div onclick="SendToRegister()" class="mymeetbutton profile">Hesab</div>
                                           <div onclick="SendToRegister()" class="mymeetbutton logout">Cıxış et</div>
@@ -257,7 +257,7 @@
                                       myDescElement.style.display = "block";
                                   }
                               }
-  
+
                           }
                           function openclosemob() {
                         
@@ -400,7 +400,7 @@
                    
               
                   </div>
-  
+
               </div>
           </div>
       </header>
