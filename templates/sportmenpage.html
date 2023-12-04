@@ -1549,6 +1549,145 @@
     background: white !important;
   }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var elements = document.querySelectorAll('.zoomclass');
+
+        elements.forEach(function (element) {
+            element.addEventListener('mouseover', function () {
+      
+                var classes = this.id;
+                var matchingElement = document.getElementById('2'+classes);
+                
+
+                if (matchingElement){
+                    console.log('23232323')
+                
+                    matchingElement.style.boxShadow = '2px 2px 12px #000'
+                matchingElement.style.padding = '10px'; 
+                matchingElement.style.position = 'absolute'; 
+                matchingElement.style.backgroundColor = 'white'; 
+                matchingElement.style.color = 'color'; 
+
+                matchingElement.style.top = '110px'; 
+                matchingElement.style.left = '50%'; 
+                matchingElement.style.display = 'block'; 
+
+                }
+                this.style.color = 'blue'; 
+
+         
+            element.addEventListener('mouseout', function () {
+                var classes = this.id;
+                var matchingElement = document.getElementById('2'+classes);
+                matchingElement.style.display = 'none'; 
+            });
+        });
+    });})
+</script>
+<script>
+  var csrfToken = "{{ csrf_token }}";
+
+  function AddorRemove(id) {
+
+    console.log(userId,isAuthenticated)
+      event.preventDefault();
+      if (!isAuthenticated){
+          console.log('hesa')
+        swal('Öncə hesabınıza daxil olmanız xahiş olunur !');
+        return;
+console.log('hesab xetasi')
+      }
+      // Get the email input value
+      const myinlineboardContainer = document.querySelectorAll('.myinlineboardinline');
+      
+      // Check if the class name of the clicked button is "submit_btn"
+      const clickedButton = event.target;
+      if (clickedButton.classList.contains('fa-bookmark')) {
+          // Send the data to a URL (replace 'your_url' with the actual URL)
+          const url = '{% url "addorremove" %}';
+      
+
+          // You can use a method like fetch to send the data to the server
+          fetch(url, {
+              method: 'POST',
+              body: JSON.stringify({
+                  user:userId,
+                  id:id
+
+
+              }), // You can format the data as needed
+              headers: {
+                  'Content-Type': 'application/json',
+                  'X-CSRFToken': csrfToken
+              }
+          })
+              .then(response => {
+                  // Handle the response here (e.g., show a success message)
+                  if (response.ok) {
+                    if (response.status=='200'){
+                    document.getElementById('s'+id).classList.remove('fa-regular')
+                    document.getElementById('s'+id).classList.add('fa-solid')}
+                    console.log('t')
+                    if (response.status=='201'){
+                    document.getElementById('s'+id).classList.add('fa-regular')
+                    document.getElementById('s'+id).classList.remove('fa-solid')}
+             
+                    return response.json();
+                  } else {
+                      swal('Xəta baş verdi');
+                  }
+                  }).then(response => {  
+                      console.log(response)
+                      myinlineboardContainer.forEach(myin => {
+                          myin.innerHTML = '';
+                          response.data.forEach(meet => {
+                      const meetCard = document.createElement('div');
+                      meetCard.classList.add('mymeetcard', 'mymeetcardmeet');
+                      meetCard.style.paddingRight = '40px';
+                      meetCard.style.paddingLeft = '40px';
+
+                      const img = document.createElement('img');
+                      img.src ='/media/'+meet.image;
+                      img.alt = '';
+
+                      const meetTextDiv = document.createElement('div');
+                      meetTextDiv.style.width='60px'
+                      meetTextDiv.classList.add('meettextdiv');
+                      
+
+                      const meetName = document.createElement('p');
+                      meetName.classList.add('mymeetname');
+                      console.log(meet,'22222222222222222')
+                      meetName.textContent = `${meet.meetingowner__first_name} ${meet.meetingowner__last_name}`;
+
+                      const date = document.createElement('p');
+                      date.textContent = meet.date;
+
+                      meetTextDiv.appendChild(meetName);
+                      meetTextDiv.appendChild(date);
+
+                      meetCard.appendChild(img);
+                      meetCard.appendChild(meetTextDiv);
+
+                      myin.appendChild(meetCard);
+                      const meeting_length = document.getElementById('meeting_len') 
+                      const meeting_length2 = document.getElementById('meeting_len2') 
+                      meeting_length.textContent =  response.data.length
+                      meeting_length2.textContent =  response.data.length
+                  });
+                      })
+                    
+
+                  // Iterate through the data and create new elements
+           
+              })
+               
+             
+      }
+  }
+
+  </script>
 <script src="{% static 'templatestyles/js/plugin.js' %}"></script>
 <script src="{% static 'templatestyles/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 <script src="{% static 'templatestyles/js/scripts.js' %}"></script>
