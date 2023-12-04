@@ -1655,6 +1655,7 @@ console.log('hesab xetasi')
                   }).then(response => {  
                       console.log(response)
                       myinlineboardContainer.forEach(myin => {
+                        console.log(myin)
                           myin.innerHTML = '';
                           response.data.forEach(meet => {
                       const meetCard = document.createElement('div');
