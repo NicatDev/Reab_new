@@ -19,7 +19,7 @@ class BaseMixin(models.Model):
 User = get_user_model()
 
 class Partners(models.Model):
-    image = models.ImageField()
+    image = models.FileField(null=True,blank=True)
     title = models.CharField(max_length=120)
     def __str__(self):
         return self.title
