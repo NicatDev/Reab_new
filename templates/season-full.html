@@ -113,8 +113,19 @@
                             </a>
                             <div>
                             <div class="user-icon-mob" style="    cursor: pointer;">
-                         
-                                <i class="fa-regular fa-user" onclick="openclosemob()" id="mob" style="color: #ffffff;font-size:22px;"></i>
+                         <div>
+                                <p id="meeting_len" style="    position: absolute;
+                                right: 42px;
+                                bottom: 20px;
+                                color: white;
+                                background-color:#fd6500;
+                                /* padding: 5px; */
+                                border-radius: 50%;
+                                height: 30px;
+                                width: 30px;
+                                text-align: center;">{{request.user.meetings.all|length}}</p>
+                                <i class="fa-regular fa-user" onclick="openclosemob()" id="desc" style="font-size:22px;"></i>
+                            </div>
                                 <div class="myboard mob mymobboard" >
                                     <div class="myinlineboard">
                                         {% if user.is_authenticated %}
@@ -217,18 +228,18 @@
                         </div>
                        
                         <!-- sd -->
-                        <div style="display: flex;align-items: center;justify-content: end;position: relative;gap:30px"> 
+                        <div style="display: flex;align-items: center;justify-content: end;position: relative;gap:36px"> 
                             <div class="user-icon-desk" style="    cursor: pointer;">
-                                <p id="meeting_len" style="    position: absolute;
+                                {% if request.user.meetings.all %}    <p id="meeting_len2" style="    position: absolute;
                                 left: 17px;
                                 bottom: -5px;
                                 color: white;
-                                background-color: orange;
+                                background-color:#fd6500;
                                 /* padding: 5px; */
                                 border-radius: 50%;
                                 height: 30px;
                                 width: 30px;
-                                text-align: center;">{{request.user.meetings.all|length}}</p>
+                                text-align: center;">{{request.user.meetings.all|length}}</p>{% endif %}
                                 <i class="fa-regular fa-user" onclick="openclose()" id="desc" style="font-size:22px;"></i>
                                 <div class="myboard mydescboard"  style="display: none;">
                                     {% if user.is_authenticated %}
@@ -792,7 +803,7 @@
                                               <div class="ag-collection-popup_col__left" style="    background-color: #D65B0A;
                                               border-top-right-radius: 20px;
                                               border-bottom-right-radius: 20px; ">
-                                              <div >  <img style="height: 100%;width: 100%;" src="{{meet.image.url}}" class="ag-collection-popup_img" loading="lazy" sizes="100vw" srcset="{{meet.image.url}} 500w, {{meet.image.url}} 520w" alt="" />
+                                              <div style="width: 100%;height: 100%;" >  <img style="height: 100%;width: 100%;object-fit: cover;" src="{{meet.image.url}}" class="ag-collection-popup_img" loading="lazy" sizes="100vw" srcset="{{meet.image.url}} 500w, {{meet.image.url}} 520w" alt="" />
                                               </div>      </div>
                                               
 
@@ -900,7 +911,7 @@
                                               <div class="ag-collection-popup_col__left" style="    background-color: #D65B0A;
                                               border-top-right-radius: 20px;
                                               border-bottom-right-radius: 20px; ">
-                                              <div >  <img style="height: 100%;width: 100%;" src="{{meet.image.url}}" class="ag-collection-popup_img" loading="lazy" sizes="100vw" srcset="{{meet.image.url}} 500w, {{meet.image.url}} 520w" alt="" />
+                                              <div style="width: 100%;height: 100%;" >  <img style="height: 100%;width: 100%;object-fit: cover;" src="{{meet.image.url}}" class="ag-collection-popup_img" loading="lazy" sizes="100vw" srcset="{{meet.image.url}} 500w, {{meet.image.url}} 520w" alt="" />
                                               </div>      </div>
                                               
 
@@ -1007,7 +1018,7 @@
                                               <div class="ag-collection-popup_col__left" style="    background-color: #D65B0A;
                                               border-top-right-radius: 20px;
                                               border-bottom-right-radius: 20px; ">
-                                              <div >  <img style="height: 100%;width: 100%;" src="{{meet.image.url}}" class="ag-collection-popup_img" loading="lazy" sizes="100vw" srcset="{{meet.image.url}} 500w, {{meet.image.url}} 520w" alt="" />
+                                              <div style="width: 100%;height: 100%;" >  <img style="height: 100%;width: 100%;object-fit: cover;" src="{{meet.image.url}}" class="ag-collection-popup_img" loading="lazy" sizes="100vw" srcset="{{meet.image.url}} 500w, {{meet.image.url}} 520w" alt="" />
                                               </div>      </div>
                                               
 
@@ -3161,7 +3172,9 @@ padding-right:0.2rem
 
                         myin.appendChild(meetCard);
                         const meeting_length = document.getElementById('meeting_len') 
+                        const meeting_length2 = document.getElementById('meeting_len2') 
                         meeting_length.textContent =  response.data.length
+                        meeting_length2.textContent =  response.data.length
                     });
                         })
                       
