@@ -133,7 +133,9 @@ def home(request):
         'header_meetings':header_meetings,
         'headerphotos':headerphotos
     }
-    
+    if Head.objects.all().exists():
+        head = Head.objects.first()
+        context['head'] = head
     return render(request,'season-full.html',context)
 
 
