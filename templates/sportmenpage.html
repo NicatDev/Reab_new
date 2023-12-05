@@ -74,7 +74,7 @@
                           </div>
                               <div class="myboard mob mymobboard" >
                                   <div class="myinlineboard">
-                                      {% if user.is_authenticated %}
+                                      {% if request.user.is_authenticated %}
                                       <div class="myinlineboard myinlineboardinline">
                                           {% for meet in request.user.meetings.all %}
                                           <div class="mymeetcard mymeetcardmeet" style="padding-right: 40px;padding-left:40px"> 
