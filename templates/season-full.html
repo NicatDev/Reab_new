@@ -3711,7 +3711,7 @@ padding-right:0.2rem
             if ($(e.target).closest('.popup-div').length > 0) {
           
           $(this).children('.js-ag-collection-popup_overlay').addClass('js-ag-collection-popup_overlay__show');
-          $('.full-wrap ').display.overflow = 'hidden'}else{
+          $('.full-wrap').css('overflow', 'hidden');}else{
             console.log(    $(this).children('.js-ag-collection-popup_overlay'))
         }
         }
@@ -3731,7 +3731,7 @@ padding-right:0.2rem
 
    function agPopupClose() {
       agPopupOverlay.removeClass('js-ag-collection-popup_overlay__show');
-      $('.full-wrap ').display.overflow = 'scroll'
+      $('.full-wrap').css('overflow', 'scroll');
    }
 
   });
