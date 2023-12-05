@@ -651,6 +651,7 @@
                 </div>
                 <div class="col-sm-12">
                   <div class="slide-slider-full owl-carousel owl-theme" >
+                    {% if user.user.adventures.all %}
                       {% for video in user.user.adventures.all %}
 
                       <div class="owl-items">
@@ -748,6 +749,9 @@
                          </div>
                       </div>
                       {% endfor %}
+                      {% else %}
+                      <h3>Hal-hazırda görüş mövcud deyil</h3>
+                      {% endif %}
                   </div>
               </div>
                 <!-- Contact Form end -->
@@ -1508,7 +1512,7 @@
     --tw-gradient-to: rgb(250 82 82 / 0);
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
     --tw-gradient-to: #fd6500 !important;
-    color: black !important;
+    color: white !important;
 }
 .force_active i {
     --tw-text-opacity: 1;
