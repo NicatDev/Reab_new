@@ -531,7 +531,7 @@
             <!-- Menu start -->
             <div class="text-right -mt-10 hidden lg:block">
               <ul id="sectionList" class="md:inline-flex gap-4 py-6 px-10 rounded-3xl bg-slate-50 dark:bg-black menu">
-                <li data-target="section1" class="hover_active sections">
+                <li data-target="section1" class="hover_active sections force_active">
                   <a href="#" style="width:14rem; text-decoration: none;" class="text-slate-900  hover:text-slate-50 text-1xl py-4 rounded-xl flex items-center flex-col justify-center hover:hover_active bg-light-gray dark:bg-mid-dark dark:text-slate-100  ">
                     <i class="fa-solid fa-house"></i>
                     Haqqında
@@ -1455,6 +1455,17 @@
   });
 })(jQuery);
     </script>
+    <script>
+      $(document).ready(function() {
+  $('.sections').on('click', function() {
+    // Tıklanan elemente "force_active" sınıfını ekle
+    $(this).addClass('force_active');
+    
+    // Diğer "sections" sınıfındaki elementlerden "force_active" sınıfını kaldır
+    $('.sections').not(this).removeClass('force_active');
+  });
+});
+    </script>
     <style>
       .schedule-area .sticky-col .schedule-side-nav .nav-link.active:nth-child(3)::after {
           border-color:transparent #D65B0A transparent transparent ;
@@ -1490,12 +1501,16 @@
   .zoomhoverclass{
       display: none;
   }
-  .hover\:hover_active {
+  .force_active {
     background-image: linear-gradient(to right, var(--tw-gradient-stops));
     --tw-gradient-from: #fd6500 !important;
     --tw-gradient-to: rgb(250 82 82 / 0);
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
     --tw-gradient-to: #fd6500 !important;
+}
+.force_active i {
+    --tw-text-opacity: 1;
+    color: rgb(248 250 252 / var(--tw-text-opacity));
 }
   .zoomclass:hover .zoomhoverclass{
       height: 60px;
