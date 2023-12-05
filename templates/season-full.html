@@ -3717,7 +3717,10 @@ padding-right:0.2rem
             if ($(e.target).closest('.fill-btn').length>0){
                 const closestFillBtn = $(e.target).closest('.fill-btn');
                 const hrefValue = closestFillBtn.attr('href');
-                window.location.href = hrefValue;
+                if (hrefValue) {
+                    window.open(hrefValue, '_blank');
+                    }
+                    e.preventDefault();
             }
             if ($(e.target).closest('.popup-div').length > 0) {
           
