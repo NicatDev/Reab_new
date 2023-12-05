@@ -3688,6 +3688,7 @@ padding-right:0.2rem
   grid-template-columns: repeat(2, 1fr)  }
 }
     </style>
+    
     <script>
         (function ($) {
   $(function () {
@@ -3697,19 +3698,20 @@ padding-right:0.2rem
       agPopupBox = $('.js-ag-collection-popup_box'),
       agPopupBtnClose = $('.js-ag-collection-popup_btn__close');
 
-    console.log('1')
       agPopupItem.on('click', function (e) {
         e.preventDefault();
    
 
         if(agPopupBtnClose.is(e.target)) {
-       
+            
             agPopupClose();
+            
         }else{
      
             if ($(e.target).closest('.popup-div').length > 0) {
           
-          $(this).children('.js-ag-collection-popup_overlay').addClass('js-ag-collection-popup_overlay__show');}else{
+          $(this).children('.js-ag-collection-popup_overlay').addClass('js-ag-collection-popup_overlay__show');
+          $('body').display.overflow = 'hidden'}else{
             console.log(    $(this).children('.js-ag-collection-popup_overlay'))
         }
         }
@@ -3729,6 +3731,7 @@ padding-right:0.2rem
 
    function agPopupClose() {
       agPopupOverlay.removeClass('js-ag-collection-popup_overlay__show');
+      $('body').display.overflow = 'scroll'
    }
 
   });
