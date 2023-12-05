@@ -123,7 +123,7 @@
     </button>
 
 
-    <div class="main-wrapper" style="z-index:3">
+    <div class="main-wrapper" style="z-index:8">
         <div id="myModal" class="modal">
             <span class="close">&times;</span>
             <img class="modal-content" id="img01">
@@ -131,7 +131,7 @@
         </div>
         
         <!-- header wrapper -->
-        <header id="header-sticky" class="fm-header-area header-border transparent-header bg-common-black">
+        <header id="header-sticky" style="z-index:8" class="fm-header-area header-border transparent-header bg-common-black">
             <div class="container">
                 <div class="row align-items-center justify-content-lg-between pr-5 pl-5">
                     <div class="header-wrapper">
@@ -764,7 +764,7 @@
         <!-- blog-area-end -->
 
 
-    </div>
+
 
 
 
@@ -792,7 +792,7 @@
             </span>
         </div>
     </div>
-    <div class="schedule-area section-padding-02 grey-bg" style="z-index:2">
+    <div class="schedule-area section-padding-02 grey-bg" style="z-index:6">
       
         <div class="container" style="margin-top:40px">
           
@@ -1223,7 +1223,7 @@
     </section>
     <!-- blog-area-end -->
   
-   
+</div>
 
     <style>
         .single-logo:hover{
@@ -3729,8 +3729,8 @@ padding-right:0.2rem
             if ($(e.target).closest('.popup-div').length > 0) {
           
           $(this).children('.js-ag-collection-popup_overlay').addClass('js-ag-collection-popup_overlay__show');
-          $('.full-wrap').css('overflow', 'hidden');
-          window.scrollTo(0, 2230);
+        //   $('.full-wrap').css('overflow', 'hidden');
+        //   window.scrollTo(0, 2230);
         }else{
             console.log(    $(this).children('.js-ag-collection-popup_overlay'))
         }
