@@ -677,15 +677,16 @@
                         <div class="ag-collection-popup_awards">
 
                             </div>
+                            <div class="ag-collection-popup_title">
+                              {{meet.titul}}
+                            </div>
+                            <p class="ag-collection-popup_text">
+                              {{meet.field}}
+                            </p>
                             <div style="text-align: left !important;" class="ag-collection-popup_title">
                               {{meet.personal_information|safe}}
                             </div>
-                        <div class="ag-collection-popup_title">
-                          {{meet.titul}}
-                        </div>
-                        <p class="ag-collection-popup_text">
-                          {{meet.field}}
-                        </p>
+                     
           
                         <a href="{% url 'speakersingle' meet.slug %}" style="background-color: #fd6500 !important;color: white;border:none !important"  class="ag-base_btn ">
                           Daha ətraflı
