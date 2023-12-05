@@ -3193,7 +3193,7 @@ padding-right:0.2rem
                         meetName.textContent = `${meet.meetingowner__first_name} ${meet.meetingowner__last_name}`;
 
                         const date = document.createElement('p');
-                        const dateString = "2023-12-04T13:39:21Z";
+
                         const dateObject = new Date(meet.date);
 
                         const tarih = dateObject.toISOString().split("T")[0];

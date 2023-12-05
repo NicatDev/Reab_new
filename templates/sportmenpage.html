@@ -1689,7 +1689,13 @@ console.log('hesab xetasi')
                       meetName.textContent = `${meet.meetingowner__first_name} ${meet.meetingowner__last_name}`;
 
                       const date = document.createElement('p');
-                      date.textContent = meet.date;
+                      const dateObject = new Date(meet.date);
+
+                      const tarih = dateObject.toISOString().split("T")[0];
+
+                      const saat = dateObject.toISOString().split("T")[1].split(".")[0];
+
+                      date.textContent = tarih + ' ' + saat;
 
                       meetTextDiv.appendChild(meetName);
                       meetTextDiv.appendChild(date);
