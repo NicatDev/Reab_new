@@ -1490,6 +1490,13 @@
   .zoomhoverclass{
       display: none;
   }
+  .hover_active {
+    background-image: linear-gradient(to right, var(--tw-gradient-stops));
+    --tw-gradient-from: #fd6500 !important;
+    --tw-gradient-to: rgb(250 82 82 / 0);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+    --tw-gradient-to: #fd6500 !important;
+}
   .zoomclass:hover .zoomhoverclass{
       height: 60px;
       width: 100px;
@@ -1649,7 +1656,7 @@ console.log('hesab xetasi')
                       img.alt = '';
 
                       const meetTextDiv = document.createElement('div');
-                      meetTextDiv.style.width='60px'
+                      meetTextDiv.style.width='60%'
                       meetTextDiv.classList.add('meettextdiv');
                       
 
