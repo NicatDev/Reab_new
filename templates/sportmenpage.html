@@ -74,7 +74,7 @@
                           </div>
                               <div class="myboard mob mymobboard" >
                                   <div class="myinlineboard">
-                                    sss
+                                 
                                       {% if request.user.is_authenticated %}
                                       <div class="myinlineboard myinlineboardinline">
                                           {% for meet in request.user.meetings.all %}
@@ -96,6 +96,7 @@
                                       </div>
                                       {% else %}
                                       <div class="myinlineboard">
+                                        sss   sss
                                           <div class="mymeetcard">
                                               <div onclick="SendToRegister()" class="mymeetbutton log">Daxil ol</div>
                                               <div onclick="SendToRegister()" class="mymeetbutton reg">Qeydiyyat</div>
