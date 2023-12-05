@@ -103,7 +103,7 @@ class Achi(models.Model):
         verbose_name = 'Nealiyyetler'
 
     def __str__(self):
-        return self.sportmen.user.username + ' ' + self.achi
+        return self.sportmen.user.username 
     
 class SportVideo(models.Model):
     sportmen = models.ForeignKey(Sportmen,on_delete=models.CASCADE,related_name='videos')
