@@ -2034,6 +2034,9 @@ background: linear-gradient(0deg, rgba(255,151,0,1) 0%, rgba(251,75,2,1) 100%);
     if (hrefValue) {
         window.open(hrefValue, '_blank');
     }
+    else{
+      swal('Görüş saatını gözləməyiniz xahiş olunur !')
+    }
 
     // Varsa, tarayıcıdaki normal davranışı engellemek için bu satırı ekleyin
     e.preventDefault();
