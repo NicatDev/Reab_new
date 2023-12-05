@@ -3714,7 +3714,11 @@ padding-right:0.2rem
             agPopupClose();
             
         }else{
-     
+            if ($(e.target).closest('.fill-btn').length>0){
+                console.log('mysdasdasd')
+            }else{
+                '22333aaa'
+            }
             if ($(e.target).closest('.popup-div').length > 0) {
           
           $(this).children('.js-ag-collection-popup_overlay').addClass('js-ag-collection-popup_overlay__show');
