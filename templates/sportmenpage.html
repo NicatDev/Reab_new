@@ -531,21 +531,21 @@
             <!-- Menu start -->
             <div class="text-right -mt-10 hidden lg:block">
               <ul id="sectionList" class="md:inline-flex gap-4 py-6 px-10 rounded-3xl bg-slate-50 dark:bg-black menu">
-                <li data-target="section1" class="hover_active ">
+                <li data-target="section1" class="hover_active sections">
                   <a href="#" style="width:14rem; text-decoration: none;" class="text-slate-900  hover:text-slate-50 text-1xl py-4 rounded-xl flex items-center flex-col justify-center hover:hover_active bg-light-gray dark:bg-mid-dark dark:text-slate-100  ">
                     <i class="fa-solid fa-house"></i>
                     Haqqında
                   </a>
                 </li>
 
-                <li  data-target="section2" >
+                <li  data-target="section2" class="sections" >
                   <a  href="#" style="width: 14rem;" class="text-slate-900  hover:text-slate-50 text-1xl py-4 rounded-xl flex items-center flex-col justify-center bg-light-gray dark:bg-mid-dark dark:text-slate-100 hover:hover_active">
                   <i class="fa-solid fa-video"></i>
                   Videolar
                   </a>
                 </li>
 
-                <li  data-target="section3">
+                <li  data-target="section3" class="sections" >
                   <a  href="#" style="width: 14rem;" class="text-slate-900  hover:text-slate-50 text-1xl py-4 rounded-xl flex items-center flex-col justify-center bg-light-gray dark:bg-mid-dark dark:text-slate-100 hover:hover_active">
                     <i class="fa-regular fa-address-book"></i>
                     Görüşlər
@@ -1490,7 +1490,7 @@
   .zoomhoverclass{
       display: none;
   }
-  .hover\:hover_active .forceactive {
+  .hover\:hover_active {
     background-image: linear-gradient(to right, var(--tw-gradient-stops));
     --tw-gradient-from: #fd6500 !important;
     --tw-gradient-to: rgb(250 82 82 / 0);
