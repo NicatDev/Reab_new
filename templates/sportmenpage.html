@@ -190,7 +190,7 @@
                               text-align: center;">{{request.user.meetings.all|length}}</p>{% endif %}
                               <i class="fa-regular fa-user" onclick="openclose()" id="desc" style="font-size:22px;"></i>
                               <div class="myboard mydescboard"  style="display: none;">
-                                  {% if user.is_authenticated %}
+                                  {% if request.user.is_authenticated %}
                                   <div class="myinlineboard myinlineboardinline">
                                       {% for meet in request.user.meetings.all %}
                                       <div class="mymeetcard mymeetcardmeet" style="padding-right: 40px;padding-left:40px"> 
