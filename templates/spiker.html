@@ -2335,8 +2335,10 @@ background: linear-gradient(0deg, rgba(255,151,0,1) 0%, rgba(251,75,2,1) 100%);
 
         if(agPopupBtnClose.is(e.target)) {
             agPopupClose();
+
         }else{
           if ($(e.target).closest('.tarix').length) {
+
           $(this).children('.js-ag-collection-popup_overlay').addClass('js-ag-collection-popup_overlay__show');}
         }
       });
@@ -2348,6 +2350,7 @@ background: linear-gradient(0deg, rgba(255,151,0,1) 0%, rgba(251,75,2,1) 100%);
 
       if (e.keyCode === 27 && agPopupBox.is(':visible')) {
         agPopupOverlay.removeClass('js-ag-collection-popup_overlay__show');
+
       }
 
     });
