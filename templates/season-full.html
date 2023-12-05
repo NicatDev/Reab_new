@@ -3711,7 +3711,9 @@ padding-right:0.2rem
             if ($(e.target).closest('.popup-div').length > 0) {
           
           $(this).children('.js-ag-collection-popup_overlay').addClass('js-ag-collection-popup_overlay__show');
-          $('.full-wrap').css('overflow', 'hidden');}else{
+          $('.full-wrap').css('overflow', 'hidden');
+          window.scrollTo(0, 2230);
+        }else{
             console.log(    $(this).children('.js-ag-collection-popup_overlay'))
         }
         }
@@ -3732,8 +3734,7 @@ padding-right:0.2rem
    function agPopupClose() {
       agPopupOverlay.removeClass('js-ag-collection-popup_overlay__show');
       $('.full-wrap').css('overflow', 'scroll');
-      var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+
       console.log(scrollTop,scrollLeft)
    }
 
