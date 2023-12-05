@@ -81,7 +81,7 @@ class Sportmen(BaseMixin):
     achievements = models.TextField(null=True,blank=True)
 
     def __str__(self):
-        return self.user.first_name + self.user.last_name + self.field
+        return self.user.username
     
     def save(self, *args, **kwargs):
         new_slug = slugify(self.user.first_name + ' ' + self.user.last_name)
