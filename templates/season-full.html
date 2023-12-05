@@ -3715,9 +3715,8 @@ padding-right:0.2rem
             
         }else{
             if ($(e.target).closest('.fill-btn').length>0){
-                console.log('mysdasdasd')
-            }else{
-                '22333aaa'
+                const closestFillBtn = $(e.target).closest('.fill-btn');
+                const hrefValue = closestFillBtn.attr('href');
             }
             if ($(e.target).closest('.popup-div').length > 0) {
           
