@@ -1611,6 +1611,68 @@
     });})
 </script>
 <script>
+  (function ($) {
+$(function () {
+
+var agPopupItem = $('.js-ag-collection_item'),
+agPopupOverlay = $('.js-ag-collection-popup_overlay'),
+agPopupBox = $('.js-ag-collection-popup_box'),
+agPopupBtnClose = $('.js-ag-collection-popup_btn__close');
+
+agPopupItem.on('click', function (e) {
+  e.preventDefault();
+
+
+  if(agPopupBtnClose.is(e.target)) {
+      
+      agPopupClose();
+      
+  }else{
+      if ($(e.target).closest('.fill-btn').length>0){
+          const closestFillBtn = $(e.target).closest('.fill-btn');
+          const hrefValue = closestFillBtn.attr('href');
+          if (hrefValue) {
+              window.open(hrefValue, '_blank');
+              }
+          else{
+              swal("Görüş saatını gözləməyiniz xahiş olunur")
+          }
+              e.preventDefault();
+      }
+      if ($(e.target).closest('.popup-div').length > 0) {
+    
+    $(this).children('.js-ag-collection-popup_overlay').addClass('js-ag-collection-popup_overlay__show');
+  //   $('.full-wrap').css('overflow', 'hidden');
+  //   window.scrollTo(0, 2230);
+  }else{
+      console.log(    $(this).children('.js-ag-collection-popup_overlay'))
+  }
+  }
+});
+
+$(document).bind('keyup', function (e) {
+if (e.keyCode !== 27) {
+  return true;
+}
+
+if (e.keyCode === 27 && agPopupBox.is(':visible')) {
+  agPopupOverlay.removeClass('js-ag-collection-popup_overlay__show');
+}
+
+});
+
+
+function agPopupClose() {
+agPopupOverlay.removeClass('js-ag-collection-popup_overlay__show');
+$('.full-wrap').css('overflow', 'scroll');
+
+console.log(scrollTop,scrollLeft)
+}
+
+});
+})(jQuery);
+</script>
+<script>
   var csrfToken = "{{ csrf_token }}";
 
   function AddorRemove(id) {
