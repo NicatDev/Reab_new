@@ -704,7 +704,7 @@
                                   </p>
                                   <p style="font-size:16px !important;text-align: start;">{{video.content|slice:150}}...</p> 
                                          <div style="display: flex;align-items: center;justify-content: center;gap:20px">
-                                      <a href="{{video.meeting_id}}" class="fill-btn"
+                                      <a class="meetingLink" href="{{video.meeting_id}}" class="fill-btn"
                                       style="font-size:15px;line-height:20px;border-radius: 3px;cursor: pointer !important;border-radius: 15px;background-color: #D65B0A;">Görüşə qatıl 
                                 
                                   </a>
@@ -1725,6 +1725,24 @@ console.log('hesab xetasi')
   }
 
   </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Find the meeting link element
+        var meetingLink = document.getElementById("meetingLink");
+
+        // Attach a click event listener
+        meetingLink.addEventListener("click", function(event) {
+            // Prevent the default behavior of the link (opening in the same tab)
+            event.preventDefault();
+
+            // Get the meeting ID from the href attribute
+            var meetingId = meetingLink.getAttribute("href");
+
+            // Open the meeting link in a new tab
+            window.open(meetingId, "_blank");
+        });
+    });
+</script>
 <script src="{% static 'templatestyles/js/plugin.js' %}"></script>
 <script src="{% static 'templatestyles/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 <script src="{% static 'templatestyles/js/scripts.js' %}"></script>
