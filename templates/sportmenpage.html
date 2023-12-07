@@ -737,7 +737,7 @@
                                   </p>
                                   <p style="font-size:15px !important">{{meet.content}}</p> 
                                   <div style="display: flex;align-items: center;justify-content: center;gap:20px">
-                                      <a href="#" class="fill-btn"
+                                      <a href="{{meet.meeting_id}}" class="fill-btn"
                                       style="font-size:15px;line-height:20px;border-radius: 3px;cursor: pointer !important;">Görüşə qatıl 
                                 
                                   </a>
@@ -1610,6 +1610,7 @@
         });
     });})
 </script>
+
 <script>
   var csrfToken = "{{ csrf_token }}";
 
