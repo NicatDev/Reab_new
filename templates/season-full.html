@@ -852,7 +852,6 @@
                                                 <img class="zoomclass" id="zoom{{meet.id}}" style="height: 40px;" src="{% static 'zoom.svg' %}" alt=""></div>
                                             </div>
                                             <div class="ag-collection-popup_title" style="text-align: start;margin-top:10px;margin-bottom:0px; font-style: italic !important;font-size:16px !important;    width: 302px;
-                                            font-size: 22px;
                                             line-height: 29px;">
                                                 {{meet.meetingowner.owner.field}} - {{meet.meetingowner.owner.titul}}
                                             </div>
@@ -867,7 +866,7 @@
                                                 <p class="ag-collection-popup_text" style="font-size:32px;font-weight: 800;margin:0px !important;color:black">
                                                     {{meet.date}}
                                                 </p>
-                                                <p style="font-size:16px !important;text-align: start;">{{meet.content|slice:150}}...<span class="popup-div" style="font-size:18px; color: rgb(255, 115, 0);cursor: pointer;">daha ətraflı</span></p> 
+                                                <p class="ag-collection-popup_content" style="font-size:16px !important;text-align: start;">{{meet.content|slice:150}}...<span class="popup-div" style="font-size:18px; color: rgb(255, 115, 0);cursor: pointer;">daha ətraflı</span></p> 
                                                        <div style="display: flex;align-items: center;justify-content: center;gap:20px">
                                                     <a href="{{meet.meeting_id}}" class="fill-btn"
                                                     style="font-size:15px;line-height:20px;border-radius: 3px;cursor: pointer !important;border-radius: 15px;background-color: #D65B0A;">Görüşə qatıl 
@@ -962,7 +961,6 @@
                                                 <img class="zoomclass" id="zoom{{meet.id}}" style="height: 40px;" src="{% static 'zoom.svg' %}" alt=""></div>
                                             </div>
                                             <div class="ag-collection-popup_title" style="text-align: start;margin-top:10px;margin-bottom:0px; font-style: italic !important;font-size:16px !important;    width: 302px;
-                                            font-size: 22px;
                                             line-height: 29px;">
                                                 {{meet.meetingowner.owner.field}} - {{meet.meetingowner.owner.titul}}
                                             </div>
@@ -1071,7 +1069,7 @@
                                                 <img class="zoomclass" id="zoom{{meet.id}}" style="height: 40px;" src="{% static 'zoom.svg' %}" alt=""></div>
                                             </div>
                                             <div class="ag-collection-popup_title" style="text-align: start;margin-top:10px;margin-bottom:0px; font-style: italic !important;font-size:16px !important;    width: 302px;
-                                            font-size: 22px;
+                                        
                                             line-height: 29px;">
                                                 {{meet.meetingowner.owner.field}} - {{meet.meetingowner.owner.titul}}
                                             </div>
@@ -3519,6 +3517,41 @@ padding-right:0.2rem
 
   width: 100%;
 }
+@media(max-width:425px){
+.ag-collection-popup_img{
+    width: 80% !important;
+}
+.js-ag-collection-popup_box{
+    width: 80% !important;
+}
+.schedule-wrapper{
+    margin-left: 60px !important;
+}
+.ag-collection-popup_col__right{
+    width: 100% !important;
+}
+}
+@media (max-width:768px){
+.ag-collection-popup_name{
+    font-size: 20px !important;
+}
+.ag-collection-popup_title{
+font-size: 12px !important;
+}  
+.ag-collection-popup_text{
+    font-size: 20px !important;
+}
+.ag-collection-popup_content{
+    font-size: 12px !important;
+}
+.popup-div{
+    font-size: 14px !important;
+}
+.ag-collection-popup_col__right{
+    padding: 10px !important;
+}
+
+}
 .ag-collection-popup_name {
   -webkit-box-flex: 0;
   -ms-flex: 0 auto;
@@ -3548,7 +3581,7 @@ padding-right:0.2rem
 
   text-transform: uppercase;
   text-align: center;
-  font-size: 14px;
+
   color: #000;
 }
 .ag-collection-popup_text {
