@@ -3222,6 +3222,15 @@ padding-right:0.2rem
                         meeting_length2.textContent =  response.data.length
         
                     });
+                    var mymeetcardDiv = document.createElement('div');
+                          mymeetcardDiv.className = 'mymeetcard';
+
+                          // Add the inner HTML to the new div
+                          mymeetcardDiv.innerHTML = `
+                              <div class="mymeetbutton profile">Hesab</div>
+                              <div onclick="SendToRegister()" class="mymeetbutton logout">Cıxış et</div>
+                          `;
+                      myin.appendChild(mymeetcardDiv)
                         })
                       
               

@@ -2177,8 +2177,15 @@ background: linear-gradient(0deg, rgba(255,151,0,1) 0%, rgba(251,75,2,1) 100%);
                         meeting_length2.textContent =  response.data.length
                     });
                         })
-                      
+                        var mymeetcardDiv = document.createElement('div');
+                          mymeetcardDiv.className = 'mymeetcard';
 
+                          // Add the inner HTML to the new div
+                          mymeetcardDiv.innerHTML = `
+                              <div class="mymeetbutton profile">Hesab</div>
+                              <div onclick="SendToRegister()" class="mymeetbutton logout">Cıxış et</div>
+                          `;
+                      myin.appendChild(mymeetcardDiv)
                     // Iterate through the data and create new elements
              
                 })
