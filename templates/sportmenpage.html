@@ -62,16 +62,16 @@
                           <div>
                           <div class="user-icon-mob" style="    cursor: pointer;">
                        <div>
-                              <p id="meeting_len" style="    position: absolute;
-                              right: 42px;
-                              bottom: 20px;
-                              color: white;
-                              background-color:#fd6500;
-                              /* padding: 5px; */
-                              border-radius: 50%;
-                              height: 30px;
-                              width: 30px;
-                              text-align: center;">{{request.user.meetings.all|length}}</p>
+                        {% if request.user.is_authenticated %}    <p id="meeting_len" style="    position: absolute;
+                        left: 17px;
+                        bottom: -5px;
+                        color: white;
+                        background-color:#fd6500;
+                        /* padding: 5px; */
+                        border-radius: 50%;
+                        height: 30px;
+                        width: 30px;
+                        text-align: center;">{{request.user.meetings.all|length}}</p>{% endif %}
                               <i class="fa-regular fa-user" onclick="openclosemob()" id="desc" style="font-size:22px;"></i>
                           </div>
                               <div class="myboard mob mymobboard" >
