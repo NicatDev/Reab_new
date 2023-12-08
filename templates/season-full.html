@@ -945,12 +945,12 @@
                                               </div>      </div>
                                               
 
-                                              <div class="ag-collection-popup_col__right" style="background-color: #e9e9e99c;gap:10px">
+                                              <div class="responsekillerdiv" class="ag-collection-popup_col__right" style="background-color: #e9e9e99c;gap:10px">
 
 
 
 
-                                                <div>
+                                                <div style="width: 100%;">
                                                 <div style="display: flex;align-items: center;gap:30px">
                                                   
                                                 <h2 class="ag-collection-popup_name" style="margin:0px !important">{{meet.meetingowner.first_name}} {{meet.meetingowner.last_name}} </h2>
@@ -961,7 +961,7 @@
                                                 </div>
                                                 <img class="zoomclass" id="zoom{{meet.id}}" style="height: 40px;" src="{% static 'zoom.svg' %}" alt=""></div>
                                             </div>
-                                            <div class="ag-collection-popup_title" style="text-align: start;margin-top:10px;margin-bottom:0px; font-style: italic !important;font-size:16px !important;    width: 302px;
+                                            <div class="ag-collection-popup_title" style="text-align: start;margin-top:10px;margin-bottom:0px; font-style: italic !important;font-size:16px !important;    
                                             font-size: 22px;
                                             line-height: 29px;">
                                                 {{meet.meetingowner.owner.field}} - {{meet.meetingowner.owner.titul}}
@@ -1023,6 +1023,7 @@
                                             </div>
                                                                                        </div>
                                        </div>
+
 
                                     {% endfor %}
                                     {% else %}
@@ -1054,12 +1055,12 @@
                                               </div>      </div>
                                               
 
-                                              <div class="ag-collection-popup_col__right" style="background-color: #e9e9e99c;gap:10px">
+                                              <div class="responsekillerdiv" class="ag-collection-popup_col__right" style="background-color: #e9e9e99c;gap:10px">
 
 
 
 
-                                                <div>
+                                                <div style="width: 100%;">
                                                 <div style="display: flex;align-items: center;gap:30px">
                                                   
                                                 <h2 class="ag-collection-popup_name" style="margin:0px !important">{{meet.meetingowner.first_name}} {{meet.meetingowner.last_name}} </h2>
@@ -1070,7 +1071,7 @@
                                                 </div>
                                                 <img class="zoomclass" id="zoom{{meet.id}}" style="height: 40px;" src="{% static 'zoom.svg' %}" alt=""></div>
                                             </div>
-                                            <div class="ag-collection-popup_title" style="text-align: start;margin-top:10px;margin-bottom:0px; font-style: italic !important;font-size:16px !important;    width: 302px;
+                                            <div class="ag-collection-popup_title" style="text-align: start;margin-top:10px;margin-bottom:0px; font-style: italic !important;font-size:16px !important;    
                                             font-size: 22px;
                                             line-height: 29px;">
                                                 {{meet.meetingowner.owner.field}} - {{meet.meetingowner.owner.titul}}
@@ -1132,6 +1133,7 @@
                                             </div>
                                                                                        </div>
                                        </div>
+
                                     {% endfor %}
                                     {% else %}
                                     <div class="row g-0 align-items-center shedule-row">
