@@ -3211,9 +3211,11 @@ padding-right:0.2rem
 
                         myin.appendChild(meetCard);
                         const meeting_length = document.getElementById('meeting_len') 
+                        
                         const meeting_length2 = document.getElementById('meeting_len2') 
                         meeting_length.textContent =  response.data.length
                         meeting_length2.textContent =  response.data.length
+                        console.log(meeting_length,meeting_length2,response.data.length,'----------------')
                     });
                         })
                       
