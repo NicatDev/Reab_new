@@ -3171,7 +3171,7 @@ padding-right:0.2rem
                     }
                     }).then(response => {  
                         console.log(response)
-                        if(response.data){
+                        if(response.data.length==0){
                         myinlineboardContainer.forEach(myin => {
                             myin.innerHTML = '';
                             response.data.forEach(meet => {
