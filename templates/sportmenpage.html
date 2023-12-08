@@ -71,7 +71,7 @@
                               border-radius: 50%;
                               height: 30px;
                               width: 30px;
-                              text-align: center;">{{request.user.meetings.all|length}}</p>
+                              text-align: center;">{%if request.user.meetings.all%}{{request.user.meetings.all|length}}{% else %}0 {%endif%}</p>
                               <i class="fa-regular fa-user" onclick="openclosemob()" id="desc" style="font-size:22px;"></i>
                           </div>
                               <div class="myboard mob mymobboard" >
