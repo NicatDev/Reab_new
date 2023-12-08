@@ -2081,122 +2081,108 @@ background: linear-gradient(0deg, rgba(255,151,0,1) 0%, rgba(251,75,2,1) 100%);
 
 {% endif %}
 <script>
-  var csrfToken = "{{ csrf_token }}";
+    var csrfToken = "{{ csrf_token }}";
 
-  function AddorRemove(id) {
+    function AddorRemove(id) {
 
-    console.log(userId,isAuthenticated)
-      event.preventDefault();
-      if (!isAuthenticated){
-          console.log('hesa')
-        swal('Öncə hesabınıza daxil olmanız xahiş olunur !');
-        return;
-console.log('hesab xetasi')
-      }
-      // Get the email input value
-      const myinlineboardContainer = document.querySelectorAll('.myinlineboardinline');
-      
-      // Check if the class name of the clicked button is "submit_btn"
-      const clickedButton = event.target;
-      if (clickedButton.classList.contains('fa-bookmark')) {
-          // Send the data to a URL (replace 'your_url' with the actual URL)
-          const url = '{% url "addorremove" %}';
-      
-
-          // You can use a method like fetch to send the data to the server
-          fetch(url, {
-              method: 'POST',
-              body: JSON.stringify({
-                  user:userId,
-                  id:id
-
-
-              }), // You can format the data as needed
-              headers: {
-                  'Content-Type': 'application/json',
-                  'X-CSRFToken': csrfToken
-              }
-          })
-              .then(response => {
-                  // Handle the response here (e.g., show a success message)
-                  if (response.ok) {
-                    if (response.status=='200'){
-                    document.getElementById('s'+id).classList.remove('fa-regular')
-                    document.getElementById('s'+id).classList.add('fa-solid')}
-                    console.log('t')
-                    if (response.status=='201'){
-                    document.getElementById('s'+id).classList.add('fa-regular')
-                    document.getElementById('s'+id).classList.remove('fa-solid')}
-             
-                    return response.json();
-                  } else {
-                      swal('Xəta baş verdi');
-                  }
-                  }).then(response => {  
-                      console.log(response.data,response.data.length,'+-==-=-=-=-=')
-                      const meeting_length = document.getElementById('meeting_len') 
-                      
-                      const meeting_length2 = document.getElementById('meeting_len2') 
-                      meeting_length.textContent =  '0'
-                      meeting_length2.textContent =  '0'
-                      myinlineboardContainer.forEach(myin => {
-                          myin.innerHTML = '';
-                          response.data.forEach(meet => {
-                      const meetCard = document.createElement('div');
-                      meetCard.classList.add('mymeetcard', 'mymeetcardmeet');
-                      meetCard.style.paddingRight = '40px';
-                      meetCard.style.paddingLeft = '40px';
-
-                      const img = document.createElement('img');
-                      img.src ='/media/'+meet.image;
-                      img.alt = '';
-
-                      const meetTextDiv = document.createElement('div');
-                      meetTextDiv.style.width='60%'
-                      meetTextDiv.classList.add('meettextdiv');
-                      
-
-                      const meetName = document.createElement('p');
-                      meetName.classList.add('mymeetname');
-                      console.log(meet,'22222222222222222')
-                      meetName.textContent = `${meet.meetingowner__first_name} ${meet.meetingowner__last_name}`;
-
-                      const date = document.createElement('p');
-
-                      const dateObject = new Date(meet.date);
-
-                      const tarih = dateObject.toISOString().split("T")[0];
+      console.log(userId,isAuthenticated)
+        event.preventDefault();
+        if (!isAuthenticated){
+            console.log('hesa')
+          swal('Öncə hesabınıza daxil olmanız xahiş olunur !');
+          return;
+  console.log('hesab xetasi')
+        }
+        // Get the email input value
+        const myinlineboardContainer = document.querySelectorAll('.myinlineboardinline');
         
-                      const saat = dateObject.toISOString().split("T")[1].split(".")[0];
-                
-                      date.textContent = tarih + ' ' + saat;
+        // Check if the class name of the clicked button is "submit_btn"
+        const clickedButton = event.target;
+        if (clickedButton.classList.contains('fa-bookmark')) {
+            // Send the data to a URL (replace 'your_url' with the actual URL)
+            const url = '{% url "addorremove" %}';
+        
 
-                      meetTextDiv.appendChild(meetName);
-                      meetTextDiv.appendChild(date);
+            // You can use a method like fetch to send the data to the server
+            fetch(url, {
+                method: 'POST',
+                body: JSON.stringify({
+                    user:userId,
+                    id:id
 
-                      meetCard.appendChild(img);
-                      meetCard.appendChild(meetTextDiv);
 
-                      myin.appendChild(meetCard);
-                      const meeting_length = document.getElementById('meeting_len') 
+                }), // You can format the data as needed
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrfToken
+                }
+            })
+                .then(response => {
+                    // Handle the response here (e.g., show a success message)
+                    if (response.ok) {
                       
-                      const meeting_length2 = document.getElementById('meeting_len2') 
-                      meeting_length.textContent =  response.data.length
-                      meeting_length2.textContent =  response.data.length
-                      console.log(meeting_length,meeting_length2,response.data.length,'----------------')
-                  });
-                      })
-                    
-            
-                  // Iterate through the data and create new elements
-           
-              })
+                      if (response.status=='200'){
+                      document.getElementById('s'+id).classList.remove('fa-regular')
+                      document.getElementById('s'+id).classList.add('fa-solid')}
+                      console.log('t')
+                      if (response.status=='201'){
+                      document.getElementById('s'+id).classList.add('fa-regular')
+                      document.getElementById('s'+id).classList.remove('fa-solid')}
                
-             
-      }
-  }
+                      return response.json();
+                    } else {
+                        swal('Xəta baş verdi');
+                    }
+                    }).then(response => {  
+                      const meeting_length = document.getElementById('meeting_len') 
+                        
+                        const meeting_length2 = document.getElementById('meeting_len2') 
+                        meeting_length.textContent =  '0'
+                        meeting_length2.textContent =  '0'
+                        console.log(response)
+                        myinlineboardContainer.forEach(myin => {
+                            myin.innerHTML = '';
+                            response.data.forEach(meet => {
+                        const meetCard = document.createElement('div');
+                        meetCard.classList.add('mymeetcard', 'mymeetcardmeet');
+                        meetCard.style.paddingRight = '40px';
+                        meetCard.style.paddingLeft = '40px';
 
-  </script>
+                        const img = document.createElement('img');
+                        img.src ='/media/'+meet.image;
+                        img.alt = '';
+
+                        const meetTextDiv = document.createElement('div');
+                        meetTextDiv.classList.add('meettextdiv');
+
+                        const meetName = document.createElement('p');
+                        meetName.classList.add('mymeetname');
+                        console.log(meet,'22222222222222222')
+                        meetName.textContent = `${meet.meetingowner__first_name} ${meet.meetingowner__last_name}`;
+
+                        const date = document.createElement('p');
+                        date.textContent = meet.date;
+
+                        meetTextDiv.appendChild(meetName);
+                        meetTextDiv.appendChild(date);
+
+                        meetCard.appendChild(img);
+                        meetCard.appendChild(meetTextDiv);
+
+                        myin.appendChild(meetCard);
+                    });
+                        })
+                      
+
+                    // Iterate through the data and create new elements
+             
+                })
+                 
+               
+        }
+    }
+
+    </script>
 
     <script>
       $(document).on('click', '.profilesend', function(e) {
