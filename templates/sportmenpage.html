@@ -51,9 +51,16 @@
     <!-- Navbar part start -->
 
          <!-- header wrapper -->
-         <header id="header-sticky" class="fm-header-area header-border transparent-header bg-common-black">
+         <div id="myModal" class="modal">
+          <span class="close">&times;</span>
+          <img class="modal-content" id="img01">
+          <div id="caption"></div>
+      </div>
+      
+      <!-- header wrapper -->
+      <header id="header-sticky" style="z-index:8" class="fm-header-area header-border transparent-header bg-common-black">
           <div class="container">
-              <div class="align-items-center justify-content-lg-between pr-5 pl-5">
+              <div class="row align-items-center justify-content-lg-between pr-5 pl-5">
                   <div class="header-wrapper">
                       <div class="fm-header-logo-wrapper">
                           <a href="{% url 'home' %}" class="fm-header-logo">
@@ -62,22 +69,21 @@
                           <div>
                           <div class="user-icon-mob" style="    cursor: pointer;">
                        <div>
-                        {% if request.user.is_authenticated %}    <p id="meeting_len" style="    position: absolute;
-                        right: 50px;
-                        bottom: 20px;
-                        color: white;
-                        background-color:#fd6500;
-                        /* padding: 5px; */
-                        border-radius: 50%;
-                        height: 30px;
-                        width: 30px;
-                        text-align: center;">{{request.user.meetings.all|length}}</p>{% endif %}
+                              <p id="meeting_len" style="    position: absolute;
+                              right: 42px;
+                              bottom: 20px;
+                              color: white;
+                              background-color:#fd6500;
+                              /* padding: 5px; */
+                              border-radius: 50%;
+                              height: 30px;
+                              width: 30px;
+                              text-align: center;">{{request.user.meetings.all|length}}</p>
                               <i class="fa-regular fa-user" onclick="openclosemob()" id="mob" style="font-size:22px;"></i>
                           </div>
-                              <div  class="myboard mob mymobboard" >
+                              <div class="myboard mob mymobboard" >
                                   <div class="myinlineboard">
-                                 
-                                      {% if request.user.is_authenticated %}
+                                      {% if user.is_authenticated %}
                                       <div class="myinlineboard myinlineboardinline">
                                           {% for meet in request.user.meetings.all %}
                                           <div class="mymeetcard mymeetcardmeet" style="padding-right: 40px;padding-left:40px"> 
@@ -86,16 +92,18 @@
                                               <p class="mymeetname">{{meet.meetingowner.first_name}} {{meet.meetingowner.last_name}}</p>
                                               <p>{{meet.date}}</p>
                                               </div>  
+                                           
                                           </div>
                                           {% endfor %}
+                               
+  
                                           <div class="mymeetcard">
-                                              <div class="mymeetbutton profile">Hesab</div>
+                                              <div  class="mymeetbutton profile">Hesab</div>
                                               <div onclick="SendToRegister()" class="mymeetbutton logout">Cıxış et</div>
                                           </div>
                                       </div>
                                       {% else %}
                                       <div class="myinlineboard">
-                                   
                                           <div class="mymeetcard">
                                               <div onclick="SendToRegister()" class="mymeetbutton log">Daxil ol</div>
                                               <div onclick="SendToRegister()" class="mymeetbutton reg">Qeydiyyat</div>
@@ -177,7 +185,7 @@
                       <!-- sd -->
                       <div style="display: flex;align-items: center;justify-content: end;position: relative;gap:36px"> 
                           <div class="user-icon-desk" style="    cursor: pointer;">
-                              {% if request.user.is_authenticated %}    <p id="meeting_len2" style="    position: absolute;
+                              {% if request.user.meetings.all %}    <p id="meeting_len2" style="    position: absolute;
                               left: 17px;
                               bottom: -5px;
                               color: white;
@@ -189,7 +197,7 @@
                               text-align: center;">{{request.user.meetings.all|length}}</p>{% endif %}
                               <i class="fa-regular fa-user" onclick="openclose()" id="desc" style="font-size:22px;"></i>
                               <div class="myboard mydescboard"  style="display: none;">
-                                  {% if request.user.is_authenticated %}
+                                  {% if user.is_authenticated %}
                                   <div class="myinlineboard myinlineboardinline">
                                       {% for meet in request.user.meetings.all %}
                                       <div class="mymeetcard mymeetcardmeet" style="padding-right: 40px;padding-left:40px"> 
@@ -261,15 +269,13 @@
 
                           }
                           function openclosemob() {
-                        console.log('basladi ')
+                        
                         var clickedElement = document.getElementById("mob");
-                        console.log(clickedElement,'clikedmob')
+                        
                         if (clickedElement && clickedElement.id === "mob") {
                             var myDescElement = document.querySelector(".mymobboard");
-                            console.log(myDescElement,'ifin ici')
                             if (myDescElement) {
                                 myDescElement.style.display = "block";
-                                console.log('ifin icinin ici')
                             }
                           }
                           
@@ -408,38 +414,42 @@
           </div>
       </header>
       <!-- header wrapper -->
-       <!-- sidebar area start -->
-       <div class="fm-header-sidebar-area fm-header-sidebar-left">
-        <div class="fm-header-sidebar-wrapper">
-            <div class="fm-header-sidebar-action mb-65">
-                <div class="fm-header-sidebar-logo">
-                    <a href=""><img style="width:80px" src="{% static 'logo.svg' %}"
-                            alt="logo not found"></a>
-                </div>
-                <div class="offcanvas-close">
-                    <a class="offcanvas-btn" href="#0">
-                        <i class="fa-thin fa-times"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="d-none d-sm-block">
-          
+
+      <!-- Heyderle ireli  -->
+      <!-- sidebar area start -->
+      <div class="fm-header-sidebar-area fm-header-sidebar-left">
+          <div class="fm-header-sidebar-wrapper">
+              <div class="fm-header-sidebar-action mb-65">
+                  <div class="fm-header-sidebar-logo">
+                      <a href="{% url 'home' %}"><img style="width:80px" src="{% static 'logo.svg' %}"
+                              alt="logo not found"></a>
+                  </div>
+                  <div class="offcanvas-close">
+                      <a class="offcanvas-btn" href="#0">
+                          <i class="fa-thin fa-times"></i>
+                      </a>
+                  </div>
+              </div>
+              <div class="d-none d-sm-block">
+            
 
 
-            </div>
-            <div class="mobile-menu"></div>
-            <div class="fm-header-right d-none d-xl-block mr-10" style="text-align: center;display: block !important;letter-spacing: 1px">
-                        <a href="http://75.119.147.165:199/" class="fill-btn"
-                            style="font-size:15px;line-height:20px;border-radius: 3px;">Heydər  <br> Əliyev
-                            <span>
-                                <i style="" class="fa-regular fa-arrow-right"></i>
-                            </span>
-                        </a>
-                    </div>
-         
-     
-        </div>
-    </div>
+              </div>
+              <div class="mobile-menu"></div>
+              <div class="fm-header-right d-none d-xl-block mr-10" style="text-align: center;display: block !important;letter-spacing: 1px">
+                          <a href="http://75.119.147.165:199/" class="fill-btn"
+                              style="font-size:15px;line-height:20px;border-radius: 3px;">Heydər  <br> Əliyev
+                              <span>
+                                  <i class="fa-regular fa-arrow-right"></i>
+                              </span>
+                          </a>
+                      </div>
+           
+       
+          </div>
+      </div>
+      
+      <div class="overlay"></div>
     
     <div class="overlay"></div>
     <!-- sidebar area end -->
