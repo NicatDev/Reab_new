@@ -1159,7 +1159,7 @@
         style="margin-top:3%;background:linear-gradient(to right, rgb(50, 50, 50), rgb(137, 137, 137), rgb(51, 51, 51));">
         {% for logo in partners %}
         <div style="display: flex;justify-content: center;align-items: center;padding-top:50px;padding-bottom:50px;" class="single-logo">
-            <img {% if logo.name == 'mitri' %} style="width: 60%;height:80px;padding-top:10px;" {% else %} style="width: 60%;height:100px;"  {% endif %} src="{{logo.image.url}}" alt="{{logo.name}}">
+            <img {% if logo.name == 'mitri' %} style="width: 60%;height:80px;padding-top:10px;" {% else %} style="width:50%;height:90px;"  {% endif %} src="{{logo.image.url}}" alt="{{logo.name}}">
         </div>
         {% endfor %}
     </div>
